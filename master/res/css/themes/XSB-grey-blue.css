@@ -1,0 +1,25 @@
+﻿.ex-navbar-for-Desktop
+{
+	height:69px;
+	width:100%;
+	margin:0 0;
+	padding:0 0;
+	position:fixed;
+	top:0;
+	box-shadow:0 5px 5px 0 rgba(0, 0, 0, 0.14), 0 5px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+	background:#607D8B;
+	border-left:1px solid #607D8B;
+	border-right:1px solid #607D8B;
+	z-index:10;
+}
+
+.ex-dnavbar-appbox:hover
+{
+	background-color:#90A4AE;
+}
+
+.ex-dnavbar-appbox-selected
+{
+	background-color:#90A4AE;
+}
+.mui-badge{position:fixed;left:625px;margin-left:100px;z-index:10000}.mui-badge{display:inline-block;padding:3px 6px;font-size:12px;line-height:1;border-radius:100px}.mui-badge-red{color:#fff;font-family:"Microsoft Yahei";background-color:#dd524d}

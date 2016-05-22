@@ -1,0 +1,41 @@
+.del/*这个功能只开放给发布者*/
+{
+	position:absolute;
+	margin-right:15px;
+	margin-top:3px;
+	right:0px;
+	text-align:right;
+	color:#f00000;
+}
+.filesitem
+{
+	font-family:"Microsoft Yahei";
+	height:48px;
+	width:100%
+}
+.size
+{
+	position:absolute;
+	margin-right:65px;
+	margin-top:3px;
+	right:0px;
+	color:#a0a0a0;
+}
+
+.name
+{
+	position:relative;
+	margin-right:15px;
+	margin-top:3px;
+	max-width:55%
+}
+
+.poster
+{
+	position:absolute;
+	margin-right:135px;
+	margin-top:3px;
+	right:0px;
+	color:#4CAF50;
+	max-width:28%
+}

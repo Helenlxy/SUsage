@@ -1,0 +1,88 @@
+@import url(http://fonts.useso.com/css?family=Montserrat);
+
+/*basic reset*/
+* {margin: 0; padding: 0;}
+
+html {
+	height: 100%;
+	/*Image only BG fallback*/
+	background-color:#6cf;
+	outline:none;
+	/*background = gradient + image pattern combo*/
+
+}
+
+body {
+	font-family: "Microsoft YaHei",montserrat, arial, verdana;
+}
+/*form styles*/
+#msform {
+	width: 400px;
+	margin: 50px auto;
+	text-align: center;
+	position: relative;
+}
+#msform fieldset {
+	background: white;
+	border: 0 none;
+	border-radius: 3px;
+	box-shadow: 3px 3px 1px 0 rgba(0, 0, 0, 0.2);
+	padding: 20px 30px;
+	box-sizing: border-box;
+	width: 80%;
+	margin: 0 10%;
+	
+	/*stacking fieldsets above each other*/
+	position: absolute;
+}
+/*Hide all except first fieldset*/
+#msform fieldset:not(:first-of-type) {
+	display: none;
+}
+#msform input:not(:focus) , #msform textarea:not(:focus)  {
+	border-bottom-color: rgba(0, 0, 0, 0.12) !important;
+}
+#msform input, #msform textarea {
+	outline:none;
+	margin-bottom: 10px;
+	width: 100%;
+	font-family: "Microsoft YaHei";
+	font-size: 13px;
+	padding: 1.5em 0 0.5em 0;
+	height: 2em;
+	box-sizing: content-box;
+	border: none;
+	border-bottom: 2px solid #2196f3;
+	transition: 0.3s;
+}
+/*buttons*/
+#msform .action-button {
+	width: 100px;
+	background: #27AE60;
+	color: white;
+	border: 0 none;
+	font-family: "Microsoft YaHei",montserrat;
+	border-radius: 1px;
+	cursor: pointer;
+	padding: 10px 0 10px 0;
+	margin: 15px 5px;
+	border-radius: 3px;
+}
+#msform .action-button:hover, #msform .action-button:focus {
+	background: #00C853;
+	box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.4);
+}
+/*headings*/
+.fs-title {
+	font-size: 15px;
+	font-family:"Microsoft Yahei";
+	text-transform: uppercase;
+	color: #66ccff;
+	margin-bottom: 10px;
+}
+.fs-subtitle {
+	font-weight: normal;
+	font-size: 13px;
+	color: #666;
+	margin-bottom: 20px;
+}
