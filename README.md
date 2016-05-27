@@ -26,13 +26,13 @@
 <b>Every one can modified it except for the already existing codes </b>
 <p>  </p>
 <br></br>
-<h4>在登陆后界面按某个组合键有彩蛋哦~提示一下，是三个键<s>我才不会告诉你是alt+shift+g呢</s></h4>
+<h4>本Repo迁移自原zhxsuwebgroup/SUsage<br>在登陆后界面按某个组合键有彩蛋哦~<s>我才不会告诉你是alt+shift+g呢</s></h4>
 <br></br>
 <h3>这是个啥w</h3>
   <p>嗯，执信学生会的网上办公平台。</p>
   <p>一个神秘的系统，完全由36.5th SUPC自主研制开发。</p><a href="https://github.com/zhxsuwebgroup/SU_OA/wiki/Susage-%7C-%E6%A6%82%E8%BF%B0" target="_blank">详情请戳这里</a>
   
-<a href="http://zhxsuwebgroup.github.io/SUsage/" target="_blank">美美哒介绍页面</a>
+<a href="http://zhxsu.github.io/SUsage/" target="_blank">美美哒介绍页面</a>
 
 <h3>为啥叫这个名字w</h3>
   <p>StudentUnion简写“SU”和Message的组合自造词。<s>让人酥酥的公告系统</s></p>
@@ -41,6 +41,11 @@
   <s>有了SUsage，不流失不蒸发</s>
   <p>可以发布公告、通知、站内信，布置任务省时省力。</p>
   <p>界面美观又漂亮,【咦有语病</p><p><s>这真的是Material Design吗w</s></p>
+  <b>!!!!!!!!任务没接好可是会被打脸的哟!!!!!!!!</b>
+<h3>配置</h3>
+  <p>本地可以使用XAMPP1.8.2+调试，服务器端建议最低配置PHP5.6.21+, Apache 2.4.17+, phpMyAdmin 4.5.1+</p>
+  <p>环境配置完成后，请在phpmyadmin中建立新表susage_oa，将本包根目录下的sql文件导入该表，并在functions/to_sql.php中的["root",""]字段中填写您的php登录账户和密码</p>
+  <p>测试账户：Enatsu 密码：123456 【请忽略登陆界面的一串测试用MD5】</p>
   <b>!!!!!!!!任务没接好可是会被打脸的哟!!!!!!!!</b>
 <h3>近期的事情<s>好久没更新了</s></h3>
 
