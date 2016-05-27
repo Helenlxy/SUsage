@@ -15,7 +15,7 @@ $total=sizeof($Tasks[0]);
   <title>SUsage 管理中心 :: 首页</title>
   
   <!-- Bootstrap -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/bootstrap.css" rel="stylesheet">
   <link href="https://cdn.bootcss.com/bootstrap/3.3.6/fonts/glyphicons-halflings-regular.svg" rel="stylesheet">
   
   <style>

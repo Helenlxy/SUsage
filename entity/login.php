@@ -18,7 +18,10 @@ if($_POST['login']){
   else{ 
     // TODO 弹出提示语
   }
-  
+
+$a="123456";
+$aa=md5(md5($a));
+echo $aa;
 }
 
 

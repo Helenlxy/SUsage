@@ -1,12 +1,13 @@
 ﻿<?php 
 session_start(); 
 $flag=true;//Verify to_sql.php
-require_once("../../functions/to_sql.php");
+require_once("../functions/to_sql.php");
 //姓氏拼音首字母串定义
 $surname="ABCDFGHJKLMNOPQRSTWXYZ";
 //循环过程中抽取字母串的位置
 $c=-1;
 $uid=$_SESSION['userid']; //目前登录用户ID
+
 ?>
 
 
@@ -21,13 +22,14 @@ $uid=$_SESSION['userid']; //目前登录用户ID
 <link rel="stylesheet" href="/SUsage/res/css/themes/GGB-blue.css" />
 <link rel="stylesheet" href="/SUsage/res/css/md/material.css" />
 <link rel="stylesheet" href="/SUsage/res/css/modules/ex-mail.css" />
+<link rel="stylesheet" href="../res/css/modules/ex-united.css" />
 <title>朝发白帝，暮到江陵 / VegeChat </title>
-<link rel="shortcut icon" href="/SUsage/res/icons/title/mail_128X128.ico"/>
+<link rel="shortcut icon" href="/SUsage/res/icons/title/chat_128X128.ico"/>
 </head>
 
 <body style="position:absolute;width:100%;">
 <?php 
-require_once("../../functions/Personal.php"); 
+require_once("../functions/Personal.php"); 
 ?>
 
 
@@ -66,9 +68,10 @@ require_once("../../functions/Personal.php");
 <!--退出提示-->
 <div class="toast" id="toast-exit" style="background-color:#FFA000;position:fixed;width:100%;height:75px;z-index:100;display:none;">
 	<label class="toast-label" style="font-family:微软雅黑;color:#ffffff;position:absolute;left:10%;line-height:55px;">你你你你你你你~真的要退出吗w</label>
-	<button class="button flat" style="font-family:微软雅黑;color:#ffffff;position:absolute;right:10%;line-height:60px;font-size:16px" onclick="window.location.href='logout.php'">是的</button>
-    <button id="cancelexit" class="button flat" style="font-family:微软雅黑;color:#ffffff;position:absolute;right:20%;line-height:60px;font-size:16px;font-weight:bold">不是</button>
+	<button class="btn flat" style="font-family:微软雅黑;color:#ffffff;position:absolute;right:10%;line-height:60px;font-size:16px" onclick="window.location.href='logout.php'">是的</button>
+    <button id="cancelexit" class="btn flat" style="font-family:微软雅黑;color:#ffffff;position:absolute;right:20%;line-height:60px;font-size:16px;font-weight:bold">不是</button>
 </div>
+
 
 <!--
 <?php 

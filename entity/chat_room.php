@@ -1,7 +1,7 @@
 <?php 
 session_start(); 
 $flag=true;//Verify to_sql.php
-require_once("../../functions/to_sql.php");
+require_once("../functions/to_sql.php");
 
 //姓氏拼音首字母串定义
 $surname="ABCDFGHJKLMNOPQRSTWXYZ";
@@ -37,13 +37,14 @@ $tname=$r['tname'];
 <link rel="stylesheet" href="/SUsage/res/css/themes/GGB-blue.css" />
 <link rel="stylesheet" href="/SUsage/res/css/md/material.css" />
 <link rel="stylesheet" href="/SUsage/res/css/modules/ex-mail.css" />
+<link rel="stylesheet" href="../res/css/modules/ex-united.css" />
 <title>朝发白帝，暮到江陵 / VegeChat </title>
-<link rel="shortcut icon" href="/SUsage/res/icons/title/mail_128X128.ico"/>
+<link rel="shortcut icon" href="/SUsage/res/icons/title/chat_128X128.ico"/>
 </head>
 
 <body style="position:absolute;width:100%;">
 <?php 
-require_once("../../functions/Personal.php"); 
+require_once("../functions/Personal.php"); 
 ?>
 
 
@@ -125,7 +126,7 @@ for($t=0; $t<22; $t++){
 
 <ul class="list">
 	<li ripple>
-	<a href="/SUsage/entity/Chat/chat_room.php?my=<?php echo $uid;?>&you=<?php echo $id;?>">
+	<a href="/SUsage/entity/chat_room.php?my=<?php echo $uid;?>&you=<?php echo $id;?>">
 		<img class="item-icon" src="<?php echo $rs['headimg']; ?>">
 		  <span class="item-text" style="font-family:微软雅黑;">
 		    <?php echo $rs['stuid']."(".$rs['tname'].")"; ?> 
