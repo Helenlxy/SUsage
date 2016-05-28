@@ -144,24 +144,14 @@ $chatcontent="SELECT * FROM chat_content where SenderID='{ #!@*1?!8:/; }' AND Re
 ?>
 
 <div class="card" z="2" id="ex-mail-entity-container-inbox-viewer">
-<p style="text-align:center;font-family:微软雅黑;font-size:14px;line-height:8px">与 <span style="font-weight:bold">江泽民</span> 对话中</p>
+<p style="text-align:center;font-family:微软雅黑;font-size:14px;line-height:8px;font-weight:bold">找个人聊天吧w</p>
 <div class="info-container">
 <!-- Edit Here 在这里用PHP循环获取消息-->
-	<div class="your">中南海自助餐，记得来玩！</div>
-	<div class="my">吼啊，滋词一个！</div>
-	<div class="my">你搞的聚会不知搞到哪去了</div>
-	<div class="your">蛤丝是站着吃腊肉的。</div>
-	<div class="my">excited！</div>
-	<div class="your">蛤蛤蛤蛤蛤蛤</div>
-	<div class="my">excited！</div>
-	<div class="your">蛤蛤蛤蛤蛤蛤</div>
-	<div class="my">excited！</div>
-	<div class="your">蛤蛤蛤蛤蛤蛤</div>
-	<div class="my">excited！</div>
-	<div class="your">蛤蛤蛤蛤蛤蛤</div>
+	<div class="your">呆着干嘛呢！还不去发消息<s>骚扰</s>别人w</div>
+	<div class="my">知道了知道了知道了啦！【委屈脸</div>
+	<div class="your">◀ 点击左侧用户头像<b>搞个大新闻！</b></div>
 </div>
 
-<input required="required" class="text-input" style="position:fixed;width:67%;height:10px;bottom:0px;resize: none" placeholder="写点什么…按Enter发送 >" id="SendContent" onkeyup="send();"></input>
 </div>
 
 <!-- 收件箱结束-->

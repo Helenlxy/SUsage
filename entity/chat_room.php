@@ -83,8 +83,8 @@ require_once("../functions/Personal.php");
 <!--退出提示-->
 <div class="toast" id="toast-exit" style="background-color:#FFA000;position:fixed;width:100%;height:75px;z-index:100;display:none;">
 	<label class="toast-label" style="font-family:微软雅黑;color:#ffffff;position:absolute;left:10%;line-height:55px;">你你你你你你你~真的要退出吗w</label>
-	<button class="button flat" style="font-family:微软雅黑;color:#ffffff;position:absolute;right:10%;line-height:60px;font-size:16px" onclick="window.location.href='logout.php'">是的</button>
-    <button id="cancelexit" class="button flat" style="font-family:微软雅黑;color:#ffffff;position:absolute;right:20%;line-height:60px;font-size:16px;font-weight:bold">不是</button>
+	<button class="btn flat" style="font-family:微软雅黑;color:#ffffff;position:absolute;right:10%;line-height:60px;font-size:16px" onclick="window.location.href='logout.php'">是的</button>
+    <button id="cancelexit" class="btn flat" style="font-family:微软雅黑;color:#ffffff;position:absolute;right:20%;line-height:60px;font-size:16px;font-weight:bold">不是</button>
 </div>
 
 <!-- 站内信主体 -->
@@ -149,7 +149,7 @@ $chatcontent=mysqli_query($conn,$ccsql);
 
 <div class="card" z="2" id="ex-mail-entity-container-inbox-viewer">
 <p style="text-align:center;font-family:微软雅黑;font-size:14px;line-height:8px">与 
-<span style="font-weight:bold"><?php echo $tname; ?></span> 对话中</p>
+<span style="font-weight:bold;color:#4fb4f7"><?php echo $tname; ?></span> 对话中</p>
 <div class="info-container">
 <!-- 对话界面 -->
 <?php while($query=mysqli_fetch_array($chatcontent)){ ?>
