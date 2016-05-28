@@ -43,9 +43,9 @@
   <p>界面美观又漂亮,【咦有语病</p><p><s>这真的是Material Design吗w</s></p>
   <b>!!!!!!!!任务没接好可是会被打脸的哟!!!!!!!!</b>
 <h3>配置</h3>
-  <p>本地可以使用XAMPP1.8.2+调试，服务器端建议最低配置PHP5.6.21+, Apache 2.4.17+, phpMyAdmin 4.5.1+</p>
-  <p>环境配置完成后，请在phpmyadmin中建立新表susage_oa，将本包根目录下的sql文件导入该表，并在functions/to_sql.php中的["root",""]字段中填写您的数据库登录账户和密码</p>
-  <p>测试账户1：Enatsu 密码：123456 <br><s>测试账户2：admin 密码：027368</s></p>
+  <p>本地可以使用<b>XAMPP1.8.2+</b>调试，服务器端建议最低配置PHP5.6.21+, Apache 2.4.17+, phpMyAdmin 4.5.1+</p>
+  <p>环境配置完成后，请在phpmyadmin中建立新数据库susage_oa，将本包根目录下的sql文件导入该数据库，并在functions/to_sql.php中["root",""]的空白处填写您的数据库登录账户和密码</p>
+  <p>测试账户1：Enatsu 密码：123456 <br>（测试账户2正在创建）</p>
   <b>!!!!!!!!任务没接好可是会被打脸的哟!!!!!!!!</b>
 <h3>近期的事情<s>好久没更新了</s></h3>
 
@@ -101,5 +101,6 @@
 * <a href="https://github.com/nt1m/material-framework/" target="_blank">nt1m</a>的`material-framework`，遵循`Apache`协议版本`2.0`
 * <a href="http://wangeditor.github.io/">wangfupeng1988</a>的`WangEditor`，新版本采用了SU精简化版本，体积更小，效率更高
 * Github提供的免费代码仓库
+* <a href="https://github.com/zTree/zTree_v3">基于jQuery的zTree树形菜单插件</a>
 
 **`GNU General Public Licence `版本`3.0`**
