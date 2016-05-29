@@ -50,7 +50,7 @@
   <p>并在<b>functions/to_sql.php、Admin/Includes/to_pdo.php</b>中按照提示填写您的数据库登录账户和密码</p>
   <p>测试账户1：Enatsu 密码：123456（角色：超管+组长）</p> 
   <p>测试账户2：Super 密码：supersu（角色：超级管理员）</p>
-  <p><b>若忘记密码可打开xxx.com/SUsage/md5.php按照提示输入密码</b></p>
+  <p><b>若忘记密码可打开/SUsage/md5.php按照提示输入密码</b></p>
   <p><b>点击确认后将Salt和inDB复制，粘帖进数据库中“salt”和“pw”即可。</b></p>
 <h3>近期的事情<s>好久没更新了</s></h3>
 
