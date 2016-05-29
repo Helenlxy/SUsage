@@ -32,7 +32,7 @@ $total=sizeof($list[0]);
   <th>部门</th>
   <th>组别</th>
   <th>职位</th>
-  <th>角色设置为</th>
+  <th>将角色设置为</th>
 </tr>
 <?php
   //In SUsage2 will use Ajax
