@@ -2,7 +2,7 @@
 
 <b>执信中学学生会信息化在线办公系统 开源项目 #代号"SUsage" </b>
 
-<b>目前总体开发进度：约60%，前端系统基本完成，后端系统开发启动约50%。</b>
+<b>目前总体开发进度：约63%，前端系统基本完成，后端系统开发启动约52%。</b>
 
 <b>项目总阶段：0.52-milestone7 #Project 1B（开发代号Young），全站php化中</b>
 
@@ -13,7 +13,7 @@
 <p>UserSYS V1.0-beta1</p>
 <p>AdminSYS V1.0-beta1</p>
 <p>FileSYS V0.4-milestone6【未来project】</p>
-<p>Perse.SYS V0.2.1-milestone1【未来project】</p>
+<s>Perse.SYS V0.2.1-milestone1【未来project】</s>
 <p><b>Latest update：2016.5.29 9:00</b></p>
 <b>©2016 @Zhxsupc</b>
 <p>  </p>
@@ -27,7 +27,7 @@
 <b>Every one can modified it except for the already existing codes </b>
 <p>  </p>
 <br></br>
-<h4>本Repo迁移自原zhxsuwebgroup/SUsage<br>在登陆后界面按某个组合键有彩蛋哦~<s>我才不会告诉你是alt+shift+g呢</s></h4>
+<h4>本Repo迁移自原zhxsuwebgroup/SUsage<br>在登陆后界面按某个组合键有彩蛋哦~<s>才不会告诉你是alt+shift+g呢</s></h4>
 <br></br>
 <h3>这是个啥w</h3>
   <p>嗯，执信学生会的网上办公平台。</p>
@@ -46,13 +46,12 @@
 <h3>配置</h3>
   <p>本地可以使用<b>XAMPP1.8.2+</b>调试，服务器端建议最低配置PHP5.6.21+, Apache 2.4.17+, phpMyAdmin 4.5.1+</p>
   <p>请将此文件包<b>放在SUsage文件夹内</b>，然后<b>将SUsage文件夹放在网站根目录</b></p>
-  <p>环境配置完成后，请在phpmyadmin中直接导入susage_oa.sql文件，无需手动新建数据库。</p>
+  <p>环境配置完成后，请在phpmyadmin中直接导入susage_oa.sql文件，无需手动新建数据库。（当然一定几率出现失败后还是需要新建susage_oa并导入数据库）</p>
   <p>并在<b>functions/to_sql.php、Admin/Includes/to_pdo.php</b>中按照提示填写您的数据库登录账户和密码</p>
-  <p>测试账户1：Enatsu 密码：123456（角色：组长）</p> 
+  <p>测试账户1：Enatsu 密码：123456（角色：超管+组长）</p> 
   <p>测试账户2：Super 密码：supersu（角色：超级管理员）</p>
   <p><b>若忘记密码可打开xxx.com/SUsage/md5.php按照提示输入密码</b></p>
-  <p><b>点击确认后将Salt和inDB复制，粘帖进数据库即可。</b></p>
-  <b>!!!!!!!!任务没接好可是会被打脸的哟!!!!!!!!</b>
+  <p><b>点击确认后将Salt和inDB复制，粘帖进数据库中“salt”和“pw”即可。</b></p>
 <h3>近期的事情<s>好久没更新了</s></h3>
 
 <p><b>----2016.5.29----</b></p>
