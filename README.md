@@ -46,7 +46,7 @@
 <h3>配置</h3>
   <p>本地可以使用<b>XAMPP1.8.2+</b>调试，服务器端建议最低配置PHP5.6.21+, Apache 2.4.17+, phpMyAdmin 4.5.1+</p>
   <p>请将此文件包<b>放在SUsage文件夹内</b>，然后<b>将SUsage文件夹放在网站根目录</b></p>
-  <p>环境配置完成后，请在phpmyadmin中建立新数据库susage_oa，将本包根目录下的sql文件导入该数据库。</p>
+  <p>环境配置完成后，请在phpmyadmin中直接导入susage_oa.sql文件，无需手动新建数据库。</p>
   <p>并在<b>functions/to_sql.php、Admin/Includes/to_pdo.php</b>中按照提示填写您的数据库登录账户和密码</p>
   <p>测试账户1：Enatsu 密码：123456（角色：组长）</p> 
   <p>测试账户2：Super 密码：supersu（角色：超级管理员）</p>
