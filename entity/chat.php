@@ -1,4 +1,4 @@
-﻿<?php 
+<?php 
 session_start(); 
 $flag=true;//Verify to_sql.php
 require_once("../functions/to_sql.php");
