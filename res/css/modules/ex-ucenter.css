@@ -17,12 +17,13 @@ body {
 }
 /*form styles*/
 #msform {
-	width: 400px;
+	width: 54%;
 	margin: 50px auto;
 	text-align: center;
 	position: relative;
+	padding-bottom: 60px
 }
-#msform fieldset {
+#msform div {
 	background: white;
 	border: 0 none;
 	border-radius: 3px;
@@ -34,10 +35,7 @@ body {
 	
 	/*stacking fieldsets above each other*/
 	position: absolute;
-}
-/*Hide all except first fieldset*/
-#msform fieldset:not(:first-of-type) {
-	display: none;
+
 }
 #msform input:not(:focus) , #msform textarea:not(:focus)  {
 	border-bottom-color: rgba(0, 0, 0, 0.12) !important;
@@ -57,20 +55,34 @@ body {
 }
 /*buttons*/
 #msform .action-button {
-	width: 100px;
+	width: 60%;
 	background: #27AE60;
 	color: white;
 	border: 0 none;
 	font-family: "Microsoft YaHei",montserrat;
 	border-radius: 1px;
 	cursor: pointer;
-	padding: 10px 0 10px 0;
-	margin: 15px 5px;
+	padding: 5px 0 5px 0;
+	margin: 13px 3px;
+	border-radius: 3px;
+}
+#msform .action-button-disabled {
+	width: 60%;
+	background: #a8a8a8!important;
+	box-shadow: none!important;
+	pointer-events: none;
+	color: white;
+	border: 0 none;
+	font-family: "Microsoft YaHei",montserrat;
+	border-radius: 1px;
+	cursor: pointer;
+	padding: 5px 0 5px 0;
+	margin: 13px 3px;
 	border-radius: 3px;
 }
 #msform .action-button:hover, #msform .action-button:focus {
 	background: #00C853;
-	box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.4);
+	box-shadow: 0 8px 10px 1px rgba(0,0,0,0.14),0 3px 14px 2px rgba(0,0,0,0.12),0 5px 5px -3px rgba(0,0,0,0.4)
 }
 /*headings*/
 .fs-title {
@@ -85,4 +97,16 @@ body {
 	font-size: 13px;
 	color: #666;
 	margin-bottom: 20px;
+}
+#avatarset
+{
+	top:0px;
+}
+#pwset
+{
+	top:200px;
+}
+#infoset
+{
+	top:530px;
 }
