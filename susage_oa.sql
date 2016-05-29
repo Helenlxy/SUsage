@@ -19,7 +19,7 @@ SET time_zone = "+08:00";
 --
 -- Database: `susage_oa`
 --
-CREATE DATABASE IF NOT EXISTS `susage_oa` DEFAULT CHARACTER SET latin1 COLLATE utf8_unicode_ci;
+CREATE DATABASE IF NOT EXISTS `susage_oa` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 USE `susage_oa`;
 
 -- --------------------------------------------------------
