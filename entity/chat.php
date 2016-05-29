@@ -93,14 +93,14 @@ for($t=0; $t<22; $t++){
 	$c=$c+1; 
 	//根据位置抽取对应字母
 	$nowsurname=substr($surname,$c,1);
-  $sql="select * from user_list order by uid asc";
+  $sql="select * from sys_user order by id asc";
   $result=mysqli_query($conn,$sql);
   $total=mysqli_num_rows($result);
   $page=isset($_GET['page'])?intval($_GET['page']):1;//当前页码  
   $info_num=100; //一页显示数据数量
   $totalpage=ceil($total/$info_num); //总共页数
   $offset=($page-1)*$info_num; 
-  $info=mysqli_query($conn,"select * from user_list WHERE sname='{$nowsurname}' order by uid desc limit $offset,$info_num");
+  $info=mysqli_query($conn,"select * from sys_user WHERE sname='{$nowsurname}' order by id desc limit $offset,$info_num");
 ?>
 
 <!-- 字母列表 -->
@@ -111,7 +111,7 @@ for($t=0; $t<22; $t++){
 	
 <!-- 用户列表 -->
 <?php while($rs=mysqli_fetch_array($info)){ 
-	$id=$rs["uid"]; //目前这行的用户ID
+	$id=$rs["id"]; //目前这行的用户ID
 	$sql="SELECT * FROM chat_content WHERE SenderID='{$id}' AND RecipientID='{$uid}'";
 	$query=mysqli_fetch_array(mysqli_query($conn,$sql));
 ?>
@@ -130,18 +130,9 @@ for($t=0; $t<22; $t++){
 		</a>
 	</li>
 </ul>
-<?php } ?>
-<?php } ?>
+<?php } } ?>
 </div>
 
-
-
-
-<!-- 收件箱viewer-->
-<?php
-// Edit Here 错码位置 通过GET获取
-$chatcontent="SELECT * FROM chat_content where SenderID='{ #!@*1?!8:/; }' AND RecipientID='{$_SESSION["userid"]}' ORDER BY id DESC";
-?>
 
 <div class="card" z="2" id="ex-mail-entity-container-inbox-viewer">
 <p style="text-align:center;font-family:微软雅黑;font-size:14px;line-height:8px;font-weight:bold">找个人聊天吧w</p>
@@ -169,22 +160,8 @@ function easteregg(){
  }
 }
 
-function send(){
- if(event.keyCode == 13){
-  //TODO 使用Ajax发送消息(未完善)
-  var Content=$("#SendContent").val();
-  var SenderID=<?php echo $_SESSION['userid']; ?>;
-  $.ajax({
-  type:"post",
-  url:"/SUsage/functions/Chat_Send.php",
-  data:{},
-  success:function(got){},
-  error:function(e){},
-  });
-    
- }
-}
-document.onkeydown = function(){easteregg();send();};
+
+document.onkeydown = function(){easteregg();};
 </script>
 </body>
 </html>

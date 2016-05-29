@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once("../Includes/CheckLog.php");
 $flag=true;
 require_once("../Includes/to_pdo.php");
@@ -46,7 +45,7 @@ $total=sizeof($list[0]);
     echo "<td>".$list[0][$i]['depgroup']."</td>";
     echo "<td>".$list[0][$i]['job']."</td>";
     echo "<td>".$list[0][$i]['status']."</td>";
-    echo "<td><a href='/SUsage/Admin/User/toEdit.php?uid=$uid&name=$name' class='btn btn-default btn-xs'><span class='glyphicon glyphicon-edit'></span> 修改</a></td>";
+    echo "<td><a href='/SUsage/Admin/User/toEdit.php?uid=$uid&name=$name&sutk=$SUtoken' class='btn btn-default btn-xs'><span class='glyphicon glyphicon-edit'></span> 修改</a></td>";
     echo "</tr>";
   }
 ?>

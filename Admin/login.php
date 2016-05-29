@@ -1,3 +1,38 @@
+<?php
+session_start();
+require_once("../functions/to_sql.php");
+require_once("../functions/SO_API.php");
+
+
+if(isset($_POST) && $_POST){
+  $StuID=$_POST['id'];
+  $query=mysqli_query($conn,"SELECT * FROM sys_user WHERE stuid='{$StuID}'");
+  $rs=mysqli_fetch_array($query);
+  //获取Salt并结合输入的密码进行加密
+  $salt=$rs["salt"];
+  $pw=md5($_POST["pw"].$salt);
+  
+  if($pw == $rs['pw']){
+    //真实姓名
+    $_SESSION['name']=$rs['tname'];
+    //各种权限
+    $_SESSION['isMaster']=$rs['isMaster'];$_SESSION['isAdmin']=$rs['isAdmin'];$_SESSION['isSuper']=$rs['isSuper'];
+    //用户角色名称
+    $_SESSION['role']=$rs['job'];
+    //获取Token
+    $token=random(10);
+    $_SESSION['SUtoken']=$token;
+    header("Location: console.php?sutk=$token");
+  }
+  
+  else{ 
+    echo "<script>alert('用户名或密码错误！');history.go(-1);</script>";
+  }
+  
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +53,7 @@
   <div class="col-md-offset-2 col-md-8" style="line-height:12px;">
     <form method="post">
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="输入你的用户名" name="usr">
+        <input type="text" class="form-control" placeholder="输入你的用户名" name="id">
       </div>
       <br>
       <div class="input-group">
@@ -38,3 +73,4 @@
 <script src="/SUsage/Admin/js/bootstrap.js"></script>
 </body>
 </html>
+

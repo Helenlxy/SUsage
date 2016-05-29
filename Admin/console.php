@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once("Includes/CheckLog.php");
 $flag=true;
 require_once("Includes/to_pdo.php");
@@ -15,7 +14,7 @@ $total=sizeof($Tasks[0]);
   <title>SUsage 管理中心 :: 首页</title>
   
   <!-- Bootstrap -->
-  <link href="css/bootstrap.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.bootcss.com/bootstrap/3.3.6/fonts/glyphicons-halflings-regular.svg" rel="stylesheet">
   
   <style>
@@ -24,7 +23,7 @@ $total=sizeof($Tasks[0]);
   </style>
 </head>
 
-<body style="font-family:Microsoft YaHei;">
+<body>
 <?php include("Includes/shownav.php"); ?>
 <table class="table table-hover table-striped" style="border-radius:50px;">
 <tr>
@@ -34,7 +33,6 @@ $total=sizeof($Tasks[0]);
   <th>接收者组别</th>
   <th>标题</th>
   <th>内容</th>
-  <th>操作</th>
 </tr>
 
 <?php
@@ -46,8 +44,7 @@ for($i=0;$i<$total;$i++){
   echo "<td>".$Tasks[0][$i]['pubgroup']."</td>";
   echo "<td>".$Tasks[0][$i]['regroup']."</td>";
   echo "<td>".$Tasks[0][$i]['topic']."</td>";
-  echo "<td>".$Tasks[0][$i]['ct']."</td>";
-  echo "<td><a href='Task/toEdit.php?id=$id' class='btn btn-default btn-xs'><span class='glyphicon glyphicon-edit'></span> 修改</a></td>";
+  echo "<td>".$Tasks[0][$i]['content']."</td>";
   echo "</tr>";
 }
 ?>

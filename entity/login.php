@@ -2,31 +2,28 @@
 session_start();
 $flag=true;
 require_once("../functions/to_sql.php");
-require_once("../functions/Jerry-API.php");
 if($_POST['login']){
   $StuID=$_POST['id'];
-  $pwd=md5(md5($_POST['pwd']));
-  $query="SELECT * FROM user_list WHERE stuid='{$StuID}'";
+  $query="SELECT * FROM sys_user WHERE stuid='{$StuID}'";
   $rs=mysqli_fetch_array(mysqli_query($conn,$query));
-  if($pwd == $rs['pw']){
-    header("Location: index.php");
+  $salt=$rs["salt"];
+  $pw=md5($_POST["pw"].$salt);
+  if($pw == $rs['pw']){
     $_SESSION['nickname']=$StuID;
     $_SESSION['headimg']=$rs['headimg'];
     $_SESSION['userid']=$rs['uid'];
+    $_SESSION['group']=$rs['depgroup'];
+    header("Location: index.php");
   }
   
   else{ 
     // TODO 弹出提示语
   }
-
-$a="123456";
-$aa=md5(md5($a));
-echo $aa;
+  
 }
-
-
-
 ?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,7 +51,7 @@ echo $aa;
               <input required="required" class="form-control" placeholder="SUsage ID" name="id">
             </div>
             <div class="form-group">
-              <input type="password" required="required" class="form-control" placeholder="Password" name="pwd">
+              <input type="password" required="required" class="form-control" placeholder="Password" name="pw">
             </div>
 
          <input type="submit" name="login" class="submit action-button" value="登陆">
@@ -63,7 +60,7 @@ echo $aa;
     </div>
 
 <!-- Footer -->
-<div style="font-size:12px;color:#ffffff;padding-top:90px"><b>SUsage</b> 桌面版1.0 · <a onClick="displaytips(); return false" style="color:#FFFFFF">[点此测试激活码提示]</a> · <a href="https://github.com/zhxsuwebgroup/SUsage/wiki/%E5%B8%AE%E5%8A%A9%E4%B8%8E%E5%8F%8D%E9%A6%88%E4%B8%AD%E5%BF%83-%7C-Hints-&-Feedbacks" target="_blank" style="color:#ffffff">帮助与反馈中心 </a>·<a href="http://zhxsuwebgroup.github.io/SUsage/" target="_blank" style="color:#ffffff"> 关于 | 开源许可及协议声明 </a>· ©2016 <a href="http://weibo.com/zxsu32nd" target="_blank" style="color:#ffffff;text-decoration:underline">执信学生会</a> <a href="http://weibo.com/zhxsupc" target="_blank"  style="color:#ffffff;text-decoration:underline">电脑部</a> · In tech we trust</div>
+<div style="font-size:12px;color:#ffffff;padding-top:90px"><b>SUsage</b> 桌面版1.0 · <a onClick="displaytips(); return false" style="color:#FFFFFF">[点此测试激活码提示]</a> · <a href="https://github.com/zhxsu/SUsage/wiki/%E5%B8%AE%E5%8A%A9%E4%B8%8E%E5%8F%8D%E9%A6%88%E4%B8%AD%E5%BF%83-%7C-Hints-&-Feedbacks" target="_blank" style="color:#ffffff">帮助与反馈中心 </a>·<a href="http://zhxsu.github.io/SUsage/" target="_blank" style="color:#ffffff"> 关于 | 开源许可及协议声明 </a>· ©2016 <a href="http://weibo.com/zxsu32nd" target="_blank" style="color:#ffffff;text-decoration:underline">执信学生会</a> <a href="http://weibo.com/zhxsupc" target="_blank"  style="color:#ffffff;text-decoration:underline">电脑部</a> · In tech we trust</div>
 </article>
 
   </body>

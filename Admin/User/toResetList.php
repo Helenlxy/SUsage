@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once("../Includes/CheckLog.php");
 $flag=true;
 require_once("../Includes/to_pdo.php");

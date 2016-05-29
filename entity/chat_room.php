@@ -21,7 +21,7 @@ if($my!=$uid){
 }
 
 //获取对方真实姓名
-$r=mysqli_fetch_array(mysqli_query($conn,"SELECT * FROM user_list WHERE uid='{$you}' "));
+$r=mysqli_fetch_array(mysqli_query($conn,"SELECT * FROM sys_user WHERE id='{$you}' "));
 $tname=$r['tname'];
 ?>
 
@@ -101,14 +101,14 @@ for($t=0; $t<22; $t++){
 	$c=$c+1; 
 	//根据位置抽取对应字母
 	$nowsurname=substr($surname,$c,1);
-  $sql="select * from user_list order by uid asc";
+  $sql="select * from sys_user order by id asc";
   $result=mysqli_query($conn,$sql);
   $total=mysqli_num_rows($result);
   $page=isset($_GET['page'])?intval($_GET['page']):1;//当前页码  
   $info_num=100; //一页显示数据数量
   $totalpage=ceil($total/$info_num); //总共页数
   $offset=($page-1)*$info_num; 
-  $info=mysqli_query($conn,"select * from user_list WHERE sname='{$nowsurname}' order by uid desc limit $offset,$info_num");
+  $info=mysqli_query($conn,"select * from sys_user WHERE sname='{$nowsurname}' order by id desc limit $offset,$info_num");
 ?>
 
 <!-- 字母列表 -->
@@ -119,7 +119,7 @@ for($t=0; $t<22; $t++){
 	
 <!-- 用户列表 -->
 <?php while($rs=mysqli_fetch_array($info)){ 
-	$id=$rs["uid"]; //目前这行的用户ID
+	$id=$rs["id"]; //目前这行的用户ID
 	$sql="SELECT * FROM chat_content WHERE (SenderID='{$id}' AND RecipientID='{$uid}') OR (SenderID='{$uid}' AND RecipientID='{$id}') ORDER BY id DESC";
 	$query=mysqli_fetch_array(mysqli_query($conn,$sql));
 ?>
@@ -199,21 +199,8 @@ function send(){
 }
 
 
-function GetCT(){ 
-//每2.5秒调用一次toGetCT函数(暂无，未写)
-setInterval(toGetCT(),2500);
-}
-
-function toGetCT(){
-
-}
-
-
 //页面自启动 onkey
 document.onkeydown = function(){easteregg();};
-
-//页面自运行
-window.onload=function(){GetCT();}
 
 </script>
 </body>

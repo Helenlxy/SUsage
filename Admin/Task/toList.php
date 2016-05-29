@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once("../Includes/CheckLog.php");
 $flag=true;
 require_once("../Includes/to_pdo.php");
@@ -11,7 +10,7 @@ $total=sizeof($Tasks[0]);
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>SUsage 管理中心 :: 首页</title>
+  <title>SUsage 管理中心 :: 任务管理</title>
   
   <!-- Bootstrap -->
   <link href="/SUsage/Admin/css/bootstrap.min.css" rel="stylesheet">
@@ -23,7 +22,7 @@ $total=sizeof($Tasks[0]);
   </style>
 </head>
 
-<body style="font-family:Microsoft YaHei;">
+<body>
 <?php include("../Includes/shownav.php"); ?>
 <table class="table table-hover table-striped" style="border-radius:50px;">
 <tr>
@@ -45,13 +44,37 @@ for($i=0;$i<$total;$i++){
   echo "<td>".$Tasks[0][$i]['pubgroup']."</td>";
   echo "<td>".$Tasks[0][$i]['regroup']."</td>";
   echo "<td>".$Tasks[0][$i]['topic']."</td>";
-  echo "<td>".$Tasks[0][$i]['ct']."</td>";
-  echo "<td><a href='toEdit.php?id=$id' class='btn btn-default btn-xs'><span class='glyphicon glyphicon-edit'></span> 修改</a></td>";
+  echo "<td>".$Tasks[0][$i]['content']."</td>";
+  echo "<td><button onclick='toDel($id)' class='btn btn-default btn-xs'><span class='glyphicon glyphicon-edit'></span> 删除</button></td>";
   echo "</tr>";
 }
 ?>
 </table>
 </body>
+
+<script>
+function toDel(id){
+$.ajax({
+  type:"post",
+  url:"/SUsage/Admin/Task/toDel.php",
+  data:{id:id},
+  success:function(got){
+    if(got=="1"){
+      alert("删除成功！");
+      history.go(0);
+    }
+    
+    if(got=="2"){
+      alert("删除失败！网络连接错误，请联系电脑部！");
+      history.go(0);
+    }
+    
+    else{alert("删除失败！"+got);}
+    },
+  error:function(e){alert(e);},
+});
+}
+</script>
 
 <!-- JavaScript -->
 <script src="/SUsage/Admin/Includes/footer.js"></script>

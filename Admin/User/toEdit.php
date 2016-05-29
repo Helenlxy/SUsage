@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once("../Includes/CheckLog.php");
 $flag=true;
 require_once("../Includes/to_pdo.php");
@@ -13,14 +12,14 @@ if(isset($_POST) && $_POST){
   $group=$_POST['group'];
   
   //检测提交的数据是否为空
-  if(!$dep || !$stuid)
+  if(!$dep)
   {echo "<script>alert('请认真准确填写所需修改内容！');</script>";}
   
   else{
     //执行更改
     $rs=PDOQuery($dbcon,"UPDATE sys_user SET stuid='{$stuid}',dep='{$dep}',depgroup='{$group}' WHERE id=?",[$uid],[PDO::PARAM_INT]);
-    if($rs[1]==1){echo "<script>alert('恭喜您，修改成功！');history.go(-1);</script>";}//Success
-    else{echo "<script>alert('对不起，修改失败！请联系电脑部。');history.go(-1);</script>";}//False
+    if($rs[1]==1){echo "<script>alert('恭喜您，修改成功！');history.go(-2);</script>";}//Success
+    else{echo "<script>alert('对不起，修改失败！请联系电脑部。'.$rs[1]);history.go(-1);</script>";}//False
   }
 }
 ?>
@@ -63,7 +62,7 @@ if(isset($_POST) && $_POST){
     <input class="form-control" placeholder="输入新的组别" name="group">
   </div><br>
   
-  <input type="submit" value="登录" class="btn btn-success" style="width:100%">
+  <input type="submit" value="修 改" class="btn btn-success" style="width:100%">
       <br>     
     </form>
   </div>

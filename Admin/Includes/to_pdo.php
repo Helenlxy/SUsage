@@ -1,12 +1,12 @@
 <?php
 /**
-* -------------------------------------------
+* ------------------------------------
 * 执信学生会SUsage后台 数据库操作pdo驱动
 * Author: @zhangjingye03
 * Helper: @JerryLoveZhiXin
 * License: GPLv3
 * Copyright (C) 2016
-* -------------------------------------------
+* ------------------------------------
 */
   if(!isset($flag)){
     die("<b>403 <br> You Don't Have Permission to Read.");
@@ -16,8 +16,8 @@
   $dbms="mysql";
   $host="localhost";
   $database="susage_oa";
-  $userName="root";
-  $passWord="";
+  $userName="输入你的数据库用户名";
+  $passWord="输入你的数据库密码";
   $dsn="{$dbms}:host={$host};dbname=${database};charset=utf8";
   try{
     $dbcon=new PDO($dsn,$userName,$passWord);

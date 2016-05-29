@@ -1,9 +1,5 @@
 <?php
-session_start();
 require_once("../Includes/CheckLog.php");
-
-//$SUtoken=$_GET['SUtoken'];
-$SUtoken="A9XB184MQ0WK";//Test
 
 $flag=true;
 require_once("../Includes/to_pdo.php");
@@ -16,7 +12,7 @@ $total=sizeof($list[0]);
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>SUsage 管理中心 :: 用户管理</title>
+  <title>SUsage 管理中心 :: 用户角色管理</title>
   
   <!-- Bootstrap -->
   <link href="/SUsage/Admin/css/bootstrap.min.css" rel="stylesheet">
