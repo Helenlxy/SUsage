@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
 * ------------------------------------
 * 执信学生会SUsage后台 数据库操作pdo驱动
@@ -16,8 +16,8 @@
   $dbms="mysql";
   $host="localhost";
   $database="susage_oa";
-  $userName="输入你的数据库用户名";
-  $passWord="输入你的数据库密码";
+  $userName="root";
+  $passWord="";
   $dsn="{$dbms}:host={$host};dbname=${database};charset=utf8";
   try{
     $dbcon=new PDO($dsn,$userName,$passWord);

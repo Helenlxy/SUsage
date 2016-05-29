@@ -1,4 +1,4 @@
-﻿<?php 
+<?php 
 session_start();
 require_once("../functions/to_sql.php");
 $group=$_SESSION['group'];
@@ -19,7 +19,6 @@ $sql=mysqli_query($conn,"SELECT * FROM task_list WHERE regroup='{$group}'");
 <!--网站标题以及icon-->
 <title>你的任务 / SUsage Tasklist </title>
 <link rel="shortcut icon" href="../res/icons/title/task_128X128.ico"/>
-
 </head>
 
 <body style="position:absolute;width:80%;">

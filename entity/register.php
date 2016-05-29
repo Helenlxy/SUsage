@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="zh">
 <head>
 	<meta charset="UTF-8">
@@ -31,7 +31,7 @@
                 <h3 class="fs-subtitle">看准了，别写错</h3>
 				<input type="text" name="ActiveID" placeholder="SUsage激活码" style="ime-mode:disabled;-moz-ime-mode:disabled;-webkit-ime-mode:disabled;-ms-ime-mode:disabled" onkeyup="value=value.replace(/[^\w\.\/]/ig,'')" MaxLength="11"/>
 				<input type="button" name="next" class="next action-button" value="下一步" />
-                <p style="font-size:14px;"><a href="../entity/login.html" style="color:#66CCFF;text-decoration: NONE">已有账号？现在登录></a></p>
+                <p style="font-size:14px;"><a href="../entity/login.php" style="color:#66CCFF;text-decoration: NONE">已有账号？现在登录></a></p>
 			</fieldset>
 			<fieldset>
 				<h2 class="fs-title">你好，<span>XXX<span></h2><!--span里面通过查找激活码获得该人的名字-->
