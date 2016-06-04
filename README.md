@@ -4,7 +4,7 @@
 
 <b>目前总体开发进度：约63%，前端系统基本完成，后端系统开发启动约52%。</b>
 
-<b>项目总阶段：0.52-milestone7 #Project 1B（开发代号Young），全站php化中</b>
+<b>项目总阶段：0.52-milestone7 #Project SUsage pre beta（开发代号Young），全站php化中</b>
 
 <s>讲道理，wiki又得改了，但是得等我抽个时间。</s>
 
