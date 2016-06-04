@@ -4,7 +4,7 @@
 
 <b>目前总体开发进度：约63%，前端系统基本完成，后端系统开发启动约52%。</b>
 
-<b>项目总阶段：0.52-milestone7 #Project SUsage pre beta（开发代号Young），全站php化中</b>
+<b>项目总阶段：0.52-milestone7 #Project SUsage pre-α（开发代号Young），全站php化中</b>
 
 <s>讲道理，wiki又得改了，但是得等我抽个时间。</s>
 
@@ -13,7 +13,6 @@
 <p>UserSYS V1.0-beta1</p>
 <p>AdminSYS V1.0-beta1</p>
 <p>FileSYS V0.4-milestone6【未来project】</p>
-<s>Perse.SYS V0.2.1-milestone1【未来project】</s>
 <p><b>Latest update：2016.5.29 9:00</b></p>
 <b>©2016 @Zhxsupc</b>
 <p>  </p>
