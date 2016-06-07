@@ -16,31 +16,29 @@ body {
 	font-family: "Microsoft YaHei",montserrat, arial, verdana;
 }
 /*form styles*/
-#msform {
-	width: 54%;
+.card {
+	width: 40%;
 	margin: 50px auto;
+	left: 20%;
 	text-align: center;
 	position: relative;
-	padding-bottom: 60px
-}
-#msform div {
+	padding-bottom: 60px;
 	background: white;
 	border: 0 none;
 	border-radius: 3px;
 	box-shadow: 3px 3px 1px 0 rgba(0, 0, 0, 0.2);
 	padding: 20px 30px;
 	box-sizing: border-box;
-	width: 80%;
 	margin: 0 10%;
 	
 	/*stacking fieldsets above each other*/
 	position: absolute;
 
 }
-#msform input:not(:focus) , #msform textarea:not(:focus)  {
+.ipt:not(:focus) , .ta:not(:focus)  {
 	border-bottom-color: rgba(0, 0, 0, 0.12) !important;
 }
-#msform input, #msform textarea {
+.ipt, .ta {
 	outline:none;
 	margin-bottom: 10px;
 	width: 100%;
@@ -54,33 +52,20 @@ body {
 	transition: 0.3s;
 }
 /*buttons*/
-#msform .action-button {
-	width: 60%;
+.action-button {
+	width: 80%;
 	background: #27AE60;
 	color: white;
 	border: 0 none;
 	font-family: "Microsoft YaHei",montserrat;
 	border-radius: 1px;
 	cursor: pointer;
-	padding: 5px 0 5px 0;
+	padding:10px;
 	margin: 13px 3px;
 	border-radius: 3px;
 }
-#msform .action-button-disabled {
-	width: 60%;
-	background: #a8a8a8!important;
-	box-shadow: none!important;
-	pointer-events: none;
-	color: white;
-	border: 0 none;
-	font-family: "Microsoft YaHei",montserrat;
-	border-radius: 1px;
-	cursor: pointer;
-	padding: 5px 0 5px 0;
-	margin: 13px 3px;
-	border-radius: 3px;
-}
-#msform .action-button:hover, #msform .action-button:focus {
+
+.action-button:hover, .action-button:focus {
 	background: #00C853;
 	box-shadow: 0 8px 10px 1px rgba(0,0,0,0.14),0 3px 14px 2px rgba(0,0,0,0.12),0 5px 5px -3px rgba(0,0,0,0.4)
 }
@@ -100,15 +85,15 @@ body {
 }
 #avatarset
 {
-	top:0px;
+	top:200px;
 }
 #pwset
 {
-	top:600px;
+	top:565px;
 }
 #infoset
 {
-	top:930px;
+	top:895px;
 }
 
 .avatar-view {
@@ -218,4 +203,19 @@ body {
   opacity: .75;
   filter: alpha(opacity=75);
   z-index: 20140628;
+}
+.avbtn{
+	width: auto;
+	background: #27AE60;
+	color: white;
+	border: 0 none;
+	font-family: "Microsoft YaHei",montserrat;
+	border-radius: 1px;
+	cursor: pointer;
+	padding:10px;
+	border-radius: 3px;
+}
+.avbtn:hover, .avbtn:focus {
+	background: #00C853;
+	box-shadow: 0 8px 10px 1px rgba(0,0,0,0.14),0 3px 14px 2px rgba(0,0,0,0.12),0 5px 5px -3px rgba(0,0,0,0.4)
 }
