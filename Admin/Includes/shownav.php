@@ -44,7 +44,7 @@
   </ul>
   
   <ul class="nav navbar-nav navbar-right">
-    <li><center><b><font color="green">张镜濠</font></b>，欢迎回来</center><p><span style="color:#4fb4f7">角色：<?php echo $_SESSION["role"]; ?> · <a href="/SUsage/Admin/logout.php?sutk=<?php echo $SUtoken; ?>">退出登陆</a></li>
+    <li><center><b><font color="green"><?php echo $_SESSION["name"]; ?></font></b>，欢迎回来</center><p><span style="color:#4fb4f7">角色：<?php echo $_SESSION["role"]; ?> · <a href="/SUsage/Admin/logout.php?sutk=<?php echo $SUtoken; ?>">退出登陆</a></li>
   </ul>
 </div>
 </div>

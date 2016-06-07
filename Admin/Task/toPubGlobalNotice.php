@@ -23,7 +23,7 @@ if(isset($_POST) && $_POST){
   <title>SUsage 管理中心 :: 发布全局公告</title>
   
   <!-- Bootstrap -->
-  <link href="/SUsage/Admin/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/SUsage/Admin/css/bootstrap.css" rel="stylesheet">
   <link href="https://cdn.bootcss.com/bootstrap/3.3.6/fonts/glyphicons-halflings-regular.svg" rel="stylesheet">
   
   <style>
@@ -43,11 +43,11 @@ if(isset($_POST) && $_POST){
   
 <form method="post">
 <div class="input-group">
-    <input class="form-control" placeholder="输入标题" name="topic" style="width: 420px">
+    <input class="form-control" placeholder="输入标题" name="topic" style="width: 470px">
 </div><br>
 
 <div class="input-group">
-    <textarea name="content" cols="65" rows="10" placeholder="输入内容"></textarea>
+    <textarea class="form-control" style="resize:none;" name="content" cols="65" rows="10" placeholder="输入内容"></textarea>
 </div><br>
 <input type="submit" value="发 布" class="btn btn-success" style="width:100%">
 </form>

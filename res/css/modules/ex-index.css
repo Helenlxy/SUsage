@@ -2,7 +2,7 @@
 {	
 	position:absolute;
 	padding-top:30px; 
-	right: 0px;
+	right: 120px;
 	font-family: "microsoft yahei";
 	text-align:right;
 	width:280px;
@@ -43,7 +43,7 @@
 	position:relative;
 	margin-top:10px;
 	margin-bottom:30px;
-	width:100%;
+	min-width:100%;
 	left:13%;
 }
 .headimg
@@ -56,7 +56,8 @@
 	border-radius: 50%
 }
 .contentarea
-{
+{	
+	min-width:600px;
 	width:97%;
 	font-size:18px;
 	padding:0 15px 30px 15px;
@@ -68,8 +69,30 @@
 	top:730px;
 	padding-bottom:100px;
 }
-
-
+.pubgroup{
+	position:absolute;
+	padding-top:30px; 
+	right: 0px;
+	font-family: "microsoft yahei";
+	text-align:right;
+	width:280px;
+	padding-right:15px;
+	color:#FF80AB;
+}
+.finishsum{
+	position:absolute;
+	color:#2196F3;
+	font-family: "microsoft yahei";
+	right:15px;
+	bottom:15px
+}
+.sumsty{
+	 font-size:5px;
+	 background:#FF80AB;
+	 border-radius: 5px;
+	 padding:0px 5px 0px 5px;
+	 color:#fff;
+}
 
 
 #uploadbutton

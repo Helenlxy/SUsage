@@ -54,13 +54,12 @@ if($_POST['login']){
               <input type="password" required="required" class="form-control" placeholder="Password" name="pw">
             </div>
 
-         <input type="submit" name="login" class="submit action-button" value="登陆">
-         <p><a style="position:relative;bottom:25px;font-size:14px" href="register.php">没有账号？现在注册 ></a></p>
+         <input type="submit" name="login" class="action-button" value="登陆">
       </form>
     </div>
 
 <!-- Footer -->
-<div style="font-size:12px;color:#ffffff;padding-top:90px"><b>SUsage</b> 桌面版1.0 · <a onClick="displaytips(); return false" style="color:#FFFFFF">[点此测试激活码提示]</a> · <a href="https://github.com/zhxsu/SUsage/wiki/%E5%B8%AE%E5%8A%A9%E4%B8%8E%E5%8F%8D%E9%A6%88%E4%B8%AD%E5%BF%83-%7C-Hints-&-Feedbacks" target="_blank" style="color:#ffffff">帮助与反馈中心 </a>·<a href="http://zhxsu.github.io/SUsage/" target="_blank" style="color:#ffffff"> 关于 | 开源许可及协议声明 </a>· ©2016 <a href="http://weibo.com/zxsu32nd" target="_blank" style="color:#ffffff;text-decoration:underline">执信学生会</a> <a href="http://weibo.com/zhxsupc" target="_blank"  style="color:#ffffff;text-decoration:underline">电脑部</a> · In tech we trust</div>
+<div style="font-size:12px;color:#ffffff;padding-top:90px"><b>SUsage</b> 桌面版1.0 · <a onClick="displaytips(); return false" style="color:#FFFFFF">[点此测试密码提示]</a> · <a href="https://github.com/zhxsu/SUsage/wiki/%E5%B8%AE%E5%8A%A9%E4%B8%8E%E5%8F%8D%E9%A6%88%E4%B8%AD%E5%BF%83-%7C-Hints-&-Feedbacks" target="_blank" style="color:#ffffff">帮助与反馈中心 </a>·<a href="http://zhxsu.github.io/SUsage/" target="_blank" style="color:#ffffff"> 关于 | 开源许可及协议声明 </a>· ©2016 <a href="http://weibo.com/zxsu32nd" target="_blank" style="color:#ffffff;text-decoration:underline">执信学生会</a> <a href="http://weibo.com/zhxsupc" target="_blank"  style="color:#ffffff;text-decoration:underline">电脑部</a> · In tech we trust</div>
 </article>
 
   </body>

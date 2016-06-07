@@ -96,22 +96,33 @@ $sql=mysqli_query($conn,"SELECT * FROM task_list WHERE regroup='{$group}'");
 <?php 
 while($rs=mysqli_fetch_array($sql)){
 $name=$rs['pubman'];
+$pubgroup=$rs['pubgroup'];
 $info=mysqli_fetch_array(mysqli_query($conn,"SELECT * FROM sys_user WHERE tname='$name'"));
 $headimg=$info['headimg'];
 ?>		
 <div class="card rich-card tasklist" z=4>
 <img class="headimg" src="<?php echo $headimg; ?>">
-<span class="name" ><?php echo $name; ?></span><span class="time">发布于<span><?php echo $rs['pubtime']; ?></span></span>
+<span class="name" ><?php echo $name; ?></span><span class="pubgroup" ><?php echo $pubgroup; ?></span><span class="time">发布于<span><?php echo $rs['pubtime']; ?></span></span>
 	<div class="contentarea">
-		<p><?php echo $rs['content']; ?>http://www.kancloud.cn/wangfupeng/wangeditor2/113967</p>
+		<p><?php echo $rs['content']; ?></p>
 	</div>
 	<div class="card-footer">
-		<button class="del btn raised raised">删除此任务</button>
-		<button class="btn raised mark">标记为完成！</button>
+	<?php
+		$name=$rs['pubman'];
+		$tname=$_SESSION['name'];
+		if ($name==$tname) {
+			echo "<button class='del btn raised raised'>删除此任务</button>";
+			echo "<a class='finishsum' href=''><span class='sumsty'>0</span>人完成了你的任务</a>";
+		}
+		else{
+			echo "<button class='btn raised mark'>标记为完成！</button>";
+		}
+	?>
+		
 	</div>
 </div>
-<?php } ?>
-
+<?php
+}?>	
 
 <p class="ex-end" style="left:11%">——————没了哟~——————</p>
 </div>
