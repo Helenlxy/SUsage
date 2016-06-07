@@ -42,9 +42,6 @@ if(isset($_POST) && $_POST){
   <div class="col-md-offset-2 col-md-8" style="line-height:12px;">
   
 <form method="post">
-<div class="input-group">
-    <input class="form-control" placeholder="输入标题" name="topic" style="width: 470px">
-</div><br>
 
 <div class="input-group">
     <textarea class="form-control" style="resize:none;" name="content" cols="65" rows="10" placeholder="输入内容"></textarea>

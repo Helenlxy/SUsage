@@ -34,7 +34,7 @@ $tname=$r['tname'];
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" href="/SUsage/res/css/themes/GGB-blue.css" />
+<link rel="stylesheet" href="/SUsage/res/css/themes/blue.css" />
 <link rel="stylesheet" href="/SUsage/res/css/md/material.css" />
 <link rel="stylesheet" href="/SUsage/res/css/modules/ex-mail.css" />
 <link rel="stylesheet" href="../res/css/modules/ex-united.css" />

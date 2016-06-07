@@ -10,10 +10,13 @@ $sql=mysqli_query($conn,"SELECT * FROM task_list WHERE regroup='{$group}'");
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!--引入wangEditor.css等样式表-->
-<link rel="stylesheet" href="../res/css/themes/NWB-teal.css" />
+<link rel="stylesheet" href="../res/css/themes/teal.css" />
 <link rel="stylesheet" href="../res/css/md/material.css" />
 <link rel="stylesheet" href="../res/css/editor/chkstyle.css" />
-<link rel="stylesheet" href="../res/css/modules/ex-index.css" />
+<?php
+if ($_SESSION['isMaster']==1){echo "<link rel='stylesheet' href='../res/css/modules/ex-index-master.css' />";}
+else{echo "<link rel='stylesheet' href='../res/css/modules/ex-index-normal.css' />";}
+?>
 <link rel="stylesheet" href="../res/css/editor/wangEditor.css">
 <link rel="stylesheet" href="../res/css/modules/ex-united.css" />
 <!--网站标题以及icon-->
@@ -69,28 +72,26 @@ $sql=mysqli_query($conn,"SELECT * FROM task_list WHERE regroup='{$group}'");
 
 
 <!-- 放在顶上的链接-->
-<div id="about" class="ex-about" style="position:absolute;top:90px;width:100%;text-align:center;z-index:1;"><a onclick="dl(); return false">组长模式</a> · <a onclick="xpy(); return false">组员模式</a> · <a onclick="displaynote(); return false">测试通知</a> · <a href="https://github.com/zhxsu/SUsage/wiki/%E5%B8%AE%E5%8A%A9%E4%B8%8E%E5%8F%8D%E9%A6%88%E4%B8%AD%E5%BF%83-%7C-Hints-&-Feedbacks" target="_blank" style="color:#00C853">帮助与反馈中心 </a>·<a href="http://zhxsu.github.io/SUsage/" target="_blank" style="color:#00C853"> 关于 | 开源许可及协议声明 </a> <span style="color:#FFFFFF" title="用鼠标刮这里看看">试试alt+shift+g</span>  ©2016 <a href="http://weibo.com/zxsu32nd" target="_blank" style="color:#9e9e9e">执信学生会</a> <a href="http://weibo.com/zhxsupc" target="_blank"  style="color:#9e9e9e">电脑部</a> · In tech we trust
+<div id="about" class="ex-about" style="position:absolute;top:90px;width:100%;text-align:center;z-index:1;"><a onclick="displaynote(); return false">测试通知</a> · <a href="https://github.com/zhxsu/SUsage/wiki/%E5%B8%AE%E5%8A%A9%E4%B8%8E%E5%8F%8D%E9%A6%88%E4%B8%AD%E5%BF%83-%7C-Hints-&-Feedbacks" target="_blank" style="color:#00C853">帮助与反馈中心 </a>·<a href="http://zhxsu.github.io/SUsage/" target="_blank" style="color:#00C853"> 关于 | 开源许可及协议声明 </a> <span style="color:#FFFFFF" title="用鼠标刮这里看看">试试alt+shift+g</span>  ©2016 <a href="http://weibo.com/zxsu32nd" target="_blank" style="color:#9e9e9e">执信学生会</a> <a href="http://weibo.com/zhxsupc" target="_blank"  style="color:#9e9e9e">电脑部</a> · In tech we trust
 <p style="position:relative;color:#FF0000;margin-top:5px;font-family:微软雅黑;font-size:14px;text-align:center">以防你在写任务的时候不小心刷新页面以致前功尽弃，本页面已禁用F5键【千万别以为键盘坏了x——夏酱</p></div>
 
-
-
 <!-- 发布器以及任务界面 -->
-	<div id="poster" class="card rich-card" z="3" style="position:absolute;display:block;top:160px;width:100%;height:500px;text-align:center;z-index:1;left:13%;right:13%;">
-		<h3 style="font-family:微软雅黑;margin-top:5px;left:0px;font-size:16px;position:relative;margin-left:15px;line-height:20px">在这里发布任务( · ω · )</h3>
-		<div id="edtcontainer">
-		<textarea id="textarea1" style="position:inherit;border-radius:5px;height:390px;width:100%;padding:0px 0px 0px 0px;display:block" ></textarea>
+
+<div id='poster' class='card rich-card' z='3'>
+		<h3 style='font-family:微软雅黑;margin-top:5px;left:0px;font-size:16px;position:relative;margin-left:15px;line-height:20px'>在这里发布任务( · ω · )</h3>
+		<div id='edtcontainer'>
+		<textarea id='textarea1' style='position:inherit;border-radius:5px;height:390px;width:100%;padding:0px 0px 0px 0px;display:block' ></textarea>
 		</div>
-		<div id="treecontainer" style="display:none"><div class="treetips"><span style="color:#4fb4f7;font-weight:bold;font-size: 19px">请在右侧<br>勾选任务的接收组别</span></span><br><br><span style="color:#f00000">勾选请点击项目前的小框<br>当此组别被勾选后，<br>此组别下所有的成员将接收到该任务。</span></div>
-		<div class="tarea">
-		<ul id="treeDemo" class="ztree"></ul></div>
+		<div id='treecontainer' style='display:none'><div class='treetips'><span style='color:#4fb4f7;font-weight:bold;font-size: 19px'>请在右侧<br>勾选任务的接收组别</span></span><br><br><span style='color:#f00000'>勾选请点击项目前的小框<br>当此组别被勾选后，<br>此组别下所有的成员将接收到该任务。</span></div>
+		<div class='tarea'>
+		<ul id='treeDemo' class='ztree'></ul></div>
 		</div>
-    	<button class="btn raised" id="submitbutton1" onclick="fwd(); return false" style="color:#fff;background-color:#4CAF50">下一步</button>
-    	<button class="btn raised" id="backwardbutton" onclick="bwd(); return false" style="color:#fff;background-color:#4CAF50;display:none">上一步</button>
-    	<button class="btn raised" id="submitbutton2" style="color:#fff;background-color:#4CAF50;display:none" onclick="PostTask();">发布任务</button>
+    	<button class='btn raised' id='submitbutton1' onclick='fwd(); return false' style='color:#fff;background-color:#4CAF50'>下一步</button>
+    	<button class='btn raised' id='backwardbutton' onclick='bwd(); return false' style='color:#fff;background-color:#4CAF50;display:none'>上一步</button>
+    	<button class='btn raised' id='submitbutton2' style='color:#fff;background-color:#4CAF50;display:none' onclick='PostTask();'>发布任务</button>
         
 	</div>
-
-		<p id="tips1" style="position:absolute;top:670px;left:58%;text-align:center;font-size:18px;font-family:Microsoft Yahei">● 你的任务</p>
+		<p id="tips1">● 你的任务</p>
 		<div id="listarea">
 		
 <?php 
@@ -117,6 +118,7 @@ $headimg=$info['headimg'];
 		else{
 			echo "<button class='btn raised mark'>标记为完成！</button>";
 		}
+
 	?>
 		
 	</div>
@@ -239,12 +241,6 @@ function lockf5()
 
 document.onkeydown = function(){easteregg();lockf5();};
 
-  var renwu = document.getElementById('tips1');
-	var postmodule = document.getElementById('poster');
-	var liebiao = document.getElementById('listarea');
-		
-	//组员模式
-	function xpy(){postmodule.style.display = 'none';renwu.style.top = '120px';liebiao.style.top = '180px'}
 		
 	//组长模式
 	function dl(){postmodule.style.display = '';renwu.style.top = '670px';liebiao.style.top = '730px'}

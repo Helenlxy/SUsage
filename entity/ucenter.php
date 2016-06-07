@@ -21,7 +21,7 @@
         }
 		
         $('#cancleBtn').on('click', function() {
-            $("#showEdit").fadeOut();
+             window.location.reload();
         });
 
         $('#confirmBtn').on('click', function() {

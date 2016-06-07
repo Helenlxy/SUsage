@@ -1,0 +1,182 @@
+.name
+{	
+	position:absolute;
+	padding-top:30px; 
+	right: 120px;
+	font-family: "microsoft yahei";
+	text-align:right;
+	width:280px;
+	padding-right:15px;
+	color:#4fb4f7;
+}
+.time
+{	
+	position:absolute;
+	padding-top:32px; 
+	left:0px;
+	font-size:10px;
+	font-family: "microsoft yahei";
+	text-align:right;
+	color:#9E9E9E;
+	width:280px;
+}
+.mark
+{
+	position:absolute;
+	color:#fff;
+	background-color:#2196F3;
+	font-family: "microsoft yahei";
+	right:15px;
+	bottom:15px
+}
+.del
+{
+	position:absolute;
+	color:#fff;
+	background-color:#d50000;
+	font-family: "microsoft yahei";
+	left:15px;
+	bottom:15px
+}
+.tasklist
+{
+	position:relative;
+	margin-top:10px;
+	margin-bottom:30px;
+	min-width:100%;
+	left:13%;
+}
+.headimg
+{
+	position:relative;
+	margin-top:15px;
+	width:45px;
+	height:45px;
+	left:15px;
+	border-radius: 50%
+}
+.contentarea
+{	
+	min-width:600px;
+	width:97%;
+	font-size:18px;
+	padding:0 15px 30px 15px;
+	min-height:100px;
+}
+#listarea
+{
+	position:absolute;
+	top:180px;
+	padding-bottom:100px;
+}
+.pubgroup{
+	position:absolute;
+	padding-top:30px; 
+	right: 0px;
+	font-family: "microsoft yahei";
+	text-align:right;
+	width:280px;
+	padding-right:15px;
+	color:#FF80AB;
+}
+.finishsum{
+	position:absolute;
+	color:#2196F3;
+	font-family: "microsoft yahei";
+	right:15px;
+	bottom:15px
+}
+.sumsty{
+	 font-size:5px;
+	 background:#FF80AB;
+	 border-radius: 5px;
+	 padding:0px 5px 0px 5px;
+	 color:#fff;
+}
+
+
+#uploadbutton
+{
+	position:absolute;
+	bottom:7px;
+	right:100px;
+	font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+	width:80px;
+	display:inherit;
+}
+
+#submitbutton1
+{
+	position:absolute;
+	bottom:7px;
+	right:10px;
+	font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+	width:120px;
+	display:inherit;
+}
+#submitbutton2
+{
+	position:absolute;
+	bottom:7px;
+	right:10px;
+	font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+	width:120px;
+	display:inherit;
+}
+#backwardbutton
+{
+	position:absolute;
+	bottom:7px;
+	right:140px;
+	font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+	width:120px;
+	display:inherit;
+}
+.ztree * {padding:0; margin:0; font-size:12px; font-family: Verdana, Arial, Helvetica, AppleGothic, sans-serif}
+.ztree {margin:0; padding:5px; color:#333}
+.ztree li{padding:0; margin:0; list-style:none; line-height:17px; text-align:left; white-space:nowrap; outline:0}
+.ztree li ul{ margin:0; padding:0 0 0 18px}
+
+.ztree li a {padding-right:3px; margin:0; cursor:pointer; height:21px; color:#333; background-color: transparent; text-decoration:none; vertical-align:top; display: inline-block}
+
+.ztree li span.button {line-height:0; margin:0; padding: 0; width:21px; height:21px; display: inline-block; vertical-align:middle;
+  border:0 none; cursor: pointer;outline:none;
+  background-color:transparent; background-repeat:no-repeat; background-attachment: scroll;
+  background-image:url("./img/metro.png"); *background-image:url("./img/metro.gif")}
+
+.ztree li span.button.chk {width:13px; height:13px; margin:0 2px; cursor: auto}
+.ztree li span.button.chk.checkbox_false_full {background-position: -5px -5px;}
+.ztree li span.button.chk.checkbox_false_full_focus {background-position: -5px -26px;}
+.ztree li span.button.chk.checkbox_true_full {background-position: -26px -68px;}
+.ztree li span.button.chk.checkbox_true_full_focus {background-position: -26px -68px;}
+.ztree li span.button.noline_open{background-position: -105px 0px;}
+.ztree li span.button.noline_close{background-position: -126px 0px;}
+.ztree li span.button.noline_docu{ background:none;}
+
+#treecontainer
+{
+	padding:10px 15px 10px 15px;
+}
+.treetips
+{
+	position:absolute;
+	top:150px;
+	left: 17%
+}
+.tarea
+{
+	position:absolute;
+	right: 32%
+}
+
+#tips1{
+	top:120px;
+	position:absolute;
+	left:58%;
+	text-align:center;
+	font-size:18px;
+	font-family:Microsoft Yahei
+}
+#poster{
+	display:none;
+}

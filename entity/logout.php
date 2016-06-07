@@ -1,4 +1,4 @@
 <?php 
-session_destroy();
+SESSION_destroy();
 header("Location: login.php");
 ?>
