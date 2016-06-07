@@ -2,17 +2,17 @@
 
 <b>执信中学学生会信息化在线办公系统 开源项目 #代号"SUsage" </b>
 
-<b>目前总体开发进度：约63%，前端系统基本完成，后端系统开发启动约52%。</b>
+<b>目前总体开发进度：约65%，前端系统基本完成，后端系统开发启动约56%。</b>
 
-<b>项目总阶段：0.52-milestone7 #Project SUsage pre-α（开发代号Young），全站php化中</b>
+<b>项目总阶段：0.6-milestone8 #Project SUsage pre-α（开发代号Young），全站php化中</b>
 
-<s>讲道理，wiki又得改了，但是得等我抽个时间。</s>
+<s>wiki又得改了。</s>
 
-<p>TaskSYS V0.4-milestone6</p>
-<p>ChatSYS V0.4-milestone3</p>
-<p>UserSYS V1.0-beta1</p>
-<p>AdminSYS V1.0-beta1</p>
-<p>FileSYS V0.4-milestone6【未来project】</p>
+<p>TaskSYS V0.6-milestone8</p>
+<p>VegeChat V0.6-milestone5</p>
+<p>UCenter V1.1-alpha2</p>
+<p>AdminSYS V1.1-alpha2</p>
+<p>FileTour V0.4-milestone6【未来project】</p>
 <p><b>Latest update：2016.5.29 9:00</b></p>
 <b>©2016 @Zhxsupc</b>
 <p>  </p>
@@ -30,7 +30,7 @@
 <br></br>
 <h3>这是个啥w</h3>
   <p>嗯，执信学生会的网上办公平台。</p>
-  <p>一个神秘的系统，完全由36.5th SUPC自主研制开发。</p><a href="https://github.com/zhxsu/SU_OA/wiki/Susage-%7C-%E6%A6%82%E8%BF%B0" target="_blank">详情请戳这里</a>
+  <p>一个神秘的系统，完全由37th SUPC自主研制开发。</p><a href="https://github.com/zhxsu/SUsage/wiki/Susage-%7C-%E6%A6%82%E8%BF%B0" target="_blank">详情请戳这里</a>
   
 <a href="http://zhxsu.github.io/SUsage/" target="_blank">美美哒介绍页面</a>
 
@@ -109,7 +109,9 @@
 * <a href="https://jquery.org/" target="_blank">John Resig</a>的`jQuery`，遵循`MIT`协议
 * <a href="https://github.com/nt1m/material-framework/" target="_blank">nt1m</a>的`material-framework`，遵循`Apache`协议版本`2.0`
 * <a href="http://wangeditor.github.io/">wangfupeng1988</a>的`WangEditor`，新版本采用了SU精简化版本，体积更小，效率更高
+* <a href="https://github.com/fengyuanchen/cropper">fengyuanchen</a>的`cropper.js`，遵循`MIT`协议
+* <a href="https://github.com/zTree/zTree_v3">zTree</a>的`zTree`树形菜单插件，遵循`MIT`协议
 * Github提供的免费代码仓库
-* 基于jQuery的<a href="https://github.com/zTree/zTree_v3">zTree树形菜单插件</a>
+
 
 **`GNU General Public Licence `版本`3.0`**
