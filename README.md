@@ -108,7 +108,7 @@
   <p>本项目目前基于以下几个开源项目开发：</p>
 * <a href="https://jquery.org/" target="_blank">John Resig</a>的`jQuery`，遵循`MIT`协议
 * <a href="https://github.com/nt1m/material-framework/" target="_blank">nt1m</a>的`material-framework`，遵循`Apache`协议版本`2.0`
-* <a href="http://wangeditor.github.io/">wangfupeng1988</a>的`WangEditor`，新版本采用了SU精简化版本，体积更小，效率更高
+* <a href="http://wangeditor.github.io/">wangfupeng1988</a>的`WangEditor`，遵循`MIT`协议，新版本采用了SU精简化版本，体积更小，效率更高
 * <a href="https://github.com/fengyuanchen/cropper">fengyuanchen</a>的`cropper.js`，遵循`MIT`协议
 * <a href="https://github.com/zTree/zTree_v3">zTree</a>的`zTree`树形菜单插件，遵循`MIT`协议
 * Github提供的免费代码仓库
