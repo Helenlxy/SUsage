@@ -16,8 +16,8 @@
 <p><b>Latest update：2016.5.29 9:00</b></p>
 <b>©2016 @Zhxsupc</b>
 <p>  </p>
-<b>Created By @yyl99311 | @df7c5117 | @GhostShdowTan | @橡胶人AS </b>
-<b>            | @SUPC Web Group</b>
+<b>Created By @yyl99311 | @df7c5117 | @GhostShadowTan | @橡胶人AS </b>
+<b>            | @ZhxsuWebGroup</b>
 <p>  </p>
 <b>特别鸣谢：@JerryLoveZhixin</b>
 <p>  </p>
