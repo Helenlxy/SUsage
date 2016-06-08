@@ -14,8 +14,12 @@ $sql=mysqli_query($conn,"SELECT * FROM task_list WHERE regroup='{$group}'");
 <link rel="stylesheet" href="../res/css/md/material.css" />
 <link rel="stylesheet" href="../res/css/editor/chkstyle.css" />
 <?php
-if ($_SESSION['isMaster']==1){echo "<link rel='stylesheet' href='../res/css/modules/ex-index-master.css' />";}
-else{echo "<link rel='stylesheet' href='../res/css/modules/ex-index-normal.css' />";}
+if ($_SESSION['SUmaster']==1){
+  echo "<link rel='stylesheet' href='../res/css/modules/ex-index-master.css' />";
+}
+else{
+  echo "<link rel='stylesheet' href='../res/css/modules/ex-index-normal.css' />";
+}
 ?>
 <link rel="stylesheet" href="../res/css/editor/wangEditor.css">
 <link rel="stylesheet" href="../res/css/modules/ex-united.css" />
@@ -109,8 +113,7 @@ $headimg=$info['headimg'];
 	</div>
 	<div class="card-footer">
 	<?php
-		$name=$rs['pubman'];
-		$tname=$_SESSION['name'];
+		$tname=$_SESSION['SUname'];
 		if ($name==$tname) {
 			echo "<button class='del btn raised raised'>删除此任务</button>";
 			echo "<a class='finishsum' href=''><span class='sumsty'>0</span>人完成了你的任务</a>";
