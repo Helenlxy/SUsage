@@ -1,4 +1,10 @@
-﻿<!doctype html>
+﻿<?php 
+session_start();
+require_once("../functions/to_sql.php");
+$group=$_SESSION['group'];
+$sql=mysqli_query($conn,"SELECT * FROM task_list WHERE regroup='{$group}'");
+?>
+
 <html lang="zh">
 <head>
 	<meta charset="UTF-8">
@@ -125,8 +131,7 @@
         				<div style="width: 50%;margin: 0 auto;margin-top: 10px;">
             				<input id="image" type="file" accept="image/*" capture="camera">
         				</div>
-						<div id="changeAvatar" style="margin-top: 35px;">
-            				<img src="../storage/avatar/avatar-5117.jpg" style="width: 100px;margin-top: 10px;margin: 0 auto;display:block;border-radius: 50%">
+						<div id="changeAvatar" style="margin-top: 35px;"><img src="<?php echo $_SESSION['headimg']; ?>" style="width: 100px;margin-top: 10px;margin: 0 auto;display:block;border-radius: 50%">
         				</div>
     				</div>
     				<div id="showEdit" style="width: 400px; height: 400px; position: absolute; left: 15%; z-index: 9; display: none;">
