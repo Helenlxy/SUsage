@@ -44,13 +44,21 @@
   <b>!!!!!!!!任务没接好可是会被打脸的哟!!!!!!!!</b>
 <h3>配置</h3>
   <p>本地可以使用<b>XAMPP1.8.2+</b>调试，服务器端建议最低配置PHP5.6.21+, Apache 2.4.17+, phpMyAdmin 4.5.1+</p>
+  <p>You can use <b>XAMPP1.8.2+</b> for local debugging.The recommend requirement for Server-side is PHP5.6.21+, Apache 2.4.17+, phpMyAdmin 4.5.1+</p>
   <p>请将此文件包<b>放在SUsage文件夹内</b>，然后<b>将SUsage文件夹放在网站根目录</b></p>
-  <p>环境配置完成后，请在phpmyadmin中直接导入susage_oa.sql文件，无需手动新建数据库。（当然一定几率出现失败后还是需要新建susage_oa并导入数据库）</p>
+  <p>Please put this package into the <b>SUsage</b> directory，then put the <b>SUsage</b> into root directory of your website.</b>
+  <p>环境配置完成后，请在phpmyadmin中新建susage_oa数据库后导入susage_oa.sql文件。</p>
+  <p>After runtime configuration completed,please set a new database which called <b>susage_oa</b> and import <b>susage_oa.sql</b> into this database.</p>
   <p>并在<b>functions/to_sql.php、Admin/Includes/to_pdo.php</b>中按照提示填写您的数据库登录账户和密码</p>
+  <p>Then follow the prompts to enter your database login account and password in <b>functions/to_sql.php </b>and <b> Admin/Includes/to_pdo.php</b>
   <p>测试账户1：Enatsu 密码：123456（角色：超管+组长）</p> 
+  <p>Test Account 1：Enatsu PW：123456（role：SuperUser+Group Master）</p>
   <p>测试账户2：Super 密码：supersu（角色：超级管理员）</p>
+  <p>Test Account 2：Super PW：supersu（role：SuperUser）</p>
   <p><b>若忘记密码可打开/SUsage/md5.php按照提示输入密码</b></p>
+  <p>If you forget your test password, you can open <b>/SUsage/md5.php</b> and follow the prompts to enter your password</p>
   <p><b>点击确认后将Salt和inDB复制，粘帖进数据库中“salt”和“pw”即可。</b></p>
+  <p>Copy the Salt and inDB into <b>salt</b> and <b>pw</b> of database after click permit</p>
 <h3>近期的事情<s>好久没更新了</s></h3>
 <p><b>----2016.6.79----</b></p>
   <p>新增UCenter，负责用户信息、密码、头像更改</p>
