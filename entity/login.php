@@ -12,7 +12,9 @@ if($_POST['login']){
     $_SESSION['nickname']=$StuID;
     $_SESSION['headimg']=$rs['headimg'];
     $_SESSION['userid']=$rs['uid'];
+    $_SESSION['SUmaster']=$rs['isMaster'];
     $_SESSION['group']=$rs['depgroup'];
+    $_SESSION['SUname']=$rs['tname'];
     header("Location: index.php");
   }
   
