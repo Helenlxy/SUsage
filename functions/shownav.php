@@ -2,7 +2,7 @@
 session_start();
 ?>
 <div class="ex-navbar-for-Desktop">
-<span class="mui-badge mui-badge-red" id="noti" style="display:none;left:500px" onclick="noteread(); return false" title="点一下可以清除通知哦">3</span>
+<span class="mui-badge mui-badge-red" id="noti" style="display:none;left:500px" title="你有一个新通知">!</span>
 
 <!--用户标签-->
 <a href="ucenter.php"><div class="ex-dnavbar-userbox" title="戳一下就退出哦w">
