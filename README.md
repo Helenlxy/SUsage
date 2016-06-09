@@ -1,12 +1,12 @@
-﻿<b>Zhixin StudentUnion OA System #Codename"SUsage" </b>
+<h4>Zhixin StudentUnion OA System #Codename"SUsage" </h4>
 
-<b>执信中学学生会信息化在线办公系统 开源项目 #代号"SUsage" </b>
+<b>执信中学学生会信息化在线办公系统 开源项目 #代号"SUsage" </b><s>某个二级保密项目</s>
 
-<b>目前总体开发进度：约65%，前端系统基本完成，后端系统开发启动约56%。</b>
+<b>目前总体开发进度：约65%，前端系统基本完成，后端系统开发启动约56%。</b> Total Progress 65% with background 56%
 
 <b>项目总阶段：0.6-milestone8 #Project SUsage pre-α（开发代号Young），全站php化中</b>
 
-<s>wiki又得改了。</s>
+<img src="https://raw.githubusercontent.com/df7c5117/zhxsu-index/master/res/sulogo.png" style="width:200px"/>
 
 <p>TaskSYS V0.6-milestone8</p>
 <p>VegeChat V0.6-milestone5</p>
