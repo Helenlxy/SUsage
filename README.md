@@ -4,7 +4,7 @@
 
 <b>目前总体开发进度：约65%，前端系统基本完成，后端系统开发启动约56%。</b> Total Progress 65% with background 56%
 
-<b>项目总阶段：0.6-milestone8 #Project SUsage pre-α（开发代号Young），全站php化中</b>
+<b>项目总阶段：0.6-milestone8 #Project SUsage pre-α（开发代号Young），全站php化中，6月20日-7月10日暂停开发</b>
 
 <img src="https://raw.githubusercontent.com/df7c5117/zhxsu-index/master/res/sulogo.png" style="width:200px"/>
 
