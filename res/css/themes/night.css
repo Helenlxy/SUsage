@@ -1,0 +1,51 @@
+﻿.ex-navbar-for-Desktop
+{
+	height:69px;
+	width:100%;
+	margin:0 0;
+	padding:0 0;
+	position:fixed;
+	top:0;
+	background:#444;
+	border-left:1px solid #444;
+	border-right:1px solid #444;
+	z-index:10;
+}
+body
+{
+	background-color: #333;
+	color:rgba(255, 255, 255, 0.87);
+}
+.trick{
+	color:#333
+}
+.ex-dnavbar-appbox:hover
+{
+	background-color:#616161;
+}
+.card{
+	background-color:#424242;
+}
+.wangEditor-container {
+	background-color:#424242;
+	border-bottom: 1px solid #BDBDBD;
+}
+.wangEditor-menu-container {
+	border-bottom: 1px solid #757575;
+	background-color: #444
+}
+.wangEditor-menu-container .menu-item:hover {
+	background-color: #757575
+}
+.wangEditor-menu-container .menu-item a {
+	color: #BDBDBD;
+}
+.wangeditor-txt{
+	color:rgba(255, 255, 255, 0.87);
+}
+.appbox-selected
+{
+	background-color:#616161;
+}
+
+.mui-badge{position:fixed;left:625px;margin-left:100px;z-index:10000}.mui-badge{display:inline-block;padding:3px 6px;font-size:12px;line-height:1;border-radius:100px}.mui-badge-red{color:#fff;font-family:"Microsoft Yahei";background-color:#dd524d}

@@ -12,11 +12,10 @@ $sql=mysqli_query($conn,"SELECT * FROM task_list WHERE regroup='{$group}'");
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>个人中心 / SUsage UCenter</title>
    	<link rel="stylesheet" type="text/css" href="../res/css/modules/ex-ucenter.css">
+    <link rel="stylesheet" href="../res/css/ucenter/cropper.min.css">
     <link rel="shortcut icon" href="../res/icons/title/login_128X128.ico"/>
-    <script type="text/javascript" src="../res/js/lrz.mobile.min.js"></script> 
-    <script type="text/javascript" src="../res/js/lrz.all.bundle.js"></script>
+    <script src="../res/js/lrz.all.bundle.js"></script>
     <script src="../res/js/jquery-2.2.1.min.js" type="text/javascript"></script>
-	<link href="../res/css/ucenter/cropper.min.css" rel="stylesheet">
 	<script src="../res/js/cropper.min.js"></script>
 	<script>window.jQuery || document.write('<script src="../universal-res/js/jquery-2.2.1.min.js"><\/script>')</script>
     <script type="text/javascript">

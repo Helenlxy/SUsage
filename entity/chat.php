@@ -19,7 +19,7 @@ $uid=$_SESSION['userid']; //目前登录用户ID
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" href="/SUsage/res/css/themes/blue.css" />
+<?php $h=date('G');if ($h<6) echo '<link rel="stylesheet" href="../res/css/themes/night.css" />';else if ($h>22) echo '<link rel="stylesheet" href="../res/css/themes/night.css" />';else echo '<link rel="stylesheet" href="../res/css/themes/day.css" />';?>
 <link rel="stylesheet" href="/SUsage/res/css/md/material.css" />
 <link rel="stylesheet" href="/SUsage/res/css/modules/ex-mail.css" />
 <link rel="stylesheet" href="../res/css/modules/ex-united.css" />
@@ -31,47 +31,6 @@ $uid=$_SESSION['userid']; //目前登录用户ID
 <?php 
 require_once("../functions/Personal.php"); 
 ?>
-
-
-
-<!--第一个appbox-->
-<a href="/SUsage/entity/index.php">
-	<div id="ex-dnavbar-appbox1" class="ex-dnavbar-appbox">
-	  <div class="ex-dnavbar-appbox-fixbox">
-	    <img src="/SUsage/res/icons/bar/ic_task.png" style="height:52px;width:52px;" />
-	  </div>
-		<div class="ex-dnavbar-appbox-text">主页</div>
-	</div>
-</a>
-
-	<!--第二个appbox-->
-<div id="ex-dnavbar-appbox2" class="ex-dnavbar-appbox-selected" title="朝发白帝，暮到江陵">
-  <div class="ex-dnavbar-appbox-fixbox">
-    <img src="/SUsage/res/icons/bar/ic_chat.png" style="height:52px;width:52px;" />
-  </div>
-  <div class="ex-dnavbar-appbox-text">聊天</div>
-</div>
-
-<!--返回顶部-->
-<a onclick="backtop(); return false" href="#">
-<div id="ex-dnavbar-appbox3" class="ex-dnavbar-appbox" title="咻咻~">
-  <div class="ex-dnavbar-appbox-fixbox">
-	  <img src="/SUsage/res/icons/bar/ic_backtop.png" style="height:52px;width:52px;" />
-	</div>
-  <div class="ex-dnavbar-appbox-text">返回顶部</div> 
-</div>
-</a>
-
-</div>
-<!--导航栏结束 -->
-
-<!--退出提示-->
-<div class="toast" id="toast-exit" style="background-color:#FFA000;position:fixed;width:100%;height:75px;z-index:100;display:none;">
-	<label class="toast-label" style="font-family:微软雅黑;color:#ffffff;position:absolute;left:10%;line-height:55px;">你你你你你你你~真的要退出吗w</label>
-	<button class="btn flat" style="font-family:微软雅黑;color:#ffffff;position:absolute;right:10%;line-height:60px;font-size:16px" onclick="window.location.href='logout.php'">是的</button>
-    <button id="cancelexit" class="btn flat" style="font-family:微软雅黑;color:#ffffff;position:absolute;right:20%;line-height:60px;font-size:16px;font-weight:bold">不是</button>
-</div>
-
 
 <!--
 <?php 

@@ -10,7 +10,8 @@ $sql=mysqli_query($conn,"SELECT * FROM task_list WHERE regroup='{$group}'");
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!--引入wangEditor.css等样式表-->
-<link rel="stylesheet" href="../res/css/themes/teal.css" />
+<?php $h=date('G');if ($h<6) echo '<link rel="stylesheet" href="../res/css/themes/night.css" />';else if ($h>22) echo '<link rel="stylesheet" href="../res/css/themes/night.css" />';else echo '<link rel="stylesheet" href="../res/css/themes/day.css" />';?>
+
 <link rel="stylesheet" href="../res/css/md/material.css" />
 <link rel="stylesheet" href="../res/css/editor/chkstyle.css" />
 <?php
@@ -32,38 +33,41 @@ else{
 
 <!--导航栏从此开始 -->
 <div class="ex-navbar-for-Desktop">
-<span class="mui-badge mui-badge-red" id="noti" style="display:none;left:500px" title="你收到了新通知"><b>!</b></span>
-	<!--用户标签-->
-	<a href="ucenter.php"><div class="ex-dnavbar-userbox" title="进入个人中心">
-  <div class="ex-dnavbar-userbox-avatarfixbox">
-  <img src="<?php echo $_SESSION['headimg']; ?>" style="height:54px;width:54px;" />
+  <span class="mui-badge mui-badge-red" id="noti" style="display:none;left:250px" title="你收到了新通知"><b>New</b></span>
+  <!--用户标签-->
+  <div class="ex-dnavbar-userbox">
+    <div class="ex-dnavbar-userbox-avatarfixbox">
+      <img src="<?php echo $_SESSION['headimg']; ?>" style="height:54px;width:54px;" />
+    </div>
+    <div class="ex-dnavbar-userbox-usernamefixbox">
+      <p class="ex-dnacvar-userbox-username">
+        <?php echo $_SESSION['nickname']; ?>
+         , <?php $h=date('G');if ($h<5) echo '该休息了';else if ($h<11) echo '早上好呀';else if ($h<13) echo '到中午了';else if ($h<17) echo '下午好嘛';else echo '天黑了呢';?>
+      </p>
+    </div>
+    <div class="ex-dnavbar-userbox-descunderunfixbox">
+      <a href="ucenter.php" class="ex-dnavbar-userbox-descunderunfb" title="进入个人中心">个人中心 ></a><span>&#12288;</span><a onclick="exit(); return false" class="ex-dnavbar-userbox-descunderunfb" title="戳一下就退出哦w">注销 ></a>
+    </div>
   </div>
-
-  <div class="ex-dnavbar-userbox-usernamefixbox">
-  <p class="ex-dnacvar-userbox-username"><?php echo $_SESSION['nickname']; ?></p>
+  <div id="appfixbox">
+  <div class="ex-dnavbar-appbox appbox-selected">
+  	<img src="../res/icons/bar/ic_task.png"/>
+  	<div class="ex-dnavbar-appbox-text">主页</div>
   </div>
-
-  <div class="ex-dnavbar-userbox-descunderunfixbox">
-  <a onclick="exit(); return false" class="ex-dnavbar-userbox-descunderunfb" title="戳一下就退出哦w">点此退出</a></div>
-</div></a>
-
-
-	<!--第一个appbox-->
-	<div id="ex-dnavbar-appbox1" class="ex-dnavbar-appbox-selected" >
-<div class="ex-dnavbar-appbox-fixbox"><img src="../res/icons/bar/ic_task.png" style="height:52px;width:52px;"/></div>
-<div class="ex-dnavbar-appbox-text">主页</div>
-</div>
-	<!--第二个appbox-->
-    <a href="chat.php"><div id="ex-dnavbar-appbox2" class="ex-dnavbar-appbox" title="朝发白帝，暮到江陵">
-    <div class="ex-dnavbar-appbox-fixbox"><img src="../res/icons/bar/ic_chat.png" style="height:52px;width:52px;" /></div>
-    <div class="ex-dnavbar-appbox-text">聊天</div>
-    </div></a>
-	<!--返回顶部-->
-	<a onclick="backtop(); return false" href="#"><div id="ex-dnavbar-appbox3" class="ex-dnavbar-appbox" title="咻咻~">
-<div class="ex-dnavbar-appbox-fixbox"><img src="../res/icons/bar/ic_backtop.png" style="height:52px;width:52px;" /></div>
-<div class="ex-dnavbar-appbox-text">返回顶部</div>
-</div></a>
+  <a href="chat.php">
+  <div class="ex-dnavbar-appbox" title="朝发白帝，暮到江陵">
+  	<img src="../res/icons/bar/ic_chat.png"/>
+  	<div class="ex-dnavbar-appbox-text">聊天</div>
+  </div>
+  </a>
+  <a onclick="backtop(); return false" href="#">
+  <div class="ex-dnavbar-appbox" title="咻咻~">
+  	<img src="../res/icons/bar/ic_backtop.png"/>
+    <div class="ex-dnavbar-appbox-text">顶部</div>
+  </div>
+  </a>
 	</div>
+</div>
 <!--导航栏结束 -->
 
 <!--退出提示-->
@@ -76,7 +80,7 @@ else{
 
 
 <!-- 放在顶上的链接-->
-<div id="about" class="ex-about" style="position:absolute;top:90px;width:100%;text-align:center;z-index:1;"><a onclick="displaynote(); return false">测试通知</a> · <a href="https://github.com/zhxsu/SUsage/wiki/%E5%B8%AE%E5%8A%A9%E4%B8%8E%E5%8F%8D%E9%A6%88%E4%B8%AD%E5%BF%83-%7C-Hints-&-Feedbacks" target="_blank" style="color:#00C853">帮助与反馈中心 </a>·<a href="http://zhxsu.github.io/SUsage/" target="_blank" style="color:#00C853"> 关于 | 开源许可及协议声明 </a> <span style="color:#FFFFFF" title="用鼠标刮这里看看">试试alt+shift+g</span>  ©2016 <a href="http://weibo.com/zxsu32nd" target="_blank" style="color:#9e9e9e">执信学生会</a> <a href="http://weibo.com/zhxsupc" target="_blank"  style="color:#9e9e9e">电脑部</a> · In tech we trust
+<div id="about" class="ex-about" style="position:absolute;top:90px;width:100%;text-align:center;z-index:1;"><a onclick="displaynote(); return false">测试通知</a> · <a href="https://github.com/zhxsu/SUsage/wiki/%E5%B8%AE%E5%8A%A9%E4%B8%8E%E5%8F%8D%E9%A6%88%E4%B8%AD%E5%BF%83-%7C-Hints-&-Feedbacks" target="_blank" style="color:#00C853">帮助与反馈中心 </a>·<a href="http://zhxsu.github.io/SUsage/" target="_blank" style="color:#00C853"> 关于 | 开源许可及协议声明 </a> <span class="trick" title="用鼠标刮这里看看">试试alt+shift+g</span>  ©2016 <a href="http://weibo.com/zxsu32nd" target="_blank" style="color:#9e9e9e">执信学生会</a> <a href="http://weibo.com/zhxsupc" target="_blank"  style="color:#9e9e9e">电脑部</a> · In tech we trust
 <p style="position:relative;color:#FF0000;margin-top:5px;font-family:微软雅黑;font-size:14px;text-align:center">以防你在写任务的时候不小心刷新页面以致前功尽弃，本页面已禁用F5键【千万别以为键盘坏了x——夏酱</p></div>
 
 <!-- 发布器以及任务界面 -->
@@ -129,7 +133,7 @@ $headimg=$info['headimg'];
 <?php
 }?>	
 
-<p class="ex-end" style="left:11%">——————没了哟~——————</p>
+<center class="ex-end" style="left:12%">——————再怎么找都没有啦~——————</center>
 </div>
 		
 

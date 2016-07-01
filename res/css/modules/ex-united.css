@@ -20,96 +20,56 @@ font-family:"Microsoft Yahei";
 text-align:center;
 border-radius: 3px;
 }
-.ex-dnavbar-userbox
+#appfixbox
 {
-	height:68px;
-	width:180px;
-	margin:0 0;
-	background:inherit;
-	display:inline-block;
-	position:absolute;
-	top:0px;
-	left:200px;
-}
-
-#ex-dnavbar-appbox1
-{
-	height:69px;
-	width:120px;
-	margin:0 ;
-	display:inline-block;	
-	position:absolute;
-	top:0px;
-	left:385px;
-}
-
-
-#ex-dnavbar-appbox2
-{
-	height:69px;
-	width:120px;
-	margin:0 ;
-	display:inline-block;
-	position:absolute;
-	top:0px;
-	left:505px;
-}
-#ex-dnavbar-appbox3
-{
-	height:69px;
-	width:120px;
-	margin:0 ;
-	display:inline-block;
-	position:absolute;
-	top:0px;
-	left:625px;
-}
-#ex-dnavbar-appbox4
-{
-	height:69px;
-	width:120px;
-	margin:0 ;
-	display:inline-block;
-	position:absolute;
-	top:0px;
-	left:745px;
-}
-#ex-dnavbar-appbox5
-{
-	height:69px;
-	width:120px;
-	margin:0 ;
-	display:inline-block;
-	position:absolute;
-	top:0px;
-	left:865px;
-}
-#ex-dnavbar-appbox6
-{
-	height:69px;
-	width:120px;
-	margin:0 ;
-	display:inline-block;
-	position:absolute;
-	top:0px;
-	left:985px;
+	float:left;
+	padding-left:140px;
 }
 
 .ex-dnavbar-appbox
 {
-	background-color:transparent;
+	height:69px;
+	width:125px;
+	display:inline-block;	
+	position:relative;
+	top:0px;
 	transition-property:background-color;
 	transition-duration:0.2s;
 	cursor:pointer;
 }
-
-
-.ex-dnavbar-appbox-fixbox
+.ex-dnavbar-appbox img
 {
 	height:52px;
 	width:52px;
-	padding:4px 33px 0px 33px;
-	background-color:inherit;
+	margin:0 8px 0 10px;
+	padding-top:12px;
+}
+
+
+.ex-dnavbar-appbox-text
+{
+	display:inline-block;
+	position:relative;
+	top:-20px;
+	text-align: center;
+	font-size: 16px;
+	font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+	z-index: 10;
+	color:#fff;
+}
+.ex-dnavbar-userbox
+{
+	height:68px;
+	width:200px;
+	margin:0 0;
+	display:inline-block;
+	position:relative;
+	top:0px;
+	float:right;
+	padding-right:140px;
+	background:inherit;
+	transition-duration:0.2s;
+	transition-property:background;
 }
 
 .ex-dnavbar-userbox-avatarfixbox
@@ -123,12 +83,15 @@ border-radius: 3px;
 	left:0px;
 }
 
-.ex-dnavbar-userbox-avatarfixbox img{border-radius:50%}
+.ex-dnavbar-userbox-avatarfixbox img
+{
+	border-radius:50%
+}
 
 .ex-dnavbar-userbox-usernamefixbox
 {
 	height:40px;
-	width:97px;
+	width:140px;
 	position:absolute;
 	top:0px;
 	left:70px;
@@ -137,22 +100,22 @@ border-radius: 3px;
 .ex-dnavbar-userbox-descunderunfixbox
 {
 	height:30px;
-	width:97px;
+	width:110px;
 	position:absolute;
 	top:40px;
-	left:95px;
+	left:85px;
 }
 
 .ex-dnacvar-userbox-username
 {
 	height:24px;
-	margin-top:8px;
+	margin-top:10px;
 	margin-bottom:8px;
 	text-align:center;
-	font-size:18px;
+	font-size:14px;
 	font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
 	font-weight:bold;
-	color:#FFF
+	color:#fff;
 }
 
 .ex-dnavbar-userbox-descunderunfb
@@ -163,31 +126,7 @@ border-radius: 3px;
 	text-align:center;
 	font-size:12px;
 	font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
-	color:#FFF;
+	color:#fff;
 }
 
-.ex-dnavbar-userbox
-{
-	width:175;
-	height:69px;
-	position:absolute;
-	top:0px;
-	left:168px;
-	background:inherit;
-	transition-duration:0.2s;
-	transition-property:background;
-	cursor:pointer;	
-}
 
-.ex-dnavbar-appbox-text
-{
-	height: 10px;
-	width: 118px;
-	padding: 0px auto 2px auto;
-	text-align: center;
-	font-size: 10px;
-	color: #FFF;
-	font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
-	z-index: 10;
-}
-	
