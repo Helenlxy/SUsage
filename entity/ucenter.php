@@ -19,6 +19,7 @@ require_once("../functions/to_sql.php");
     <script src="../res/js/jquery-2.2.1.min.js" type="text/javascript"></script>
 	<script src="../res/js/cropper.min.js"></script>
     <script src="../res/js/ucenter.js"></script>
+    <script src="../res/js/basic.js"></script>
 	<script>window.jQuery || document.write('<script src="../universal-res/js/jquery-2.2.1.min.js"><\/script>')</script>
     <script type="text/javascript">
     
@@ -37,7 +38,7 @@ require_once("../functions/to_sql.php");
     <div class="ex-dnavbar-userbox-usernamefixbox">
       <p class="ex-dnacvar-userbox-username">
         <?php echo $_SESSION['nickname']; ?>
-         , <?php $h=date('G');if ($h<5) echo '该休息了';else if ($h<11) echo '早上好呀';else if ($h<13) echo '到中午了';else if ($h<18) echo '下午好嘛';else echo '天黑了呢';?>
+         , <?php $h=date('G');if ($h<5) echo '该休息了';else if ($h<11) echo '早上好呀';else if ($h<13) echo '到中午了';else if ($h<18) echo '下午好嘛';else if ($h<23) echo '天黑了呢';else echo '该休息了';?>
       </p>
     </div>
     <div class="ex-dnavbar-userbox-descunderunfixbox">
@@ -51,11 +52,12 @@ require_once("../functions/to_sql.php");
     <div class="ex-dnavbar-appbox-text">主页</div>
   </div>
   </a>
+  <a href="chat.php">
   <div class="ex-dnavbar-appbox" title="朝发白帝，暮到江陵">
     <img src="../res/icons/bar/ic_chat.png"/>
     <div class="ex-dnavbar-appbox-text">聊天</div>
   </div>
-  
+  </a>
   <a onclick="backtop(); return false" href="#">
   <div class="ex-dnavbar-appbox" title="咻咻~">
     <img src="../res/icons/bar/ic_backtop.png"/>
@@ -75,7 +77,7 @@ require_once("../functions/to_sql.php");
 	<article class="htmleaf-content">
 		<div class="subtitle"><h2 style="color:#4fb4f7">个人中心<span style="font-size: 14px"> / UCenter</span></h2></div>
 			<!-- fieldsets -->
-			<center id="avatarset" class="card" z="3">
+			<center id="avatarset" class="card">
 				<h2 class="fs-title">露个脸呗<span style="font-size: 14px"> / Avatar</span></h2>
                 <h3 class="fs-subtitle">上传你的头像<span style="color:red">  建议使用正方形图片</span></h3>
 					<div id="showResult" style="display: block;">
@@ -113,7 +115,7 @@ require_once("../functions/to_sql.php");
     
    			</center> 
             <!--这个模块需要对新的id验证是否与已有的id重复-->
-			<center id="pwset" class="card" z="3">
+			<center id="pwset" class="card">
 				<h2 class="fs-title">个人信息<span style="font-size: 14px"> / Information</span></h2>
 				<h3 class="fs-subtitle">修改你的密码。看准了，别写错</h3>
 				<input class="ipt" type="password" name="pass" placeholder="不要告诉别人你的密码" />
@@ -126,7 +128,7 @@ require_once("../functions/to_sql.php");
                 <p style="color:#909090;font-size:12px">嗯，如果你改了大名，或者是部门调动，请联系管理员<span style="color:#4fb4f7">(主席团、电脑部APP组成员)</span>修改。</p>
                 <input type="submit" name="submit3" class="btn raised green" style="width:60%" value="确认昵称"/>
 			</center>
-            <center id="helper" class="card" z="3">
+            <center id="helper" class="card">
                 <h2 class="fs-title">反馈与帮助中心<span style="font-size: 14px"> / Feedback</span></h2>
                 <h3 class="fs-subtitle">遇到使用中的问题，或者寻求帮助，可以联系我们</h3>
                 
@@ -134,15 +136,15 @@ require_once("../functions/to_sql.php");
                 <center>
                 <div class="contact">
                 <p class="job">诸彦甫<span style="font-size: 12px"> / 项目执行负责人</span></p>
-                <input type="submit" name="contact1" class="btn raised blue" style="display:inline-block" value="留言或对话"/>
+                <input type="submit" name="contact1" class="btn raised blue" style="display:inline-block" value="寻求帮助"/>
                 </div>
                 <div class="contact">
                 <p class="job">谭天<span style="font-size: 12px"> / 双电对口主席</span></p>
-                <input type="submit" name="contact1" class="btn raised blue" style="display:inline-block" value="留言或对话"/>
+                <input type="submit" name="contact1" class="btn raised blue" style="display:inline-block" value="意见反馈"/>
                 </div>
                 <div class="contact">
-                <p class="job">张镜濠<span style="font-size: 12px"> / 后端架构<s>攻城狮</s></span></p>
-                <input type="submit" name="contact1" class="btn raised blue" style="display:inline-block" value="留言或对话"/>
+                <p class="job">张镜濠<span style="font-size: 12px"> / 半专业技术码农</s></span></p>
+                <input type="submit" name="contact1" class="btn raised blue" style="display:inline-block" value="技术反馈"/>
                 </div>
                 </center>
 
@@ -183,17 +185,18 @@ require_once("../functions/to_sql.php");
                 <input type="submit" name="contact1" class="btn raised green" style="display:inline-block" value="来Github提交issue" onclick="window.location.href = 'https://github.com/zhxsu/SUsage/wiki/%E5%B8%AE%E5%8A%A9%E4%B8%8E%E5%8F%8D%E9%A6%88%E4%B8%AD%E5%BF%83-%7C-Hints-&-Feedbacks'" />
                 </center>
             </center>
-            <center id="lab" class="card" z="3">
-                <h2 class="fs-title">实验室<span style="font-size: 14px"> / SUsage Lab</span></h2>
-                <h3 class="fs-subtitle">好玩的小功能都在这里~</h3>
-                    <p class="targetitem">全站https<span class="targetsw">施工中，默认关闭</span></p>
-                    <p class="targetitem">自动夜间模式<span class="targetsw">施工中，默认开启</span></p>
-                
-                <h3 class="fs-subtitle" style="color:#4fb4f7">更多功能即将到来~</h3>
-            </center>
 	</article>
 	
-	
+	   <script>
+       function easteregg(){
+            if(event.altKey  &&  event.shiftKey  &&  event.keyCode == 71){
+                window.location.href = "about.html";
+            }
+        }
+
+
+        document.onkeydown = function(){easteregg();};
+        </script>
 	
     </body>
 </html>

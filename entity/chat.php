@@ -44,7 +44,7 @@ include("../../functions/showbanner.html");
 <!-- 收件箱主体 -->
 <div id="ex-mail-entity-container-inbox">
 
-<div class="card" z="2" id="ex-mail-entity-container-inbox-list">
+<div class="card" id="ex-mail-entity-container-inbox-list">
 <!-- 姓氏排序 -->
 <?php
 for($t=0; $t<22; $t++){ 
@@ -93,7 +93,7 @@ for($t=0; $t<22; $t++){
 </div>
 
 
-<div class="card" z="2" id="ex-mail-entity-container-inbox-viewer">
+<div class="card" id="ex-mail-entity-container-inbox-viewer">
 <p style="text-align:center;font-family:微软雅黑;font-size:14px;line-height:8px;font-weight:bold">找个人聊天吧w</p>
 <div class="info-container">
 <!-- Edit Here 在这里用PHP循环获取消息-->

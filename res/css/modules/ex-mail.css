@@ -33,7 +33,7 @@
 
 #ex-mail-entity-container-inbox-viewer
 	{
-	height:72%;
+	height:78%;
 	position:fixed;
 	margin-bottom:10px;
 	top:100px;
@@ -101,7 +101,7 @@
 	height:auto;
 	width:50%;
 	margin-top:2%;
-	background-color:#EEEEEE;
+	background-color:#E0E0E0;
 	color:#757575;
 	margin-left:15px;
 	font-family: "Arial","Microsoft YaHei";

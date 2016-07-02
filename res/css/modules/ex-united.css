@@ -35,7 +35,6 @@ border-radius: 3px;
 	top:0px;
 	transition-property:background-color;
 	transition-duration:0.2s;
-	cursor:pointer;
 }
 .ex-dnavbar-appbox img
 {
@@ -129,3 +128,17 @@ border-radius: 3px;
 }
 
 
+.fs-subtitle {
+	font-weight: normal;
+	font-family:"Microsoft Yahei";
+	font-size: 13px;
+	color: #888;
+	margin-bottom: 20px;
+}
+.fi-subtitle {
+	font-weight: normal;
+	font-family:"Microsoft Yahei";
+	font-size: 13px;
+	color: #bdbdbd;
+	margin-top: 20px;
+}

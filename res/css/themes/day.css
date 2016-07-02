@@ -27,7 +27,8 @@ body{
 	color:#fff
 }
 .card{
-	background-color: #fff
+	background-color: #fff;
+	border: 2px solid #E0E0E0
 }
 .wangEditor-container {
 	background-color: #fff;

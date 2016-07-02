@@ -12,7 +12,7 @@
 
 }
 .ipt:not(:focus) , .ta:not(:focus)  {
-	border-bottom-color: rgba(0, 0, 0, 0.12) !important;
+	border-bottom-color: #757575 !important;
 }
 .ipt, .ta {
 	outline:none;
@@ -24,6 +24,7 @@
 	height: 2em;
 	box-sizing: content-box;
 	border: none;
+	background:transparent;
 	border-bottom: 2px solid #2196f3;
 	transition: 0.3s;
 }
@@ -34,13 +35,7 @@
 	color: #66ccff;
 	margin-bottom: 10px;
 }
-.fs-subtitle {
-	font-weight: normal;
-	font-family:"Microsoft Yahei";
-	font-size: 13px;
-	color: #666;
-	margin-bottom: 20px;
-}
+
 .avt
 {
 	width: 100px;
@@ -72,10 +67,6 @@
 #helper
 {
 	top:1130px;
-}
-#lab
-{
-	top:1820px;
 	margin-bottom: 50px
 }
 .targetitem{

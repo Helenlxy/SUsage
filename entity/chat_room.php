@@ -53,7 +53,7 @@ require_once("../functions/Personal.php");
 <!-- 收件箱主体 -->
 <div id="ex-mail-entity-container-inbox">
 
-<div class="card" z="2" id="ex-mail-entity-container-inbox-list">
+<div class="card" id="ex-mail-entity-container-inbox-list">
 <!-- 姓氏排序 -->
 <?php
 for($t=0; $t<22; $t++){ 
@@ -107,7 +107,7 @@ $ccsql="SELECT * FROM chat_content where whoID='{$who}'";
 $chatcontent=mysqli_query($conn,$ccsql);
 ?>
 
-<div class="card" z="2" id="ex-mail-entity-container-inbox-viewer">
+<div class="card" id="ex-mail-entity-container-inbox-viewer">
 <p style="text-align:center;font-family:微软雅黑;font-size:14px;line-height:8px">与 
 <span style="font-weight:bold;color:#4fb4f7"><?php echo $tname; ?></span> 对话中</p>
 <div class="info-container">
@@ -158,8 +158,13 @@ function send(){
  }
 }
 
+function easteregg(){
+ if(event.altKey  &&  event.shiftKey  &&  event.keyCode == 71){
+  window.location.href = "about.html";
+ }
+}
 
-//页面自启动 onkey
+
 document.onkeydown = function(){easteregg();};
 
 </script>
