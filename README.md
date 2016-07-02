@@ -2,19 +2,19 @@
 
 <b>执信中学学生会信息化在线办公系统 开源项目 #代号"SUsage" </b>
 
-<b>目前总体开发进度：约65%，前端系统基本完成，后端系统开发启动约56%。</b>
+<b>目前总体开发进度：约65%，前端系统基本完成，后端系统开发启动约56%。当前build:1C74 (0374)</b>
 
 <b>项目总阶段：0.6-milestone8 #Project SUsage pre-α（开发代号Young），全站php化中</b>
 
 <s>wiki又得改了。</s>
 
-<p>TaskSYS V0.6-milestone8</p>
+<p>TaskSYS V0.7-pre alpha A1</p>
 <p>VegeChat V0.6-milestone5</p>
-<p>UCenter V1.1-alpha2</p>
+<p>UCenter V1.5-alpha3</p>
 <p>AdminSYS V1.1-alpha2</p>
 <p>FileTour V0.4-milestone6【未来project】</p>
-<p><b>Latest update：2016.5.29 9:00</b></p>
-<b>©2016 @Zhxsupc</b>
+<p><b>Latest update：2016.7.3 0:00</b></p>
+<b>©2016 执信学生会 电脑部</b>
 <p>  </p>
 <b>Created By @yyl99311 | @df7c5117 | @GhostShadowTan | @橡胶人AS </b>
 <b>            | @ZhxsuWebGroup</b>
