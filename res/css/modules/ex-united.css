@@ -14,9 +14,9 @@ width:100%;
 position:absolute;
 bottom:30px;
 padding:20px 0px 5px 0px;
+font-family:"Microsoft Yahei";
 color:#9e9e9e;
 font-size:13px;
-font-family:"Microsoft Yahei";
 text-align:center;
 border-radius: 3px;
 }
@@ -60,14 +60,13 @@ border-radius: 3px;
 .ex-dnavbar-userbox
 {
 	height:68px;
-	width:200px;
+	width:220px;
 	margin:0 0;
 	display:inline-block;
 	position:relative;
 	top:0px;
 	float:right;
-	padding-right:140px;
-	background:inherit;
+	margin-right:140px;
 	transition-duration:0.2s;
 	transition-property:background;
 }
@@ -103,7 +102,7 @@ border-radius: 3px;
 	width:110px;
 	position:absolute;
 	top:40px;
-	left:85px;
+	left:120px;
 }
 
 .ex-dnacvar-userbox-username

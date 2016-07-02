@@ -15,11 +15,15 @@ body
 {
 	background-color: #333;
 	color:rgba(255, 255, 255, 0.87);
+	font-family:"Microsoft Yahei"
+}
+#toast-exit{
+	background-color:#BF360C;
 }
 .trick{
 	color:#333
 }
-.ex-dnavbar-appbox:hover
+.ex-dnavbar-appbox:hover,.ex-dnavbar-userbox:hover
 {
 	background-color:#616161;
 }

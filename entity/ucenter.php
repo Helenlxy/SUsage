@@ -1,8 +1,6 @@
-﻿<?php 
+<?php 
 session_start();
 require_once("../functions/to_sql.php");
-$group=$_SESSION['group'];
-$sql=mysqli_query($conn,"SELECT * FROM task_list WHERE regroup='{$group}'");
 ?>
 
 <html lang="zh">
@@ -14,123 +12,77 @@ $sql=mysqli_query($conn,"SELECT * FROM task_list WHERE regroup='{$group}'");
    	<link rel="stylesheet" type="text/css" href="../res/css/modules/ex-ucenter.css">
     <link rel="stylesheet" href="../res/css/ucenter/cropper.min.css">
     <link rel="shortcut icon" href="../res/icons/title/login_128X128.ico"/>
+    <?php $h=date('G');if ($h<6) echo '<link rel="stylesheet" href="../res/css/themes/night.css" />';else if ($h>22) echo '<link rel="stylesheet" href="../res/css/themes/night.css" />';else echo '<link rel="stylesheet" href="../res/css/themes/day.css" />';?>
+    <link rel="stylesheet" href="../res/css/md/material.css" />
+    <link rel="stylesheet" href="../res/css/modules/ex-united.css" />
     <script src="../res/js/lrz.all.bundle.js"></script>
     <script src="../res/js/jquery-2.2.1.min.js" type="text/javascript"></script>
 	<script src="../res/js/cropper.min.js"></script>
+    <script src="../res/js/ucenter.js"></script>
 	<script>window.jQuery || document.write('<script src="../universal-res/js/jquery-2.2.1.min.js"><\/script>')</script>
     <script type="text/javascript">
-    $(function() {
-
-        function toFixed2(num) {
-            return parseFloat(+num.toFixed(2));
-        }
-		
-        $('#cancleBtn').on('click', function() {
-             window.location.reload();
-        });
-
-        $('#confirmBtn').on('click', function() {
-            $("#showEdit").fadeOut();
-
-            var $image = $('#report > img');
-            var dataURL = $image.cropper("getCroppedCanvas");
-            var imgurl = dataURL.toDataURL("image/jpeg", 0.5);
-            $("#changeAvatar > img").attr("src", imgurl);
-            $("#basetxt").val(imgurl);
-            $('#showResult').fadeIn();
-
-        });
-
-        function cutImg() {
-            $("#showEdit").fadeIn();
-            var $image = $('#report > img');
-            $image.cropper({
-                aspectRatio: 1 / 1,
-                autoCropArea: 0.7,
-                strict: true,
-                guides: false,
-                center: true,
-                highlight: false,
-                dragCrop: false,
-                cropBoxMovable: false,
-                cropBoxResizable: false,
-                zoom: -0.2,
-                checkImageOrigin: true,
-                background: false,
-                minContainerHeight: 400,
-                minContainerWidth: 300
-            });
-        }
-
-        function doFinish(startTimestamp, sSize, rst) {
-            var finishTimestamp = (new Date()).valueOf();
-            var elapsedTime = (finishTimestamp - startTimestamp);
-
-            var sourceSize = toFixed2(sSize / 1024),
-                resultSize = toFixed2(rst.base64Len / 1024),
-                scale = parseInt(100 - (resultSize / sourceSize * 100));
-            $("#report").html('<img src="' + rst.base64 + '" style="width: 100%;height:100%">');
-            cutImg();
-        }
-
-        $('#image').on('change', function() {
-            var startTimestamp = (new Date()).valueOf();
-            var that = this;
-            lrz(this.files[0], {
-                    width: 800,
-                    height: 800,
-                    quality: 0.7
-                })
-                .then(function(rst) {
-                    //console.log(rst);
-                    doFinish(startTimestamp, that.files[0].size, rst);
-                    return rst;
-                })
-                .then(function(rst) {
-                    // 这里该上传给后端啦
-                    // 伪代码：ajax(rst.base64)..
-
-                    return rst;
-                })
-                .then(function(rst) {
-                    // 如果您需要，一直then下去都行
-                    // 因为是Promise对象，可以很方便组织代码 \(^o^)/~
-                })
-                .catch(function(err) {
-                    // 万一出错了，这里可以捕捉到错误信息
-                    // 而且以上的then都不会执行
-
-                    alert(err);
-                })
-                .always(function() {
-                    // 不管是成功失败，这里都会执行
-                });
-        });
-
-    });
+    
     </script>
 </head>
-<body style="text-align:center;">
+<body>
 	<!--通知popup-->
 
-<header class="htmleaf-header" style="padding-top:50px">
-   
-				<p style="color:#FFFFFF;font-size:24px">SUsage / 个人中心 <span style="font-size:15px;background: #27AE60;border-radius: 5px;padding:0px 5px 0px 5px">beta</span></p>  
-	</header>
-    <a style="position:fixed;top:13px;left:5%;cursor:pointer;color:#fff" onclick="history.back()" >◀ 返回上一页</a> 
-    <div style="font-size:12px;color:#FFFFFF;padding-top:30px;">SUsage 桌面版1.0 · 
-    <a href="https://github.com/zhxsu/SUsage/wiki/%E5%B8%AE%E5%8A%A9%E4%B8%8E%E5%8F%8D%E9%A6%88%E4%B8%AD%E5%BF%83-%7C-Hints-&-Feedbacks" target="_blank" style="color:#ffffff;text-decoration: NONE">帮助与反馈中心 </a>·<a href="http://zhxsu.github.io/SUsage/" target="_blank" style="color:#ffffff;text-decoration: NONE"> 关于 | 开源许可及协议声明 </a>· ©2016 <a href="http://weibo.com/zxsu32nd" target="_blank" style="color:#ffffff">执信学生会</a> <a href="http://weibo.com/zhxsupc" target="_blank"  style="color:#ffffff">电脑部</a> · In tech we trust</div>
+<div class="ex-navbar-for-Desktop">
+  <span class="mui-badge mui-badge-red" id="noti" style="display:none;left:250px" title="你收到了新通知"><b>New</b></span>
+  <!--用户标签-->
+  <div class="ex-dnavbar-userbox appbox-selected">
+    <div class="ex-dnavbar-userbox-avatarfixbox">
+      <img src="<?php echo $_SESSION['headimg']; ?>" style="height:54px;width:54px;" />
+    </div>
+    <div class="ex-dnavbar-userbox-usernamefixbox">
+      <p class="ex-dnacvar-userbox-username">
+        <?php echo $_SESSION['nickname']; ?>
+         , <?php $h=date('G');if ($h<5) echo '该休息了';else if ($h<11) echo '早上好呀';else if ($h<13) echo '到中午了';else if ($h<18) echo '下午好嘛';else echo '天黑了呢';?>
+      </p>
+    </div>
+    <div class="ex-dnavbar-userbox-descunderunfixbox">
+      <a onclick="exit(); return false" class="ex-dnavbar-userbox-descunderunfb" title="戳一下就退出哦w">注销 ></a>
+    </div>
+  </div>
+  <a href="index.php">
+  <div id="appfixbox">
+  <div class="ex-dnavbar-appbox">
+    <img src="../res/icons/bar/ic_task.png"/>
+    <div class="ex-dnavbar-appbox-text">主页</div>
+  </div>
+  </a>
+  <div class="ex-dnavbar-appbox" title="朝发白帝，暮到江陵">
+    <img src="../res/icons/bar/ic_chat.png"/>
+    <div class="ex-dnavbar-appbox-text">聊天</div>
+  </div>
+  
+  <a onclick="backtop(); return false" href="#">
+  <div class="ex-dnavbar-appbox" title="咻咻~">
+    <img src="../res/icons/bar/ic_backtop.png"/>
+    <div class="ex-dnavbar-appbox-text">顶部</div>
+  </div>
+  </a>
+  </div>
+</div>
+
+
+<!--退出提示-->
+<div class="toast" id="toast-exit" style="position:fixed;width:100%;height:69px;z-index:100;display:none;">
+    <label class="toast-label" style="font-family:微软雅黑;color:#ffffff;position:absolute;left:10%;line-height:45px;">你你你你你你你~真的要退出吗w</label>
+    <button class="btn" style="font-family:微软雅黑;color:#ffffff;position:absolute;right:10%;line-height:55px;font-size:16px;cursor:pointer;" onclick="window.location.href='logout.php'">是的</button>
+    <button id="cancelexit" class="btn" style="font-family:微软雅黑;color:#ffffff;position:absolute;right:20%;line-height:55px;font-size:16px;font-weight:bold;cursor:pointer;">不是</button>
+</div>
 	<article class="htmleaf-content">
-		
+		<div class="subtitle"><h2 style="color:#4fb4f7">个人中心<span style="font-size: 14px"> / UCenter</span></h2></div>
 			<!-- fieldsets -->
-			<div id="avatarset" class="card">
-				<h2 class="fs-title">露个脸呗</h2>
+			<center id="avatarset" class="card" z="3">
+				<h2 class="fs-title">露个脸呗<span style="font-size: 14px"> / Avatar</span></h2>
                 <h3 class="fs-subtitle">上传你的头像<span style="color:red">  建议使用正方形图片</span></h3>
 					<div id="showResult" style="display: block;">
         				<div style="width: 50%;margin: 0 auto;margin-top: 10px;">
             				<input id="image" type="file" accept="image/*" capture="camera">
         				</div>
-						<div id="changeAvatar" style="margin-top: 35px;"><img src="<?php echo $_SESSION['headimg']; ?>" style="width: 100px;margin-top: 10px;margin: 0 auto;display:block;border-radius: 50%">
+						<div id="changeAvatar" style="margin-top: 35px;"><img src="<?php echo $_SESSION['headimg']; ?>" class="avt">
         				</div>
     				</div>
     				<div id="showEdit" style="width: 400px; height: 400px; position: absolute; left: 15%; z-index: 9; display: none;">
@@ -158,25 +110,87 @@ $sql=mysqli_query($conn,"SELECT * FROM task_list WHERE regroup='{$group}'");
         						<span class="cropper-point point-se cropper-hidden" data-action="se"></span>
         					</div>
         			</div>
-   			 <textarea class="ta" name="txt" rows="10" id="basetxt" style="position:relative;width:100%;resize:none" onclick="this.checked = true" placeholder="base64码(测试用）"></textarea>
     
-   			</div>
-			<div id="pwset" class="card">
-				<h2 class="fs-title">修改密码</h2>
-				<h3 class="fs-subtitle">看准了，别写错</h3>
+   			</center> 
+            <!--这个模块需要对新的id验证是否与已有的id重复-->
+			<center id="pwset" class="card" z="3">
+				<h2 class="fs-title">个人信息<span style="font-size: 14px"> / Information</span></h2>
+				<h3 class="fs-subtitle">修改你的密码。看准了，别写错</h3>
 				<input class="ipt" type="password" name="pass" placeholder="不要告诉别人你的密码" />
 				<input class="ipt" type="password" name="cpass" placeholder="请再输一遍密码" />
-				<input type="button" name="submit2" class="next action-button" value="完成" />
-			</div>
-			<div id="infoset" class="card">
-				<h2 class="fs-title">信息变动？</h2>
-				<h3 class="fs-subtitle">修改SUsage ID，请来这里</h3>
-				<input class="ipt" type="text" name="fname" placeholder="新的昵称" />
-				<p style="color:#909090;font-size:12px;color:red">请牢记，这也是你的SUsage ID。</p>
-				<p style="color:#909090;font-size:12px">嗯，如果你改了大名，或者是部门调动，请联系管理员<span style="color:#4fb4f7">(主席团、电脑部网页组成员)</span>修改。</p>
-				<input type="submit" name="submit3" class="submit action-button" value="完成"/>
-			</div>
-      
+				<input type="button" name="submit2" class="btn raised green" style="width:60%" value="修改密码" />
+                <h3 class="fs-subtitle" style="color: #bdbdbd">—————— or ——————</h3>
+                <h3 class="fs-subtitle">修改SUsage ID和昵称，请来这里</h3>
+                <input class="ipt" type="text" name="fname" placeholder="新的昵称" />
+                <p style="color:#909090;font-size:12px;color:red">请牢记，这也是你的SUsage ID。</p>
+                <p style="color:#909090;font-size:12px">嗯，如果你改了大名，或者是部门调动，请联系管理员<span style="color:#4fb4f7">(主席团、电脑部APP组成员)</span>修改。</p>
+                <input type="submit" name="submit3" class="btn raised green" style="width:60%" value="确认昵称"/>
+			</center>
+            <center id="helper" class="card" z="3">
+                <h2 class="fs-title">反馈与帮助中心<span style="font-size: 14px"> / Feedback</span></h2>
+                <h3 class="fs-subtitle">遇到使用中的问题，或者寻求帮助，可以联系我们</h3>
+                
+                <h3 class="fs-subtitle" style="color: #bdbdbd">—————— 电脑部APP组 ——————</h3>
+                <center>
+                <div class="contact">
+                <p class="job">诸彦甫<span style="font-size: 12px"> / 项目执行负责人</span></p>
+                <input type="submit" name="contact1" class="btn raised blue" style="display:inline-block" value="留言或对话"/>
+                </div>
+                <div class="contact">
+                <p class="job">谭天<span style="font-size: 12px"> / 双电对口主席</span></p>
+                <input type="submit" name="contact1" class="btn raised blue" style="display:inline-block" value="留言或对话"/>
+                </div>
+                <div class="contact">
+                <p class="job">张镜濠<span style="font-size: 12px"> / 后端架构<s>攻城狮</s></span></p>
+                <input type="submit" name="contact1" class="btn raised blue" style="display:inline-block" value="留言或对话"/>
+                </div>
+                </center>
+
+                <h3 class="fs-subtitle" style="color: #bdbdbd;margin-top: 40px">—————— 主席团成员 ——————</h3>
+                <center>
+                <div class="contact">
+                <p class="job">虚位以待<span style="font-size: 12px"> / 管理员</span></p>
+                <input type="submit" name="contact1" class="btn raised blue" style="display:inline-block" value="留言或对话"/>
+                </div>
+                <div class="contact">
+                <p class="job">虚位以待<span style="font-size: 12px"> / 管理员</span></p>
+                <input type="submit" name="contact1" class="btn raised blue" style="display:inline-block" value="留言或对话"/>
+                </div>
+                <div class="contact">
+                <p class="job">虚位以待<span style="font-size: 12px"> / 管理员</span></p>
+                <input type="submit" name="contact1" class="btn raised blue" style="display:inline-block" value="留言或对话"/>
+                </div>
+                </center>
+                <center>
+                <div class="contact">
+                <p class="job">虚位以待<span style="font-size: 12px"> / 管理员</span></p>
+                <input type="submit" name="contact1" class="btn raised blue" style="display:inline-block" value="留言或对话"/>
+                </div>
+                <div class="contact">
+                <p class="job">虚位以待<span style="font-size: 12px"> / 管理员</span></p>
+                <input type="submit" name="contact1" class="btn raised blue" style="display:inline-block" value="留言或对话"/>
+                </div>
+                <div class="contact">
+                <p class="job">虚位以待<span style="font-size: 12px"> / 管理员</span></p>
+                <input type="submit" name="contact1" class="btn raised blue" style="display:inline-block" value="留言或对话"/>
+                </div>
+                </center>
+
+                <h3 class="fs-subtitle" style="color: #bdbdbd;margin-top: 40px">—————— 或者 ——————</h3>
+                <center>
+                <input type="submit" name="contact1" class="btn raised blue" style="display:inline-block" value="来用户群讨论"/>
+                &#12288;
+                <input type="submit" name="contact1" class="btn raised green" style="display:inline-block" value="来Github提交issue" onclick="window.location.href = 'https://github.com/zhxsu/SUsage/wiki/%E5%B8%AE%E5%8A%A9%E4%B8%8E%E5%8F%8D%E9%A6%88%E4%B8%AD%E5%BF%83-%7C-Hints-&-Feedbacks'" />
+                </center>
+            </center>
+            <center id="lab" class="card" z="3">
+                <h2 class="fs-title">实验室<span style="font-size: 14px"> / SUsage Lab</span></h2>
+                <h3 class="fs-subtitle">好玩的小功能都在这里~</h3>
+                    <p class="targetitem">全站https<span class="targetsw">施工中，默认关闭</span></p>
+                    <p class="targetitem">自动夜间模式<span class="targetsw">施工中，默认开启</span></p>
+                
+                <h3 class="fs-subtitle" style="color:#4fb4f7">更多功能即将到来~</h3>
+            </center>
 	</article>
 	
 	

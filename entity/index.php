@@ -35,6 +35,7 @@ else{
 <div class="ex-navbar-for-Desktop">
   <span class="mui-badge mui-badge-red" id="noti" style="display:none;left:250px" title="你收到了新通知"><b>New</b></span>
   <!--用户标签-->
+  <a href="ucenter.php" class="ex-dnavbar-userbox-descunderunfb" title="进入个人中心">
   <div class="ex-dnavbar-userbox">
     <div class="ex-dnavbar-userbox-avatarfixbox">
       <img src="<?php echo $_SESSION['headimg']; ?>" style="height:54px;width:54px;" />
@@ -42,13 +43,14 @@ else{
     <div class="ex-dnavbar-userbox-usernamefixbox">
       <p class="ex-dnacvar-userbox-username">
         <?php echo $_SESSION['nickname']; ?>
-         , <?php $h=date('G');if ($h<5) echo '该休息了';else if ($h<11) echo '早上好呀';else if ($h<13) echo '到中午了';else if ($h<17) echo '下午好嘛';else echo '天黑了呢';?>
+         , <?php $h=date('G');if ($h<5) echo '该休息了';else if ($h<11) echo '早上好呀';else if ($h<13) echo '到中午了';else if ($h<18) echo '下午好嘛';else echo '天黑了呢';?>
       </p>
     </div>
     <div class="ex-dnavbar-userbox-descunderunfixbox">
-      <a href="ucenter.php" class="ex-dnavbar-userbox-descunderunfb" title="进入个人中心">个人中心 ></a><span>&#12288;</span><a onclick="exit(); return false" class="ex-dnavbar-userbox-descunderunfb" title="戳一下就退出哦w">注销 ></a>
+      <a onclick="exit(); return false" class="ex-dnavbar-userbox-descunderunfb" title="戳一下就退出哦w">注销 ></a>
     </div>
   </div>
+  </a>
   <div id="appfixbox">
   <div class="ex-dnavbar-appbox appbox-selected">
   	<img src="../res/icons/bar/ic_task.png"/>
@@ -71,16 +73,16 @@ else{
 <!--导航栏结束 -->
 
 <!--退出提示-->
-<div class="toast" id="toast-exit" style="background-color:#FFA000;position:fixed;width:100%;height:75px;z-index:100;display:none;">
-	<label class="toast-label" style="font-family:微软雅黑;color:#ffffff;position:absolute;left:10%;line-height:55px;">你你你你你你你~真的要退出吗w</label>
-	<button class="btn flat" style="font-family:微软雅黑;color:#ffffff;position:absolute;right:10%;line-height:60px;font-size:16px" onclick="window.location.href='logout.php'">是的</button>
-    <button id="cancelexit" class="btn flat" style="font-family:微软雅黑;color:#ffffff;position:absolute;right:20%;line-height:60px;font-size:16px;font-weight:bold">不是</button>
+<div class="toast" id="toast-exit" style="position:fixed;width:100%;height:69px;z-index:100;display:none;">
+	<label class="toast-label" style="font-family:微软雅黑;color:#ffffff;position:absolute;left:10%;line-height:45px;">你你你你你你你~真的要退出吗w</label>
+	<button class="btn" style="font-family:微软雅黑;color:#ffffff;position:absolute;right:10%;line-height:55px;font-size:16px;cursor:pointer;" onclick="window.location.href='logout.php'">是的</button>
+    <button id="cancelexit" class="btn" style="font-family:微软雅黑;color:#ffffff;position:absolute;right:20%;line-height:55px;font-size:16px;font-weight:bold;cursor:pointer;">不是</button>
 </div>
 
 
 
 <!-- 放在顶上的链接-->
-<div id="about" class="ex-about" style="position:absolute;top:90px;width:100%;text-align:center;z-index:1;"><a onclick="displaynote(); return false">测试通知</a> · <a href="https://github.com/zhxsu/SUsage/wiki/%E5%B8%AE%E5%8A%A9%E4%B8%8E%E5%8F%8D%E9%A6%88%E4%B8%AD%E5%BF%83-%7C-Hints-&-Feedbacks" target="_blank" style="color:#00C853">帮助与反馈中心 </a>·<a href="http://zhxsu.github.io/SUsage/" target="_blank" style="color:#00C853"> 关于 | 开源许可及协议声明 </a> <span class="trick" title="用鼠标刮这里看看">试试alt+shift+g</span>  ©2016 <a href="http://weibo.com/zxsu32nd" target="_blank" style="color:#9e9e9e">执信学生会</a> <a href="http://weibo.com/zhxsupc" target="_blank"  style="color:#9e9e9e">电脑部</a> · In tech we trust
+<div id="about" class="ex-about" style="position:absolute;top:90px;width:100%;text-align:center;z-index:1;"><a onclick="displaynote(); return false">测试通知</a> · <a href="ucenter.php#helper" target="_blank" style="color:#00C853">帮助与反馈中心 </a>·<a href="http://zhxsu.github.io/SUsage/" target="_blank" style="color:#00C853"> 关于 | 开源许可及协议声明 </a> <span class="trick" title="用鼠标刮这里看看">试试alt+shift+g</span>  ©2016 <a href="http://weibo.com/zxsu32nd" target="_blank" style="color:#9e9e9e">执信学生会</a> <a href="http://weibo.com/zhxsupc" target="_blank"  style="color:#9e9e9e">电脑部</a> · In tech we trust
 <p style="position:relative;color:#FF0000;margin-top:5px;font-family:微软雅黑;font-size:14px;text-align:center">以防你在写任务的时候不小心刷新页面以致前功尽弃，本页面已禁用F5键【千万别以为键盘坏了x——夏酱</p></div>
 
 <!-- 发布器以及任务界面 -->
@@ -94,9 +96,9 @@ else{
 		<div class='tarea'>
 		<ul id='treeDemo' class='ztree'></ul></div>
 		</div>
-    	<button class='btn raised' id='submitbutton1' onclick='fwd(); return false' style='color:#fff;background-color:#4CAF50'>下一步</button>
-    	<button class='btn raised' id='backwardbutton' onclick='bwd(); return false' style='color:#fff;background-color:#4CAF50;display:none'>上一步</button>
-    	<button class='btn raised' id='submitbutton2' style='color:#fff;background-color:#4CAF50;display:none' onclick='PostTask();'>发布任务</button>
+    	<button class='btn raised green' id='submitbutton1' onclick='fwd(); return false'>下一步</button>
+    	<button class='btn raised green' id='backwardbutton' onclick='bwd(); return false' style='display:none'>上一步</button>
+    	<button class='btn raised green' id='submitbutton2' style='display:none' onclick='PostTask();'>发布任务</button>
         
 	</div>
 		<p id="tips1">● 你的任务</p>
@@ -119,11 +121,11 @@ $headimg=$info['headimg'];
 	<?php
 		$tname=$_SESSION['SUname'];
 		if ($name==$tname) {
-			echo "<button class='del btn raised raised'>删除此任务</button>";
+			echo "<button class='del btn raised raised red'>删除此任务</button>";
 			echo "<a class='finishsum' href=''><span class='sumsty'>0</span>人完成了你的任务</a>";
 		}
 		else{
-			echo "<button class='btn raised mark'>标记为完成！</button>";
+			echo "<button class='btn raised mark blue'>标记为完成！</button>";
 		}
 
 	?>
@@ -185,9 +187,8 @@ function PostTask(){
 			{ id:3, pId:0, name:"公关部"},
 			{ id:4, pId:0, name:"电脑部", nocheck:true},
 			{ id:5, pId:4, name:"美工组"},
-			{ id:6, pId:4, name:"网页组"},
+			{ id:6, pId:4, name:"APP组"},
 			{ id:7, pId:4, name:"视频组"},
-			{ id:8, pId:4, name:"flash组"},
 			{ id:9, pId:4, name:"后台组"},
 			{ id:10, pId:0, name:"广播站"},
 			{ id:11, pId:0, name:"电视台", nocheck:true},
@@ -249,8 +250,6 @@ function lockf5()
 document.onkeydown = function(){easteregg();lockf5();};
 
 		
-	//组长模式
-	function dl(){postmodule.style.display = '';renwu.style.top = '670px';liebiao.style.top = '730px'}
 
 	var iptbox = document.getElementById('edtcontainer');
 	var treebox = document.getElementById('treecontainer');

@@ -23,8 +23,6 @@
 .mark
 {
 	position:absolute;
-	color:#fff;
-	background-color:#2196F3;
 	font-family: "microsoft yahei";
 	right:15px;
 	bottom:15px
@@ -32,8 +30,6 @@
 .del
 {
 	position:absolute;
-	color:#fff;
-	background-color:#d50000;
 	font-family: "microsoft yahei";
 	left:15px;
 	bottom:15px
