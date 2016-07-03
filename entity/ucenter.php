@@ -118,12 +118,12 @@ require_once("../functions/to_sql.php");
 			<center id="pwset" class="card">
 				<h2 class="fs-title">个人信息<span style="font-size: 14px"> / Information</span></h2>
 				<h3 class="fs-subtitle">修改你的密码。看准了，别写错</h3>
-				<input class="ipt" type="password" name="pass" placeholder="不要告诉别人你的密码" />
-				<input class="ipt" type="password" name="cpass" placeholder="请再输一遍密码" />
+				<input class="text-input ipt" type="password" name="pass" placeholder="不要告诉别人你的密码" />
+				<input class="text-input ipt" type="password" name="cpass" placeholder="请再输一遍密码" />
 				<input type="button" name="submit2" class="btn raised green" style="width:60%" value="修改密码" />
                 <h3 class="fs-subtitle" style="color: #bdbdbd">—————— or ——————</h3>
                 <h3 class="fs-subtitle">修改SUsage ID和昵称，请来这里</h3>
-                <input class="ipt" type="text" name="fname" placeholder="新的昵称" />
+                <input class="text-input ipt" type="text" name="fname" placeholder="新的昵称" />
                 <p style="color:#909090;font-size:12px;color:red">请牢记，这也是你的SUsage ID。</p>
                 <p style="color:#909090;font-size:12px">嗯，如果你改了大名，或者是部门调动，请联系管理员<span style="color:#4fb4f7">(主席团、电脑部APP组成员)</span>修改。</p>
                 <input type="submit" name="submit3" class="btn raised green" style="width:60%" value="确认昵称"/>

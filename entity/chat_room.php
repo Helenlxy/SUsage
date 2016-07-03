@@ -124,7 +124,7 @@ $chatcontent=mysqli_query($conn,$ccsql);
 
 <!-- 收件箱结束-->
 </div>
-
+</div>
 <!--脚本引用-->
 <script src="/SUsage/res/js/jquery-2.2.1.min.js"></script>
 <script src="/SUsage/res/js/basic.js"></script>
@@ -144,7 +144,7 @@ function send(){
   var SRID=<?php echo $you; ?>;
   $.ajax({
   type:"post",
-  url:"../../functions/Chat_Send.php",
+  url:"../functions/Chat/Chat_Send.php",
   data:{RID:SRID,SID:SSID,Content:CT},
   success:function(got){posted=1;
   // 以下代码包括部分测试代码
@@ -153,14 +153,8 @@ function send(){
   else{alert(666);}
   alert(0);
   },
-  error:function(e){alert(9);},
+  error:function(e){alert(9);}
   });
- }
-}
-
-function easteregg(){
- if(event.altKey  &&  event.shiftKey  &&  event.keyCode == 71){
-  window.location.href = "about.html";
  }
 }
 

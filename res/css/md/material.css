@@ -108,7 +108,7 @@ p {
 	box-sizing: content-box;
 	border: 0;
 	border-radius: 0;
-	border-bottom: 1px solid #2196f3;
+	border-bottom: 2px solid #2196f3;
 	background-color:transparent;
 	-webkit-transition: border-color .3s;
 	transition: border-color .3s;
@@ -120,7 +120,7 @@ p {
 }
 
 .text-input:not(:focus) {
-	border-bottom-color: rgba(0,0,0,0.12)!important
+	border-bottom-color: #9E9E9E!important
 }
 
 .text-input:focus {
