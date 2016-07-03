@@ -10,7 +10,7 @@
 
 <p>TaskSYS V0.7-pre alpha A1</p>
 <p>VegeChat V0.6-milestone5</p>
-<p>UCenter V1.5-alpha3</p>
+<p>UCenter V1.5-pre alpha3</p>
 <p>AdminSYS V1.1-alpha2</p>
 <p>FileTour V0.4-milestone6【未来project】</p>
 <p><b>Latest update：2016.7.3 0:00</b></p>
