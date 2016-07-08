@@ -19,7 +19,6 @@
         <li><a href="/SUsage/Admin/User/toResetList.php?sutk=<?php echo $SUtoken; ?>">用户重置密码</a></li>
         <li class="divider"></li>
         <!--<li><a href="/SUsage/Admin/Log/toList.php">操作记录</a></li>-->
-        <li><a href="/SUsage/Admin/Sys/toRolePurview.php?sutk=<?php echo $SUtoken; ?>">查看角色权限</a></li>
         <li><a href="/SUsage/Admin/Sys/toSetRoleList.php?sutk=<?php echo $SUtoken; ?>">用户角色配置</a></li>
       </ul>
     </li>

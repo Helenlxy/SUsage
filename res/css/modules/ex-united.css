@@ -23,7 +23,7 @@ border-radius: 3px;
 #appfixbox
 {
 	float:left;
-	padding-left:140px;
+	margin-left:120px;
 }
 
 .ex-dnavbar-appbox
@@ -65,7 +65,7 @@ border-radius: 3px;
 	position:relative;
 	top:0px;
 	float:right;
-	margin-right:140px;
+	margin-right:120px;
 	transition-duration:0.2s;
 	transition-property:background;
 }

@@ -40,16 +40,21 @@ if(isset($_POST) && $_POST){
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SUsage 管理中心 :: 登录</title>
-
 <!-- Bootstrap -->
 <link href="css/bootstrap.css" rel="stylesheet">
+<style>
+  a{color:#fff;}
+  a:hover{color:#fff}
+  p{color:#fff;}
+  </style>
 </head>
 <body style="font-family:Microsoft YaHei;padding-top:100px;background-color:#66BB6A">
 <br>
 <div class="container text-center">
 <div class="row text-center" style="padding-top:40px"> 
 <div class="well col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center col-xs-10 col-xs-offset-1">
-  <h3 style="color:#4CAF50">欢迎回来，SUsage Administrator</h3><br><a style="position:absolute;top:13px;left:5%;cursor:pointer" onclick="history.back()" >返回上一页</a>
+ <p style="color:red">！！！重大bug：普权用户可以登录后台！！！</p>
+  <h3 style="color:#4CAF50">欢迎回来，SUsage Administrator</h3>
   <div class="col-md-offset-2 col-md-8" style="line-height:12px;">
     <form method="post">
       <div class="input-group">

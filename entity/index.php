@@ -93,7 +93,7 @@ else{
 		<textarea id='textarea1' style='position:inherit;border-radius:5px;height:390px;width:100%;padding:0px 0px 0px 0px;display:block' onkeyup="CheckValue()"></textarea>
 		</div>
 		<div id='treecontainer' style='display:none'><div style="z-index:999999">
-								<center style="line-height:10px;font-size: 13px">请在下方勾选任务的接收组别。当此组别被勾选后，此组别下所有的成员将接收到该任务。</center>
+								<center style="line-height:10px;font-size: 13px">请在下方的复选框勾选任务的接收组别。当此组别被勾选后，此组别下所有的成员将接收到该任务。</center>
                                 <div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block">
                                     <input type="checkbox" id="checkNWB" />
                                     <label for="checkNWB" style="display:inline-block"></label>
@@ -193,7 +193,7 @@ else{
     	<button class='btn raised green' id='submitbutton2' style='display:none' onclick='PostTask();'>发布任务</button>
         
 	</div>
-		<p id="tips1">● 你的任务</p>
+		<p id="tips1">———— 你的任务 ————</p>
 		<div id="listarea">
 		
 <?php 
@@ -235,7 +235,7 @@ $headimg=$info['headimg'];
 
 <!--脚本引用-->
 <script src="../res/js/jquery-2.2.1.min.js"></script>
-<script type="text/javascript" src="../res/js/wangEditor.js"></script>
+<script src="../res/js/wangEditor.js"></script>
 <script src="../res/js/basic.js"></script>
 
 <!--wangeditor操作--><!--这里需要修改有关判断编辑区是否为空的代码-->

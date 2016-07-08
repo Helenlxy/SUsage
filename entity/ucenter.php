@@ -79,7 +79,7 @@ require_once("../functions/to_sql.php");
 			<!-- fieldsets -->
 			<center id="avatarset" class="card">
 				<h2 class="fs-title">露个脸呗<span style="font-size: 14px"> / Avatar</span></h2>
-                <h3 class="fs-subtitle">上传你的头像<span style="color:red">  建议使用正方形图片</span></h3>
+                <h3 class="fs-subtitle">上传你的头像<span style="color:red">  建议使用正方形图片</span><br><span style="color:red">墙裂建议在更换图像前确认你“更改信息”模块中填写的数据已提交</span></h3>
 					<div id="showResult" style="display: block;">
         				<div style="width: 50%;margin: 0 auto;margin-top: 10px;">
             				<input id="image" type="file" accept="image/*" capture="camera">
@@ -186,7 +186,7 @@ require_once("../functions/to_sql.php");
                 </center>
             </center>
 	</article>
-	
+        <script src="../res/js/basic.js"></script>
 	   <script>
        function easteregg(){
             if(event.altKey  &&  event.shiftKey  &&  event.keyCode == 71){
