@@ -9,7 +9,7 @@
 * ------------------------------------
 */
   if(!isset($flag)){
-    die("<b>403 <br> You Don't Have Permission to Read.");
+    die("访问错误 <b>403 <br> 你应该没有获得读取许可.");
   }
   
   $dbcon=null;

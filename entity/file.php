@@ -1,4 +1,4 @@
-﻿<?php 
+<?php 
 session_start();
 require_once("../functions/to_sql.php");
 $group=$_SESSION['group'];
