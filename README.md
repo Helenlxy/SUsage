@@ -13,7 +13,7 @@
 <p>UCenter V1.5-pre alpha A3</p>
 <p>AdminSYS V1.1-alpha2</p>
 <p>FileTour V0.4-milestone6【未来project】</p>
-<p><b>Latest update：2016.7.8 15:54</b></p>
+<p><b>Latest update：2016.7.8 18:25</b></p>
 <b>©2016 执信学生会 电脑部</b>
 <p>  </p>
 <b>Created By @yyl99311 | @df7c5117 | @GhostShadowTan | @橡胶人AS </b>
@@ -39,9 +39,8 @@
   <p><s>雅号香肠</s></p>
 <h3>好处都有啥w</h3>
   <s>有了SUsage，不流失不蒸发</s>
-  <p>可以发布公告、通知、站内信，布置任务省时省力。</p>
-  <p>界面美观又漂亮,【咦有语病</p><p><s>这真的是Material Design吗w</s></p>
-  <b>!!!!!!!!任务没接好可是会被打脸的哟!!!!!!!!</b>
+  <p>可以发布公告、通知、私信，布置任务省时省力。</p>
+  <p>界面美观又漂亮,【咦有语病</p>
 <h3>配置</h3>
   <h4><p>本地可以使用<b>XAMPP1.8.2+</b>调试，服务器端建议最低配置PHP5.6.21+, Apache 2.4.17+, phpMyAdmin 4.5.1+</p></h4>
   <p>You can use <b>XAMPP1.8.2+</b> for local debugging.The recommend requirement for Server-side is PHP5.6.21+, Apache 2.4.17+, phpMyAdmin 4.5.1+</p>
@@ -60,6 +59,10 @@
   <h4><p><b>点击确认后将Salt和inDB复制，粘帖进数据库中“salt”和“pw”即可。</b></p></h4>
   <p>Copy the Salt and inDB into <b>salt</b> and <b>pw</b> of database after click permit</p>
 <h3>近期的事情</h3>
+<p><b>----2016.7.8----</b></p>
+  <p>全新界面定名为S interface</p>
+  <p>新增实验性版块：SUsage FileTour</p>
+  <s>bug一个都没补</s>
 <p><b>----2016.7.1----</b></p>
   <p>界面改版，全新视觉体验</p>
   <p>新增实验性功能：Auto NightShift</p>
