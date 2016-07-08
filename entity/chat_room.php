@@ -35,8 +35,8 @@ $tname=$r['tname'];
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <?php $h=date('G');if ($h<6) echo '<link rel="stylesheet" href="../res/css/themes/night.css" />';else if ($h>22) echo '<link rel="stylesheet" href="../res/css/themes/night.css" />';else echo '<link rel="stylesheet" href="../res/css/themes/day.css" />';?>
-<link rel="stylesheet" href="/SUsage/res/css/md/material.css" />
-<link rel="stylesheet" href="/SUsage/res/css/modules/ex-mail.css" />
+<link rel="stylesheet" href="../res/css/themes/Sinterface.css" />
+<link rel="stylesheet" href="/SUsage/res/css/modules/ex-chat.css" />
 <link rel="stylesheet" href="../res/css/modules/ex-united.css" />
 <title>朝发白帝，暮到江陵 / VegeChat </title>
 <link rel="shortcut icon" href="/SUsage/res/icons/title/chat_128X128.ico"/>

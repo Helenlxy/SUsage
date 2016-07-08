@@ -10,10 +10,10 @@ require_once("../functions/to_sql.php");
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>个人中心 / SUsage UCenter</title>
    	<link rel="stylesheet" type="text/css" href="../res/css/modules/ex-ucenter.css">
-    <link rel="stylesheet" href="../res/css/ucenter/cropper.min.css">
+    <link rel="stylesheet" href="../res/css/editor/cropper.min.css">
     <link rel="shortcut icon" href="../res/icons/title/login_128X128.ico"/>
     <?php $h=date('G');if ($h<6) echo '<link rel="stylesheet" href="../res/css/themes/night.css" />';else if ($h>22) echo '<link rel="stylesheet" href="../res/css/themes/night.css" />';else echo '<link rel="stylesheet" href="../res/css/themes/day.css" />';?>
-    <link rel="stylesheet" href="../res/css/md/material.css" />
+<link rel="stylesheet" href="../res/css/themes/Sinterface.css" />
     <link rel="stylesheet" href="../res/css/modules/ex-united.css" />
     <script src="../res/js/lrz.all.bundle.js"></script>
     <script src="../res/js/jquery-2.2.1.min.js" type="text/javascript"></script>
@@ -79,7 +79,7 @@ require_once("../functions/to_sql.php");
 			<!-- fieldsets -->
 			<center id="avatarset" class="card">
 				<h2 class="fs-title">露个脸呗<span style="font-size: 14px"> / Avatar</span></h2>
-                <h3 class="fs-subtitle">上传你的头像<span style="color:red">  建议使用正方形图片</span><br><span style="color:red">墙裂建议在更换图像前确认你“更改信息”模块中填写的数据已提交</span></h3>
+                <h3 class="fs-subtitle">上传你的头像<span style="color:red">  建议使用正方形图片</span><br><span style="color:red">墙裂建议在更换图像前确认你“个人信息”模块中填写的数据已提交</span></h3>
 					<div id="showResult" style="display: block;">
         				<div style="width: 50%;margin: 0 auto;margin-top: 10px;">
             				<input id="image" type="file" accept="image/*" capture="camera">

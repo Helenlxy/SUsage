@@ -248,7 +248,7 @@ p {
 }
 
 .list>li.divider {
-	background-color: rgba(0,0,0,0.12);
+	background-color:#a0a0a0;
 	height: 1px;
 	padding: 0;
 	box-sizing: border-box
@@ -271,7 +271,6 @@ p {
 	transform: translate(-50%,-50%);
 	font-size: 1.5em
 }
-
 .list>li .item-text,.grid-list>.tile>.tile-footer>.item-text {
 	font-size: 1em;
 	display: inline-block;
@@ -312,7 +311,6 @@ p {
 	display: inline-block;
 	padding: .5em 0;
 	list-style: none;
-	background-color: #fff;
 	color: rgba(0,0,0,0.87);
 	margin: 0;
 	padding: 0;
@@ -321,25 +319,9 @@ p {
 	transition: all .2s
 }
 
-.menu li {
-	height: 2em;
-	line-height: 2em;
-	width: 100%;
-	box-sizing: border-box;
-	vertical-align: top;
-	transition: all .2s;
-	max-height: 3em;
-	display: list-item
+.selected{
+	background-color: #c0c0c0;
 }
-
-.menu li>a {
-	display: block;
-	padding: 0 1.5em;
-	text-decoration: none;
-	color: inherit;
-	transform: all .2s
-}
-
 .sidemenu {
 	position: fixed;
 	top: 0;
@@ -348,20 +330,8 @@ p {
 	width: 80%;
 	max-width: 25em;
 	z-index: 10000;
-	background: #fff;
-	-webkit-transition: .75s margin-left,0.2s box-shadow;
-	transition: .75s margin-left,0.2s box-shadow;
 	overflow: auto;
 	z-index: 999
-}
-
-.sidemenu .menu i {
-	padding: 0 2rem 0 0;
-	font-size: 1.5em
-}
-
-.sidemenu .menu li:not(.selected) i {
-	opacity: .63
 }
 
 .sidemenu .menu h2,.sidemenu .menu .subheading {

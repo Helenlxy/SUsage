@@ -34,7 +34,7 @@ if($_POST['login']){
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>欢迎回来 / SUsage Login</title>
   <link rel="stylesheet" type="text/css" href="/SUsage/res/css/modules/ex-ucenter.css">
-  <link rel="stylesheet" type="text/css" href="/SUsage/res/css/md/material.css">
+<link rel="stylesheet" href="../res/css/themes/Sinterface.css" />
   <link rel="shortcut icon" href="/SUsage/res/icons/title/login_128X128.ico"/>
 </head>
 
