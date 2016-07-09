@@ -46,28 +46,30 @@ else{
       </p>
     </div>
     <div class="ex-dnavbar-userbox-descunderunfixbox">
-      <a onclick="exit(); return false" class="ex-dnavbar-userbox-descunderunfb" title="戳一下就退出哦w">注销 ></a>
+      <a onclick="backtop(); return false" class="ex-dnavbar-userbox-descunderunfb" href="#">返回顶部 ▲ </a>&#12288;<a onclick="exit(); return false" class="ex-dnavbar-userbox-descunderunfb" title="戳一下就退出哦w">注销 ></a>
     </div>
   </div>
   </a>
+  
   <div id="appfixbox">
   <div class="ex-dnavbar-appbox appbox-selected">
-  	<img src="../res/icons/bar/ic_task.png"/>
-  	<div class="ex-dnavbar-appbox-text">主页</div>
+    <img src="../res/icons/bar/ic_task.png"/>
+    <div class="ex-dnavbar-appbox-text">主页</div>
   </div>
+  
   <a href="chat.php">
   <div class="ex-dnavbar-appbox" title="朝发白帝，暮到江陵">
-  	<img src="../res/icons/bar/ic_chat.png"/>
-  	<div class="ex-dnavbar-appbox-text">聊天</div>
+    <img src="../res/icons/bar/ic_chat.png"/>
+    <div class="ex-dnavbar-appbox-text">聊天</div>
   </div>
   </a>
-  <a onclick="backtop(); return false" href="#">
-  <div class="ex-dnavbar-appbox" title="咻咻~">
-  	<img src="../res/icons/bar/ic_backtop.png"/>
-    <div class="ex-dnavbar-appbox-text">顶部</div>
+  <a href="file.php">
+  <div class="ex-dnavbar-appbox" title="来不及了，快上车！">
+    <img src="../res/icons/bar/ic_files.png"/>
+    <div class="ex-dnavbar-appbox-text">文件</div>
   </div>
   </a>
-	</div>
+ </div>
 </div>
 <!--导航栏结束 -->
 
@@ -81,7 +83,7 @@ else{
 
 
 <!-- 放在顶上的链接-->
-<div id="about" class="ex-about" style="position:absolute;top:90px;width:100%;text-align:center;z-index:1;"><a onclick="displaynote(); return false">测试通知</a> · <a href="ucenter.php#helper" target="_blank" style="color:#00C853">帮助与反馈中心 </a>·<a href="http://zhxsu.github.io/SUsage/" target="_blank" style="color:#00C853"> 关于 | 开源许可及协议声明 </a> <span class="trick" title="用鼠标刮这里看看">试试alt+shift+g</span> SUsage 版本1D23 ©2016 <a href="http://weibo.com/zxsu32nd" target="_blank" style="color:#9e9e9e">执信学生会</a> <a href="http://weibo.com/zhxsupc" target="_blank"  style="color:#9e9e9e">电脑部</a> · In tech we trust
+<div id="about" class="ex-about" style="position:absolute;top:90px;width:100%;text-align:center;z-index:1;"><a onclick="displaynote(); return false">测试通知</a> · <a href="ucenter.php#helper" target="_blank" style="color:#00C853">帮助与反馈中心 </a>·<a href="http://zhxsu.github.io/SUsage/" target="_blank" style="color:#00C853"> 关于 | 开源许可及协议声明 </a> <span class="trick" title="用鼠标刮这里看看">试试alt+shift+g</span> SUsage 版本1D32 ©2016 <a href="http://weibo.com/zxsu32nd" target="_blank" style="color:#9e9e9e">执信学生会</a> <a href="http://weibo.com/zhxsupc" target="_blank"  style="color:#9e9e9e">电脑部</a> · In tech we trust
 </div>
 
 <!-- 发布器以及任务界面 -->

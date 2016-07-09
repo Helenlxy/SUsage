@@ -26,7 +26,6 @@ require_once("../functions/to_sql.php");
     </script>
 </head>
 <body>
-	<!--通知popup-->
 
 <div class="ex-navbar-for-Desktop">
   <span class="mui-badge mui-badge-red" id="noti" style="display:none;left:250px" title="你收到了新通知"><b>New</b></span>
@@ -42,12 +41,13 @@ require_once("../functions/to_sql.php");
       </p>
     </div>
     <div class="ex-dnavbar-userbox-descunderunfixbox">
-      <a onclick="exit(); return false" class="ex-dnavbar-userbox-descunderunfb" title="戳一下就退出哦w">注销 ></a>
+      <a onclick="backtop(); return false" class="ex-dnavbar-userbox-descunderunfb" href="#">返回顶部 ▲ </a>&#12288;<a onclick="exit(); return false" class="ex-dnavbar-userbox-descunderunfb" title="戳一下就退出哦w">注销 ></a>
     </div>
   </div>
-  <a href="index.php">
+  
   <div id="appfixbox">
-  <div class="ex-dnavbar-appbox">
+  <a href="index.php">
+  <div class="ex-dnavbar-appbox" title="接好任务啊~">
     <img src="../res/icons/bar/ic_task.png"/>
     <div class="ex-dnavbar-appbox-text">主页</div>
   </div>
@@ -58,13 +58,13 @@ require_once("../functions/to_sql.php");
     <div class="ex-dnavbar-appbox-text">聊天</div>
   </div>
   </a>
-  <a onclick="backtop(); return false" href="#">
-  <div class="ex-dnavbar-appbox" title="咻咻~">
-    <img src="../res/icons/bar/ic_backtop.png"/>
-    <div class="ex-dnavbar-appbox-text">顶部</div>
+   <a href="file.php">
+  <div class="ex-dnavbar-appbox" title="来不及了，快上车！">
+    <img src="../res/icons/bar/ic_files.png"/>
+    <div class="ex-dnavbar-appbox-text">文件</div>
   </div>
   </a>
-  </div>
+ </div>
 </div>
 
 
@@ -79,7 +79,7 @@ require_once("../functions/to_sql.php");
 			<!-- fieldsets -->
 			<center id="avatarset" class="card">
 				<h2 class="fs-title">露个脸呗<span style="font-size: 14px"> / Avatar</span></h2>
-                <h3 class="fs-subtitle">上传你的头像<span style="color:red">  建议使用正方形图片</span><br><span style="color:red">墙裂建议在更换图像前确认你“个人信息”模块中填写的数据已提交</span></h3>
+                <h3 class="fs-subtitle">上传你的头像<span style="color:red">  建议使用正方形图片</span><br><span style="color:#00c853">墙裂建议在更换图像前确认你“个人信息”模块中填写的数据已提交</span></h3>
 					<div id="showResult" style="display: block;">
         				<div style="width: 50%;margin: 0 auto;margin-top: 10px;">
             				<input id="image" type="file" accept="image/*" capture="camera">

@@ -36,13 +36,13 @@ $sql=mysqli_query($conn,"SELECT * FROM task_list WHERE regroup='{$group}'");
       </p>
     </div>
     <div class="ex-dnavbar-userbox-descunderunfixbox">
-      <a onclick="exit(); return false" class="ex-dnavbar-userbox-descunderunfb" title="戳一下就退出哦w">注销 ></a>
+      <a onclick="backtop(); return false" class="ex-dnavbar-userbox-descunderunfb" href="#">返回顶部 ▲ </a>&#12288;<a onclick="exit(); return false" class="ex-dnavbar-userbox-descunderunfb" title="戳一下就退出哦w">注销 ></a>
     </div>
   </div>
   </a>
-  <a href="index.php">
   <div id="appfixbox">
-  <div class="ex-dnavbar-appbox">
+  <a href="index.php">
+  <div class="ex-dnavbar-appbox" title="接好任务啊~">
     <img src="../res/icons/bar/ic_task.png"/>
     <div class="ex-dnavbar-appbox-text">主页</div>
   </div>
@@ -53,13 +53,11 @@ $sql=mysqli_query($conn,"SELECT * FROM task_list WHERE regroup='{$group}'");
     <div class="ex-dnavbar-appbox-text">聊天</div>
   </div>
   </a>
-  <a onclick="backtop(); return false" href="#">
-  <div class="ex-dnavbar-appbox" title="咻咻~">
-    <img src="../res/icons/bar/ic_backtop.png"/>
-    <div class="ex-dnavbar-appbox-text">顶部</div>
+  <div class="ex-dnavbar-appbox appbox-selected" title="来不及了，快上车！">
+    <img src="../res/icons/bar/ic_files.png"/>
+    <div class="ex-dnavbar-appbox-text">文件</div>
   </div>
-  </a>
-    </div>
+ </div>
 </div>
 <!--导航栏结束 -->
 

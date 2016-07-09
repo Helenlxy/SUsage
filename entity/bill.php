@@ -26,7 +26,6 @@ require_once("../functions/to_sql.php");
     </script>
 </head>
 <body>
-	<!--通知popup-->
 
 <div class="ex-navbar-for-Desktop">
   <span class="mui-badge mui-badge-red" id="noti" style="display:none;left:250px" title="你收到了新通知"><b>New</b></span>
@@ -43,13 +42,13 @@ require_once("../functions/to_sql.php");
       </p>
     </div>
     <div class="ex-dnavbar-userbox-descunderunfixbox">
-      <a onclick="exit(); return false" class="ex-dnavbar-userbox-descunderunfb" title="戳一下就退出哦w">注销 ></a>
+      <a onclick="backtop(); return false" class="ex-dnavbar-userbox-descunderunfb" href="#">返回顶部 ▲ </a>&#12288;<a onclick="exit(); return false" class="ex-dnavbar-userbox-descunderunfb" title="戳一下就退出哦w">注销 ></a>
     </div>
   </div>
   </a>
-  <a href="index.php">
   <div id="appfixbox">
-  <div class="ex-dnavbar-appbox">
+  <a href="index.php">
+  <div class="ex-dnavbar-appbox" title="接好任务啊~">
     <img src="../res/icons/bar/ic_task.png"/>
     <div class="ex-dnavbar-appbox-text">主页</div>
   </div>
@@ -60,13 +59,13 @@ require_once("../functions/to_sql.php");
     <div class="ex-dnavbar-appbox-text">聊天</div>
   </div>
   </a>
-  <a onclick="backtop(); return false" href="#">
-  <div class="ex-dnavbar-appbox" title="咻咻~">
-    <img src="../res/icons/bar/ic_backtop.png"/>
-    <div class="ex-dnavbar-appbox-text">顶部</div>
+  <a href="file.php">
+  <div class="ex-dnavbar-appbox" title="来不及了，快上车！">
+    <img src="../res/icons/bar/ic_files.png"/>
+    <div class="ex-dnavbar-appbox-text">文件</div>
   </div>
   </a>
-  </div>
+ </div>
 </div>
 
 
@@ -78,7 +77,7 @@ require_once("../functions/to_sql.php");
 </div>
 	<article class="htmleaf-content">
 		<div class="subtitle"><h2 style="color:#4fb4f7">账务公开<span style="font-size: 14px"> / BillList</span></h2></div>
-			<center style="margin-top:120px">nothing yet</center>
+			<center style="margin-top:120px">喂！这里是里区，你怎么进来的……<br><s>反正你也没有权限，啥都看不到~</s></center>
 	</article>
         <script src="../res/js/basic.js"></script>
 	   <script>
