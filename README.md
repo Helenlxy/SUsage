@@ -23,7 +23,7 @@
 <p>  </p>
 <b>Contact:zhxsuwebgroup@live.com</b>
 <p>  </p>
-<b>Every one can modified it except for the already existing codes </b>
+<b>Everyone can modified it except for the already existing codes </b>
 <p>  </p>
 <br></br>
 <h4>本Repo迁移自原zhxsuwebgroup/SUsage<br>在登陆后界面按某个组合键有彩蛋哦~<s>才不会告诉你是alt+shift+g呢</s></h4>
