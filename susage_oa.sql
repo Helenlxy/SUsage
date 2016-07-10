@@ -1,9 +1,9 @@
-﻿-- phpMyAdmin SQL Dump
+-- phpMyAdmin SQL Dump
 -- version 4.5.1
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2016-06-07 13:26:09
+-- Generation Time: 2016-07-10 10:15:45
 -- 服务器版本： 10.1.10-MariaDB
 -- PHP Version: 5.6.19
 
@@ -94,7 +94,7 @@ CREATE TABLE `sys_user` (
 INSERT INTO `sys_user` (`id`, `stuid`, `tname`, `sname`, `headimg`, `pw`, `dep`, `depgroup`, `status`, `salt`, `job`, `isMaster`, `isAdmin`, `isSuper`) VALUES
 (1, 'jerry', '张镜濠', 'z', '/SUsage/storage/avatar/avatar-zjh.png', '020763a7cb41ef19fbbf89abc8ebc496', '电视台', '电视台', '已激活', '4s2n7s', '超级管理员', '1', '1', '1'),
 (2, 'ghost', '谭震荡', 'T', '/SUsage/storage/avatar/avatar-tan.jpg', 'be0965fac5813089178e0ed4dfbd839a', '电视台', '电脑部', '未激活', 'QG11L1', '用户', '0', '0', '0'),
-(3, 'Enatsu', '夏姐姐', 'X', '/SUsage/storage/avatar/avatar-5117.jpg', 'eda023d1967a2b7afadc15e138576dbd', '电视台', '电视台', '已激活', 'BEGW54', '管理员', '1', '1', '0');
+(3, 'Enatsu', '夏酱', 'X', '/SUsage/storage/avatar/avatar-5117.jpg', 'eda023d1967a2b7afadc15e138576dbd', '电视台', '电视台', '已激活', 'BEGW54', '管理员', '1', '1', '0');
 
 -- --------------------------------------------------------
 
@@ -118,7 +118,7 @@ CREATE TABLE `task_list` (
 
 INSERT INTO `task_list` (`id`, `pubman`, `pubgroup`, `regroup`, `topic`, `content`, `pubtime`) VALUES
 (1, '张镜濠', '电脑部 DC组', '电视台', '任务标题', '<font color="red">Red Font</font><font color="green"><b>Big Green</b></font>', '2016-05-16 19:01:00'),
-(3, '夏姐姐', '电脑部 网页组', '电视台', '任务标题', '你们有一个好 全世界跑到什么地方……', '2016-05-28 01:44:08');
+(3, '夏酱', '电脑部 网页组', '电视台', '任务标题', '你们有一个好 全世界跑到什么地方……', '2016-05-28 01:44:08');
 
 --
 -- Indexes for dumped tables
