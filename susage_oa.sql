@@ -1,4 +1,4 @@
--- phpMyAdmin SQL Dump
+﻿-- phpMyAdmin SQL Dump
 -- version 4.5.1
 -- http://www.phpmyadmin.net
 --
@@ -94,7 +94,7 @@ CREATE TABLE `sys_user` (
 INSERT INTO `sys_user` (`id`, `stuid`, `tname`, `sname`, `headimg`, `pw`, `dep`, `depgroup`, `status`, `salt`, `job`, `isMaster`, `isAdmin`, `isSuper`) VALUES
 (1, 'jerry', '张镜濠', 'z', '/SUsage/storage/avatar/avatar-zjh.png', '020763a7cb41ef19fbbf89abc8ebc496', '电视台', '电视台', '已激活', '4s2n7s', '超级管理员', '1', '1', '1'),
 (2, 'ghost', '谭震荡', 'T', '/SUsage/storage/avatar/avatar-tan.jpg', 'be0965fac5813089178e0ed4dfbd839a', '电视台', '电脑部', '未激活', 'QG11L1', '用户', '0', '0', '0'),
-(3, 'Enatsu', '夏姐姐', 'X', '/SUsage/storage/avatar/avatar-5117.jpg', 'eda023d1967a2b7afadc15e138576dbd', '电视台', '电视台', '已激活', 'BEGW54', '超级管理员', '1', '1', '1');
+(3, 'Enatsu', '夏姐姐', 'X', '/SUsage/storage/avatar/avatar-5117.jpg', 'eda023d1967a2b7afadc15e138576dbd', '电视台', '电视台', '已激活', 'BEGW54', '管理员', '1', '1', '0');
 
 -- --------------------------------------------------------
 

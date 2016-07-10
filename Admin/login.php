@@ -11,24 +11,24 @@ if(isset($_POST) && $_POST){
   //获取Salt并结合输入的密码进行加密
   $salt=$rs["salt"];
   $pw=md5($_POST["pw"].$salt);
-  
-  if($pw == $rs['pw']){
-    //真实姓名
-    $_SESSION['name']=$rs['tname'];
-    //各种权限
-    $_SESSION['isMaster']=$rs['isMaster'];$_SESSION['isAdmin']=$rs['isAdmin'];$_SESSION['isSuper']=$rs['isSuper'];
-    //用户角色名称
-    $_SESSION['role']=$rs['job'];
-    //获取Token
-    $token=random(10);
-    $_SESSION['SUtoken']=$token;
-    header("Location: console.php?sutk=$token");
+  if($rs['isAdmin']==1 || $rs['isSuper']==1){
+    if($pw==$rs['pw']){
+      //真实姓名
+      $_SESSION['name']=$rs['tname'];
+      //各种权限
+      $_SESSION['isMaster']=$rs['isMaster'];$_SESSION['isAdmin']=$rs['isAdmin'];$_SESSION['isSuper']=$rs['isSuper'];
+      //用户角色名称
+      $_SESSION['role']=$rs['job'];
+      //获取Token
+      $token=random(10);
+      $_SESSION['SUtoken']=$token;
+      header("Location: console.php?sutk=$token");
+    }else{ 
+      echo "<script>alert('用户名密码错误！');history.go(-1);</script>";
+    }
+  }else{
+    echo "<script>alert('您无权限访问此平台！');history.go(-1);</script>";
   }
-  
-  else{ 
-    echo "<script>alert('用户名或密码错误！');history.go(-1);</script>";
-  }
-  
 }
 
 ?>
@@ -53,7 +53,6 @@ if(isset($_POST) && $_POST){
 <div class="container text-center">
 <div class="row text-center" style="padding-top:40px"> 
 <div class="well col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center col-xs-10 col-xs-offset-1">
- <p style="color:red">！！！重大bug：普权用户可以登录后台！！！</p>
   <h3 style="color:#4CAF50">欢迎回来，SUsage Administrator</h3>
   <div class="col-md-offset-2 col-md-8" style="line-height:12px;">
     <form method="post">

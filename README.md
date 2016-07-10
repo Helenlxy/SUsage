@@ -50,8 +50,8 @@
   <p>After runtime configuration completed,please set a new database which called <b>susage_oa</b> and import <b>susage_oa.sql</b> into this database.</p>
   <h4><p>并在<b>functions/to_sql.php、Admin/Includes/to_pdo.php</b>中按照提示填写您的数据库登录账户和密码</p></h4>
   <p>Then follow the prompts to enter your database login account and password in <b>functions/to_sql.php </b>and <b> Admin/Includes/to_pdo.php</b>
-  <h4><p>测试账户1：Enatsu 密码：123456（角色：超管+组长）</p></h4>
-  <p>Test Account 1：Enatsu PW：123456（role：SuperUser+Group Master）</p>
+  <h4><p>测试账户1：Enatsu 密码：123456（角色：管理员+组长）</p></h4>
+  <p>Test Account 1：Enatsu PW：123456（role：Admin+Group Master）</p>
   <h4><p>测试账户2：Super 密码：supersu（角色：超级管理员）</p></h4>
   <p>Test Account 2：Super PW：supersu（role：SuperUser）</p>
   <h4><p><b>若忘记密码可打开/SUsage/md5.php按照提示输入密码</b></p></h4>
