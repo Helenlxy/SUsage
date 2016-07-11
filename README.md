@@ -13,13 +13,13 @@
 <p>UCenter V1.5-pre alpha A3</p>
 <p>AdminSYS V1.1-alpha2</p>
 <p>FileTour V0.4-milestone6【未来project】</p>
-<p><b>Latest update：2016.7.8 18:25</b></p>
+<p><b>Latest update：2016.7.11 00:25</b></p>
 <b>©2016 执信学生会 电脑部</b>
 <p>  </p>
 <b>Created By @yyl99311 | @df7c5117 | @GhostShadowTan | @橡胶人AS </b>
 <b>            | @ZhxsuWebGroup</b>
 <p>  </p>
-<b>特别鸣谢：@JerryLoveZhixin</b>
+<b>特别鸣谢：@SmallOyster</b>
 <p>  </p>
 <b>Contact:zhxsuwebgroup@live.com</b>
 <p>  </p>
