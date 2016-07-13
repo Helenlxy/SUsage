@@ -47,12 +47,6 @@ $sql=mysqli_query($conn,"SELECT * FROM task_list WHERE regroup='{$group}'");
     <div class="ex-dnavbar-appbox-text">主页</div>
   </div>
   </a>
-  <a href="chat.php">
-  <div class="ex-dnavbar-appbox" title="朝发白帝，暮到江陵">
-    <img src="../res/icons/bar/ic_chat.png"/>
-    <div class="ex-dnavbar-appbox-text">聊天</div>
-  </div>
-  </a>
   <div class="ex-dnavbar-appbox appbox-selected" title="来不及了，快上车！">
     <img src="../res/icons/bar/ic_files.png"/>
     <div class="ex-dnavbar-appbox-text">文件</div>

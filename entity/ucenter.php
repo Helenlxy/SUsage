@@ -52,12 +52,6 @@ require_once("../functions/to_sql.php");
     <div class="ex-dnavbar-appbox-text">主页</div>
   </div>
   </a>
-  <a href="chat.php">
-  <div class="ex-dnavbar-appbox" title="朝发白帝，暮到江陵">
-    <img src="../res/icons/bar/ic_chat.png"/>
-    <div class="ex-dnavbar-appbox-text">聊天</div>
-  </div>
-  </a>
    <a href="file.php">
   <div class="ex-dnavbar-appbox" title="来不及了，快上车！">
     <img src="../res/icons/bar/ic_files.png"/>

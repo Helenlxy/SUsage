@@ -30,15 +30,7 @@
         <li><a href="/SUsage/Admin/Task/toPubGlobalNotice.php?sutk=<?php echo $SUtoken; ?>">发布全局通知</a></li>
       </ul>
     </li>
-    
-  <!--
-  <li class="dropdown">
-    <a href="" data-target="#" class="dropdown-toggle" data-toggle="dropdown">聊天管理
-    <b class="caret"></b></a>
-    <ul class="dropdown-menu">
-      <li><a href="/SUsage/Admin/Chat/toSetAutoDel.php">设置记录自动删除时间</a></li>
-    </ul>
-  </li>-->
+
   
   </ul>
   

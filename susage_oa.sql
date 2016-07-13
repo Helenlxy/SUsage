@@ -7,9 +7,6 @@
 -- 服务器版本： 10.1.10-MariaDB
 -- PHP Version: 5.6.19
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -19,38 +16,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `susage_oa`
 --
-
--- --------------------------------------------------------
-
---
--- 表的结构 `chat_content`
---
-
-CREATE TABLE `chat_content` (
-  `id` int(11) NOT NULL,
-  `SenderID` varchar(3) NOT NULL,
-  `RecipientID` varchar(3) NOT NULL,
-  `whoID` varchar(7) NOT NULL,
-  `isRead` varchar(1) NOT NULL,
-  `content` varchar(1000) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- 转存表中的数据 `chat_content`
---
-
-INSERT INTO `chat_content` (`id`, `SenderID`, `RecipientID`, `whoID`, `isRead`, `content`) VALUES
-(1, '2', '1', '1,2', '0', '欢迎你步入崇德瀹智之门！'),
-(2, '1', '2', '1,2', '1', '校长你真的很帅！'),
-(3, '2', '1', '1,2', '0', '谢谢你对校长的评价！'),
-(4, '1', '1', '1,1', '1', '光头强自己发给自己'),
-(5, '4', '1', '1,4', '', '学姐很粗暴的说到：“测试标点符号！”'),
-(6, '1', '3', '1,3', '', '我发给组长的'),
-(10, '1', '4', '1,4', '', '人与人炎热亿元'),
-(11, '1', '4', '1,4', '', '哈哈哈'),
-(12, '1', '3', '1,3', '', 'ajax测试'),
-(13, '1', '2', '1,2', '', 'ajax再次测试'),
-(15, '2', '1', '1,2', '', 'headmaster ^^^');
 
 -- --------------------------------------------------------
 
