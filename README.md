@@ -1,8 +1,8 @@
-﻿<b>Zhixin StudentUnion OA System #Codename"SUsage" </b>
+<b>Zhixin StudentUnion OA System #Codename"SUsage" </b>
 
 <b>执信中学学生会信息化在线办公系统 开源项目 #代号"SUsage" </b>
 
-<b>目前总体开发进度：约66%，前端系统基本完成，后端系统开发启动约56%。当前build:1D71 (0471)</b>
+<b>目前总体开发进度：约66%，前端系统基本完成，后端系统开发启动约56%。当前build:1D76 (0476)</b>
 
 <b>项目总阶段：0.6-milestone8 #Project SUsage pre-α（开发代号Young），全站php化中</b>
 

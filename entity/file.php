@@ -1,6 +1,16 @@
 <?php 
 session_start();
 require_once("../functions/to_sql.php");
+
+//Night Shift
+$h=date('G');
+if ($h<6) 
+  echo '<link rel="stylesheet" href="../res/css/themes/night.css" />';
+else if ($h>22) 
+  echo '<link rel="stylesheet" href="../res/css/themes/night.css" />';
+else 
+  echo '<link rel="stylesheet" href="../res/css/themes/day.css" />';
+
 $group=$_SESSION['group'];
 $sql=mysqli_query($conn,"SELECT * FROM task_list WHERE regroup='{$group}'");
 ?>
@@ -9,9 +19,6 @@ $sql=mysqli_query($conn,"SELECT * FROM task_list WHERE regroup='{$group}'");
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<!--引入wangEditor.css等样式表-->
-<?php $h=date('G');if ($h<6) echo '<link rel="stylesheet" href="../res/css/themes/night.css" />';else if ($h>22) echo '<link rel="stylesheet" href="../res/css/themes/night.css" />';else echo '<link rel="stylesheet" href="../res/css/themes/day.css" />';?>
-
 <link rel="stylesheet" href="../res/css/themes/Sinterface.css" />
 <link rel="stylesheet" href="../res/css/modules/ex-filesys.css" />
 <link rel="stylesheet" href="../res/css/modules/ex-united.css" />
@@ -66,18 +73,22 @@ $sql=mysqli_query($conn,"SELECT * FROM task_list WHERE regroup='{$group}'");
 <div class="blured">
 <!--侧边菜单-->
 <div class="sidemenu" id="menu" style="position:fixed;z-index:0;padding:75px 0 0 0;width:20%">
-    <span style="margin-left:15px;font-family:微软雅黑;color:#00C853">想找什么？试试猛击F3...</span>
-    <ul class="menu">
-    <li  style="font-family:微软雅黑"><a href="#">文档</a></li>
-	<li  style="font-family:微软雅黑"><a href="#">图片</a></li>
-    <li  style="font-family:微软雅黑"><a href="#">影音</a></li>
+  <span style="margin-left:15px;font-family:微软雅黑;color:#00C853">想找什么？试试猛击F3...</span>
+  <ul class="menu">
+    <li style="font-family:微软雅黑"><a href="#">文档</a></li>
+	  <li style="font-family:微软雅黑"><a href="#">图片</a></li>
+    <li style="font-family:微软雅黑"><a href="#">影音</a></li>
     <li class="selected" style="font-family:微软雅黑"><a href="#">压缩包</a></li>
-	<li  style="font-family:微软雅黑"><a href="#">公告</a></li>
-    <li  style="font-family:微软雅黑;font-size:12px;text-align:center"><a onclick="displaynote(); return false">点此测试通知</a></li>
-    <li  style="font-family:微软雅黑;font-size:12px;text-align:center"><a href="ucenter.php#helper" target="_blank">帮助与反馈中心 </a></li>
-    <li  style="font-family:微软雅黑;font-size:12px;text-align:center"><a href="http://zhxsu.github.io/SUsage/" target="_blank"> 关于 | 开源许可及协议声明 </a></li>
-    <p style="font-family:微软雅黑;font-size:12px;color:#9f9f9f;text-align:center">©2016 <a href="http://weibo.com/zxsu32nd" target="_blank" style="color:#9f9f9f">执信学生会</a> <a href="http://weibo.com/zhxsupc" target="_blank"  style="color:#9f9f9f">电脑部</a></p>
+	  <li style="font-family:微软雅黑"><a href="#">公告</a></li>
+    <li style="font-family:微软雅黑;font-size:12px;text-align:center"><a onclick="displaynote(); return false">点此测试通知</a></li>
+    <li style="font-family:微软雅黑;font-size:12px;text-align:center"><a href="ucenter.php#helper" target="_blank">帮助与反馈中心 </a></li>
+    <li style="font-family:微软雅黑;font-size:12px;text-align:center"><a href="http://zhxsu.github.io/SUsage/" target="_blank"> 关于 | 开源许可及协议声明 </a></li>
+    <p style="font-family:微软雅黑;font-size:12px;color:#9f9f9f;text-align:center">©2016 
+      <a href="http://weibo.com/zxsu32nd" target="_blank" style="color:#9f9f9f">执信学生会</a>
+      <a href="http://weibo.com/zhxsupc" target="_blank" style="color:#9f9f9f">电脑部</a>
+    </p>
     <p style="font-family:微软雅黑;font-size:12px;color:#9f9f9f;text-align:center">In tech we trust</p>
+    <p style="font-family:微软雅黑;font-size:12px;color:green;text-align:center" id="ver"></p>
     </ul>
 </div>
 	<form style="z-index:99999">
@@ -111,6 +122,7 @@ $sql=mysqli_query($conn,"SELECT * FROM task_list WHERE regroup='{$group}'");
 <!--脚本引用-->
 <script src="../res/js/jquery-2.2.1.min.js"></script>
 <script src="../res/js/basic.js"></script>
+<script src="../res/js/GetCodeVer.js"></script>
 <script>
 
 //关于我们的彩蛋   

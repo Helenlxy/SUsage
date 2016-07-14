@@ -1,6 +1,15 @@
 <?php 
 session_start();
 require_once("../functions/to_sql.php");
+
+//Night Shift
+$h=date('G');
+if ($h<6) 
+  echo '<link rel="stylesheet" href="../res/css/themes/night.css" />';
+else if ($h>22) 
+  echo '<link rel="stylesheet" href="../res/css/themes/night.css" />';
+else 
+  echo '<link rel="stylesheet" href="../res/css/themes/day.css" />';
 ?>
 
 <html lang="zh">
@@ -9,21 +18,11 @@ require_once("../functions/to_sql.php");
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>账务公开 / SUsage BillList</title>
-   	<link rel="stylesheet" type="text/css" href="../res/css/modules/ex-ucenter.css">
-    <link rel="stylesheet" href="../res/css/editor/cropper.min.css">
-    <link rel="shortcut icon" href="../res/icons/title/login_128X128.ico"/>
-    <?php $h=date('G');if ($h<6) echo '<link rel="stylesheet" href="../res/css/themes/night.css" />';else if ($h>22) echo '<link rel="stylesheet" href="../res/css/themes/night.css" />';else echo '<link rel="stylesheet" href="../res/css/themes/day.css" />';?>
-<link rel="stylesheet" href="../res/css/themes/Sinterface.css" />
-    <link rel="stylesheet" href="../res/css/modules/ex-united.css" />
-    <script src="../res/js/lrz.all.bundle.js"></script>
-    <script src="../res/js/jquery-2.2.1.min.js" type="text/javascript"></script>
-	<script src="../res/js/cropper.min.js"></script>
-    <script src="../res/js/ucenter.js"></script>
-    <script src="../res/js/basic.js"></script>
-	<script>window.jQuery || document.write('<script src="../universal-res/js/jquery-2.2.1.min.js"><\/script>')</script>
-    <script type="text/javascript">
-    
-    </script>
+  <link rel="stylesheet" type="text/css" href="../res/css/modules/ex-ucenter.css">
+  <link rel="stylesheet" href="../res/css/editor/cropper.min.css">
+  <link rel="shortcut icon" href="../res/icons/title/login_128X128.ico"/>
+  <link rel="stylesheet" href="../res/css/themes/Sinterface.css" />
+  <link rel="stylesheet" href="../res/css/modules/ex-united.css" />
 </head>
 <body>
 
@@ -73,17 +72,21 @@ require_once("../functions/to_sql.php");
 		<div class="subtitle"><h2 style="color:#4fb4f7">账务公开<span style="font-size: 14px"> / BillList</span></h2></div>
 			<center style="margin-top:120px">喂！这里是里区，你怎么进来的……<br><s>反正你也没有权限，啥都看不到~</s></center>
 	</article>
-        <script src="../res/js/basic.js"></script>
-	   <script>
-       function easteregg(){
-            if(event.altKey  &&  event.shiftKey  &&  event.keyCode == 71){
-                window.location.href = "about.html";
-            }
-        }
+        
+<script src="../res/js/basic.js"></script>
+<script src="../res/js/lrz.all.bundle.js"></script>
+<script src="../res/js/jquery-2.2.1.min.js"></script>
+<script src="../res/js/cropper.min.js"></script>
+<script src="../res/js/ucenter.js"></script>
+<script>
+function easteregg(){
+  if(event.altKey  &&  event.shiftKey  &&  event.keyCode == 71){
+    window.location.href = "about.html";
+  }
+}
 
-
-        document.onkeydown = function(){easteregg();};
-        </script>
+document.onkeydown = function(){easteregg();};
+</script>
 	
-    </body>
+</body>
 </html>

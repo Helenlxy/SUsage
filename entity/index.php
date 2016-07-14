@@ -1,6 +1,16 @@
 <?php 
 session_start();
 require_once("../functions/to_sql.php");
+
+//Night Shift
+$h=date('G');
+if ($h<6) 
+  echo '<link rel="stylesheet" href="../res/css/themes/night.css" />';
+else if ($h>22) 
+  echo '<link rel="stylesheet" href="../res/css/themes/night.css" />';
+else 
+  echo '<link rel="stylesheet" href="../res/css/themes/day.css" />';
+
 $group=$_SESSION['group'];
 $sql=mysqli_query($conn,"SELECT * FROM task_list WHERE regroup='{$group}'");
 ?>
@@ -10,8 +20,6 @@ $sql=mysqli_query($conn,"SELECT * FROM task_list WHERE regroup='{$group}'");
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!--引入wangEditor.css等样式表-->
-<?php $h=date('G');if ($h<6) echo '<link rel="stylesheet" href="../res/css/themes/night.css" />';else if ($h>22) echo '<link rel="stylesheet" href="../res/css/themes/night.css" />';else echo '<link rel="stylesheet" href="../res/css/themes/day.css" />';?>
-
 <link rel="stylesheet" href="../res/css/themes/Sinterface.css" />
 <?php
 if ($_SESSION['SUmaster']==1){
@@ -76,7 +84,7 @@ else{
 
 
 <!-- 放在顶上的链接-->
-<div id="about" class="ex-about" style="position:absolute;top:90px;width:100%;text-align:center;z-index:1;"><a onclick="displaynote(); return false">测试通知</a> · <a href="ucenter.php#helper" target="_blank" style="color:#00C853">帮助与反馈中心 </a>·<a href="http://zhxsu.github.io/SUsage/" target="_blank" style="color:#00C853"> 关于 | 开源许可及协议声明 </a> <span class="trick" title="用鼠标刮这里看看">试试alt+shift+g</span> SUsage 版本1D63 ©2016 <a href="http://weibo.com/zxsu32nd" target="_blank" style="color:#9e9e9e">执信学生会</a> <a href="http://weibo.com/zhxsupc" target="_blank"  style="color:#9e9e9e">电脑部</a> · In tech we trust
+<div id="about" class="ex-about" style="position:absolute;top:90px;width:100%;text-align:center;z-index:1;"><a onclick="displaynote(); return false">测试通知</a> · <a href="ucenter.php#helper" target="_blank" style="color:#00C853">帮助与反馈中心 </a>·<a href="http://zhxsu.github.io/SUsage/" target="_blank" style="color:#00C853"> 关于 | 开源许可及协议声明 </a> <span class="trick" title="用鼠标刮这里看看">试试alt+shift+g</span> <a id="ver"></a> ©2016 <a href="http://weibo.com/zxsu32nd" target="_blank" style="color:#9e9e9e">执信学生会</a> <a href="http://weibo.com/zhxsupc" target="_blank"  style="color:#9e9e9e">电脑部</a> · In tech we trust 
 </div>
 
 <!-- 发布器以及任务界面 -->
@@ -231,6 +239,8 @@ $headimg=$info['headimg'];
 <script src="../res/js/jquery-2.2.1.min.js"></script>
 <script src="../res/js/wangEditor.js"></script>
 <script src="../res/js/basic.js"></script>
+<script src="../res/js/GetCodeVer.js"></script>
+
 
 <!--wangeditor操作--><!--这里需要修改有关判断编辑区是否为空的代码-->
 <script type="text/javascript">
