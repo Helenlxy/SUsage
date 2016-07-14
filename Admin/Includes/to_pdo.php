@@ -15,7 +15,7 @@
   $dbcon=null;
   $dbms="mysql";
   $host="localhost";
-  $database="susage_oa";
+  $database="susage";
   $userName="root";
   $passWord="";
   $dsn="{$dbms}:host={$host};dbname=${database};charset=utf8";

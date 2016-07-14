@@ -61,9 +61,9 @@ $sql=mysqli_query($conn,"SELECT * FROM task_list WHERE regroup='{$group}'");
     <button class="btn" style="font-family:微软雅黑;color:#ffffff;position:absolute;right:10%;line-height:55px;font-size:16px;cursor:pointer;" onclick="window.location.href='logout.php'">是的</button>
     <button id="cancelexit" class="btn" style="font-family:微软雅黑;color:#ffffff;position:absolute;right:20%;line-height:55px;font-size:16px;font-weight:bold;cursor:pointer;">不是</button>
 </div>
+<div id="untip"><h2>(0 v 0)你急个啥子噻，晓不晓得这里还是Under Construction呐<br>————夏酱</h2></div>
 
-
-
+<div class="blured">
 <!--侧边菜单-->
 <div class="sidemenu" id="menu" style="position:fixed;z-index:0;padding:75px 0 0 0;width:20%">
     <span style="margin-left:15px;font-family:微软雅黑;color:#00C853">想找什么？试试猛击F3...</span>
@@ -107,7 +107,7 @@ $sql=mysqli_query($conn,"SELECT * FROM task_list WHERE regroup='{$group}'");
             </ul>
         </div>
     </form>
-
+</div>
 <!--脚本引用-->
 <script src="../res/js/jquery-2.2.1.min.js"></script>
 <script src="../res/js/basic.js"></script>

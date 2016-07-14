@@ -39,3 +39,15 @@
 	color:#4CAF50;
 	max-width:28%
 }
+.blured{
+	filter:blur(10px);
+	-webkit-filter:blur(10px);
+}
+#untip{
+	z-index: 999999;
+	position:fixed;
+	text-align: center;
+	width: 100%;
+	font-family: 'microsoft yahei';
+	top:50%;
+}
