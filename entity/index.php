@@ -2,14 +2,7 @@
 session_start();
 require_once("../functions/to_sql.php");
 
-//Night Shift
-$h=date('G');
-if ($h<6) 
-  echo '<link rel="stylesheet" href="../res/css/themes/night.css" />';
-else if ($h>22) 
-  echo '<link rel="stylesheet" href="../res/css/themes/night.css" />';
-else 
-  echo '<link rel="stylesheet" href="../res/css/themes/day.css" />';
+include("../functions/NightShift.php");
 
 $group=$_SESSION['group'];
 $sql=mysqli_query($conn,"SELECT * FROM task_list WHERE regroup='{$group}'");
@@ -92,7 +85,7 @@ else{
 <div id='poster' class='card rich-card'>
 		<h3 style='font-family:微软雅黑;margin-top:5px;left:0px;font-size:16px;position:relative;margin-left:15px;line-height:20px'>发布任务( · ω · )<span style="position:relative;color:#FF0000;margin-top:5px;font-family:微软雅黑;font-size:12px;text-align:center">&#12288;本页面已禁用F5键以防止误触导致草稿丢失【千万别以为键盘坏了x——夏酱</span></h3>
 		<div id='edtcontainer'>
-		<textarea id='textarea1' style='position:inherit;border-radius:5px;height:390px;width:100%;padding:0px 0px 0px 0px;display:block' onkeyup="CheckValue()"></textarea>
+		<textarea id='textarea1' style='position:inherit;border-radius:5px;height:390px;width:100%;padding:0px 0px 0px 0px;display:block'></textarea>
 		</div>
 		<div id='treecontainer' style='display:none'><div style="z-index:999999">
 								<center style="line-height:10px;font-size: 13px">请在下方的复选框勾选任务的接收组别。当此组别被勾选后，此组别下所有的成员将接收到该任务。</center>
@@ -190,9 +183,9 @@ else{
                             </div>
                             </div>
 </div>
-    	<button class='btn raised green' id='submitbutton1' onclick='fwd(); return false'>下一步</button>
+    	<button class='btn raised green' id='nextstep' onclick='fwd(); return false'>下一步</button>
     	<button class='btn raised green' id='backwardbutton' onclick='bwd(); return false' style='display:none'>上一步</button>
-    	<button class='btn raised green' id='submitbutton2' style='display:none' onclick='PostTask();'>发布任务</button>
+    	<button class='btn raised green' id='submit' style='display:none' onclick='PostTask();'>发布任务</button>
         
 	</div>
 		<p id="tips1">———— 你的任务 ————</p>
@@ -242,36 +235,35 @@ $headimg=$info['headimg'];
 <script src="../res/js/GetCodeVer.js"></script>
 
 
-<!--wangeditor操作--><!--这里需要修改有关判断编辑区是否为空的代码-->
 <script type="text/javascript">
-  var editor = new wangEditor('textarea1');	
-  editor.create();
+var editor = new wangEditor('textarea1');
+var submitbtn = document.getElementById('nextstep');
 
-	var submitbtn = document.getElementById('submitbutton1');
-	function CheckValue(){
-		
-		if(editor.$txt.html()=='<p><br></p>')
-		{
-			submitbtn.style.display = 'none';
-		}
-		else
-		{
-			submitbtn.style.display = 'block';
-		}
-	}
-				
+editor.onchange = function(){
+  if(this.$txt.html()=="<p><br></p>"){
+    submitbtn.style.display = 'none';
+  }else{
+    submitbtn.style.display = 'block';
+  }
+};
+
+editor.create();
+
+
 function PostTask(){
-  var html = editor.$txt.html();
+  var html=editor.$txt.html();
   alert(html);
 }
 
-
+window.onload=function(){
+  submitbtn.style.display='none';
+}
 
 //关于我们的彩蛋	
 function easteregg(){
- if(event.altKey  &&  event.shiftKey  &&  event.keyCode == 71){
-  window.location.href = "about.html";
- }
+  if(event.altKey && event.shiftKey && event.keyCode == 71){
+    window.location.href="about.html";
+  }
 }
 
 
@@ -281,9 +273,9 @@ document.onkeydown = function(){easteregg();};
 
 	var iptbox = document.getElementById('edtcontainer');
 	var treebox = document.getElementById('treecontainer');
-	var fwdbtn = document.getElementById('submitbutton1');
+	var fwdbtn = document.getElementById('nextstep');
 	var bwdbtn = document.getElementById('backwardbutton');
-	var pstbtn = document.getElementById('submitbutton2');
+	var pstbtn = document.getElementById('submit');
 	function bwd(){treebox.style.display = 'none';iptbox.style.display = '';bwdbtn.style.display = 'none';fwdbtn.style.display = '';pstbtn.style.display = 'none'}
 	function fwd(){treebox.style.display = 'block';iptbox.style.display = 'none';bwdbtn.style.display = 'block';fwdbtn.style.display = 'none';pstbtn.style.display = 'block'}
 </script>

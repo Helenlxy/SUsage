@@ -1,29 +1,25 @@
 <?php 
 session_start();
 require_once("../functions/to_sql.php");
+include("../functions/NightShift.php");
 ?>
 
 <html lang="zh">
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>个人中心 / SUsage UCenter</title>
-   	<link rel="stylesheet" type="text/css" href="../res/css/modules/ex-ucenter.css">
-    <link rel="stylesheet" href="../res/css/editor/cropper.min.css">
-    <link rel="shortcut icon" href="../res/icons/title/login_128X128.ico"/>
-    <?php $h=date('G');if ($h<6) echo '<link rel="stylesheet" href="../res/css/themes/night.css" />';else if ($h>22) echo '<link rel="stylesheet" href="../res/css/themes/night.css" />';else echo '<link rel="stylesheet" href="../res/css/themes/day.css" />';?>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>个人中心 / SUsage UCenter</title>
+<link rel="stylesheet" type="text/css" href="../res/css/modules/ex-ucenter.css">
+<link rel="stylesheet" href="../res/css/editor/cropper.min.css">
+<link rel="shortcut icon" href="../res/icons/title/login_128X128.ico"/>
 <link rel="stylesheet" href="../res/css/themes/Sinterface.css" />
-    <link rel="stylesheet" href="../res/css/modules/ex-united.css" />
-    <script src="../res/js/lrz.all.bundle.js"></script>
-    <script src="../res/js/jquery-2.2.1.min.js" type="text/javascript"></script>
-	<script src="../res/js/cropper.min.js"></script>
-    <script src="../res/js/ucenter.js"></script>
-    <script src="../res/js/basic.js"></script>
-	<script>window.jQuery || document.write('<script src="../universal-res/js/jquery-2.2.1.min.js"><\/script>')</script>
-    <script type="text/javascript">
-    
-    </script>
+<link rel="stylesheet" href="../res/css/modules/ex-united.css" />
+<script src="../res/js/lrz.all.bundle.js"></script>
+<script src="../res/js/jquery-2.2.1.min.js" type="text/javascript"></script>
+<script src="../res/js/cropper.min.js"></script>
+<script src="../res/js/ucenter.js"></script>
+<script src="../res/js/basic.js"></script>
 </head>
 <body>
 

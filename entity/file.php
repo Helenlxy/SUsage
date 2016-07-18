@@ -2,17 +2,7 @@
 session_start();
 require_once("../functions/to_sql.php");
 
-//Night Shift
-$h=date('G');
-if ($h<6) 
-  echo '<link rel="stylesheet" href="../res/css/themes/night.css" />';
-else if ($h>22) 
-  echo '<link rel="stylesheet" href="../res/css/themes/night.css" />';
-else 
-  echo '<link rel="stylesheet" href="../res/css/themes/day.css" />';
-
-$group=$_SESSION['group'];
-$sql=mysqli_query($conn,"SELECT * FROM task_list WHERE regroup='{$group}'");
+include("../functions/NightShift.php");
 ?>
 
 

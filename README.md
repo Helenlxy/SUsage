@@ -2,7 +2,7 @@
 
 <b>执信中学学生会信息化在线办公系统 开源项目 #代号"SUsage" </b>
 
-<b>目前总体开发进度：约66%，前端系统基本完成，后端系统开发启动约56%。当前build:1D76 (0476)</b>
+<b>目前总体开发进度：约66%，前端系统基本完成，后端系统开发启动约56%。当前build:1D84 (0484)</b>
 
 <b>项目总阶段：0.6-milestone8 #Project SUsage pre-α（开发代号Young），全站php化中</b>
 
@@ -12,7 +12,7 @@
 <p>UCenter V1.5-pre alpha A3</p>
 <p>AdminSYS V1.1-alpha2</p>
 <p>FileTour V0.4-milestone6【未来project】</p>
-<p><b>Latest update：2016.7.14 21:50</b></p>
+<p><b>Latest update：2016.7.18 12:26</b></p>
 <b>©2016 执信学生会 电脑部</b>
 <p>  </p>
 <b>Created By @yyl99311 | @df7c5117 | @GhostShadowTan | @橡胶人AS </b>
@@ -58,6 +58,9 @@
   <h4><p><b>点击确认后将Salt和inDB复制，粘帖进数据库中“salt”和“pw”即可。</b></p></h4>
   <p>Copy the Salt and inDB into <b>salt</b> and <b>pw</b> of database after click permit</p>
 <h3>近期的事情</h3>
+<p><b>----2016.7.18----</b></p>
+  <p>bug修复</p>
+  <p>使用JS获取系统代码版本</p>
 <p><b>----2016.7.13----</b></p>
   <p>移除VegeChat</p>
   <p>bug修复以及各种CSS优化</p>
