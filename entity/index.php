@@ -1,7 +1,6 @@
 <?php 
 session_start();
 require_once("../functions/to_sql.php");
-
 include("../functions/NightShift.php");
 
 $group=$_SESSION['group'];
@@ -15,10 +14,9 @@ $sql=mysqli_query($conn,"SELECT * FROM task_list WHERE regroup='{$group}'");
 <!--引入wangEditor.css等样式表-->
 <link rel="stylesheet" href="../res/css/themes/Sinterface.css" />
 <?php
-if ($_SESSION['SUmaster']==1){
+if($_SESSION['SUmaster']==1){
   echo "<link rel='stylesheet' href='../res/css/modules/ex-index-master.css' />";
-}
-else{
+}else{
   echo "<link rel='stylesheet' href='../res/css/modules/ex-index-normal.css' />";
 }
 ?>
@@ -42,8 +40,7 @@ else{
     </div>
     <div class="ex-dnavbar-userbox-usernamefixbox">
       <p class="ex-dnacvar-userbox-username">
-        <?php echo $_SESSION['nickname']; ?>
-         , <?php $h=date('G');if ($h<5) echo '该休息了';else if ($h<11) echo '早上好呀';else if ($h<13) echo '到中午了';else if ($h<18) echo '下午好嘛';else if ($h<23) echo '天黑了呢';else echo '该休息了';?>
+        <?php echo $_SESSION['nickname']." ， ";$h=date('G');if ($h<5) echo '该休息了';else if ($h<11) echo '早上好呀';else if ($h<13) echo '到中午了';else if ($h<18) echo '下午好嘛';else if ($h<23) echo '天黑了呢';else echo '该休息了';?>
       </p>
     </div>
     <div class="ex-dnavbar-userbox-descunderunfixbox">
@@ -69,9 +66,9 @@ else{
 
 <!--退出提示-->
 <div class="toast" id="toast-exit" style="position:fixed;width:100%;height:69px;z-index:100;display:none;">
-	<label class="toast-label" style="font-family:微软雅黑;color:#ffffff;position:absolute;left:10%;line-height:45px;">你你你你你你你~真的要退出吗w</label>
-	<button class="btn" style="font-family:微软雅黑;color:#ffffff;position:absolute;right:10%;line-height:55px;font-size:16px;cursor:pointer;" onclick="window.location.href='logout.php'">是的</button>
-    <button id="cancelexit" class="btn" style="font-family:微软雅黑;color:#ffffff;position:absolute;right:20%;line-height:55px;font-size:16px;font-weight:bold;cursor:pointer;">不是</button>
+  <label class="toast-label" style="font-family:微软雅黑;color:#ffffff;position:absolute;left:10%;line-height:45px;">你你你你你你你~真的要退出吗w</label>
+  <button class="btn" style="font-family:微软雅黑;color:#ffffff;position:absolute;right:10%;line-height:55px;font-size:16px;cursor:pointer;" onclick="window.location.href='logout.php'">是的</button>
+  <button id="cancelexit" class="btn" style="font-family:微软雅黑;color:#ffffff;position:absolute;right:20%;line-height:55px;font-size:16px;font-weight:bold;cursor:pointer;">不是</button>
 </div>
 
 
@@ -81,146 +78,164 @@ else{
 </div>
 
 <!-- 发布器以及任务界面 -->
-
 <div id='poster' class='card rich-card'>
-		<h3 style='font-family:微软雅黑;margin-top:5px;left:0px;font-size:16px;position:relative;margin-left:15px;line-height:20px'>发布任务( · ω · )<span style="position:relative;color:#FF0000;margin-top:5px;font-family:微软雅黑;font-size:12px;text-align:center">&#12288;本页面已禁用F5键以防止误触导致草稿丢失【千万别以为键盘坏了x——夏酱</span></h3>
-		<div id='edtcontainer'>
-		<textarea id='textarea1' style='position:inherit;border-radius:5px;height:390px;width:100%;padding:0px 0px 0px 0px;display:block'></textarea>
-		</div>
-		<div id='treecontainer' style='display:none'><div style="z-index:999999">
-								<center style="line-height:10px;font-size: 13px">请在下方的复选框勾选任务的接收组别。当此组别被勾选后，此组别下所有的成员将接收到该任务。</center>
-                                <div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block">
-                                    <input type="checkbox" id="checkNWB" />
-                                    <label for="checkNWB" style="display:inline-block"></label>
-                                    <span class="lablink">内务部</span>
-                                </div>
-                                <div class="checkbox" style="margin:15px 5% 0 5%;display:inline-block">
-                                    <input type="checkbox" id="checkGGB"/>
-                                    <label for="checkGGB" style="display:inline-block"></label>
-                                    <span class="lablink">公关部</span>
-                                </div>
+  <h3 style='font-family:微软雅黑;margin-top:5px;left:0px;font-size:16px;position:relative;margin-left:15px;line-height:20px'>发布任务( · ω · )<span style="position:relative;color:#FF0000;margin-top:5px;font-family:微软雅黑;font-size:12px;text-align:center">&#12288;本页面已禁用F5键以防止误触导致草稿丢失【千万别以为键盘坏了x——夏酱</span></h3>
+  <div id='edtcontainer'>
+    <textarea id='textarea1' style='position:inherit;border-radius:5px;height:390px;width:100%;padding:0px 0px 0px 0px;display:block'></textarea>
+  </div>
+  <div id='treecontainer' style='display:none'>
+    <div style="z-index:999999">
+		  <center style="line-height:10px;font-size: 13px">请在下方的复选框勾选任务的接收组别。当此组别被勾选后，此组别下所有的成员将接收到该任务。</center>
+      
+      <div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block">
+        <input type="checkbox" id="ckdep" value="内务部">
+        <label for="checkNWB" style="display:inline-block"></label>
+        <span class="lablink">内务部</span>
+      </div>
+      
+      <div class="checkbox" style="margin:15px 5% 0 5%;display:inline-block">
+        <input type="checkbox" id="ckdep" value="公关部">
+        <label for="checkGGB" style="display:inline-block"></label>
+        <span class="lablink">公关部</span>
+      </div>
                     			
-                                <div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block">
-                                    <input type="checkbox" id="checkGBZ" />
-                                    <label for="checkGBZ" style="display:inline-block"></label>
-                                    <span class="lablink">广播站</span>
-                                </div>
-                                <div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block">
-                                    <input type="checkbox" id="checkAU"/>
-                                    <label for="checkAU" style="display:inline-block"></label>
-                                    <span class="lablink">社&#12288;联</span>
-                                </div>
-                                <div class="checkbox" style="margin:15px 5% 0 5%;display:inline-block;">
-                                    <input type="checkbox" id="checkWYB" />
-                                    <label for="checkWYB" style="display:inline-block"></label>
-                                    <span class="lablink">文娱部</span>
-                                </div>
-                                <div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block">
-                                    <input type="checkbox" id="checkXCB"/>
-                                    <label for="checkXCB" style="display:inline-block"></label>
-                                    <span class="lablink">宣传部</span>
-                                </div>
-                                <div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block;">
-                                    <input type="checkbox" id="checkXSB" />
-                                    <label for="checkXSB" style="display:inline-block"></label>
-                                    <span class="lablink">学术部</span>
-                                </div>
-                                <div class="checkbox" style="margin:15px 5% 0 5%;display:inline-block">
-                                    <input type="checkbox" id="checkTYB"/>
-                                    <label for="checkTYB" style="display:inline-block"></label>
-                                    <span class="lablink">体育部</span>
-                                </div>
-                                <div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block">
-                                    <input type="checkbox" id="checkZXT"/>
-                                    <label for="checkZXT" style="display:inline-block"></label>
-                                    <span class="lablink">主席团</span>
-                                </div>
-                            <div>
-                				<h3 class="fi-subtitle">—————— 电脑部 ——————</h3>
-                                <div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block;">
-                                    <input type="checkbox" id="checkAPP" />
-                                    <label for="checkAPP" style="display:inline-block"></label>
-                                    <span class="lablink">APP组</span>
-                                </div>
-                                <div class="checkbox" style="margin:15px 5% 0 5%;display:inline-block">
-                                    <input type="checkbox" id="checkHTZ"/>
-                                    <label for="checkHTZ" style="display:inline-block"></label>
-                                    <span class="lablink">后台组</span>
-                                </div>
-                                <div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block;">
-                                    <input type="checkbox" id="checkMGZ" />
-                                    <label for="checkMGZ" style="display:inline-block"></label>
-                                    <span class="lablink">美工组</span>
-                                </div>
-                                <div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block">
-                                    <input type="checkbox" id="checkSPZ"/>
-                                    <label for="checkSPZ" style="display:inline-block"></label>
-                                    <span class="lablink">视频组</span>
-                                </div>
-                            </div>
-                            <div>
-                				<h3 class="fi-subtitle">—————— 电视台 ——————</h3>
-                                <div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block;">
-                                    <input type="checkbox" id="checkDVZ" />
-                                    <label for="checkDVZ" style="display:inline-block"></label>
-                                    <span class="lablink">DV组</span>
-                                </div>
-                                <div class="checkbox" style="margin:15px 5% 0 5%;display:inline-block">
-                                    <input type="checkbox" id="checkDCZ"/>
-                                    <label for="checkDCZ" style="display:inline-block"></label>
-                                    <span class="lablink">DC组</span>
-                                </div>
-                                <div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block;">
-                                    <input type="checkbox" id="checkZCZ" />
-                                    <label for="checkZCZ" style="display:inline-block"></label>
-                                    <span class="lablink">主持组</span>
-                                </div>
-                                <div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block">
-                                    <input type="checkbox" id="checkTVS"/>
-                                    <label for="checkTVS" style="display:inline-block"></label>
-                                    <span class="lablink">视频组</span>
-                                </div>
-                            </div>
-                            </div>
+      <div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block">
+        <input type="checkbox" id="ckdep" value="广播站">
+        <label for="checkGBZ" style="display:inline-block"></label>
+        <span class="lablink">广播站</span>
+      </div>
+      
+      <div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block">
+        <input type="checkbox" id="ckdep" value="社联">
+        <label for="checkAU" style="display:inline-block"></label>
+        <span class="lablink">社&#12288;联</span>
+      </div>
+      
+      <div class="checkbox" style="margin:15px 5% 0 5%;display:inline-block;">
+        <input type="checkbox" id="ckdep" value="文娱部">
+        <label for="checkWYB" style="display:inline-block"></label>
+        <span class="lablink">文娱部</span>
+      </div>
+      
+      <div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block">
+        <input type="checkbox" id="ckdep" value="宣传部">
+        <label for="checkXCB" style="display:inline-block"></label>
+        <span class="lablink">宣传部</span>
+      </div>
+      
+      <div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block;">
+        <input type="checkbox" id="ckdep" value="学术部">
+        <label for="checkXSB" style="display:inline-block"></label>
+        <span class="lablink">学术部</span>
+      </div>
+      
+      <div class="checkbox" style="margin:15px 5% 0 5%;display:inline-block">
+        <input type="checkbox" id="ckdep" value="体育部">
+        <label for="checkTYB" style="display:inline-block"></label>
+        <span class="lablink">体育部</span>
+      </div>
+      
+      <div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block">
+        <input type="checkbox" id="ckdep" value="主席团">
+        <label for="checkZXT" style="display:inline-block"></label>
+        <span class="lablink">主席团</span>
+      </div>
+      <div>
+        <h3 class="fi-subtitle">—————— 电脑部 ——————</h3>
+        <div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block;">
+        <input type="checkbox" id="ckdep" value="APP组">
+        <label for="checkAPP" style="display:inline-block"></label>
+        <span class="lablink">APP组</span>
+      </div>
+      
+      <div class="checkbox" style="margin:15px 5% 0 5%;display:inline-block">
+        <input type="checkbox" id="ckdep" value="后台组">
+        <label for="checkHTZ" style="display:inline-block"></label>
+        <span class="lablink">后台组</span>
+      </div>
+      
+      <div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block;">
+        <input type="checkbox" id="ckdep" value="美工组">
+        <label for="checkMGZ" style="display:inline-block"></label>
+        <span class="lablink">美工组</span>
+      </div>
+      
+      <div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block">
+        <input type="checkbox" id="ckdep" value="视频组">
+        <label for="checkSPZ" style="display:inline-block"></label>
+        <span class="lablink">视频组</span>
+      </div>
+    </div>
+    
+    <div>
+      <h3 class="fi-subtitle">—————— 电视台 ——————</h3>
+      <div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block;">
+        <input type="checkbox" id="ckdep" value="DV组">
+        <label for="checkDVZ" style="display:inline-block"></label>
+        <span class="lablink">DV组</span>
+      </div>
+      
+      <div class="checkbox" style="margin:15px 5% 0 5%;display:inline-block">
+        <input type="checkbox" id="ckdep" value="DC组">
+        <label for="checkDCZ" style="display:inline-block"></label>
+        <span class="lablink">DC组</span>
+      </div>
+      
+      <div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block;">
+        <input type="checkbox" id="ckdep" value="主持组">
+        <label for="checkZCZ" style="display:inline-block"></label>
+        <span class="lablink">主持组</span>
+      </div>
+      
+      <div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block">
+        <input type="checkbox" id="checkTVS" value="视频组">
+        <label for="checkSPZ" style="display:inline-block"></label>
+        <span class="lablink">视频组</span>
+      </div>
+    </div>
+  </div>
 </div>
-    	<button class='btn raised green' id='nextstep' onclick='fwd(); return false'>下一步</button>
-    	<button class='btn raised green' id='backwardbutton' onclick='bwd(); return false' style='display:none'>上一步</button>
-    	<button class='btn raised green' id='submit' style='display:none' onclick='PostTask();'>发布任务</button>
+
+<button class='btn raised green' id='nextstep' onclick='fwd(); return false'>下一步</button>
+<button class='btn raised green' id='backwardbutton' onclick='bwd(); return false' style='display:none'>上一步</button>
+<button class='btn raised green' id='submit' style='display:none' onclick='PostTask();'>发布任务</button>
         
-	</div>
-		<p id="tips1">———— 你的任务 ————</p>
-		<div id="listarea">
+</div>
+<p id="tips1">———— 你的任务 ————</p>
+<div id="listarea">
 		
 <?php 
 while($rs=mysqli_fetch_array($sql)){
-$name=$rs['pubman'];
-$pubgroup=$rs['pubgroup'];
-$info=mysqli_fetch_array(mysqli_query($conn,"SELECT * FROM sys_user WHERE tname='$name'"));
-$headimg=$info['headimg'];
+  $name=$rs['pubman'];
+  $pubgroup=$rs['pubgroup'];
+  $Taskid=$rs['Taskid'];
+  $info_sql="SELECT * FROM sys_user WHERE tname='$name'";
+  $query=mysqli_query($conn,$info_sql);
+  $info=mysqli_fetch_array($query);
+  $headimg=$info['headimg'];
 ?>		
 <div class="card rich-card tasklist">
-<img class="headimg" src="<?php echo $headimg; ?>">
-<span class="name" ><?php echo $name; ?></span><span class="pubgroup" ><?php echo $pubgroup; ?></span><span class="time">发布于<span><?php echo $rs['pubtime']; ?></span></span>
-	<div class="contentarea">
-		<p><?php echo $rs['content']; ?></p>
-	</div>
-	<div class="card-footer">
-	<?php
-		$tname=$_SESSION['SUname'];
-		if ($name==$tname) {
-			echo "<button class='del btn raised raised red'>删除此任务</button>";
-			echo "<a class='finishsum' href=''><span class='sumsty'>0</span>人完成了你的任务</a>";
-		}
-		else{
-			echo "<button class='btn raised mark blue'>标记为完成！</button>";
-		}
-
-	?>
+  <img class="headimg" src="<?php echo $headimg; ?>">
+  <span class="name" ><?php echo $name; ?></span>
+  <span class="pubgroup" ><?php echo $pubgroup; ?></span>
+  <span class="time">发布于<span><?php echo $rs['pubtime']; ?></span></span>
+  <div class="contentarea">
+    <p><?php echo $rs['content']; ?></p>
+  </div>
+  <div class="card-footer">
+  <?php
+    $tname=$_SESSION['SUname'];
+    if($name==$tname){
+      echo "<a class='del btn raised raised red' href='../functions/toDelTask.php?Tid=$Taskid'>删除此任务</a>";
+      echo "<a class='finishsum' href=''><span class='sumsty'>0</span>人完成了你的任务</a>";
+    }else{
+      echo "<button class='btn raised mark blue'>标记为完成！</button>";
+    }
+  ?>
 		
 	</div>
 </div>
-<?php
-}?>	
+<?php } ?>	
 
 <center class="ex-end" style="left:12%">——————再怎么找都没有啦~——————</center>
 </div>
@@ -253,13 +268,15 @@ editor.create();
 function PostTask(){
   var html=editor.$txt.html();
   alert(html);
+  //Use Ajax to Publish Task
 }
 
 window.onload=function(){
   submitbtn.style.display='none';
 }
 
-//关于我们的彩蛋	
+
+//彩蛋--关于我们	
 function easteregg(){
   if(event.altKey && event.shiftKey && event.keyCode == 71){
     window.location.href="about.html";
@@ -267,23 +284,36 @@ function easteregg(){
 }
 
 
-document.onkeydown = function(){easteregg();};
-
-		
-
-	var iptbox = document.getElementById('edtcontainer');
-	var treebox = document.getElementById('treecontainer');
-	var fwdbtn = document.getElementById('nextstep');
-	var bwdbtn = document.getElementById('backwardbutton');
-	var pstbtn = document.getElementById('submit');
-	function bwd(){treebox.style.display = 'none';iptbox.style.display = '';bwdbtn.style.display = 'none';fwdbtn.style.display = '';pstbtn.style.display = 'none'}
-	function fwd(){treebox.style.display = 'block';iptbox.style.display = 'none';bwdbtn.style.display = 'block';fwdbtn.style.display = 'none';pstbtn.style.display = 'block'}
+var iptbox = document.getElementById('edtcontainer');
+var treebox = document.getElementById('treecontainer');
+var fwdbtn = document.getElementById('nextstep');
+var bwdbtn = document.getElementById('backwardbutton');
+var pstbtn = document.getElementById('submit');
+function bwd(){
+  treebox.style.display = 'none';
+  iptbox.style.display = '';
+  bwdbtn.style.display = 'none';
+  fwdbtn.style.display = '';
+  pstbtn.style.display = 'none';
+}
+function fwd(){
+  treebox.style.display = 'block';
+  iptbox.style.display = 'none';
+  bwdbtn.style.display = 'block';
+  fwdbtn.style.display = 'none';
+  pstbtn.style.display = 'block';
+}
 </script>
 
  <!--大bug-->   
-<?php if ($_SESSION['SUmaster']==1){
-  echo "<script src='../res/js/lockkey.js' />";
-}?>
+<?php
+if($_SESSION['SUmaster']==1){
+  echo "<script src='../res/js/lockkey.js'></script>";
+  echo '<script type="text/javascript">document.onkeydown = function(){lockf5();easteregg();};</script>';
+}else{
+	echo '<script type="text/javascript">document.onkeydown = function(){easteregg();};</script>';
+}
+?>
 
 </body>
 </html>

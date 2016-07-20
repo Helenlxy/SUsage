@@ -2,11 +2,11 @@
 
 <b>执信中学学生会信息化在线办公系统 开源项目 #代号"SUsage" </b>
 
-<b>目前总体开发进度：约66%，前端系统基本完成，后端系统开发启动约56%。当前build:1D84 (0484)</b>
+<b>目前总体开发进度：约66%，前端系统基本完成，后端系统开发约60%。当前build:1D86 (0486)</b>
 
 <b>项目总阶段：0.6-milestone8 #Project SUsage pre-α（开发代号Young），全站php化中</b>
 
-<s>wiki又得改了。</s>
+<s>wiki又得改了……</s>
 
 <p>TaskSYS V0.7-pre alpha A1</p>
 <p>UCenter V1.5-pre alpha A3</p>
