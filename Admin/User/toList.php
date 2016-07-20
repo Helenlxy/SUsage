@@ -29,9 +29,7 @@ $total=sizeof($list[0]);
   <th>用户名</th>
   <th>姓名</th>
   <th>部门</th>
-  <th>组别</th>
   <th>职位</th>
-  <th>激活状态</th>
   <th>操作</th>
 </tr>
 <?php
@@ -42,9 +40,7 @@ $total=sizeof($list[0]);
     echo "<td>".$list[0][$i]['stuid']."</td>";
     echo "<td>".$name."</td>";
     echo "<td>".$list[0][$i]['dep']."</td>";
-    echo "<td>".$list[0][$i]['depgroup']."</td>";
     echo "<td>".$list[0][$i]['job']."</td>";
-    echo "<td>".$list[0][$i]['status']."</td>";
     echo "<td><a href='/SUsage/Admin/User/toEdit.php?uid=$uid&name=$name&sutk=$SUtoken' class='btn btn-default btn-xs'><span class='glyphicon glyphicon-edit'></span> 修改</a></td>";
     echo "</tr>";
   }

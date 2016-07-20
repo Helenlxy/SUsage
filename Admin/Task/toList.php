@@ -37,7 +37,7 @@ $total=sizeof($Tasks[0]);
 
 <?php
 for($i=0;$i<$total;$i++){
-  $id=$Tasks[0][$i]['id'];
+  $id=$Tasks[0][$i]['Taskid'];
   echo "<tr>";
   echo "<td>".$id."</td>";
   echo "<td>".$Tasks[0][$i]['pubman']."</td>";
@@ -62,15 +62,11 @@ $.ajax({
     if(got=="1"){
       alert("删除成功！");
       history.go(0);
-    }
-    
-    if(got=="2"){
-      alert("删除失败！网络连接错误，请联系电脑部！");
+    }else if(got=="2"){
+      alert("删除失败！网络连接错误，请联系电脑部APP组成员！");
       history.go(0);
-    }
-    
-    else{alert("删除失败！"+got);}
-    },
+    }else{alert("删除失败！错误码："+got);}
+  },
   error:function(e){alert(e);},
 });
 }

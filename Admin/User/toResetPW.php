@@ -3,8 +3,8 @@ $flag=true;
 require_once("../Includes/to_pdo.php");
 require_once("../../functions/SO_API.php");
 $uid=$_POST['uid'];
-if(!$uid || $uid=0){echo "非法侵入！";break;}
 
+if(!$uid || $uid==0) die("非法入侵！");
 
 $ran=random(6,"pw");
 $pw=substr($ran,0,6);//Get New Password

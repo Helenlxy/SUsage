@@ -30,9 +30,7 @@ $total=sizeof($list[0]);
   <th>用户名</th>
   <th>姓名</th>
   <th>部门</th>
-  <th>组别</th>
   <th>职位</th>
-  <th>激活状态</th>
   <th>操作</th>
 </tr>
 <?php
@@ -43,9 +41,7 @@ $total=sizeof($list[0]);
     echo "<td>".$list[0][$i]['stuid']."</td>";
     echo "<td>".$name."</td>";
     echo "<td>".$list[0][$i]['dep']."</td>";
-    echo "<td>".$list[0][$i]['depgroup']."</td>";
     echo "<td>".$list[0][$i]['job']."</td>";
-    echo "<td>".$list[0][$i]['status']."</td>";
     echo "<td><button onclick='toReset($uid)' class='btn btn-default btn-xs'><span class='glyphicon glyphicon-edit'></span> 重置密码</a></td>";
     echo "</tr>";
   }
@@ -57,22 +53,19 @@ $total=sizeof($list[0]);
 
 //Reset Password (Ajax)
 function toReset(uid){
-	$.ajax({
+$.ajax({
   type:"post",
   url:"/SUsage/Admin/User/toResetPW.php",
   data:{uid:uid},
   success:function(got){
     if(got.substr(0,1)==1){
-    	pw=got.substr(2);
-    	//Fix UI (Use Modal)
-    	alert("重置成功！重置后的密码为："+pw);
+      pw=got.substr(2);
+    	 alert("重置成功！重置后的密码为："+pw);
+    }else if(got.substr(0,1)==2){
+    	 alert("网络连接失败！请联系电脑部APP组！");
+    }else{
+      alert("重置失败！请联系电脑部APP组！");
     }
-
-    else if(got.substr(0,1)==2){
-    	alert("网络连接失败！请联系电脑部！");
-    }
-    
-    else{alert("重置失败！请联系电脑部！");}
   },
   error:function(e){alert("重置失败！请联系电脑部！");},
   });

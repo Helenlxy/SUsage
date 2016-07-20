@@ -9,17 +9,18 @@ $name=$_GET['name'];
 if(isset($_POST) && $_POST){
   $stuid=$_POST['stuid'];
   $dep=$_POST['dep'];
-  $group=$_POST['group'];
   
   //检测提交的数据是否为空
-  if(!$dep)
-  {echo "<script>alert('请认真准确填写所需修改内容！');</script>";}
-  
-  else{
-    //执行更改
-    $rs=PDOQuery($dbcon,"UPDATE sys_user SET stuid='{$stuid}',dep='{$dep}',depgroup='{$group}' WHERE id=?",[$uid],[PDO::PARAM_INT]);
-    if($rs[1]==1){echo "<script>alert('恭喜您，修改成功！');history.go(-2);</script>";}//Success
-    else{echo "<script>alert('对不起，修改失败！请联系电脑部。'.$rs[1]);history.go(-1);</script>";}//False
+  if(!$dep){
+    echo "<script>alert('请认真准确填写所需修改内容！');</script>";
+  }else{//执行更改
+    $rs=PDOQuery($dbcon,"UPDATE sys_user SET stuid='{$stuid}',dep='{$dep}' WHERE id=?",[$uid],[PDO::PARAM_INT]);
+    
+    if($rs[1]==1){//Success
+      echo "<script>alert('恭喜您，修改成功！');history.go(-2);</script>";
+    }else{//False
+      echo "<script>alert('对不起，修改失败！请联系电脑部。'.$rs[1]);history.go(-1);</script>";
+    }
   }
 }
 ?>
@@ -51,17 +52,13 @@ if(isset($_POST) && $_POST){
   
 <form method="post">
   <div class="input-group">
-    <input class="form-control" placeholder="输入新的用户名" name="stuid">
+    <input class="form-control" placeholder="输入新的用户名（不修改请留空）" name="stuid">
   </div><br>
   
   <div class="input-group">
-    <input class="form-control" placeholder="输入新的部门" name="dep">
+    <input class="form-control" placeholder="输入新的部门（双电请直接填写组别名称）" name="dep">
   </div><br>
-  
-  <div class="input-group">
-    <input class="form-control" placeholder="输入新的组别" name="group">
-  </div><br>
-  
+    
   <input type="submit" value="修 改" class="btn btn-success" style="width:100%">
       <br>     
     </form>

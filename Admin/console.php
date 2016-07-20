@@ -37,7 +37,7 @@ $total=sizeof($Tasks[0]);
 
 <?php
 for($i=0;$i<$total;$i++){
-  $id=$Tasks[0][$i]['id'];
+  $id=$Tasks[0][$i]['Taskid'];
   echo "<tr>";
   echo "<td>".$id."</td>";
   echo "<td>".$Tasks[0][$i]['pubman']."</td>";

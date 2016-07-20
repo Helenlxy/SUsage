@@ -58,11 +58,11 @@ $total=sizeof($list[0]);
     echo "<td>".$list[0][$i]['dep']."</td>";
     echo "<td>".$list[0][$i]['depgroup']."</td>";
     echo "<td>".$list[0][$i]['job']."</td>";
-    echo "<td><a href='/SUsage/Admin/Sys/toSetRole.php?type=Master&uid=$uid&set=$setM&sutk=$SUtoken' class='btn btn-default btn-xs'><span class='glyphicon glyphicon-edit'></span>$nameM</a>";
+    echo "<td><a href='toSetRole.php?type=Master&uid=$uid&set=$setM&sutk=$SUtoken' class='btn btn-default btn-xs'><span class='glyphicon glyphicon-edit'></span>$nameM</a>";
     
     if($_SESSION['isSuper']=="1"){
-    echo " <a href='/SUsage/Admin/Sys/toSetRole.php?type=Admin&uid=$uid&set=$setA&sutk=$SUtoken' class='btn btn-default btn-xs'><span class='glyphicon glyphicon-edit'></span>$nameA</a>";
-    echo " <a href='/SUsage/Admin/Sys/toSetRole.php?type=Super&uid=$uid&set=$setS&sutk=$SUtoken' class='btn btn-default btn-xs'><span class='glyphicon glyphicon-edit'></span>$nameS</a><br>";
+    echo " <a href='toSetRole.php?type=Admin&uid=$uid&set=$setA&sutk=$SUtoken' class='btn btn-default btn-xs'><span class='glyphicon glyphicon-edit'></span>$nameA</a>";
+    echo " <a href='toSetRole.php?type=Super&uid=$uid&set=$setS&sutk=$SUtoken' class='btn btn-default btn-xs'><span class='glyphicon glyphicon-edit'></span>$nameS</a><br>";
     }
     echo "</td>";
     echo "</tr>";

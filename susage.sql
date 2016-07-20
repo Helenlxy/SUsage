@@ -39,27 +39,24 @@ CREATE TABLE `sys_user` (
   `id` int(11) NOT NULL,
   `stuid` varchar(20) NOT NULL COMMENT '登录ID，昵称',
   `tname` varchar(5) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '真实名字',
-  `sname` varchar(1) NOT NULL,
-  `headimg` varchar(200) NOT NULL,
+  `headimg` varchar(200) NOT NULL COMMENT '头像图像的绝对路径',
   `pw` varchar(32) NOT NULL,
   `dep` varchar(4) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `depgroup` varchar(5) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '所在组别',
-  `status` varchar(3) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '未激活' COMMENT '账户激活状态',
-  `salt` varchar(6) NOT NULL COMMENT '可以为空，用于后台登录',
+  `salt` varchar(6) NOT NULL,
   `job` varchar(5) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `isMaster` varchar(1) NOT NULL,
+  `isMaster` varchar(1) NOT NULL DEFAULT '0',
   `isAdmin` varchar(1) NOT NULL DEFAULT '0',
-  `isSuper` varchar(1) NOT NULL
+  `isSuper` varchar(1) NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `sys_user`
 --
 
-INSERT INTO `sys_user` (`id`, `stuid`, `tname`, `sname`, `headimg`, `pw`, `dep`, `depgroup`, `status`, `salt`, `job`, `isMaster`, `isAdmin`, `isSuper`) VALUES
-(1, 'jerry', '张镜濠', 'z', '/SUsage/storage/avatar/avatar-zjh.png', '020763a7cb41ef19fbbf89abc8ebc496', '电视台', '电视台', '已激活', '4s2n7s', '超级管理员', '1', '1', '1'),
-(2, 'ghost', '谭震荡', 'T', '/SUsage/storage/avatar/avatar-tan.jpg', 'be0965fac5813089178e0ed4dfbd839a', '电视台', '电脑部', '未激活', 'QG11L1', '用户', '0', '0', '0'),
-(3, 'Enatsu', '夏酱', 'X', '/SUsage/storage/avatar/avatar-5117.jpg', 'eda023d1967a2b7afadc15e138576dbd', '电视台', '电视台', '已激活', 'BEGW54', '管理员', '1', '1', '0');
+INSERT INTO `sys_user` (`id`, `stuid`, `tname`, `headimg`, `pw`, `dep`, `salt`, `job`, `isMaster`, `isAdmin`, `isSuper`) VALUES
+(1, 'jerry', '张镜濠', '/SUsage/storage/avatar/avatar-zjh.png', '020763a7cb41ef19fbbf89abc8ebc496', '电视台', '4S2N7S', '超级管理员', '1', '1', '1'),
+(2, 'ghost', '谭震荡', '/SUsage/storage/avatar/avatar-tan.jpg', 'be0965fac5813089178e0ed4dfbd839a', '电视台', 'QG11L1', '用户', '0', '0', '0'),
+(3, 'Enatsu', '夏酱', '/SUsage/storage/avatar/avatar-5117.jpg', 'eda023d1967a2b7afadc15e138576dbd', '电视台', 'BEGW54', '管理员', '1', '1', '0');
 
 -- --------------------------------------------------------
 
@@ -68,7 +65,7 @@ INSERT INTO `sys_user` (`id`, `stuid`, `tname`, `sname`, `headimg`, `pw`, `dep`,
 --
 
 CREATE TABLE `task_list` (
-  `id` int(11) NOT NULL,
+  `Taskid` int(11) NOT NULL,
   `pubman` varchar(5) COLLATE utf8_unicode_ci NOT NULL,
   `pubgroup` varchar(8) COLLATE utf8_unicode_ci NOT NULL,
   `regroup` varchar(8) COLLATE utf8_unicode_ci NOT NULL,
@@ -81,13 +78,9 @@ CREATE TABLE `task_list` (
 -- 转存表中的数据 `task_list`
 --
 
-INSERT INTO `task_list` (`id`, `pubman`, `pubgroup`, `regroup`, `topic`, `content`, `pubtime`) VALUES
-(1, '张镜濠', '电脑部 DC组', '电视台', '任务标题', '<font color="red">Red Font</font><font color="green"><b>Big Green</b></font>', '2016-05-16 19:01:00'),
-(3, '夏酱', '电脑部 网页组', '电视台', '任务标题', '你们有一个好 全世界跑到什么地方……', '2016-05-28 01:44:08');
-
---
--- Indexes for dumped tables
---
+INSERT INTO `task_list` (`Taskid`, `pubman`, `pubgroup`, `regroup`, `topic`, `content`, `pubtime`) VALUES
+(1, '张镜濠', 'App组', '视频组', '任务标题', '我们组需要一条宣传片子', '2016-05-16 19:01:00'),
+(2, '夏酱', 'App组', '主席团', '任务标题', '你们有一个好 全世界跑到什么地方……', '2016-05-28 01:44:08');
 
 --
 -- Indexes for table `sys_user`
@@ -99,22 +92,19 @@ ALTER TABLE `sys_user`
 -- Indexes for table `task_list`
 --
 ALTER TABLE `task_list`
-  ADD PRIMARY KEY (`id`);
-
---
--- 在导出的表使用AUTO_INCREMENT
---
+  ADD PRIMARY KEY (`Taskid`);
 
 --
 -- 使用表AUTO_INCREMENT `sys_user`
 --
 ALTER TABLE `sys_user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- 使用表AUTO_INCREMENT `task_list`
 --
 ALTER TABLE `task_list`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
