@@ -174,7 +174,8 @@ p {
 	border: 2px solid #a8a8a8;
 	color: #a8a8a8!important;
 	box-shadow: none!important;
-	pointer-events: none
+	pointer-events: none;
+	cursor: not-allowed
 }
 
 

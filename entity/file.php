@@ -59,7 +59,7 @@ include("../functions/NightShift.php");
     <button id="cancelexit" class="btn" style="font-family:微软雅黑;color:#ffffff;position:absolute;right:20%;line-height:55px;font-size:16px;font-weight:bold;cursor:pointer;">不是</button>
 </div>
 <div id="untip"><h2>(0 v 0)你急个啥子噻，晓不晓得这里还是Under Construction呐<br>————夏酱</h2></div>
-
+<div class="not-allowed">
 <div class="blured">
 <!--侧边菜单-->
 <div class="sidemenu" id="menu" style="position:fixed;z-index:0;padding:75px 0 0 0;width:20%">
@@ -108,6 +108,7 @@ include("../functions/NightShift.php");
             </ul>
         </div>
     </form>
+</div>
 </div>
 <!--脚本引用-->
 <script src="../res/js/jquery-2.2.1.min.js"></script>

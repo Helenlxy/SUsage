@@ -13,7 +13,7 @@ if(isset($_POST) && $_POST){
     $_SESSION['headimg']=$rs['headimg'];
     $_SESSION['userid']=$rs['stuid'];
     $_SESSION['SUmaster']=$rs['isMaster'];
-    $_SESSION['group']=$rs['depgroup'];
+    $_SESSION['group']=$rs['dep'];
     $_SESSION['SUname']=$rs['tname'];
     die("1");
   }else if($pw != $rs['pw']){

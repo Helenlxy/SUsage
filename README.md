@@ -2,17 +2,15 @@
 
 <b>执信中学学生会信息化在线办公系统 开源项目 #代号"SUsage" </b>
 
-<b>目前总体开发进度：约66%，前端系统基本完成，后端系统开发约60%。当前build:1D99 (0499)</b>
+<b>目前总体开发进度：约66%，前端系统基本完成，后端系统开发约60%。当前build:1E09 (0509)</b>
 
 <b>项目总阶段：0.6-milestone8 #Project SUsage pre-α（开发代号Young），全站php化中</b>
-
-<s>wiki和Readme又得改了……</s>
 
 <p>TaskSYS V0.7-pre alpha A1</p>
 <p>UCenter V1.5-pre alpha A3</p>
 <p>AdminSYS V1.2-alpha1</p>
 <p>FileTour V0.4-milestone6【未来project】</p>
-<p><b>Latest update：2016.7.18 12:26</b></p>
+<p><b>Latest update：2016.7.21 16:08</b></p>
 <b>©2016 执信学生会 电脑部</b>
 <p>  </p>
 <b>Created By @yyl99311 | @df7c5117 | @GhostShadowTan | @橡胶人AS </b>
@@ -75,7 +73,6 @@
   <p>数十项bug解决<s>及新bug产生</s></p>
 
 <h3>亟待修复</h3>
-  <p>螺旋升天的输入框为空判定以及F5锁（今后再改）</p>
   <p>前后台的个人中心（重置密码之类的……）</p>
 <h3>注意事项</h3>
   <p>按照<s>基本法</s>wiki里的提示写就好啦</p>

@@ -45,12 +45,6 @@ include("../functions/NightShift.php");
     <div class="ex-dnavbar-appbox-text">主页</div>
   </div>
   </a>
-  <a href="file.php">
-  <div class="ex-dnavbar-appbox" title="来不及了，快上车！">
-    <img src="../res/icons/bar/ic_files.png"/>
-    <div class="ex-dnavbar-appbox-text">文件</div>
-  </div>
-  </a>
  </div>
 </div>
 

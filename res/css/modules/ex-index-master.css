@@ -93,7 +93,7 @@
 }
 
 
-#submitbutton1
+#nextstep
 {
 	position:absolute;
 	bottom:7px;
@@ -102,7 +102,7 @@
 	width:120px;
 	display:inherit;
 }
-#submitbutton2
+#submit
 {
 	position:absolute;
 	bottom:7px;

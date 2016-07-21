@@ -40,7 +40,8 @@ if($_SESSION['SUmaster']==1){
     </div>
     <div class="ex-dnavbar-userbox-usernamefixbox">
       <p class="ex-dnacvar-userbox-username">
-        <?php echo $_SESSION['nickname']." ， ";$h=date('G');if ($h<5) echo '该休息了';else if ($h<11) echo '早上好呀';else if ($h<13) echo '到中午了';else if ($h<18) echo '下午好嘛';else if ($h<23) echo '天黑了呢';else echo '该休息了';?>
+        <?php echo $_SESSION['nickname']; ?>
+         , <?php $h=date('G');if ($h<5) echo '该休息了';else if ($h<11) echo '早上好呀';else if ($h<13) echo '到中午了';else if ($h<18) echo '下午好嘛';else if ($h<23) echo '天黑了呢';else echo '该休息了';?>
       </p>
     </div>
     <div class="ex-dnavbar-userbox-descunderunfixbox">
@@ -54,12 +55,6 @@ if($_SESSION['SUmaster']==1){
     <img src="../res/icons/bar/ic_task.png"/>
     <div class="ex-dnavbar-appbox-text">主页</div>
   </div>
-  <a href="file.php">
-  <div class="ex-dnavbar-appbox" title="来不及了，快上车！">
-    <img src="../res/icons/bar/ic_files.png"/>
-    <div class="ex-dnavbar-appbox-text">文件</div>
-  </div>
-  </a>
  </div>
 </div>
 <!--导航栏结束 -->
@@ -84,114 +79,76 @@ if($_SESSION['SUmaster']==1){
     <textarea id='textarea1' style='position:inherit;border-radius:5px;height:390px;width:100%;padding:0px 0px 0px 0px;display:block'></textarea>
   </div>
   <div id='treecontainer' style='display:none'>
-    <div style="z-index:999999">
-		  <center style="line-height:10px;font-size: 13px">请在下方的复选框勾选任务的接收组别。当此组别被勾选后，此组别下所有的成员将接收到该任务。</center>
+    <div style="z-index:999999;margin-top: 30px">
+					  <center style="line-height:10px;font-size: 13px;margin-bottom: 15px">请在下方的复选框勾选任务的接收组别。当此组别被勾选后，此组别下所有的成员将接收到该任务。</center>
       
       <div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block">
-        <input type="checkbox" id="ckdep" value="内务部">
+        <input type="checkbox" id="checkNWB" name="ckdep" value="内务部">
         <label for="checkNWB" style="display:inline-block"></label>
         <span class="lablink">内务部</span>
       </div>
       
       <div class="checkbox" style="margin:15px 5% 0 5%;display:inline-block">
-        <input type="checkbox" id="ckdep" value="公关部">
+        <input type="checkbox" id="checkGGB" name="ckdep" value="公关部">
         <label for="checkGGB" style="display:inline-block"></label>
         <span class="lablink">公关部</span>
       </div>
                     			
       <div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block">
-        <input type="checkbox" id="ckdep" value="广播站">
+        <input type="checkbox" id="checkGBZ" name="ckdep" value="广播站">
         <label for="checkGBZ" style="display:inline-block"></label>
         <span class="lablink">广播站</span>
       </div>
       
       <div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block">
-        <input type="checkbox" id="ckdep" value="社联">
+        <input type="checkbox" id="checkAU" name="ckdep" value="社联">
         <label for="checkAU" style="display:inline-block"></label>
         <span class="lablink">社&#12288;联</span>
       </div>
       
       <div class="checkbox" style="margin:15px 5% 0 5%;display:inline-block;">
-        <input type="checkbox" id="ckdep" value="文娱部">
+        <input type="checkbox" id="checkWYB" name="ckdep" value="文娱部">
         <label for="checkWYB" style="display:inline-block"></label>
         <span class="lablink">文娱部</span>
       </div>
       
       <div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block">
-        <input type="checkbox" id="ckdep" value="宣传部">
+        <input type="checkbox" id="checkXCB" name="ckdep" value="宣传部">
         <label for="checkXCB" style="display:inline-block"></label>
         <span class="lablink">宣传部</span>
       </div>
       
       <div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block;">
-        <input type="checkbox" id="ckdep" value="学术部">
+        <input type="checkbox" id="checkXSB" name="ckdep" value="学术部">
         <label for="checkXSB" style="display:inline-block"></label>
         <span class="lablink">学术部</span>
       </div>
       
       <div class="checkbox" style="margin:15px 5% 0 5%;display:inline-block">
-        <input type="checkbox" id="ckdep" value="体育部">
+        <input type="checkbox" id="checkTYB" name="ckdep" value="体育部">
         <label for="checkTYB" style="display:inline-block"></label>
         <span class="lablink">体育部</span>
       </div>
       
       <div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block">
-        <input type="checkbox" id="ckdep" value="主席团">
+        <input type="checkbox" id="checkZXT" name="ckdep" value="主席团">
         <label for="checkZXT" style="display:inline-block"></label>
         <span class="lablink">主席团</span>
       </div>
       <div>
-        <h3 class="fi-subtitle">—————— 电脑部 ——————</h3>
+        <h3 class="fi-subtitle">—————— 双电大法好 ——————</h3>
         <div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block;">
-        <input type="checkbox" id="ckdep" value="APP组">
-        <label for="checkAPP" style="display:inline-block"></label>
-        <span class="lablink">APP组</span>
-      </div>
-      
-      <div class="checkbox" style="margin:15px 5% 0 5%;display:inline-block">
-        <input type="checkbox" id="ckdep" value="后台组">
-        <label for="checkHTZ" style="display:inline-block"></label>
-        <span class="lablink">后台组</span>
+        <input type="checkbox" id="checkDNB" name="ckdep" value="电脑部">
+        <label for="checkDNB" style="display:inline-block"></label>
+        <span class="lablink">电脑部</span>
       </div>
       
       <div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block;">
-        <input type="checkbox" id="ckdep" value="美工组">
-        <label for="checkMGZ" style="display:inline-block"></label>
-        <span class="lablink">美工组</span>
+        <input type="checkbox" id="checkDST" name="ckdep" value="电视台">
+        <label for="checkDST" style="display:inline-block"></label>
+        <span class="lablink">电视台</span>
       </div>
       
-      <div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block">
-        <input type="checkbox" id="ckdep" value="视频组">
-        <label for="checkSPZ" style="display:inline-block"></label>
-        <span class="lablink">视频组</span>
-      </div>
-    </div>
-    
-    <div>
-      <h3 class="fi-subtitle">—————— 电视台 ——————</h3>
-      <div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block;">
-        <input type="checkbox" id="ckdep" value="DV组">
-        <label for="checkDVZ" style="display:inline-block"></label>
-        <span class="lablink">DV组</span>
-      </div>
-      
-      <div class="checkbox" style="margin:15px 5% 0 5%;display:inline-block">
-        <input type="checkbox" id="ckdep" value="DC组">
-        <label for="checkDCZ" style="display:inline-block"></label>
-        <span class="lablink">DC组</span>
-      </div>
-      
-      <div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block;">
-        <input type="checkbox" id="ckdep" value="主持组">
-        <label for="checkZCZ" style="display:inline-block"></label>
-        <span class="lablink">主持组</span>
-      </div>
-      
-      <div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block">
-        <input type="checkbox" id="checkTVS" value="视频组">
-        <label for="checkSPZ" style="display:inline-block"></label>
-        <span class="lablink">视频组</span>
-      </div>
     </div>
   </div>
 </div>
@@ -268,7 +225,16 @@ editor.create();
 function PostTask(){
   var html=editor.$txt.html();
   alert(html);
-  //Use Ajax to Publish Task
+  var dep="";
+  for(var i=0;i<16;i++){
+    ckdep=document.getElementsByTagName("input")[i];
+    if(ckdep.checked==true){
+      dep += ckdep.value;
+      dep += ",";
+    }
+  }
+  dep = dep.substr(0,dep.length-1);
+  alert(dep);
 }
 
 window.onload=function(){
@@ -282,7 +248,6 @@ function easteregg(){
     window.location.href="about.html";
   }
 }
-
 
 var iptbox = document.getElementById('edtcontainer');
 var treebox = document.getElementById('treecontainer');
@@ -305,7 +270,6 @@ function fwd(){
 }
 </script>
 
- <!--大bug-->   
 <?php
 if($_SESSION['SUmaster']==1){
   echo "<script src='../res/js/lockkey.js'></script>";
@@ -314,6 +278,5 @@ if($_SESSION['SUmaster']==1){
 	echo '<script type="text/javascript">document.onkeydown = function(){easteregg();};</script>';
 }
 ?>
-
 </body>
 </html>
