@@ -1,31 +1,30 @@
 .ex-about
 {
-width:100%;
-left:13%;
-right:13%;
-color:#9e9e9e;
-font-size:13px;
-font-family:"Microsoft Yahei";
-text-align:center;
+	width:100%;
+	left:13%;
+	right:13%;
+	color:#9e9e9e;
+	font-size:13px;
+	font-family:"Microsoft Yahei";
+	text-align:center;
 }
 .ex-end
 {
-width:100%;
-position:absolute;
-bottom:30px;
-padding:20px 0px 5px 0px;
-font-family:"Microsoft Yahei";
-color:#9e9e9e;
-font-size:13px;
-text-align:center;
-border-radius: 3px;
+	width:100%;
+	position:absolute;
+	bottom:30px;
+	padding:20px 0px 5px 0px;
+	font-family:"Microsoft Yahei";
+	color:#9e9e9e;
+	font-size:13px;
+	text-align:center;
+	border-radius: 3px;
 }
 #appfixbox
 {
 	float:left;
 	margin-left:120px;
 }
-
 .ex-dnavbar-appbox
 {
 	height:69px;
@@ -43,8 +42,6 @@ border-radius: 3px;
 	margin:0 8px 0 10px;
 	padding-top:11px;
 }
-
-
 .ex-dnavbar-appbox-text
 {
 	display:inline-block;
@@ -52,7 +49,7 @@ border-radius: 3px;
 	top:-18px;
 	text-align: center;
 	font-size: 16px;
-	font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+	font-family: "Arial","Microsoft YaHei",sans-serif;
 	z-index: 10;
 	color:#fff;
 }
@@ -69,7 +66,6 @@ border-radius: 3px;
 	transition-duration:0.2s;
 	transition-property:background;
 }
-
 .ex-dnavbar-userbox-avatarfixbox
 {
 	height:52px;
@@ -80,12 +76,10 @@ border-radius: 3px;
 	top:0px;
 	left:0px;
 }
-
 .ex-dnavbar-userbox-avatarfixbox img
 {
 	border-radius:50%
 }
-
 .ex-dnavbar-userbox-usernamefixbox
 {
 	height:40px;
@@ -94,7 +88,6 @@ border-radius: 3px;
 	top:0px;
 	left:70px;
 }
-
 .ex-dnavbar-userbox-descunderunfixbox
 {
 	height:30px;
@@ -103,7 +96,6 @@ border-radius: 3px;
 	top:40px;
 	left:80px;
 }
-
 .ex-dnacvar-userbox-username
 {
 	height:24px;
@@ -115,7 +107,6 @@ border-radius: 3px;
 	font-weight:bold;
 	color:#fff;
 }
-
 .ex-dnavbar-userbox-descunderunfb
 {
 	height:30px;
@@ -126,8 +117,6 @@ border-radius: 3px;
 	font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
 	color:#fff;
 }
-
-
 .fs-subtitle {
 	font-weight: normal;
 	font-family:"Microsoft Yahei";
@@ -141,4 +130,27 @@ border-radius: 3px;
 	font-size: 13px;
 	color: #bdbdbd;
 	margin-top: 20px;
+}
+.animate{
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+}
+
+@keyframes fadeOutUp {
+	from {
+		opacity: 1;
+	}
+
+	to {
+		opacity: 0;
+		-webkit-transform: translate3d(0, -100%, 0);
+		transform: translate3d(0, -100%, 0);
+	}
+}
+
+.fadeOutUp {
+	-webkit-animation-name: fadeOutUp;
+	animation-name: fadeOutUp;
 }

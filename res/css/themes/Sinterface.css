@@ -153,6 +153,14 @@ p {
 	color:#fff;
 	background-color:#4CAF50;
 }
+.fff{
+	border: 2px solid #fff;
+	color:#fff;
+}
+.fff:hover{
+	color:#64b5f6;
+	background-color:#fff;
+}
 .blue{
 	border: 2px solid #2196f3;
 	color:#2196f3;

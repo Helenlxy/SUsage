@@ -2,29 +2,26 @@
 
 <b>执信中学学生会信息化在线办公系统 开源项目 #代号"SUsage" </b>
 
-<b>目前总体开发进度：约66%，前端系统基本完成，后端系统开发约60%。当前build:1E09 (0509)</b>
+<b>目前总体开发进度：约66%，前端系统基本完成，后端系统开发约60%。当前build:1E18 (0518)</b>
 
-<b>项目总阶段：0.6-milestone8 #Project SUsage pre-α（开发代号Young），全站php化中</b>
+<b>项目总阶段：0.6-milestone8 #Project SUsage pre-α（开发代号Young）</b>
 
-<p>TaskSYS V0.7-pre alpha A1</p>
+<p>TaskSYS V0.7-pre alpha A2</p>
 <p>UCenter V1.5-pre alpha A3</p>
 <p>AdminSYS V1.2-alpha1</p>
 <p>FileTour V0.4-milestone6【未来project】</p>
 <p><b>Latest update：2016.7.21 16:08</b></p>
 <b>©2016 执信学生会 电脑部</b>
-<p>  </p>
-<b>Created By @yyl99311 | @df7c5117 | @GhostShadowTan | @橡胶人AS </b>
-<b>            | @ZhxsuWebGroup</b>
-<p>  </p>
+<br>
+<b>Created By @yyl99311 | @df7c5117 | @GhostShadowTan | @橡胶人AS | @ZhxsuWebGroup</b>
+<br>
 <b>特别鸣谢：@SmallOyster</b>
-<p>  </p>
-<b>Contact:zhxsuwebgroup@live.com</b>
-<p>  </p>
+<br>
 <b>Everyone can modified it except for the already existing codes </b>
-<p>  </p>
-<br></br>
+<br>
+<br>
 <h4>本Repo迁移自原zhxsuwebgroup/SUsage<br>在登陆后界面按某个组合键有彩蛋哦~<s>才不会告诉你是alt+shift+g呢</s></h4>
-<br></br>
+<br>
 <h3>这是个啥w</h3>
   <p>嗯，执信学生会的网上办公平台。</p>
   <p>一个神秘的系统，完全由37th SUPC自主研制开发。</p><a href="https://github.com/zhxsu/SUsage/wiki/Susage-%7C-%E6%A6%82%E8%BF%B0" target="_blank">详情请戳这里</a>
@@ -43,7 +40,7 @@
   <p>You can use <b>XAMPP1.8.2+</b> for local debugging.The recommend requirement for Server-side is PHP5.6.21+, Apache 2.4.17+, phpMyAdmin 4.5.1+</p>
   <h4><p>请将此文件包<b>放在SUsage文件夹内</b>，然后<b>将SUsage文件夹放在网站根目录</b></p></h4>
   <p>Please put this package into the <b>SUsage</b> directory，then put the <b>SUsage</b> into root directory of your website.</b>
-  <h4><p>环境配置完成后，请在phpmyadmin中新建susage_oa数据库后导入susage_oa.sql文件。</p></h4>
+  <h4><p>环境配置完成后，请在phpmyadmin中新建susage数据库后导入susage.sql文件。</p></h4>
   <p>After runtime configuration completed,please set a new database which called <b>susage_oa</b> and import <b>susage_oa.sql</b> into this database.</p>
   <h4><p>并在<b>functions/to_sql.php、Admin/Includes/to_pdo.php</b>中按照提示填写您的数据库登录账户和密码</p></h4>
   <p>Then follow the prompts to enter your database login account and password in <b>functions/to_sql.php </b>and <b> Admin/Includes/to_pdo.php</b>
@@ -56,6 +53,9 @@
   <h4><p><b>点击确认后将Salt和inDB复制，粘帖进数据库中“salt”和“pw”即可。</b></p></h4>
   <p>Copy the Salt and inDB into <b>salt</b> and <b>pw</b> of database after click permit</p>
 <h3>近期的事情</h3>
+<p><b>----2016.7.25----</b></p>
+  <p>bug修复</p>
+  <p>全局公告开始部署</p>
 <p><b>----2016.7.18----</b></p>
   <p>bug修复</p>
   <p>使用JS获取系统代码版本</p>

@@ -11,6 +11,23 @@
 	border-right:1px solid #444;
 	z-index:10;
 }
+#globalnote
+{
+	height:340px;
+	width:125%;
+	margin:0 0;
+	padding:0 0;
+	position:relative;
+	top:69px;
+	background:#444;
+	border-left:1px solid #444;
+	border-right:1px solid #444;
+	z-index:8;
+}
+#globalnote p,h3{
+	color: rgba(255,255,255,0.87);
+	text-align: center
+}
 body
 {
 	background-color: #333;
@@ -52,5 +69,3 @@ body
 {
 	background-color:#616161;
 }
-
-.mui-badge{position:fixed;left:625px;margin-left:100px;z-index:10000}.mui-badge{display:inline-block;padding:3px 6px;font-size:12px;line-height:1;border-radius:100px}.mui-badge-red{color:#fff;font-family:"Microsoft Yahei";background-color:#dd524d}
