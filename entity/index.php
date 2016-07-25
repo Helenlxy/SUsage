@@ -282,6 +282,12 @@ function easteregg(){
   }
 }
 
+//关闭全局通知窗口
+function closenote(){
+	$("#globalnote").addClass("animate fadeOutUp");
+	
+}
+
 var iptbox = document.getElementById('edtcontainer');
 var treebox = document.getElementById('treecontainer');
 var fwdbtn = document.getElementById('nextstep');
