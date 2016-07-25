@@ -14,7 +14,7 @@ if(isset($_POST) && $_POST){
     $_SESSION['userid']=$rs['stuid'];
     $_SESSION['SUmaster']=$rs['isMaster'];
     $_SESSION['group']=$rs['dep'];
-    $_SESSION['SUname']=$rs['tname'];
+    $_SESSION['truename']=$rs['tname'];
     die("1");
   }else if($pw != $rs['pw']){
     //密码不符

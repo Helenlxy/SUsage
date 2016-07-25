@@ -2,24 +2,24 @@
 
 <b>执信中学学生会信息化在线办公系统 开源项目 #代号"SUsage" </b>
 
-<b>目前总体开发进度：约66%，前端系统基本完成，后端系统开发约60%。当前build:1E18 (0518)</b>
+<b>目前总体开发进度：约66%，前端系统基本完成，后端系统开发约60%。当前build:1E32 (0532)</b>
 
-<b>项目总阶段：0.6-milestone8 #Project SUsage pre-α（开发代号Young）</b>
+<b>项目总阶段：0.6-milestone8 #Project SUsage pre-α（开发代号Young），全站php化中</b>
 
-<p>TaskSYS V0.7-pre alpha A2</p>
-<p>UCenter V1.5-pre alpha A3</p>
-<p>AdminSYS V1.2-alpha1</p>
-<p>FileTour V0.4-milestone6【未来project】</p>
-<p><b>Latest update：2016.7.21 16:08</b></p>
+<p>TaskSYS V1.0 alpha A1</p>
+<p>UCenter V1.5-pre alpha A1</p>
+<p>AdminSYS V1.2-alpha2</p>
+<p>FileTour V0.4-milestone6 【未来project】</p>
+<p><b>Latest update：2016.7.25 21:20</b></p>
 <b>©2016 执信学生会 电脑部</b>
-<br>
+<p>  </p>
 <b>Created By @yyl99311 | @df7c5117 | @GhostShadowTan | @橡胶人AS | @ZhxsuWebGroup</b>
-<br>
+<p>  </p>
 <b>特别鸣谢：@SmallOyster</b>
-<br>
+<p>  </p>
 <b>Everyone can modified it except for the already existing codes </b>
-<br>
-<br>
+<p>  </p>
+<br></br>
 <h4>本Repo迁移自原zhxsuwebgroup/SUsage<br>在登陆后界面按某个组合键有彩蛋哦~<s>才不会告诉你是alt+shift+g呢</s></h4>
 <br>
 <h3>这是个啥w</h3>
@@ -33,15 +33,15 @@
   <p><s>雅号香肠</s></p>
 <h3>好处都有啥w</h3>
   <s>有了SUsage，不流失不蒸发</s>
-  <p>可以发布公告、通知、私信，布置任务省时省力。</p>
+  <p>可以发布公告、下载文件、布置任务，省时又省力！</p>
   <p>界面美观又漂亮,【咦有语病</p>
 <h3>配置</h3>
-  <h4><p>本地可以使用<b>XAMPP1.8.2+</b>调试，服务器端建议最低配置PHP5.6.21+, Apache 2.4.17+, phpMyAdmin 4.5.1+</p></h4>
-  <p>You can use <b>XAMPP1.8.2+</b> for local debugging.The recommend requirement for Server-side is PHP5.6.21+, Apache 2.4.17+, phpMyAdmin 4.5.1+</p>
+  <h4><p>本地可以使用<b>XAMPP1.8.2+</b>调试，服务器端建议最低配置PHP5+, Apache 2.4.17+, phpMyAdmin 4.5.1+</p></h4>
+  <p>You can use <b>XAMPP1.8.2+</b> for local debugging.The recommend requirement for Server-side is PHP5+, Apache 2.4.17+, phpMyAdmin 4.5.1+</p>
   <h4><p>请将此文件包<b>放在SUsage文件夹内</b>，然后<b>将SUsage文件夹放在网站根目录</b></p></h4>
   <p>Please put this package into the <b>SUsage</b> directory，then put the <b>SUsage</b> into root directory of your website.</b>
-  <h4><p>环境配置完成后，请在phpmyadmin中新建susage数据库后导入susage.sql文件。</p></h4>
-  <p>After runtime configuration completed,please set a new database which called <b>susage_oa</b> and import <b>susage_oa.sql</b> into this database.</p>
+  <h4><p>环境配置完成后，请在PhpMyAdmin中新建susage数据库后导入susage.sql文件。</p></h4>
+  <p>After runtime configuration completed,please set a new database which called <b>susage</b> and import <b>susage.sql</b> into this database.</p>
   <h4><p>并在<b>functions/to_sql.php、Admin/Includes/to_pdo.php</b>中按照提示填写您的数据库登录账户和密码</p></h4>
   <p>Then follow the prompts to enter your database login account and password in <b>functions/to_sql.php </b>and <b> Admin/Includes/to_pdo.php</b>
   <h4><p>测试账户1：Enatsu 密码：123456（角色：管理员+组长）</p></h4>
@@ -54,7 +54,10 @@
   <p>Copy the Salt and inDB into <b>salt</b> and <b>pw</b> of database after click permit</p>
 <h3>近期的事情</h3>
 <p><b>----2016.7.25----</b></p>
-  <p>bug修复</p>
+  <p>完成“发布任务”功能</p>
+  <p>新增“完成任务”功能（未建设完毕）</p>
+  <p>登录时使用cookie记住用户名</p>
+  <p>大改数据库结构</p>
   <p>全局公告开始部署</p>
 <p><b>----2016.7.18----</b></p>
   <p>bug修复</p>
@@ -73,10 +76,10 @@
   <p>数十项bug解决<s>及新bug产生</s></p>
 
 <h3>亟待修复</h3>
-  <p>前后台的个人中心（重置密码之类的……）</p>
+  <p>前台的个人中心（重置密码之类的……）</p>
 <h3>注意事项</h3>
   <p>按照<s>基本法</s>wiki里的提示写就好啦</p>
-  <a href="https://github.com/zhxsu/SU_OA/wiki" target="_blank">修改时，欢迎参看我们的wiki</a>
+  <a href="https://github.com/zhxsu/susage/wiki" target="_blank">修改时，欢迎参看我们的wiki</a>
 <hr></hr>
 <h3>开源声明及感谢</h3>
   <p>本项目目前基于以下几个开源项目开发：</p>

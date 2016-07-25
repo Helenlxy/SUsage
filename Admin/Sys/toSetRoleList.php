@@ -28,9 +28,9 @@ $total=sizeof($list[0]);
 <?php include("../Includes/shownav.php"); ?>
 <table class="table table-hover table-striped" style="border-radius: 5px; border-collapse: separate;">
 <tr>
-  <th>姓名</th>
+  <th>用户名</th>
+  <th>真实姓名</th>
   <th>部门</th>
-  <th>组别</th>
   <th>职位</th>
   <th>将角色设置为</th>
 </tr>
@@ -55,8 +55,8 @@ $total=sizeof($list[0]);
     //Make Table -Begin
     echo "<tr>";
     echo "<td>".$name."</td>";
+    echo "<td>".$list[0][$i]['stuid']."</td>";
     echo "<td>".$list[0][$i]['dep']."</td>";
-    echo "<td>".$list[0][$i]['depgroup']."</td>";
     echo "<td>".$list[0][$i]['job']."</td>";
     echo "<td><a href='toSetRole.php?type=Master&uid=$uid&set=$setM&sutk=$SUtoken' class='btn btn-default btn-xs'><span class='glyphicon glyphicon-edit'></span>$nameM</a>";
     

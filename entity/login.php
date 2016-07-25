@@ -18,12 +18,17 @@
 
 <article style="margin-top:50px">
   <center class="card" style="background-color: #fff;width:35%;min-height:350px">
-    <h2 class="fs-title" style="font-size: 25px">你好，SUer
-      <br><h3 style="color:#66ccff">欢迎回到SUsage</h3>
+    <h2 class="fs-title" style="font-size: 25px">你好，SUer<br>
+      <h3 style="color:#66ccff">欢迎回到SUsage</h3>
     </h2>
-    <input class="text-input ipt" required="required" placeholder="SUsage ID" id="id">
-    <input class="text-input ipt" type="password" required="required" placeholder="Password" id="pw">
+    <input class="text-input ipt" placeholder="SUsage ID" id="id" onkeyup="if(event.keyCode==13)$('#pw')[0].focus();">
+    <input class="text-input ipt" type="password" placeholder="Password" id="pw" onkeyup="if(event.keyCode==13)toLogin();">
     <button onclick="toLogin();" id="btn" class="btn raised green" style="width:60%;margin-top:40px">登陆</button>
+    <div class="checkbox" style="margin:15px 5% 0 5%;display:inline-block">
+      <input type="checkbox" id="usrcookie">
+      <label for="usrcookie" style="display:inline-block"></label>
+      <span class="lablink">记住用户名</span>
+    </div>
   </center>
 
   <!-- Footer -->
@@ -32,8 +37,14 @@
 </body>
 
 <script src="/SUsage/res/js/jquery-2.2.1.min.js" type="text/javascript"></script>
+<script src="/SUsage/res/js/cookie.js" type="text/javascript"></script>
 
 <script type="text/javascript">
+window.onload=function(){
+  usrid=document.getElementById('id');
+  usrid.value=getCookie("SUsageusr");
+}
+
 var tips = document.getElementById('codetips');
 
 function showtips(){ 
@@ -45,7 +56,8 @@ function hidetips(){
   tips.style.display = "none";
 }
 
-function toIndex(){
+function toIndex(usrname){  
+  setCookie("SUsageusr",usrname);
   window.location.href="index.php";
 }
 
@@ -55,6 +67,7 @@ function ErrorPW(){
   $("#pw")[0].disabled=0;
   $("#btn")[0].disabled=0;
   $("#btn").html("登录");
+  $('#pw')[0].focus(); 
 }
 
 function toLogin(){
@@ -69,7 +82,7 @@ function toLogin(){
     url:"verify.php",
     data:{id:id,pw:pw},
     success:function(g){
-      if(g=="1") toIndex();
+      if(g=="1") toIndex(id);
       else if(g=="2") ErrorPW();
       else alert("未知错误！错误码："+g);
     },

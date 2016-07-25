@@ -3,7 +3,7 @@ require_once("Includes/CheckLog.php");
 $flag=true;
 require_once("Includes/to_pdo.php");
 
-$Tasks=PDOQuery($dbcon,"SELECT * FROM task_list",[],[]);
+$Tasks=PDOQuery($dbcon,"SELECT * FROM task_list ORDER BY Taskid DESC",[],[]);
 $total=sizeof($Tasks[0]);
 ?>
 
@@ -27,11 +27,10 @@ $total=sizeof($Tasks[0]);
 <?php include("Includes/shownav.php"); ?>
 <table class="table table-hover table-striped" style="border-radius:50px;">
 <tr>
-  <th>UID</th>
+  <th>ID</th>
   <th>发布者</th>
   <th>发布者组别</th>
   <th>接收者组别</th>
-  <th>标题</th>
   <th>内容</th>
 </tr>
 
@@ -41,10 +40,9 @@ for($i=0;$i<$total;$i++){
   echo "<tr>";
   echo "<td>".$id."</td>";
   echo "<td>".$Tasks[0][$i]['pubman']."</td>";
-  echo "<td>".$Tasks[0][$i]['pubgroup']."</td>";
-  echo "<td>".$Tasks[0][$i]['regroup']."</td>";
-  echo "<td>".$Tasks[0][$i]['topic']."</td>";
-  echo "<td>".$Tasks[0][$i]['content']."</td>";
+  echo "<td>".$Tasks[0][$i]['pubdep']."</td>";
+  echo "<td>".$Tasks[0][$i]['redep']."</td>";
+  echo "<td>".$Tasks[0][$i]['ct']."</td>";
   echo "</tr>";
 }
 ?>

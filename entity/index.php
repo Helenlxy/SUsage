@@ -4,7 +4,8 @@ require_once("../functions/to_sql.php");
 include("../functions/NightShift.php");
 
 $group=$_SESSION['group'];
-$sql=mysqli_query($conn,"SELECT * FROM task_list WHERE regroup='{$group}'");
+$pubman=$_SESSION['truename'];
+$sql=mysqli_query($conn,"SELECT * FROM task_list WHERE redep LIKE '%$group%'");
 ?>
 
 
@@ -40,8 +41,15 @@ if($_SESSION['SUmaster']==1){
     </div>
     <div class="ex-dnavbar-userbox-usernamefixbox">
       <p class="ex-dnacvar-userbox-username">
-        <?php echo $_SESSION['nickname']; ?>
-         , <?php $h=date('G');if ($h<5) echo '该休息了';else if ($h<11) echo '早上好呀';else if ($h<13) echo '到中午了';else if ($h<18) echo '下午好嘛';else if ($h<23) echo '天黑了呢';else echo '该休息了';?>
+        <?php 
+        echo $_SESSION['nickname']." , ";
+        if ($h<5) echo '该休息了';
+        else if ($h<11) echo '早上好呀';
+        else if ($h<13) echo '到中午了';
+        else if ($h<18) echo '下午好嘛';
+        else if ($h<23) echo '天黑了呢';
+        else echo '该休息了';
+        ?>
       </p>
     </div>
     <div class="ex-dnavbar-userbox-descunderunfixbox">
@@ -96,71 +104,71 @@ if($_SESSION['SUmaster']==1){
   </div>
   <div id='treecontainer' style='display:none'>
     <div style="z-index:999999;margin-top: 30px">
-					  <center style="line-height:10px;font-size: 13px;margin-bottom: 15px">请在下方的复选框勾选任务的接收组别。当此组别被勾选后，此组别下所有的成员将接收到该任务。</center>
+            <center style="line-height:10px;font-size: 13px;margin-bottom: 15px">请在下方的复选框勾选任务的接收组别。当此组别被勾选后，此组别下所有的成员将接收到该任务。</center>
       
       <div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block">
-        <input type="checkbox" id="checkNWB" name="ckdep" value="内务部">
+        <input type="checkbox" id="checkNWB" name="ckdep[]" value="内务部">
         <label for="checkNWB" style="display:inline-block"></label>
         <span class="lablink">内务部</span>
       </div>
       
       <div class="checkbox" style="margin:15px 5% 0 5%;display:inline-block">
-        <input type="checkbox" id="checkGGB" name="ckdep" value="公关部">
+        <input type="checkbox" id="checkGGB" name="ckdep[]" value="公关部">
         <label for="checkGGB" style="display:inline-block"></label>
         <span class="lablink">公关部</span>
       </div>
-                    			
+                          
       <div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block">
-        <input type="checkbox" id="checkGBZ" name="ckdep" value="广播站">
+        <input type="checkbox" id="checkGBZ" name="ckdep[]" value="广播站">
         <label for="checkGBZ" style="display:inline-block"></label>
         <span class="lablink">广播站</span>
       </div>
       
       <div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block">
-        <input type="checkbox" id="checkAU" name="ckdep" value="社联">
+        <input type="checkbox" id="checkAU" name="ckdep[]" value="社联">
         <label for="checkAU" style="display:inline-block"></label>
         <span class="lablink">社&#12288;联</span>
       </div>
       
       <div class="checkbox" style="margin:15px 5% 0 5%;display:inline-block;">
-        <input type="checkbox" id="checkWYB" name="ckdep" value="文娱部">
+        <input type="checkbox" id="checkWYB" name="ckdep[]" value="文娱部">
         <label for="checkWYB" style="display:inline-block"></label>
         <span class="lablink">文娱部</span>
       </div>
       
       <div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block">
-        <input type="checkbox" id="checkXCB" name="ckdep" value="宣传部">
+        <input type="checkbox" id="checkXCB" name="ckdep[]" value="宣传部">
         <label for="checkXCB" style="display:inline-block"></label>
         <span class="lablink">宣传部</span>
       </div>
       
       <div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block;">
-        <input type="checkbox" id="checkXSB" name="ckdep" value="学术部">
+        <input type="checkbox" id="checkXSB" name="ckdep[]" value="学术部">
         <label for="checkXSB" style="display:inline-block"></label>
         <span class="lablink">学术部</span>
       </div>
       
       <div class="checkbox" style="margin:15px 5% 0 5%;display:inline-block">
-        <input type="checkbox" id="checkTYB" name="ckdep" value="体育部">
+        <input type="checkbox" id="checkTYB" name="ckdep[]" value="体育部">
         <label for="checkTYB" style="display:inline-block"></label>
         <span class="lablink">体育部</span>
       </div>
       
       <div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block">
-        <input type="checkbox" id="checkZXT" name="ckdep" value="主席团">
+        <input type="checkbox" id="checkZXT" name="ckdep[]" value="主席团">
         <label for="checkZXT" style="display:inline-block"></label>
         <span class="lablink">主席团</span>
       </div>
       <div>
         <h3 class="fi-subtitle">—————— 双电大法好 ——————</h3>
         <div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block;">
-        <input type="checkbox" id="checkDNB" name="ckdep" value="电脑部">
+        <input type="checkbox" id="checkDNB" name="ckdep[]" value="电脑部">
         <label for="checkDNB" style="display:inline-block"></label>
         <span class="lablink">电脑部</span>
       </div>
       
       <div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block;">
-        <input type="checkbox" id="checkDST" name="ckdep" value="电视台">
+        <input type="checkbox" id="checkDST" name="ckdep[]" value="电视台">
         <label for="checkDST" style="display:inline-block"></label>
         <span class="lablink">电视台</span>
       </div>
@@ -171,7 +179,7 @@ if($_SESSION['SUmaster']==1){
 
 <button class='btn raised green' id='nextstep' onclick='fwd(); return false'>下一步</button>
 <button class='btn raised green' id='backwardbutton' onclick='bwd(); return false' style='display:none'>上一步</button>
-<button class='btn raised green' id='submit' style='display:none' onclick='PostTask();'>发布任务</button>
+<button class='btn raised green' id='submit' style='display:none' onclick='GetTaskInfo();'>发布任务</button>
         
 </div>
 <p id="tips1">———— 你的任务 ————</p>
@@ -179,34 +187,39 @@ if($_SESSION['SUmaster']==1){
 		
 <?php 
 while($rs=mysqli_fetch_array($sql)){
-  $name=$rs['pubman'];
-  $pubgroup=$rs['pubgroup'];
-  $Taskid=$rs['Taskid'];
-  $info_sql="SELECT * FROM sys_user WHERE tname='$name'";
+  $name=$rs['pubman'];//发布人
+  $pubdep=$rs['pubdep'];//发布部门
+  $Tid=$rs['Taskid'];
+  $info_sql="SELECT headimg FROM sys_user WHERE tname='$name'";
   $query=mysqli_query($conn,$info_sql);
   $info=mysqli_fetch_array($query);
-  $headimg=$info['headimg'];
-?>		
+  $headimg=$info['headimg'];//发布人头像
+?>
+
 <div class="card rich-card tasklist">
   <img class="headimg" src="<?php echo $headimg; ?>">
   <span class="name" ><?php echo $name; ?></span>
-  <span class="pubgroup" ><?php echo $pubgroup; ?></span>
+  <span class="pubgroup" ><?php echo $pubdep; ?></span>
   <span class="time">发布于<span><?php echo $rs['pubtime']; ?></span></span>
   <div class="contentarea">
-    <p><?php echo $rs['content']; ?></p>
+    <p><?php echo $rs['ct']; ?></p>
   </div>
+  
   <div class="card-footer">
   <?php
-    $tname=$_SESSION['SUname'];
-    if($name==$tname){
-      echo "<a class='del btn raised raised red' href='../functions/toDelTask.php?Tid=$Taskid'>删除此任务</a>";
-      echo "<a class='finishsum' href=''><span class='sumsty'>0</span>人完成了你的任务</a>";
+    $tname=$_SESSION['truename'];
+    if($name==$tname){//自己发布的任务
+      $cpt_sql="SELECT * FROM task_complete WHERE Taskid='$Tid' AND isComplete='1'";
+      $cpt_rs=mysqli_query($conn,$cpt_sql);
+      $cpt=mysqli_num_rows($cpt_rs);
+      echo "<a class='del btn raised raised red' href='../functions/toDelTask.php?Tid=$Tid'>删除此任务</a>";
+      echo "<a class='finishsum' href=''><span class='sumsty'>$cpt</span>人完成了你的任务</a>";
     }else{
       echo "<button class='btn raised mark blue'>标记为完成！</button>";
     }
   ?>
-		
-	</div>
+    
+  </div>
 </div>
 <?php } ?>	
 
@@ -237,28 +250,32 @@ editor.onchange = function(){
 
 editor.create();
 
-
-function PostTask(){
+function GetTaskInfo(){
+  //获取用户信息
+  var pubman="<?php echo $pubman; ?>";
+  var pubdep="<?php echo $group; ?>";
+  //获取任务内容
   var html=editor.$txt.html();
-  alert(html);
+  //获取任务发布对象部门
   var dep="";
-  for(var i=0;i<16;i++){
-    ckdep=document.getElementsByTagName("input")[i];
-    if(ckdep.checked==true){
-      dep += ckdep.value;
+  ckdep=document.getElementsByName("ckdep[]");
+  for(var i=0,j=ckdep.length;i<j;i++){
+    if(ckdep[i].checked){
+      dep += ckdep[i].value;
       dep += ",";
     }
   }
+  //去除末尾的逗号
   dep = dep.substr(0,dep.length-1);
-  alert(dep);
+  PublishTask(pubman,pubdep,html,dep);
 }
 
+//页面启动时隐藏下一步按钮
 window.onload=function(){
   submitbtn.style.display='none';
 }
 
-
-//彩蛋--关于我们	
+//彩蛋--关于我们  
 function easteregg(){
   if(event.altKey && event.shiftKey && event.keyCode == 71){
     window.location.href="about.html";
@@ -284,9 +301,6 @@ function fwd(){
   fwdbtn.style.display = 'none';
   pstbtn.style.display = 'block';
 }
-function closenote(){
-  $("#globalnote").addClass("animate fadeOutUp");
-}
 </script>
 
 <?php
@@ -294,8 +308,24 @@ if($_SESSION['SUmaster']==1){
   echo "<script src='../res/js/lockkey.js'></script>";
   echo '<script type="text/javascript">document.onkeydown = function(){lockf5();easteregg();};</script>';
 }else{
-	echo '<script type="text/javascript">document.onkeydown = function(){easteregg();};</script>';
+  echo '<script type="text/javascript">document.onkeydown = function(){easteregg();};</script>';
 }
 ?>
+
+<script>
+function PublishTask(man,pdep,ct,dep){
+$.ajax({
+  url:"../functions/toPublishTask.php",
+  type:"POST",
+  data:{pubman:man,pubdep:pdep,ct:ct,dep:dep},
+  error:function(e){alert("发布任务失败！");},
+  success:function(g){
+    alert("发布任务成功！"+g);
+    history.go(0);
+  }
+});
+}
+</script>
+
 </body>
 </html>

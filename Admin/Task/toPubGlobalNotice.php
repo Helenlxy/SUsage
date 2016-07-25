@@ -42,11 +42,13 @@ if(isset($_POST) && $_POST){
   <div class="col-md-offset-2 col-md-8" style="line-height:12px;">
   
 <form method="post">
-
-<div class="input-group">
-    <textarea class="form-control" style="resize:none;" name="content" cols="65" rows="10" placeholder="输入内容"></textarea>
-</div><br>
-<input type="submit" value="发 布" class="btn btn-success" style="width:100%">
+  <div class="input-group">
+    <input type="text" class="form-control" placeholder="输入全局通知的标题" name="topic">
+  </div><br>
+  <div class="input-group">
+    <textarea class="form-control" style="resize:none;" name="content" cols="65" rows="10" placeholder="输入全局通知的内容"></textarea>
+  </div><br>
+  <input type="submit" value="发 布" class="btn btn-success" style="width:100%">
 </form>
 </div>
 </div>
