@@ -92,9 +92,15 @@ CREATE TABLE `task_list` (
 -- 转存表中的数据 `task_list`
 --
 
-INSERT INTO `task_list` (`Taskid`, `pubman`, `pubgroup`, `regroup`, `topic`, `content`, `pubtime`) VALUES
-(1, '张镜濠', '主席团', '电视台', '任务标题', '我们需要一条宣传片子', '2016-05-16 19:01:00'),
-(2, '夏酱', '电脑部', '主席团', '任务标题', '你们有一个好 全世界跑到什么地方……', '2016-05-28 01:44:08');
+INSERT INTO `task_list` (`Taskid`, `pubman`, `pubdep`, `redep`, `ct`, `pubtime`) VALUES
+(1, '小生蚝', '主席团', '电视台', '我们需要一条宣传片子', '2016-05-16 19:01:00'),
+(2, '夏酱', '电脑部', '主席团', '你们有一个好 全世界跑到什么地方……', '2016-05-28 01:44:08');
+
+--
+-- Indexes for table `sys_notice`
+--
+ALTER TABLE `sys_notice`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `sys_user`

@@ -2,24 +2,24 @@
 
 <b>执信中学学生会信息化在线办公系统 开源项目 #代号"SUsage" </b>
 
-<b>目前总体开发进度：约66%，前端系统基本完成，后端系统开发约60%。当前build:1E32 (0532)</b>
+<b>目前总体开发进度：约66%，前端系统基本完成，后端系统开发约60%。当前build:1E44 (0544)</b>
 
-<b>项目总阶段：0.6-milestone8 #Project SUsage pre-α（开发代号Young），全站php化中</b>
+<b>项目总阶段：0.6-milestone8 #Project SUsage pre-α（开发代号Young）</b>
 
-<p>TaskSYS V1.0 alpha A1</p>
+<p>TaskSYS V1.0 alpha A2</p>
 <p>UCenter V1.5-pre alpha A1</p>
 <p>AdminSYS V1.2-alpha2</p>
 <p>FileTour V0.4-milestone6 【未来project】</p>
-<p><b>Latest update：2016.7.25 21:20</b></p>
+<p><b>Latest update：2016.7.26 16:17</b></p>
 <b>©2016 执信学生会 电脑部</b>
-<p>  </p>
+<br>
 <b>Created By @yyl99311 | @df7c5117 | @GhostShadowTan | @橡胶人AS | @ZhxsuWebGroup</b>
-<p>  </p>
+<br>
 <b>特别鸣谢：@SmallOyster</b>
-<p>  </p>
+<br>
 <b>Everyone can modified it except for the already existing codes </b>
-<p>  </p>
-<br></br>
+<br>
+<br>
 <h4>本Repo迁移自原zhxsuwebgroup/SUsage<br>在登陆后界面按某个组合键有彩蛋哦~<s>才不会告诉你是alt+shift+g呢</s></h4>
 <br>
 <h3>这是个啥w</h3>

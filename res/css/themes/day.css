@@ -13,7 +13,7 @@
 }
 #globalnote
 {
-	height:340px;
+	height:280px;
 	width:125%;
 	margin:0 0;
 	padding:0 0;
@@ -27,6 +27,18 @@
 #globalnote p,h3{
 	color: rgba(255,255,255,0.87);
 	text-align: center
+}
+#whofinished{
+	height:380px;
+	width:100%;
+	margin:0 0;
+	padding:0 0;
+	position:fixed;
+	top:69px;
+	background:#64B5F6;
+	border-left:1px solid #64B5F6;
+	border-right:1px solid #64B5F6;
+	z-index: 9
 }
 body{
 	background-color: #fff;
