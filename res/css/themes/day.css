@@ -24,12 +24,12 @@
 	border-right:1px solid #64B5F6;
 	z-index:8;
 }
-#globalnote p,h3{
+#globalnote p, #globalnote h3, #whofinished h3{
 	color: rgba(255,255,255,0.87);
 	text-align: center
 }
 #whofinished{
-	height:auto;
+	height:380px;
 	width:100%;
 	margin:0 0;
 	padding:0 0;

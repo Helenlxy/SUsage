@@ -91,8 +91,6 @@
 	 padding:0px 5px 0px 5px;
 	 color:#fff;
 }
-
-
 #nextstep
 {
 	position:absolute;
@@ -143,4 +141,35 @@
 	z-index:1;
 	left:13%;
 	right:13%;
+}
+.fnspeople{
+	width:200px;
+	height:70px;
+    display: inline-block;
+    margin: 0 5px 0 5px;
+	background-color: transparent;
+	border-color: #fff
+}
+.fnsimg{
+	border-radius: 50%;
+	width: 60px;
+	margin:5px 15px 5px 5px;
+}
+.fnsname{
+	position:relative;
+	color:#fff;
+    display: block;
+    padding-left: 80px;
+    top: -43px;
+    margin-right: 5px;
+	word-break:keep-all;
+	overflow:hidden;
+	text-overflow:ellipsis;
+}
+.disablemod{
+	opacity:0.5;
+	cursor: not-allowed
+}
+.disablemod a,.disablemod input{
+	cursor: not-allowed;
 }

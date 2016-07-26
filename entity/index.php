@@ -2,7 +2,6 @@
 session_start();
 require_once("../functions/to_sql.php");
 include("../functions/NightShift.php");
-
 $group=$_SESSION['group'];
 $pubman=$_SESSION['truename'];
 $sql=mysqli_query($conn,"SELECT * FROM task_list WHERE redep LIKE '%$group%'");
@@ -26,8 +25,6 @@ $sql=mysqli_query($conn,"SELECT * FROM task_list WHERE redep LIKE '%$group%'");
 		<link rel="shortcut icon" href="../res/icons/title/task_128X128.ico"/>
 	</head>
 	<body style="position:absolute;width:80%;">
-	<!-- ****************** 页面显示 开始 ******************-->
-
 		<!--导航栏从此开始 -->
 		<div class="ex-navbar-for-Desktop">
 			<!--用户标签-->
@@ -79,6 +76,7 @@ $sql=mysqli_query($conn,"SELECT * FROM task_list WHERE redep LIKE '%$group%'");
 			</p>
 			<center><button class='btn fff' style="margin:10px 0 20px 0" onclick='closenote(); return false'>知道了啦</button></center>
 		</div>
+		<div id="panel">
 		<!-- 放在顶上的链接-->
 		<div id="about" class="ex-about" style="position:absolute;top:90px;width:100%;text-align:center;z-index:1;">
 			<a href="ucenter.php#helper" target="_blank" style="color:#00C853">帮助与反馈中心 </a>·<a href="http://zhxsu.github.io/SUsage/" target="_blank" style="color:#00C853"> 关于 | 开源许可及协议声明 </a> <span class="trick" title="用鼠标刮这里看看">试试alt+shift+g</span> <a id="ver"></a> ©2016 <a href="http://weibo.com/zxsu32nd" target="_blank" style="color:#9e9e9e">执信学生会</a> <a href="http://weibo.com/zhxsupc" target="_blank"  style="color:#9e9e9e">电脑部</a> · In tech we trust 
@@ -159,16 +157,16 @@ $sql=mysqli_query($conn,"SELECT * FROM task_list WHERE redep LIKE '%$group%'");
 		<!--任务界面-->
 		<p id="tips1">———— 你的任务 ————</p>
 		<div id="listarea">
-		<?php 
-		while($rs=mysqli_fetch_array($sql)){
-			$name=$rs['pubman'];//发布人
-			$pubdep=$rs['pubdep'];//发布部门
-			$Tid=$rs['Taskid'];
-			$info_sql="SELECT headimg FROM sys_user WHERE tname='$name'";
-			$query=mysqli_query($conn,$info_sql);
-			$info=mysqli_fetch_array($query);
-			$headimg=$info['headimg'];//发布人头像
-		?>
+			<?php 
+				while($rs=mysqli_fetch_array($sql)){
+					$name=$rs['pubman'];//发布人
+					$pubdep=$rs['pubdep'];//发布部门
+					$Tid=$rs['Taskid'];
+					$info_sql="SELECT headimg FROM sys_user WHERE tname='$name'";
+					$query=mysqli_query($conn,$info_sql);
+					$info=mysqli_fetch_array($query);
+					$headimg=$info['headimg'];//发布人头像
+			?>
 			<div class="card rich-card tasklist">
 				<img class="headimg" src="<?php echo $headimg; ?>">
 				<span class="name" ><?php echo $name; ?></span>
@@ -180,152 +178,210 @@ $sql=mysqli_query($conn,"SELECT * FROM task_list WHERE redep LIKE '%$group%'");
 				
 				<div class="card-footer">
 				<?php
-				if($name==$pubman){//自己发布的任务
-					$cpt_sql="SELECT * FROM task_complete WHERE Taskid='$Tid' AND isComplete='1'";
-					$cpt_rs=mysqli_query($conn,$cpt_sql);
-					$cpt=mysqli_num_rows($cpt_rs);
-					echo "<a class='del btn raised raised red' href='../functions/toDelTask.php?Tid=$Tid'>删除此任务</a>";
-					echo "<a class='finishsum' href='' onclick='opencpt(); return false'><span class='sumsty'>$cpt</span>人完成了你的任务</a>";
-				}else{
-					echo "<button class='btn raised mark blue'>标记为完成！</button>";
-				}
+					$tname=$_SESSION['truename'];
+					if($name==$tname){//自己发布的任务
+						$cpt_sql="SELECT * FROM task_complete WHERE Taskid='$Tid' AND isComplete='1'";
+						$cpt_rs=mysqli_query($conn,$cpt_sql);
+						$cpt=mysqli_num_rows($cpt_rs);
+						echo "<a class='del btn raised raised red' href='../functions/toDelTask.php?Tid=$Tid'>删除此任务</a>";
+						echo "<a class='finishsum' href='' onclick='opencpt(); return false'><span class='sumsty'>$cpt</span>人完成了你的任务</a>";
+					}else{
+						echo "<button class='btn raised mark blue'>标记为完成！</button>";
+					}
 				?>
 				</div>
 			</div>
-			<?php } ?>
+			<?php }?>
 			<center class="ex-end" style="left:12.8%">——————再怎么找都没有啦~——————</center>
 		</div>
-		<!--任务完成模块-->
-		<div id="whofinished" class="modhide">
-			<h3>共<span><?php echo $cpt;?></span>人完成了此任务</h3>
-			<p style="height:auto;text-align:center;width:80%;font-size:17px;position:relative;left:10%;overflow-y:auto;word-wrap:break-word;">
-			<!--内容区域开始-->
-			<font color="#EEFF41">
-			杨某霖、诸某甫、谭某、张某濠、何某、林某开
-			</font>
-			<!--内容区域结束-->
-			<br><br><span style="font-family: 'microsoft yahei'">————————以下空————————</span><!--此内容固定显示-->
-			</p>
-			<center><button class='btn fff' style="margin:10px 0 20px 0" onclick='closecpt(); return false'>知道了</button></center>
 		</div>
-  <!-- ****************** 页面显示 结束 ******************-->
-
-
-<!--脚本引用-->
-<script src="../res/js/jquery-2.2.1.min.js"></script>
-<script src="../res/js/wangEditor.js"></script>
-<script src="../res/js/basic.js"></script>
-<script src="../res/js/GetCodeVer.js"></script>
-<script type="text/javascript">
-var editor = new wangEditor('textarea1');
-var submitbtn = document.getElementById('nextstep');
-
-editor.onchange = function(){
-	if(this.$txt.html()=="<p><br></p>"){
-		submitbtn.style.display = 'none';
-	}else{
-		submitbtn.style.display = 'block';
-	}
-};
-
-editor.create();
-function GetTaskInfo(){
-	//获取用户信息
-	var pubman="<?php echo $pubman; ?>";
-	var pubdep="<?php echo $group; ?>";
-	//获取任务内容
-	var html=editor.$txt.html();
-	//获取任务发布对象部门
-	var dep="";
-	ckdep=document.getElementsByName("ckdep[]");
-	for(var i=0,j=ckdep.length;i<j;i++){
-	  if(ckdep[i].checked){
-		  dep += ckdep[i].value;
-		  dep += ",";
-	  }
-  }
-  //去除末尾的逗号
-  dep = dep.substr(0,dep.length-1);
-  PublishTask(pubman,pubdep,html,dep);
-}
-
-//页面启动时隐藏下一步按钮
-window.onload=function(){
-	submitbtn.style.display='none';
-}
-
-//彩蛋--关于我们  
-function easteregg(){
-	if(event.altKey && event.shiftKey && event.keyCode == 71){
-		window.location.href="about.html";
-  }
-}
-
-//关闭全局通知窗口
-function closenote(){
-	$("#globalnote").addClass("animate fadeOutUp");
-}
-
-function closecpt(){
-	$("#whofinished").removeClass("fadeInDown");
-	$("#whofinished").addClass("fadeOutUp");
-	$("#whofinished").addClass("modhide");
-}
-
-function opencpt(){
-	$("#whofinished").removeClass("modhide");
-	$("#whofinished").addClass("moddisplay");
-	$("#whofinished").addClass("animate fadeInDown");
-}
-
-//发布器的切换
-var iptbox = document.getElementById('edtcontainer');
-var treebox = document.getElementById('treecontainer');
-var fwdbtn = document.getElementById('nextstep');
-var bwdbtn = document.getElementById('backwardbutton');
-var pstbtn = document.getElementById('submit');
-			
-function bwd(){
-	treebox.style.display = 'none';
-	iptbox.style.display = '';
-	bwdbtn.style.display = 'none';
-	fwdbtn.style.display = '';
-	pstbtn.style.display = 'none';
-}
-
-function fwd(){
-	treebox.style.display = 'block';
-	iptbox.style.display = 'none';
-	bwdbtn.style.display = 'block';
-	fwdbtn.style.display = 'none';
-	pstbtn.style.display = 'block';
-}
-</script>
-
-<?php
-if($_SESSION['SUmaster']==1){
-	echo "<script src='../res/js/lockkey.js'></script>";
-	echo '<script type="text/javascript">document.onkeydown = function(){lockf5();easteregg();};</script>';
-}else{
-	echo '<script type="text/javascript">document.onkeydown = function(){easteregg();};</script>';
-}
-?>
-
-<script>
-function PublishTask(man,pdep,ct,dep){
-	$.ajax({
-		url:"../functions/toPublishTask.php",
-		type:"POST",
-		data:{pubman:man,pubdep:pdep,ct:ct,dep:dep},
-		error:function(e){alert("发布任务失败！");},
-		success:function(g){
-			//include test code
-			alert("发布任务成功！"+g);
-			history.go(0);
+		<!--任务完成模块-->
+		<div id="whofinished" class="modhide"><!--接口任务ID-->
+			<h3>共<?php echo "<span>$cpt</span>";?>人完成了此任务</h3>
+			<div style="height:230px;width:80%;position:relative;left:10%;overflow-y:auto">
+				<!--循环获取完成者信息-->
+				<div class="card fnspeople">
+					<img class="fnsimg" src="../storage/avatar/avatar-5117.jpg"/>
+					<span class="fnsname" title="XXXXXXXXXXXXXXXXXX">XXXXXXXXXXXXXXXXXX</span>
+				</div>
+				<div class="card fnspeople">
+					<img class="fnsimg" src="../storage/avatar/avatar-5117.jpg"/>
+					<span class="fnsname" title="XXXXXXXXXXXXXXXXXX">XXXXXXXXXXXXXXXXXX</span>
+				</div>
+				<div class="card fnspeople">
+					<img class="fnsimg" src="../storage/avatar/avatar-5117.jpg"/>
+					<span class="fnsname" title="XXXXXXXXXXXXXXXXXX">XXXXXXXXXXXXXXXXXX</span>
+				</div>
+				<div class="card fnspeople">
+					<img class="fnsimg" src="../storage/avatar/avatar-5117.jpg"/>
+					<span class="fnsname" title="XXXXXXXXXXXXXXXXXX">XXXXXXXXXXXXXXXXXX</span>
+				</div>
+				<div class="card fnspeople">
+					<img class="fnsimg" src="../storage/avatar/avatar-5117.jpg"/>
+					<span class="fnsname" title="XXXXXXXXXXXXXXXXXX">XXXXXXXXXXXXXXXXXX</span>
+				</div>
+				<div class="card fnspeople">
+					<img class="fnsimg" src="../storage/avatar/avatar-5117.jpg"/>
+					<span class="fnsname" title="XXXXXXXXXXXXXXXXXX">XXXXXXXXXXXXXXXXXX</span>
+				</div>
+				<div class="card fnspeople">
+					<img class="fnsimg" src="../storage/avatar/avatar-5117.jpg"/>
+					<span class="fnsname" title="XXXXXXXXXXXXXXXXXX">XXXXXXXXXXXXXXXXXX</span>
+				</div>
+				<div class="card fnspeople">
+					<img class="fnsimg" src="../storage/avatar/avatar-5117.jpg"/>
+					<span class="fnsname" title="XXXXXXXXXXXXXXXXXX">XXXXXXXXXXXXXXXXXX</span>
+				</div>
+				<div class="card fnspeople">
+					<img class="fnsimg" src="../storage/avatar/avatar-5117.jpg"/>
+					<span class="fnsname" title="XXXXXXXXXXXXXXXXXX">XXXXXXXXXXXXXXXXXX</span>
+				</div>
+				<div class="card fnspeople">
+					<img class="fnsimg" src="../storage/avatar/avatar-5117.jpg"/>
+					<span class="fnsname" title="XXXXXXXXXXXXXXXXXX">XXXXXXXXXXXXXXXXXX</span>
+				</div>
+				<div class="card fnspeople">
+					<img class="fnsimg" src="../storage/avatar/avatar-5117.jpg"/>
+					<span class="fnsname" title="XXXXXXXXXXXXXXXXXX">XXXXXXXXXXXXXXXXXX</span>
+				</div>
+				<div class="card fnspeople">
+					<img class="fnsimg" src="../storage/avatar/avatar-5117.jpg"/>
+					<span class="fnsname" title="XXXXXXXXXXXXXXXXXX">XXXXXXXXXXXXXXXXXX</span>
+				</div>
+				<div class="card fnspeople">
+					<img class="fnsimg" src="../storage/avatar/avatar-5117.jpg"/>
+					<span class="fnsname" title="XXXXXXXXXXXXXXXXXX">XXXXXXXXXXXXXXXXXX</span>
+				</div>
+				<div class="card fnspeople">
+					<img class="fnsimg" src="../storage/avatar/avatar-5117.jpg"/>
+					<span class="fnsname" title="XXXXXXXXXXXXXXXXXX">XXXXXXXXXXXXXXXXXX</span>
+				</div>
+				<div class="card fnspeople">
+					<img class="fnsimg" src="../storage/avatar/avatar-5117.jpg"/>
+					<span class="fnsname" title="XXXXXXXXXXXXXXXXXX">XXXXXXXXXXXXXXXXXX</span>
+				</div>
+				<div class="card fnspeople">
+					<img class="fnsimg" src="../storage/avatar/avatar-5117.jpg"/>
+					<span class="fnsname" title="XXXXXXXXXXXXXXXXXX">XXXXXXXXXXXXXXXXXX</span>
+				</div>
+				<div class="card fnspeople">
+					<img class="fnsimg" src="../storage/avatar/avatar-5117.jpg"/>
+					<span class="fnsname" title="XXXXXXXXXXXXXXXXXX">XXXXXXXXXXXXXXXXXX</span>
+				</div>
+				<div class="card fnspeople">
+					<img class="fnsimg" src="../storage/avatar/avatar-5117.jpg"/>
+					<span class="fnsname" title="XXXXXXXXXXXXXXXXXX">XXXXXXXXXXXXXXXXXX</span>
+				</div>
+				<div class="card fnspeople">
+					<img class="fnsimg" src="../storage/avatar/avatar-5117.jpg"/>
+					<span class="fnsname" title="XXXXXXXXXXXXXXXXXX">XXXXXXXXXXXXXXXXXX</span>
+				</div>
+			</div>
+			<center><button class='btn fff' style="margin:25px 0 25px 0" onclick='closecpt(); return false'>嗯，好，可以</button></center>		
+		</div>
+		<!--脚本引用-->
+		<script src="../res/js/jquery-2.2.1.min.js"></script>
+		<script src="../res/js/wangEditor.js"></script>
+		<script src="../res/js/basic.js"></script>
+		<script src="../res/js/GetCodeVer.js"></script>
+		<script type="text/javascript">
+		var editor = new wangEditor('textarea1');
+		var submitbtn = document.getElementById('nextstep');
+		editor.onchange = function(){
+			if(this.$txt.html()=="<p><br></p>"){
+				submitbtn.style.display = 'none';
+			}else{
+				submitbtn.style.display = 'block';
+			}
+		};
+		editor.create();
+		function GetTaskInfo(){
+			//获取用户信息
+			var pubman="<?php echo $pubman; ?>";
+			var pubdep="<?php echo $group; ?>";
+			//获取任务内容
+			var html=editor.$txt.html();
+			//获取任务发布对象部门
+			var dep="";
+			ckdep=document.getElementsByName("ckdep[]");
+			for(var i=0,j=ckdep.length;i<j;i++){
+				if(ckdep[i].checked){
+					dep += ckdep[i].value;
+					dep += ",";
+				}
+			}
+			//去除末尾的逗号
+			dep = dep.substr(0,dep.length-1);
+			PublishTask(pubman,pubdep,html,dep);
 		}
-	});
-}
-</script>
-
-</body>
+		//页面启动时隐藏下一步按钮
+		window.onload=function(){
+			submitbtn.style.display='none';
+		}
+		//彩蛋--关于我们  
+		function easteregg(){
+			if(event.altKey && event.shiftKey && event.keyCode == 71){
+					window.location.href="about.html";
+			}
+		}
+		//关闭全局通知窗口
+		function closenote(){
+			$("#globalnote").addClass("animate fadeOutUp");
+		}
+		function closecpt(){
+			$("#whofinished").removeClass("fadeInDown");
+			$("#whofinished").addClass("fadeOutUp");
+			$("#whofinished").addClass("modhide");
+			$("#panel").removeClass("disablemod");
+		}
+		function opencpt(){
+			$("#whofinished").removeClass("modhide");
+			$("#whofinished").addClass("moddisplay");
+			$("#whofinished").addClass("animate fadeInDown");
+			$("#panel").addClass("disablemod");
+		}
+		//发布器的切换
+		var iptbox = document.getElementById('edtcontainer');
+		var treebox = document.getElementById('treecontainer');
+		var fwdbtn = document.getElementById('nextstep');
+		var bwdbtn = document.getElementById('backwardbutton');
+		var pstbtn = document.getElementById('submit');
+		function bwd(){
+			treebox.style.display = 'none';
+			iptbox.style.display = '';
+			bwdbtn.style.display = 'none';
+			fwdbtn.style.display = '';
+			pstbtn.style.display = 'none';
+		}
+		function fwd(){
+			treebox.style.display = 'block';
+			iptbox.style.display = 'none';
+			bwdbtn.style.display = 'block';
+			fwdbtn.style.display = 'none';
+			pstbtn.style.display = 'block';
+		}
+		</script>
+		<?php
+		if($_SESSION['SUmaster']==1){
+			echo "<script src='../res/js/lockkey.js'></script>";
+			echo '<script type="text/javascript">document.onkeydown = function(){lockf5();easteregg();};</script>';
+		}else{
+			echo '<script type="text/javascript">document.onkeydown = function(){easteregg();};</script>';
+		}
+		?>
+		<script>
+		function PublishTask(man,pdep,ct,dep){
+			$.ajax({
+				url:"../functions/toPublishTask.php",
+				type:"POST",
+				data:{pubman:man,pubdep:pdep,ct:ct,dep:dep},
+				error:function(e){alert("发布任务失败！");},
+				success:function(g){
+					alert("发布任务成功！"+g);
+					history.go(0);
+				}
+			});
+		}
+		</script>
+	</body>
 </html>
