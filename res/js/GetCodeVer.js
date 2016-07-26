@@ -32,7 +32,7 @@ function utf8to16(str) {
 
 $.ajax({
   type:"GET",
-  url:"https://api.github.com/repos/zhxsu/SUsage/contents/SysVer?ref=master",
+  url:"https://api.github.com/repos/zhxsu/SUsage/contents/SysVer.susage?ref=master",
   dataType:"json",
   success:function(got){
   	var version=utf8to16(atob(got.content));

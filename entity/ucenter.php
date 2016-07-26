@@ -170,14 +170,16 @@
 				</center>
 			</center>
 		</article>
-		<script src="../res/js/basic.js"></script>
-		<script>
-			function easteregg(){
-				if(event.altKey  &&  event.shiftKey  &&  event.keyCode == 71){
-					window.location.href = "about.html";
-				}
-			}
-			document.onkeydown = function(){easteregg();};
-		</script>	
+
+<script src="../res/js/basic.js"></script>
+<script>
+function easteregg(){
+	if(event.altKey  &&  event.shiftKey  &&  event.keyCode == 71){
+		window.location.href = "about.html";
+	}
+}
+document.onkeydown = function(){easteregg();};
+</script>
+
 	</body>
 </html>
