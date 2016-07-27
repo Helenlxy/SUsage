@@ -25,8 +25,15 @@ include("../functions/NightShift.php");
 				</div>
 				<div class="ex-dnavbar-userbox-usernamefixbox">
 					<p class="ex-dnacvar-userbox-username">
-						<?php echo $_SESSION['nickname']; ?>
-						 , <?php $h=date('G');if ($h<5) echo '该休息了';else if ($h<11) echo '早上好呀';else if ($h<13) echo '到中午了';else if ($h<18) echo '下午好嘛';else if ($h<23) echo '天黑了呢';else echo '该休息了';?>
+						<?php 
+						echo $_SESSION['nickname']." , ";
+							if ($h<5) echo '该休息了';
+							else if ($h<11) echo '早上好呀';
+							else if ($h<13) echo '到中午了';
+							else if ($h<18) echo '下午好嘛';
+							else if ($h<23) echo '天黑了呢';
+							else echo '该休息了';
+						?>
 					</p>
 				</div>
 				<div class="ex-dnavbar-userbox-descunderunfixbox">
@@ -52,19 +59,20 @@ include("../functions/NightShift.php");
 		<article class="htmleaf-content">
 			<div class="subtitle"><h2 style="color:#4fb4f7">账务公开<span style="font-size: 14px"> / BillList</span></h2></div>
 				<center style="margin-top:120px">mu you kai fang<br>木&#12288;有&#12288;开&#12288;放</center>
-		</article>	
-		<script src="../res/js/basic.js"></script>
-		<script src="../res/js/lrz.all.bundle.js"></script>
-		<script src="../res/js/jquery-2.2.1.min.js"></script>
-		<script src="../res/js/cropper.min.js"></script>
-		<script src="../res/js/ucenter.js"></script>
-		<script>
-		function easteregg(){
-			if(event.altKey  &&  event.shiftKey  &&  event.keyCode == 71){
-				window.location.href = "about.html";
-			}
-		}
-		document.onkeydown = function(){easteregg();};
-		</script>	
-	</body>
+		</article>
+
+<script src="../res/js/basic.js"></script>
+<script src="../res/js/lrz.all.bundle.js"></script>
+<script src="../res/js/jquery-2.2.1.min.js"></script>
+<script src="../res/js/cropper.min.js"></script>
+<script src="../res/js/ucenter.js"></script>
+<script>
+function easteregg(){
+	if(event.altKey  &&  event.shiftKey  &&  event.keyCode == 71){
+		window.location.href = "about.html";
+	}
+}
+document.onkeydown = function(){easteregg();};
+</script>	
+</body>
 </html>

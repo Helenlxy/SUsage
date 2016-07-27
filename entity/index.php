@@ -2,6 +2,7 @@
 session_start();
 require_once("../functions/to_sql.php");
 include("../functions/NightShift.php");
+
 $group=$_SESSION['group'];
 $pubman=$_SESSION['truename'];
 $sql=mysqli_query($conn,"SELECT * FROM task_list WHERE redep LIKE '%$group%'");
@@ -157,16 +158,16 @@ $sql=mysqli_query($conn,"SELECT * FROM task_list WHERE redep LIKE '%$group%'");
 		<!--任务界面-->
 		<p id="tips1">———— 你的任务 ————</p>
 		<div id="listarea">
-			<?php 
-				while($rs=mysqli_fetch_array($sql)){
-					$name=$rs['pubman'];//发布人
-					$pubdep=$rs['pubdep'];//发布部门
-					$Tid=$rs['Taskid'];
-					$info_sql="SELECT headimg FROM sys_user WHERE tname='$name'";
-					$query=mysqli_query($conn,$info_sql);
-					$info=mysqli_fetch_array($query);
-					$headimg=$info['headimg'];//发布人头像
-			?>
+		<?php 
+		while($rs=mysqli_fetch_array($sql)){
+			$name=$rs['pubman'];//发布人
+			$pubdep=$rs['pubdep'];//发布部门
+			$Tid=$rs['Taskid'];
+			$info_sql="SELECT headimg FROM sys_user WHERE tname='$name'";
+			$query=mysqli_query($conn,$info_sql);
+			$info=mysqli_fetch_array($query);
+			$headimg=$info['headimg'];//发布人头像
+		?>
 			<div class="card rich-card tasklist">
 				<img class="headimg" src="<?php echo $headimg; ?>">
 				<span class="name" ><?php echo $name; ?></span>
@@ -178,22 +179,20 @@ $sql=mysqli_query($conn,"SELECT * FROM task_list WHERE redep LIKE '%$group%'");
 				
 				<div class="card-footer">
 				<?php
-					$tname=$_SESSION['truename'];
-					if($name==$tname){//自己发布的任务
-						$cpt_sql="SELECT * FROM task_complete WHERE Taskid='$Tid' AND isComplete='1'";
-						$cpt_rs=mysqli_query($conn,$cpt_sql);
-						$cpt=mysqli_num_rows($cpt_rs);
-						echo "<a class='del btn raised raised red' href='../functions/toDelTask.php?Tid=$Tid'>删除此任务</a>";
-						echo "<a class='finishsum' href='' onclick='opencpt(); return false'><span class='sumsty'>$cpt</span>人完成了你的任务</a>";
-					}else{
-						echo "<button class='btn raised mark blue'>标记为完成！</button>";
-					}
+				if($name==$pubman){//自己发布的任务
+					$cpt_sql="SELECT * FROM task_complete WHERE Taskid='$Tid' AND isComplete='1'";
+					$cpt_rs=mysqli_query($conn,$cpt_sql);
+					$cpt=mysqli_num_rows($cpt_rs);
+					echo "<a class='del btn raised raised red' href='../functions/toDelTask.php?Tid=$Tid'>删除此任务</a>";
+					echo "<a class='finishsum' href='' onclick='opencpt(); return false'><span class='sumsty'>$cpt</span>人完成了你的任务</a>";
+				}else{
+					echo "<button class='btn raised mark blue'>标记为完成！</button>";
+				}
 				?>
 				</div>
 			</div>
-			<?php }?>
+			<?php } ?>
 			<center class="ex-end" style="left:12.8%">——————再怎么找都没有啦~——————</center>
-		</div>
 		</div>
 		<!--任务完成模块-->
 		<div id="whofinished" class="modhide"><!--接口任务ID-->
@@ -277,111 +276,125 @@ $sql=mysqli_query($conn,"SELECT * FROM task_list WHERE redep LIKE '%$group%'");
 					<span class="fnsname" title="XXXXXXXXXXXXXXXXXX">XXXXXXXXXXXXXXXXXX</span>
 				</div>
 			</div>
-			<center><button class='btn fff' style="margin:25px 0 25px 0" onclick='closecpt(); return false'>嗯，好，可以</button></center>		
+			<center><button class='btn fff' style="margin:10px 0 20px 0" onclick='closecpt(); return false'>知道了</button></center>
 		</div>
-		<!--脚本引用-->
-		<script src="../res/js/jquery-2.2.1.min.js"></script>
-		<script src="../res/js/wangEditor.js"></script>
-		<script src="../res/js/basic.js"></script>
-		<script src="../res/js/GetCodeVer.js"></script>
-		<script type="text/javascript">
-		var editor = new wangEditor('textarea1');
-		var submitbtn = document.getElementById('nextstep');
-		editor.onchange = function(){
-			if(this.$txt.html()=="<p><br></p>"){
-				submitbtn.style.display = 'none';
-			}else{
-				submitbtn.style.display = 'block';
-			}
-		};
-		editor.create();
-		function GetTaskInfo(){
-			//获取用户信息
-			var pubman="<?php echo $pubman; ?>";
-			var pubdep="<?php echo $group; ?>";
-			//获取任务内容
-			var html=editor.$txt.html();
-			//获取任务发布对象部门
-			var dep="";
-			ckdep=document.getElementsByName("ckdep[]");
-			for(var i=0,j=ckdep.length;i<j;i++){
-				if(ckdep[i].checked){
-					dep += ckdep[i].value;
-					dep += ",";
-				}
-			}
-			//去除末尾的逗号
-			dep = dep.substr(0,dep.length-1);
-			PublishTask(pubman,pubdep,html,dep);
+
+
+<!--脚本引用-->
+<script src="../res/js/jquery-2.2.1.min.js"></script>
+<script src="../res/js/wangEditor.js"></script>
+<script src="../res/js/basic.js"></script>
+<script src="../res/js/GetCodeVer.js"></script>
+<script type="text/javascript">
+var editor = new wangEditor('textarea1');
+var submitbtn = document.getElementById('nextstep');
+
+editor.onchange = function(){
+	if(this.$txt.html()=="<p><br></p>"){
+		submitbtn.style.display = 'none';
+	}else{
+		submitbtn.style.display = 'block';
+	}
+};
+
+editor.create();
+function GetTaskInfo(){
+	//获取用户信息
+	var pubman="<?php echo $pubman; ?>";
+	var pubdep="<?php echo $group; ?>";
+	//获取任务内容
+	var html=editor.$txt.html();
+	//获取任务发布对象部门
+	var dep="";
+	ckdep=document.getElementsByName("ckdep[]");
+	for(var i=0,j=ckdep.length;i<j;i++){
+	  if(ckdep[i].checked){
+		  dep += ckdep[i].value;
+		  dep += ",";
+	  }
+  }
+  //去除末尾的逗号
+  dep = dep.substr(0,dep.length-1);
+  PublishTask(pubman,pubdep,html,dep);
+}
+
+//页面启动时隐藏下一步按钮
+window.onload=function(){
+	submitbtn.style.display='none';
+}
+
+//彩蛋--关于我们  
+function easteregg(){
+	if(event.altKey && event.shiftKey && event.keyCode == 71){
+		window.location.href="about.html";
+  }
+}
+
+//关闭全局通知窗口
+function closenote(){
+	$("#globalnote").addClass("animate fadeOutUp");
+}
+
+function closecpt(){
+	$("#whofinished").removeClass("fadeInDown");
+	$("#whofinished").addClass("fadeOutUp");
+	$("#whofinished").addClass("modhide");
+	$("#panel").removeClass("disablemod");
+}
+
+function opencpt(){
+	$("#whofinished").removeClass("modhide");
+	$("#whofinished").addClass("moddisplay");
+	$("#whofinished").addClass("animate fadeInDown");
+	$("#panel").addClass("disablemod");
+}
+
+//发布器的切换
+var iptbox = document.getElementById('edtcontainer');
+var treebox = document.getElementById('treecontainer');
+var fwdbtn = document.getElementById('nextstep');
+var bwdbtn = document.getElementById('backwardbutton');
+var pstbtn = document.getElementById('submit');
+			
+function bwd(){
+	treebox.style.display = 'none';
+	iptbox.style.display = '';
+	bwdbtn.style.display = 'none';
+	fwdbtn.style.display = '';
+	pstbtn.style.display = 'none';
+}
+
+function fwd(){
+	treebox.style.display = 'block';
+	iptbox.style.display = 'none';
+	bwdbtn.style.display = 'block';
+	fwdbtn.style.display = 'none';
+	pstbtn.style.display = 'block';
+}
+
+function PublishTask(man,pdep,ct,dep){
+	$.ajax({
+		url:"../functions/toPublishTask.php",
+		type:"POST",
+		data:{pubman:man,pubdep:pdep,ct:ct,dep:dep},
+		error:function(e){alert("发布任务失败！");},
+		success:function(g){
+			//include test code
+			alert("发布任务成功！"+g);
+			history.go(0);
 		}
-		//页面启动时隐藏下一步按钮
-		window.onload=function(){
-			submitbtn.style.display='none';
-		}
-		//彩蛋--关于我们  
-		function easteregg(){
-			if(event.altKey && event.shiftKey && event.keyCode == 71){
-					window.location.href="about.html";
-			}
-		}
-		//关闭全局通知窗口
-		function closenote(){
-			$("#globalnote").addClass("animate fadeOutUp");
-		}
-		function closecpt(){
-			$("#whofinished").removeClass("fadeInDown");
-			$("#whofinished").addClass("fadeOutUp");
-			$("#whofinished").addClass("modhide");
-			$("#panel").removeClass("disablemod");
-		}
-		function opencpt(){
-			$("#whofinished").removeClass("modhide");
-			$("#whofinished").addClass("moddisplay");
-			$("#whofinished").addClass("animate fadeInDown");
-			$("#panel").addClass("disablemod");
-		}
-		//发布器的切换
-		var iptbox = document.getElementById('edtcontainer');
-		var treebox = document.getElementById('treecontainer');
-		var fwdbtn = document.getElementById('nextstep');
-		var bwdbtn = document.getElementById('backwardbutton');
-		var pstbtn = document.getElementById('submit');
-		function bwd(){
-			treebox.style.display = 'none';
-			iptbox.style.display = '';
-			bwdbtn.style.display = 'none';
-			fwdbtn.style.display = '';
-			pstbtn.style.display = 'none';
-		}
-		function fwd(){
-			treebox.style.display = 'block';
-			iptbox.style.display = 'none';
-			bwdbtn.style.display = 'block';
-			fwdbtn.style.display = 'none';
-			pstbtn.style.display = 'block';
-		}
-		</script>
-		<?php
-		if($_SESSION['SUmaster']==1){
-			echo "<script src='../res/js/lockkey.js'></script>";
-			echo '<script type="text/javascript">document.onkeydown = function(){lockf5();easteregg();};</script>';
-		}else{
-			echo '<script type="text/javascript">document.onkeydown = function(){easteregg();};</script>';
-		}
-		?>
-		<script>
-		function PublishTask(man,pdep,ct,dep){
-			$.ajax({
-				url:"../functions/toPublishTask.php",
-				type:"POST",
-				data:{pubman:man,pubdep:pdep,ct:ct,dep:dep},
-				error:function(e){alert("发布任务失败！");},
-				success:function(g){
-					alert("发布任务成功！"+g);
-					history.go(0);
-				}
-			});
-		}
-		</script>
-	</body>
+	});
+}
+</script>
+
+<?php
+if($_SESSION['SUmaster']==1){
+	echo "<script src='../res/js/lockkey.js'></script>";
+	echo '<script type="text/javascript">document.onkeydown = function(){lockf5();easteregg();};</script>';
+}else{
+	echo '<script type="text/javascript">document.onkeydown = function(){easteregg();};</script>';
+}
+?>
+
+</body>
 </html>

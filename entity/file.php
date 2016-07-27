@@ -27,8 +27,15 @@ include("../functions/NightShift.php");
 			</div>
 			<div class="ex-dnavbar-userbox-usernamefixbox">
 				<p class="ex-dnacvar-userbox-username">
-					<?php echo $_SESSION['nickname']; ?>
-					 , <?php $h=date('G');if ($h<5) echo '该休息了';else if ($h<11) echo '早上好呀';else if ($h<13) echo '到中午了';else if ($h<18) echo '下午好嘛';else if ($h<23) echo '天黑了呢';else echo '该休息了';?>
+					<?php 
+						echo $_SESSION['nickname']." , ";
+							if ($h<5) echo '该休息了';
+							else if ($h<11) echo '早上好呀';
+							else if ($h<13) echo '到中午了';
+							else if ($h<18) echo '下午好嘛';
+							else if ($h<23) echo '天黑了呢';
+							else echo '该休息了';
+					?>
 				</p>
 			</div>
 			<div class="ex-dnavbar-userbox-descunderunfixbox">
@@ -109,18 +116,20 @@ include("../functions/NightShift.php");
 			</form>
 	</div>
 	</div>
-	<!--脚本引用-->
-		<script src="../res/js/jquery-2.2.1.min.js"></script>
-		<script src="../res/js/basic.js"></script>
-		<script src="../res/js/GetCodeVer.js"></script>
-		<script>
-		//关于我们的彩蛋   
-		function easteregg(){
-		 if(event.altKey  &&  event.shiftKey  &&  event.keyCode == 71){
-			window.location.href = "about.html";
-		 }
-		}
-		document.onkeydown = function(){easteregg();};
-		</script>
-	</body>
+
+<!--脚本引用-->
+<script src="../res/js/jquery-2.2.1.min.js"></script>
+<script src="../res/js/basic.js"></script>
+<script src="../res/js/GetCodeVer.js"></script>
+<script>
+//关于我们的彩蛋   
+function easteregg(){
+  if(event.altKey  &&  event.shiftKey  &&  event.keyCode == 71){
+	  window.location.href = "about.html";
+  }
+}
+document.onkeydown = function(){easteregg();};
+</script>
+
+</body>
 </html>
