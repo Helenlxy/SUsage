@@ -152,6 +152,7 @@ p {
 .green:hover{
 	color:#fff;
 	background-color:#4CAF50;
+	transition: 0.6s;
 }
 .fff{
 	border: 2px solid #fff;
@@ -160,6 +161,7 @@ p {
 .fff:hover{
 	color:#64b5f6;
 	background-color:#fff;
+	transition: 0.6s;
 }
 .blue{
 	border: 2px solid #2196f3;
@@ -168,6 +170,16 @@ p {
 .blue:hover{
 	color:#fff;
 	background-color:#2196f3;
+	transition: 0.6s;
+}
+.orange{
+  border: 2px solid #FF5722;
+	color:#FF5722;
+}
+.orange:hover{
+  color:#fff;
+	background-color:#FF5722;
+	transition: 0.6s;
 }
 .red{
 	border: 2px solid #d50000;
@@ -176,6 +188,7 @@ p {
 .red:hover{
 	color:#fff;
 	background-color:#d50000;
+	transition: 0.6s;
 }
 
 .btn:disabled {

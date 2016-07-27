@@ -174,7 +174,7 @@ $sql=mysqli_query($conn,"SELECT * FROM task_list WHERE redep LIKE '%$group%'");
 				<span class="pubgroup" ><?php echo $pubdep; ?></span>
 				<span class="time">发布于<span><?php echo $rs['pubtime']; ?></span></span>
 				<div class="contentarea">
-					<p><?php echo $rs['ct']; ?></p>
+				  <?php echo $rs['ct']; ?>
 				</div>
 				
 				<div class="card-footer">
@@ -183,9 +183,12 @@ $sql=mysqli_query($conn,"SELECT * FROM task_list WHERE redep LIKE '%$group%'");
 					$cpt_sql="SELECT * FROM task_complete WHERE Taskid='$Tid' AND isComplete='1'";
 					$cpt_rs=mysqli_query($conn,$cpt_sql);
 					$cpt=mysqli_num_rows($cpt_rs);
-					echo "<a class='del btn raised raised red' href='../functions/toDelTask.php?Tid=$Tid'>删除此任务</a>";
-					echo "<a class='finishsum' href='' onclick='opencpt(); return false'><span class='sumsty'>$cpt</span>人完成了你的任务</a>";
-				}else{
+				?>
+				<div id='click<?php echo $Tid;?>' style='display:""'><a class='del btn raised orange' onclick="checkDel('<?php echo $Tid; ?>');">删除此任务</a></div>
+				<div id='check<?php echo $Tid;?>' style='display:none'><a class='del btn raised red' href='../functions/toDelTask.php?Tid=<?php echo $Tid; ?>'>确认删除</a></div>
+				<a class='finishsum' href='' onclick='opencpt(); return false'><span class='sumsty'><?php echo $cpt; ?></span>人完成了你的任务</a>
+				<?php
+			  }else{
 					echo "<button class='btn raised mark blue'>标记为完成！</button>";
 				}
 				?>
@@ -196,21 +199,9 @@ $sql=mysqli_query($conn,"SELECT * FROM task_list WHERE redep LIKE '%$group%'");
 		</div>
 		<!--任务完成模块-->
 		<div id="whofinished" class="modhide"><!--接口任务ID-->
-			<h3>共<?php echo "<span>$cpt</span>";?>人完成了此任务</h3>
+			<h3>共<span><?php echo $cpt;?></span>人完成了此任务</h3>
 			<div style="height:230px;width:80%;position:relative;left:10%;overflow-y:auto">
 				<!--循环获取完成者信息-->
-				<div class="card fnspeople">
-					<img class="fnsimg" src="../storage/avatar/avatar-5117.jpg"/>
-					<span class="fnsname" title="XXXXXXXXXXXXXXXXXX">XXXXXXXXXXXXXXXXXX</span>
-				</div>
-				<div class="card fnspeople">
-					<img class="fnsimg" src="../storage/avatar/avatar-5117.jpg"/>
-					<span class="fnsname" title="XXXXXXXXXXXXXXXXXX">XXXXXXXXXXXXXXXXXX</span>
-				</div>
-				<div class="card fnspeople">
-					<img class="fnsimg" src="../storage/avatar/avatar-5117.jpg"/>
-					<span class="fnsname" title="XXXXXXXXXXXXXXXXXX">XXXXXXXXXXXXXXXXXX</span>
-				</div>
 				<div class="card fnspeople">
 					<img class="fnsimg" src="../storage/avatar/avatar-5117.jpg"/>
 					<span class="fnsname" title="XXXXXXXXXXXXXXXXXX">XXXXXXXXXXXXXXXXXX</span>
@@ -298,6 +289,13 @@ editor.onchange = function(){
 };
 
 editor.create();
+
+//确认删除任务，切换按钮
+function checkDel(tid){
+	document.getElementById('click'+tid).style.display = "none";
+	document.getElementById('check'+tid).style.display = "";
+}
+
 function GetTaskInfo(){
 	//获取用户信息
 	var pubman="<?php echo $pubman; ?>";

@@ -129,8 +129,8 @@ include("../functions/NightShift.php");
 						<input type="submit" name="contact1" class="btn raised blue" style="display:inline-block" value="意见反馈"/>
 					</div>
 					<div class="contact">
-						<p class="job">张镜濠<span style="font-size: 12px"> / 半专业技术码农</s></span></p>
-						<input type="submit" name="contact1" class="btn raised blue" style="display:inline-block" value="技术反馈"/>
+						<p class="job">张镜濠<br><span style="font-size: 12px">技术支持 半专业码农</s></span></p>
+						<input type="submit" name="contact1" class="btn raised blue" style="display:inline-block" value="技术求助"/>
 					</div>
 				</center>
 				<h3 class="fs-subtitle" style="color: #bdbdbd;margin-top: 40px">—————— 主席团成员 ——————</h3>
@@ -164,7 +164,7 @@ include("../functions/NightShift.php");
 				</center>
 				<h3 class="fs-subtitle" style="color: #bdbdbd;margin-top: 40px">—————— 或者 ——————</h3>
 				<center>
-					<input type="submit" name="contact1" class="btn raised blue" style="display:inline-block" value="来用户群讨论"/>
+					<input type="submit" name="contact1" class="btn raised orange" style="display:inline-block" value="来用户群讨论"/>
 					&#12288;
 					<input type="submit" name="contact1" class="btn raised green" style="display:inline-block" value="来Github提交issue" onclick="window.location.href = 'https://github.com/zhxsu/SUsage/wiki/%E5%B8%AE%E5%8A%A9%E4%B8%8E%E5%8F%8D%E9%A6%88%E4%B8%AD%E5%BF%83-%7C-Hints-&-Feedbacks'" />
 				</center>
