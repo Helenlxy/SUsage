@@ -20,19 +20,6 @@
 -- --------------------------------------------------------
 
 --
--- 表的结构 `sys_notice`
---
-
-CREATE TABLE `sys_notice` (
-  `id` int(11) NOT NULL,
-  `pubman` varchar(5) COLLATE utf8_unicode_ci NOT NULL COMMENT '发布人真实姓名',
-  `topic` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT '全局通知标题',
-  `content` varchar(10000) COLLATE utf8_unicode_ci NOT NULL COMMENT '全局通知内容，仅为文字'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- 表的结构 `sys_user`
 --
 
@@ -48,7 +35,7 @@ CREATE TABLE `sys_user` (
   `isMaster` varchar(1) NOT NULL DEFAULT '0' COMMENT '是否组长，0不是，1是',
   `isAdmin` varchar(1) NOT NULL DEFAULT '0' COMMENT '是否管理员，0不是，1是',
   `isSuper` varchar(1) NOT NULL DEFAULT '0' COMMENT '是否超管，0不是，1是'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户 - 数据表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户 - 数据表';
 
 --
 -- 转存表中的数据 `sys_user`
@@ -97,12 +84,6 @@ INSERT INTO `task_list` (`Taskid`, `pubman`, `pubdep`, `redep`, `ct`, `pubtime`)
 (2, '夏酱', '电脑部', '主席团', '你们有一个好 全世界跑到什么地方……', '2016-05-28 01:44:08');
 
 --
--- Indexes for table `sys_notice`
---
-ALTER TABLE `sys_notice`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `sys_user`
 --
 ALTER TABLE `sys_user`
@@ -121,20 +102,17 @@ ALTER TABLE `task_list`
   ADD PRIMARY KEY (`Taskid`);
 
 --
--- 使用表AUTO_INCREMENT `sys_notice`
---
-ALTER TABLE `sys_notice`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
 -- 使用表AUTO_INCREMENT `sys_user`
 --
 ALTER TABLE `sys_user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- 使用表AUTO_INCREMENT `task_complete`
 --
 ALTER TABLE `task_complete`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- 使用表AUTO_INCREMENT `task_list`
 --
