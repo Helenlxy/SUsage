@@ -12,7 +12,7 @@
 	<body style="padding-top:120px;background-color:#64B5F6">
 		<!--通知popup-->
 		<div class="toast" id="codetips" style="background-color:#D50000;position:fixed;top:0px;width:100%;height:30px;z-index:100;display:none;">
-			<p style="font-family:微软雅黑;color:#ffffff;position:absolute;left:42%;line-height:0px;">孩纸不急~先把密码输对哦！</p>
+			<p style="font-family:微软雅黑;color:#ffffff;position:absolute;left:42%;line-height:0px;" id="LoginTips"></p>
 		</div>
 
 		<article style="margin-top:50px">
@@ -44,8 +44,10 @@ window.onload=function(){
 }
 
 var tips = document.getElementById('codetips');
+var TipsContent = document.getElementById('LoginTips');
 
-function showtips(){ 
+function showtips(tipsct){
+  TipsContent.innerHTML = tipsct;
   tips.style.display = "block";
   setTimeout("hidetips()",3000);
 }
@@ -59,11 +61,12 @@ function toIndex(){
 }
 
 function ErrorPW(){
-  showtips();
+  showtips("孩纸不急~先把密码输对哦！");
   $("#id")[0].disabled=0;
   $("#pw")[0].disabled=0;
   $("#btn")[0].disabled=0;
   $("#btn").html("登录");
+  document.getElementById("pw").value="";
   $('#pw')[0].focus(); 
 }
 
@@ -75,9 +78,25 @@ function toLogin(){
   $("#id")[0].disabled=1;
   $("#pw")[0].disabled=1;
   $("#btn")[0].disabled=1;
-  $("#btn").html("验证中");
+  $("#btn").html("<img src='../res/icons/loading.gif'>");
   var id=$("#id").val();
   var pw=$("#pw").val();
+  if(id==""){
+    showtips("请输入用户名");
+    $("#id")[0].disabled=0;
+    $("#pw")[0].disabled=0;
+    $("#btn")[0].disabled=0;
+    $("#btn").html("登录");
+    $('#id')[0].focus();return;
+  }
+  if(pw==""){
+    showtips("请输入密码");
+    $("#id")[0].disabled=0;
+    $("#pw")[0].disabled=0;
+    $("#btn")[0].disabled=0;
+    $("#btn").html("登录");
+    $('#pw')[0].focus();return;
+  }
   var ck = document.getElementById('usrcookie');
   if(ck.checked==true){usrcookie(id);}
   $.ajax({

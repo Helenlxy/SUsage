@@ -1,6 +1,7 @@
 <?php 
 session_start();
 require_once("../functions/to_sql.php");
+require_once("../functions/CheckLogged.php");
 include("../functions/NightShift.php");
 ?>
 
@@ -8,7 +9,6 @@ include("../functions/NightShift.php");
 	<head>
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>个人中心 / SUsage UCenter</title>
 		<link rel="stylesheet" type="text/css" href="../res/css/modules/ex-ucenter.css">
 		<link rel="stylesheet" href="../res/css/editor/cropper.min.css">
@@ -101,36 +101,41 @@ include("../functions/NightShift.php");
 						</div>
 					</div>		
 			</center> 
-			<!--这个模块需要对新的id验证是否与已有的id重复-->
+			<!--要对新的id验证是否与已有的id重复-->
 			<center id="pwset" class="card">
 				<h2 class="fs-title">个人信息<span style="font-size: 14px"> / Information</span></h2>
 				<h3 class="fs-subtitle">修改你的密码。看准了，别写错</h3>
-					<input class="text-input ipt" type="password" name="pass" placeholder="不要告诉别人你的密码" />
-					<input class="text-input ipt" type="password" name="cpass" placeholder="请再输一遍密码" />
-					<input type="button" name="submit2" class="btn raised green" style="width:60%" value="修改密码" />
+				
+					<input class="text-input ipt" type="password" id="NewPW" placeholder="不要告诉别人你的密码">
+					<input class="text-input ipt" type="password" id="CheckNewPW" placeholder="请再输一遍密码">
+					<button id="ChangePW" class="btn raised green" onclick="ChangePW();" style="width:60%">修改密码</button>
+					
 				<h3 class="fs-subtitle" style="color: #bdbdbd">—————— or ——————</h3>
 				<h3 class="fs-subtitle">修改SUsage ID和昵称，请来这里</h3>
-					<input class="text-input ipt" type="text" name="fname" placeholder="新的昵称" />
+				
+					<input class="text-input ipt" type="text" id="NewNickname" placeholder="新的昵称">
 				<p style="color:#909090;font-size:12px;color:red">请牢记，这也是你的SUsage ID。</p>
-				<p style="color:#909090;font-size:12px">嗯，如果你改了大名，或者是部门调动，请联系管理员<span style="color:#4fb4f7">(主席团、电脑部APP组成员)</span>修改。</p>
-				<input type="submit" name="submit3" class="btn raised green" style="width:60%" value="确认昵称"/>
+				<p style="color:#909090;font-size:12px">如果你改了大名，或者是部门调动，请联系管理员<span style="color:#4fb4f7">(主席团、电脑部APP组成员)</span>修改。</p>
+				
+				<button id="ChangeNickname" class="btn raised green" onclick="ChangeNickname();" style="width:60%">确认昵称</button>
 			</center>
+			
 			<center id="helper" class="card">
 				<h2 class="fs-title">反馈与帮助中心<span style="font-size: 14px"> / Feedback</span></h2>
 				<h3 class="fs-subtitle">遇到使用中的问题，或者寻求帮助，可以联系我们</h3>
 				<h3 class="fs-subtitle" style="color: #bdbdbd">—————— 电脑部APP组 ——————</h3>
 				<center>
 					<div class="contact">
-						<p class="job">诸彦甫<span style="font-size: 12px"> / 项目执行负责人</span></p>
-						<input type="submit" name="contact1" class="btn raised blue" style="display:inline-block" value="寻求帮助"/>
+						<p class="job">诸彦甫<span style="font-size: 12px;color:orange;"> / 项目负责人</span></p>
+						<input type="submit" name="contact1" class="btn raised blue" style="display:inline-block" value="寻求帮助">
 					</div>
 					<div class="contact">
-						<p class="job">谭天<span style="font-size: 12px"> / 双电对口主席</span></p>
-						<input type="submit" name="contact1" class="btn raised blue" style="display:inline-block" value="意见反馈"/>
+						<p class="job">谭天<span style="font-size: 12px;color:orange;"> / 双电对口主席</span></p>
+						<input type="submit" name="contact1" class="btn raised blue" style="display:inline-block" value="意见反馈">
 					</div>
 					<div class="contact">
-						<p class="job">张镜濠<br><span style="font-size: 12px">技术支持 半专业码农</s></span></p>
-						<input type="submit" name="contact1" class="btn raised blue" style="display:inline-block" value="技术求助"/>
+						<p class="job">张镜濠<br><span style="font-size: 12px;color:orange;">技术支持 半专业码农</s></span></p>
+						<input type="submit" name="contact1" class="btn raised blue" style="display:inline-block" value="技术求助">
 					</div>
 				</center>
 				<h3 class="fs-subtitle" style="color: #bdbdbd;margin-top: 40px">—————— 主席团成员 ——————</h3>
@@ -174,11 +179,57 @@ include("../functions/NightShift.php");
 <script src="../res/js/basic.js"></script>
 <script>
 function easteregg(){
-	if(event.altKey  &&  event.shiftKey  &&  event.keyCode == 71){
+	if(event.altKey && event.shiftKey && event.keyCode == 71){
 		window.location.href = "about.html";
 	}
 }
 document.onkeydown = function(){easteregg();};
+
+function ChangePW(){
+NewPW=$("#NewPW").val();
+CheckPW=$("#CheckNewPW").val();
+
+if(NewPW != CheckPW){
+  alert("两次输入的密码不相符");
+  return;
+}
+if(NewPW.length<6){
+  alert("密码长度不足6位");
+  return;
+}
+
+$.ajax({
+  url:"../functions/UCenter/ChangePW.php",
+  type:"POST",
+  data:{PW:NewPW},
+  error:function(e){alert("OMG");},
+  success:function(gpw){
+    if(gpw=="0"){alert("数据传输出错！");}
+    else if(gpw=="1"){alert("修改后密码与原密码相同！");}
+    else if(gpw=="2"){alert("修改成功！");}
+    else if(gpw=="3"){alert("数据传输失败！修改失败！");}
+    else if(gpw=="9"){alert("密码不能为纯数字\n需包含6位以上的字母与数字");}
+    else{alert("网络连接失败！"+gpw);}
+  }
+});
+}
+
+function ChangeNickname(){
+NewNickname=$("#NewNickname").val();
+$.ajax({
+  url:"../functions/UCenter/ChangeNickname.php",
+  type:"POST",
+  data:{Nickname:NewNickname},
+  error:function(e){alert("OMG");},
+  success:function(gnn){
+    if(gnn=="0"){alert("数据传输出错！");}
+    else if(gnn=="1"){alert("此用户名已存在，请使用其他用户名！");}
+    else if(gnn=="2"){alert("修改成功！即将退出SUsage。");window.location.href="logout.php";}
+    else if(gnn=="3"){alert("数据传输失败！修改失败！");}
+    else{alert("网络连接失败！"+gnn);}
+  }
+});
+}
 </script>
 
 </body>

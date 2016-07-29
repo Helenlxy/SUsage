@@ -1,11 +1,13 @@
 <?php 
 session_start();
 require_once("../functions/to_sql.php");
+require_once("../functions/CheckLogged.php");
 include("../functions/NightShift.php");
 
+$UID=$_SESSION['userid'];
 $group=$_SESSION['group'];
 $pubman=$_SESSION['truename'];
-$sql=mysqli_query($conn,"SELECT * FROM task_list WHERE redep LIKE '%$group%'");
+$sql=mysqli_query($conn,"SELECT * FROM task_list WHERE redep LIKE '%$group%' OR pubman='$pubman'");
 ?>
 <html>
 	<head>
@@ -29,7 +31,7 @@ $sql=mysqli_query($conn,"SELECT * FROM task_list WHERE redep LIKE '%$group%'");
 		<!--导航栏从此开始 -->
 		<div class="ex-navbar-for-Desktop">
 			<!--用户标签-->
-			<a href="ucenter.php" class="ex-dnavbar-userbox-descunderunfb" title="进入个人中心">
+			<a href="UCenter.php" class="ex-dnavbar-userbox-descunderunfb" title="进入个人中心">
 			<div class="ex-dnavbar-userbox">
 				<div class="ex-dnavbar-userbox-avatarfixbox">
 					<img src="<?php echo $_SESSION['headimg']; ?>" style="height:54px;width:54px;" />
@@ -184,19 +186,21 @@ $sql=mysqli_query($conn,"SELECT * FROM task_list WHERE redep LIKE '%$group%'");
 					$cpt_rs=mysqli_query($conn,$cpt_sql);
 					$cpt=mysqli_num_rows($cpt_rs);
 				?>
-				<div id='click<?php echo $Tid;?>' style='display:""'><a class='del btn raised orange' onclick="checkDel('<?php echo $Tid; ?>');">删除此任务</a></div>
-				<div id='check<?php echo $Tid;?>' style='display:none'><a class='del btn raised red' href='../functions/toDelTask.php?Tid=<?php echo $Tid; ?>'>确认删除</a></div>
+				<div id='click<?php echo $Tid;?>'><a class='del btn raised orange' onclick='checkDel("<?php echo $Tid; ?>");'>删除此任务</a></div>
+				<div id='check<?php echo $Tid;?>' style='display:none'><a class='del btn raised red' onclick='DeleteTask("<?php echo $Tid; ?>");'>确认删除</a></div>
 				<a class='finishsum' href='' onclick='opencpt(); return false'><span class='sumsty'><?php echo $cpt; ?></span>人完成了你的任务</a>
-				<?php
-			  }else{
-					echo "<button class='btn raised mark blue'>标记为完成！</button>";
-				}
-				?>
-				</div>
-			</div>
-			<?php } ?>
-			<center class="ex-end" style="left:12.8%">——————再怎么找都没有啦~——————</center>
-		</div>
+				
+				<?php }else{ ?>
+				
+				<div id="cptClick<?php echo $Tid; ?>"><button class='btn raised mark blue' onclick='checkcpt("<?php echo $Tid; ?>");'>标记为完成！</button></div>
+				<div id="cptCheck<?php echo $Tid; ?>" style="display:none;" onclick='CompleteTask("<?php echo $Tid; ?>");'><button class='btn raised mark green'>确认标记</button></div>
+    <?php } ?>
+    </div>
+  </div>
+  <?php } ?>
+  <center class="ex-end" style="left:12.8%">——————再怎么找都没有啦~——————</center>
+  </div>
+ </div>
 		<!--任务完成模块-->
 		<div id="whofinished" class="modhide"><!--接口任务ID-->
 			<h3>共<span><?php echo $cpt;?></span>人完成了此任务</h3>
@@ -296,6 +300,12 @@ function checkDel(tid){
 	document.getElementById('check'+tid).style.display = "";
 }
 
+//确认完成任务，切换按钮
+function checkcpt(tid){
+	document.getElementById('cptClick'+tid).style.display = "none";
+	document.getElementById('cptCheck'+tid).style.display = "";
+}
+
 function GetTaskInfo(){
 	//获取用户信息
 	var pubman="<?php echo $pubman; ?>";
@@ -311,9 +321,9 @@ function GetTaskInfo(){
 		  dep += ",";
 	  }
   }
-  //去除末尾的逗号
-  dep = dep.substr(0,dep.length-1);
-  PublishTask(pubman,pubdep,html,dep);
+ //去除末尾的逗号
+	dep = dep.substr(0,dep.length-1);
+	PublishTask(pubman,pubdep,html,dep);
 }
 
 //页面启动时隐藏下一步按钮
@@ -371,18 +381,66 @@ function fwd(){
 }
 
 function PublishTask(man,pdep,ct,dep){
-	$.ajax({
-		url:"../functions/toPublishTask.php",
-		type:"POST",
-		data:{pubman:man,pubdep:pdep,ct:ct,dep:dep},
-		error:function(e){alert("发布任务失败！");},
-		success:function(g){
-			//include test code
-			alert("发布任务成功！"+g);
-			history.go(0);
-		}
-	});
+$.ajax({
+  url:"../functions/Task/toPublishTask.php",
+  type:"POST",
+  data:{pubman:man,pubdep:pdep,ct:ct,dep:dep},
+  error:function(e){
+    alert("发布任务失败！"+e);
+  },
+  success:function(g){
+    alert("发布任务成功！");
+    history.go(0);
+  }
+});
 }
+
+function DeleteTask(Tid){
+$.ajax({
+  url:"../functions/Task/toDeleteTask.php",
+  type:"POST",
+  data:{Taskid:Tid},
+  error:function(e){
+    alert("任务删除失败！"+e);
+  },
+  success:function(got){
+    if(got=="9"){
+      alert("恭喜你！任务删除成功！");
+      history.go(0);
+    }else if(got=="1"){
+      alert("对不起，您无权删除此任务！\n\n原因：非任务发布人");
+    }else if(got=="0"){
+      alert("数据传输失败！");
+    }else if(got=="2"){
+      alert("任务数据删除失败！");
+    }else if(got=="3"){
+      alert("任务完成数据删除失败！");
+    }else{
+      alert("未知错误码："+got);
+    }
+  }
+});  
+}
+
+/*function CompleteTask(Tid){
+$.ajax({
+  url:"../functions/Task/toCompleteTask.php",
+  type:"POST",
+  data:{Tid:Tid},
+  error:function(e){
+    alert("任务完成失败！"+e);
+  },
+  success:function(got){
+    if(got=="1"){
+      alert("恭喜你！任务完成！");
+    }else if(got=="2"){
+      alert("网络连接失败！");
+    }else{
+      alert("未知错误码："+got);
+    }
+  }
+}); 
+}*/
 </script>
 
 <?php

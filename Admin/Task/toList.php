@@ -30,7 +30,6 @@ $total=sizeof($Tasks[0]);
   <th>发布者</th>
   <th>发布者组别</th>
   <th>接收者组别</th>
-  <th>标题</th>
   <th>内容</th>
   <th>操作</th>
 </tr>
@@ -41,10 +40,9 @@ for($i=0;$i<$total;$i++){
   echo "<tr>";
   echo "<td>".$id."</td>";
   echo "<td>".$Tasks[0][$i]['pubman']."</td>";
-  echo "<td>".$Tasks[0][$i]['pubgroup']."</td>";
-  echo "<td>".$Tasks[0][$i]['regroup']."</td>";
-  echo "<td>".$Tasks[0][$i]['topic']."</td>";
-  echo "<td>".$Tasks[0][$i]['content']."</td>";
+  echo "<td>".$Tasks[0][$i]['pubdep']."</td>";
+  echo "<td>".$Tasks[0][$i]['redep']."</td>";
+  echo "<td>".$Tasks[0][$i]['ct']."</td>";
   echo "<td><button onclick='toDel($id)' class='btn btn-default btn-xs'><span class='glyphicon glyphicon-edit'></span> 删除</button></td>";
   echo "</tr>";
 }

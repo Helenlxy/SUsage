@@ -11,7 +11,7 @@ if(isset($_POST) && $_POST){
 	if($pw == $rs['pw']){
 		$_SESSION['nickname']=$StuID;
 		$_SESSION['headimg']=$rs['headimg'];
-		$_SESSION['userid']=$rs['stuid'];
+		$_SESSION['userid']=$rs['id'];
 		$_SESSION['SUmaster']=$rs['isMaster'];
 		$_SESSION['group']=$rs['dep'];
 		$_SESSION['truename']=$rs['tname'];

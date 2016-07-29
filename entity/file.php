@@ -1,7 +1,7 @@
 <?php 
 session_start();
 require_once("../functions/to_sql.php");
-
+require_once("../functions/CheckLogged.php");
 include("../functions/NightShift.php");
 ?>
 
@@ -20,7 +20,7 @@ include("../functions/NightShift.php");
 	<div class="ex-navbar-for-Desktop">
 		<span class="mui-badge mui-badge-red" id="noti" style="display:none;left:250px" title="你收到了新通知"><b>New</b></span>
 		<!--用户标签-->
-		<a href="ucenter.php" class="ex-dnavbar-userbox-descunderunfb" title="进入个人中心">
+		<a href="UCenter.php" class="ex-dnavbar-userbox-descunderunfb" title="进入个人中心">
 		<div class="ex-dnavbar-userbox">
 			<div class="ex-dnavbar-userbox-avatarfixbox">
 				<img src="<?php echo $_SESSION['headimg']; ?>" style="height:54px;width:54px;" />
