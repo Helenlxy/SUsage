@@ -2,11 +2,11 @@
 
 <b>执信中学学生会信息化在线办公系统 开源项目 #代号"SUsage" </b>
 
-<b>目前总体开发进度：约66%，前端系统基本完成，后端系统开发约60%。当前build:1E88 (0588)</b>
+<b>目前总体开发进度：约66%，前端系统基本完成，后端系统开发约60%。当前build:1E97 (0597)</b>
 
 <b>项目总阶段：0.6-milestone8 #Project SUsage pre-α（开发代号Young）</b>
 
-<p>TaskSYS V1.0 alpha A3</p>
+<p>TaskSYS V1.1 alpha A4</p>
 <p>UCenter V1.0 alpha A2</p>
 <p>AdminSYS V1.2-alpha2</p>
 <p>FileTour V0.4-milestone6 【未来project】</p>
@@ -94,6 +94,7 @@
 * <a href="https://github.com/nt1m/material-framework/" target="_blank">nt1m</a>的`material-framework`，遵循`Apache`协议版本`2.0`
 * <a href="http://wangeditor.github.io/">wangfupeng1988</a>的`WangEditor`，遵循`MIT`协议，新版本采用了SU精简化版本，体积更小，效率更高
 * <a href="https://github.com/fengyuanchen/cropper">fengyuanchen</a>的`cropper.js`，遵循`MIT`协议
+* <a href="https://github.com/daneden/animate.css">daneden</a>的`animate.css`，遵循`MIT`协议
 * Github提供的免费代码仓库
 
 

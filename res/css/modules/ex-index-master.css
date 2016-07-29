@@ -170,6 +170,7 @@
 	opacity:0.5;
 	cursor: not-allowed
 }
-.disablemod a,.disablemod input{
+.disablemod a,.disablemod input,.disablemod button{
 	cursor: not-allowed;
+	pointer-events: none
 }

@@ -12,7 +12,7 @@
 	<body style="padding-top:120px;background-color:#64B5F6">
 		<!--通知popup-->
 		<div class="toast" id="codetips" style="background-color:#D50000;position:fixed;top:0px;width:100%;height:30px;z-index:100;display:none;">
-			<p style="font-family:微软雅黑;color:#ffffff;position:absolute;left:42%;line-height:0px;" id="LoginTips"></p>
+			<p style="font-family:微软雅黑;color:#ffffff;position:absolute;width:100%;text-align:center;line-height:0px;" id="LoginTips"></p>
 		</div>
 
 		<article style="margin-top:50px">
@@ -22,12 +22,12 @@
 				</h2>
 				<input class="text-input ipt" placeholder="SUsage ID" id="id" onkeyup="if(event.keyCode==13)$('#pw')[0].focus();">
 				<input class="text-input ipt" type="password" placeholder="Password" id="pw" onkeyup="if(event.keyCode==13)toLogin();">
-				<button onclick="toLogin();" id="btn" class="btn raised green" style="width:60%;margin-top:40px">登陆</button>
-				<div class="checkbox" style="margin:15px 5% 0 5%;display:inline-block">
+				<div class="checkbox" style="margin:15px 5% 0 5%;display:block">
 					<input type="checkbox" id="usrcookie">
 					<label for="usrcookie" style="display:inline-block"></label>
 					<span class="lablink">记住用户名</span>
 				</div>
+        <button onclick="toLogin();" id="btn" class="btn raised green" style="width:60%;margin-top:30px">登陆</button>
 			</center>
 
 			<!-- Footer -->

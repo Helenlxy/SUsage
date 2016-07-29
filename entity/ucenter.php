@@ -22,15 +22,15 @@ include("../functions/NightShift.php");
 		<script src="../res/js/basic.js"></script>
 	</head>
 	<body>
-	<!--导航栏从此开始 -->
+		<!--导航栏从此开始 -->
 		<div class="ex-navbar-for-Desktop">
 			<!--用户标签-->
 			<div class="ex-dnavbar-userbox appbox-selected">
 				<div class="ex-dnavbar-userbox-avatarfixbox">
-					<img src="<?php echo $_SESSION['headimg']; ?>" style="height:54px;width:54px;" />
+					<img id="hdimg" src="<?php echo $_SESSION['headimg']; ?>" style="height:54px;width:54px;opacity: 0" />
 				</div>
 				<div class="ex-dnavbar-userbox-usernamefixbox">
-					<p class="ex-dnacvar-userbox-username">
+					<p class="ex-dnacvar-userbox-username" id="namebox">
 						<?php 
 						echo $_SESSION['nickname']." , ";
 							if ($h<5) echo '该休息了';
@@ -46,14 +46,20 @@ include("../functions/NightShift.php");
 					<a onclick="backtop(); return false" class="ex-dnavbar-userbox-descunderunfb" href="#">返回顶部 ▲ </a>&#12288;<a onclick="exit(); return false" class="ex-dnavbar-userbox-descunderunfb" title="戳一下就退出哦w">注销 ></a>
 				</div>
 			</div>
-			<a href="index.php">
-				<div id="appfixbox">
+			<div id="appfixbox">
+				<a href="index.php">
 					<div class="ex-dnavbar-appbox" title="接好任务啊~">
 						<img src="../res/icons/bar/ic_task.png"/>
 						<div class="ex-dnavbar-appbox-text">主页</div>
 					</div>
-				</div>
-			</a>
+				</a>
+				<a href="bill.php">
+					<div class="ex-dnavbar-appbox" title="闷声才能发大财">
+					<img src="../res/icons/bar/ic_files.png"/>
+						<div class="ex-dnavbar-appbox-text">账务</div>
+					</div>
+				</a>
+			</div>			
 		</div>
 		<!--导航栏结束 -->
 		<!--退出提示-->
@@ -123,55 +129,14 @@ include("../functions/NightShift.php");
 			<center id="helper" class="card">
 				<h2 class="fs-title">反馈与帮助中心<span style="font-size: 14px"> / Feedback</span></h2>
 				<h3 class="fs-subtitle">遇到使用中的问题，或者寻求帮助，可以联系我们</h3>
-				<h3 class="fs-subtitle" style="color: #bdbdbd">—————— 电脑部APP组 ——————</h3>
+				<h3 class="fs-subtitle" style="color: #bdbdbd;margin-top: 40px">—————— 用户群 ——————</h3>
 				<center>
-					<div class="contact">
-						<p class="job">诸彦甫<span style="font-size: 12px;color:orange;"> / 项目负责人</span></p>
-						<input type="submit" name="contact1" class="btn raised blue" style="display:inline-block" value="寻求帮助">
-					</div>
-					<div class="contact">
-						<p class="job">谭天<span style="font-size: 12px;color:orange;"> / 双电对口主席</span></p>
-						<input type="submit" name="contact1" class="btn raised blue" style="display:inline-block" value="意见反馈">
-					</div>
-					<div class="contact">
-						<p class="job">张镜濠<br><span style="font-size: 12px;color:orange;">技术支持 半专业码农</s></span></p>
-						<input type="submit" name="contact1" class="btn raised blue" style="display:inline-block" value="技术求助">
-					</div>
-				</center>
-				<h3 class="fs-subtitle" style="color: #bdbdbd;margin-top: 40px">—————— 主席团成员 ——————</h3>
-				<center>
-					<div class="contact">
-						<p class="job">虚位以待<span style="font-size: 12px"> / 管理员</span></p>
-						<input type="submit" name="contact1" class="btn raised blue" style="display:inline-block" value="留言或对话"/>
-					</div>
-					<div class="contact">
-						<p class="job">虚位以待<span style="font-size: 12px"> / 管理员</span></p>
-						<input type="submit" name="contact1" class="btn raised blue" style="display:inline-block" value="留言或对话"/>
-					</div>
-					<div class="contact">
-						<p class="job">虚位以待<span style="font-size: 12px"> / 管理员</span></p>
-						<input type="submit" name="contact1" class="btn raised blue" style="display:inline-block" value="留言或对话"/>
-					</div>
-				</center>
-				<center>
-					<div class="contact">
-						<p class="job">虚位以待<span style="font-size: 12px"> / 管理员</span></p>
-						<input type="submit" name="contact1" class="btn raised blue" style="display:inline-block" value="留言或对话"/>
-					</div>
-					<div class="contact">
-						<p class="job">虚位以待<span style="font-size: 12px"> / 管理员</span></p>
-						<input type="submit" name="contact1" class="btn raised blue" style="display:inline-block" value="留言或对话"/>
-					</div>
-					<div class="contact">
-						<p class="job">虚位以待<span style="font-size: 12px"> / 管理员</span></p>
-						<input type="submit" name="contact1" class="btn raised blue" style="display:inline-block" value="留言或对话"/>
-					</div>
-				</center>
-				<h3 class="fs-subtitle" style="color: #bdbdbd;margin-top: 40px">—————— 或者 ——————</h3>
-				<center>
-					<input type="submit" name="contact1" class="btn raised orange" style="display:inline-block" value="来用户群讨论"/>
-					&#12288;
-					<input type="submit" name="contact1" class="btn raised green" style="display:inline-block" value="来Github提交issue" onclick="window.location.href = 'https://github.com/zhxsu/SUsage/wiki/%E5%B8%AE%E5%8A%A9%E4%B8%8E%E5%8F%8D%E9%A6%88%E4%B8%AD%E5%BF%83-%7C-Hints-&-Feedbacks'" />
+					<span>企鹅群：<a>XXXXXXXXXXX</a></span><br>
+					<span>微信群二维码</span><br>
+					<span>如果需要帮助和反馈，也可以在群里私聊负责人。</span>
+
+				<h3 class="fs-subtitle" style="color: #bdbdbd;margin-top: 40px">—————— 帮助 ——————</h3>
+					<input type="submit" name="contact1" class="btn raised green" style="display:inline-block" value="查看帮助" onclick="window.location.href = 'https://github.com/zhxsu/SUsage/wiki/%E5%B8%AE%E5%8A%A9%E4%B8%8E%E5%8F%8D%E9%A6%88%E4%B8%AD%E5%BF%83-%7C-Hints-&-Feedbacks'" />
 				</center>
 			</center>
 		</article>
@@ -205,7 +170,7 @@ $.ajax({
   error:function(e){alert("OMG");},
   success:function(gpw){
     if(gpw=="0"){alert("数据传输出错！");}
-    else if(gpw=="1"){alert("修改后密码与原密码相同！");}
+    else if(gpw=="1"){alert("密码不能原密码相同");}
     else if(gpw=="2"){alert("修改成功！");}
     else if(gpw=="3"){alert("数据传输失败！修改失败！");}
     else if(gpw=="9"){alert("密码不能为纯数字\n需包含6位以上的字母与数字");}
@@ -229,6 +194,13 @@ $.ajax({
     else{alert("网络连接失败！"+gnn);}
   }
 });
+}
+
+window.onload=function()
+{
+	$("#hdimg").addClass('animate rubberBand');
+	$("#changeAvatar").addClass('animate rubberBand');
+	setTimeout("$('#namebox').addClass('animate bounceIn');", 400); 
 }
 </script>
 

@@ -34,10 +34,10 @@ $sql=mysqli_query($conn,"SELECT * FROM task_list WHERE redep LIKE '%$group%' OR 
 			<a href="UCenter.php" class="ex-dnavbar-userbox-descunderunfb" title="进入个人中心">
 			<div class="ex-dnavbar-userbox">
 				<div class="ex-dnavbar-userbox-avatarfixbox">
-					<img src="<?php echo $_SESSION['headimg']; ?>" style="height:54px;width:54px;" />
+					<img id="hdimg" src="<?php echo $_SESSION['headimg']; ?>" style="height:54px;width:54px;opacity: 0"/>
 				</div>
 				<div class="ex-dnavbar-userbox-usernamefixbox">
-					<p class="ex-dnacvar-userbox-username">
+					<p class="ex-dnacvar-userbox-username" id="namebox">
 						<?php 
 						echo $_SESSION['nickname']." , ";
 							if ($h<5) echo '该休息了';
@@ -59,6 +59,12 @@ $sql=mysqli_query($conn,"SELECT * FROM task_list WHERE redep LIKE '%$group%' OR 
 					<img src="../res/icons/bar/ic_task.png"/>
 					<div class="ex-dnavbar-appbox-text">主页</div>
 				</div>
+				<a href="bill.php">
+				<div class="ex-dnavbar-appbox" title="闷声才能发大财">
+					<img src="../res/icons/bar/ic_files.png"/>
+					<div class="ex-dnavbar-appbox-text">账务</div>
+				</div>
+				</a>
 			</div>
 		</div>
 		<!--导航栏结束 -->
@@ -186,14 +192,14 @@ $sql=mysqli_query($conn,"SELECT * FROM task_list WHERE redep LIKE '%$group%' OR 
 					$cpt_rs=mysqli_query($conn,$cpt_sql);
 					$cpt=mysqli_num_rows($cpt_rs);
 				?>
-				<div id='click<?php echo $Tid;?>'><a class='del btn raised orange' onclick='checkDel("<?php echo $Tid; ?>");'>删除此任务</a></div>
+				<div id='click<?php echo $Tid;?>'><a class='del btn raised red' onclick='checkDel("<?php echo $Tid; ?>");'>删除此任务</a></div>
 				<div id='check<?php echo $Tid;?>' style='display:none'><a class='del btn raised red' onclick='DeleteTask("<?php echo $Tid; ?>");'>确认删除</a></div>
 				<a class='finishsum' href='' onclick='opencpt(); return false'><span class='sumsty'><?php echo $cpt; ?></span>人完成了你的任务</a>
 				
 				<?php }else{ ?>
 				
 				<div id="cptClick<?php echo $Tid; ?>"><button class='btn raised mark blue' onclick='checkcpt("<?php echo $Tid; ?>");'>标记为完成！</button></div>
-				<div id="cptCheck<?php echo $Tid; ?>" style="display:none;" onclick='CompleteTask("<?php echo $Tid; ?>");'><button class='btn raised mark green'>确认标记</button></div>
+				<div id="cptCheck<?php echo $Tid; ?>" style="display:none;" onclick='CompleteTask("<?php echo $Tid; ?>");'><button class='btn raised mark green'>确认完成</button></div>
     <?php } ?>
     </div>
   </div>
@@ -271,7 +277,7 @@ $sql=mysqli_query($conn,"SELECT * FROM task_list WHERE redep LIKE '%$group%' OR 
 					<span class="fnsname" title="XXXXXXXXXXXXXXXXXX">XXXXXXXXXXXXXXXXXX</span>
 				</div>
 			</div>
-			<center><button class='btn fff' style="margin:10px 0 20px 0" onclick='closecpt(); return false'>知道了</button></center>
+			<center><button class='btn fff' style="margin:10px 0 20px 0" onclick='closecpt(); return false'>好，可以，行</button></center>
 		</div>
 
 
@@ -321,14 +327,16 @@ function GetTaskInfo(){
 		  dep += ",";
 	  }
   }
- //去除末尾的逗号
-	dep = dep.substr(0,dep.length-1);
-	PublishTask(pubman,pubdep,html,dep);
+  //去除末尾的逗号
+  dep = dep.substr(0,dep.length-1);
+  PublishTask(pubman,pubdep,html,dep);
 }
 
-//页面启动时隐藏下一步按钮
+//页面启动时隐藏下一步按钮以及动画
 window.onload=function(){
 	submitbtn.style.display='none';
+	$("#hdimg").addClass('animate rubberBand');
+	setTimeout("$('#namebox').addClass('animate bounceIn');", 400); 
 }
 
 //彩蛋--关于我们  
