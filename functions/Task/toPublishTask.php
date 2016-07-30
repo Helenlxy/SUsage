@@ -1,6 +1,6 @@
 <?php
 //p:发送 r:接受 sct:搜索 cpt:完成
-require_once("to_sql.php");
+require_once("../to_sql.php");
 $p_man=$_POST['pubman'];
 $p_dep=$_POST['pubdep'];
 $p_ct=$_POST['ct'];
