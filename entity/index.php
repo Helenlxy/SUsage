@@ -193,13 +193,13 @@ $sql=mysqli_query($conn,"SELECT * FROM task_list WHERE redep LIKE '%$group%' OR 
 					$cpt=mysqli_num_rows($cpt_rs);
 				?>
 				<div id='click<?php echo $Tid;?>'><a class='del btn raised red' onclick='checkDel("<?php echo $Tid; ?>");'>删除此任务</a></div>
-				<div id='check<?php echo $Tid;?>' style='display:none'><a class='del btn raised red' onclick='DeleteTask("<?php echo $Tid; ?>");'>确认删除</a></div>
+				<div id='check<?php echo $Tid;?>' style='display:none'><a class='del btn raised redmore' onclick='DeleteTask("<?php echo $Tid; ?>");'>确认删除</a></div>
 				<a class='finishsum' href='' onclick='opencpt(); return false'><span class='sumsty'><?php echo $cpt; ?></span>人完成了你的任务</a>
 				
 				<?php }else{ ?>
 				
-				<div id="cptClick<?php echo $Tid; ?>"><button class='btn raised mark blue' onclick='checkcpt("<?php echo $Tid; ?>");'>标记为完成！</button></div>
-				<div id="cptCheck<?php echo $Tid; ?>" style="display:none;" onclick='CompleteTask("<?php echo $Tid; ?>");'><button class='btn raised mark green'>确认完成</button></div>
+				<div id="cptClick<?php echo $Tid; ?>"><button class='btn raised mark green' onclick='checkcpt("<?php echo $Tid; ?>");'>完成任务</button></div>
+				<div id="cptCheck<?php echo $Tid; ?>" style="display:none;" onclick='CompleteTask("<?php echo $Tid; ?>");'><button class='btn raised mark greenmore'>确认完成</button></div>
     <?php } ?>
     </div>
   </div>

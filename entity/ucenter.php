@@ -114,7 +114,7 @@ include("../functions/NightShift.php");
 				
 					<input class="text-input ipt" type="password" id="NewPW" placeholder="不要告诉别人你的密码">
 					<input class="text-input ipt" type="password" id="CheckNewPW" placeholder="请再输一遍密码">
-					<button id="ChangePW" class="btn raised green" onclick="ChangePW();" style="width:60%">修改密码</button>
+					<button id="ChangePW" class="btn raised green" onclick="ChangePW();" style="width:50%">修改密码</button>
 					
 				<h3 class="fs-subtitle" style="color: #bdbdbd">—————— or ——————</h3>
 				<h3 class="fs-subtitle">修改SUsage ID和昵称，请来这里</h3>
@@ -123,7 +123,7 @@ include("../functions/NightShift.php");
 				<p style="color:#909090;font-size:12px;color:red">请牢记，这也是你的SUsage ID。</p>
 				<p style="color:#909090;font-size:12px">如果你改了大名，或者是部门调动，请联系管理员<span style="color:#4fb4f7">(主席团、电脑部APP组成员)</span>修改。</p>
 				
-				<button id="ChangeNickname" class="btn raised green" onclick="ChangeNickname();" style="width:60%">确认昵称</button>
+				<button id="ChangeNickname" class="btn raised green" onclick="ChangeNickname();" style="width:50%">确认昵称</button>
 			</center>
 			
 			<center id="helper" class="card">
@@ -136,7 +136,7 @@ include("../functions/NightShift.php");
 					<span>如果需要帮助和反馈，也可以在群里私聊负责人。</span>
 
 				<h3 class="fs-subtitle" style="color: #bdbdbd;margin-top: 40px">—————— 帮助 ——————</h3>
-					<input type="submit" name="contact1" class="btn raised green" style="display:inline-block" value="查看帮助" onclick="window.location.href = 'https://github.com/zhxsu/SUsage/wiki/%E5%B8%AE%E5%8A%A9%E4%B8%8E%E5%8F%8D%E9%A6%88%E4%B8%AD%E5%BF%83-%7C-Hints-&-Feedbacks'" />
+					<input type="submit" name="contact1" class="btn raised blue" style="display:inline-block;width: 50%" value="查看帮助" onclick="window.location.href = 'https://github.com/zhxsu/SUsage/wiki/%E5%B8%AE%E5%8A%A9%E4%B8%8E%E5%8F%8D%E9%A6%88%E4%B8%AD%E5%BF%83-%7C-Hints-&-Feedbacks'" />
 				</center>
 			</center>
 		</article>

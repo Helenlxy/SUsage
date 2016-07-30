@@ -146,12 +146,12 @@ p {
 	cursor: pointer;
 }
 .green{
-	border: 2px solid #4CAF50;
-	color:#4caf50;
+	border: 2px solid #00c857;
+	color:#00c857;
 }
 .green:hover{
 	color:#fff;
-	background-color:#4CAF50;
+	background-color:#00c857;
 }
 .fff{
 	border: 2px solid #fff;
@@ -177,7 +177,26 @@ p {
 	color:#fff;
 	background-color:#d50000;
 }
-
+.redmore{	
+	border: 2px solid #d50000;
+	background:#d50000;
+	color:#fff;
+}
+.redmore:hover{
+	color:#fff;
+	background-color:#a50000;
+	border: 2px solid #a50000;
+}
+.greenmore{	
+	border: 2px solid #00c857;
+	background:#00c857;
+	color:#fff;
+}
+.greenmore:hover{
+	color:#fff;
+	background-color:#4CAF50;
+	border: 2px solid #4CAF50;
+}
 .btn:disabled {
 	border: 2px solid #a8a8a8;
 	color: #a8a8a8!important;
