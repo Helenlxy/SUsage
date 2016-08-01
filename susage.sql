@@ -20,6 +20,32 @@
 -- --------------------------------------------------------
 
 --
+-- 表的结构 `bill_list`
+--
+
+CREATE TABLE IF NOT EXISTS `bill_list` (
+  `billid` int(11) NOT NULL AUTO_INCREMENT,
+  `Name` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT '账单名称',
+  `Content` varchar(300) COLLATE utf8_unicode_ci NOT NULL COMMENT '账单内容',
+  `Cost` varchar(8) COLLATE utf8_unicode_ci NOT NULL COMMENT '支出',
+  `Income` varchar(8) COLLATE utf8_unicode_ci NOT NULL COMMENT '收入',
+  `Registrant` varchar(5) COLLATE utf8_unicode_ci NOT NULL COMMENT '账单登记人'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `bill_user`
+--
+
+CREATE TABLE IF NOT EXISTS `bill_user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `Truename` varchar(5) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- 表的结构 `sys_user`
 --
 
@@ -84,6 +110,18 @@ INSERT INTO `task_list` (`Taskid`, `pubman`, `pubdep`, `redep`, `ct`, `pubtime`)
 (2, '夏酱', '电脑部', '主席团', '你们有一个好 全世界跑到什么地方……', '2016-05-28 01:44:08');
 
 --
+-- Indexes for table `bill_list`
+--
+ALTER TABLE `bill_list`
+  ADD PRIMARY KEY (`billid`);
+
+--
+-- Indexes for table `bill_user`
+--
+ALTER TABLE `bill_user`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `sys_user`
 --
 ALTER TABLE `sys_user`
@@ -118,6 +156,7 @@ ALTER TABLE `task_complete`
 --
 ALTER TABLE `task_list`
   MODIFY `Taskid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

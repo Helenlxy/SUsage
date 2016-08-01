@@ -2,13 +2,14 @@
 
 <b>执信中学学生会信息化在线办公系统 开源项目 #代号"SUsage" </b>
 
-<b>目前总体开发进度：约66%，前端系统基本完成，后端系统开发约60%。当前build:2A03 (0603)</b>
+<b>目前总体开发进度：约70%，前端系统基本完成，后端系统开发约75%。当前build:2A16 (0616)</b>
 
-<b>项目总阶段：0.6-milestone8 #Project SUsage pre-α（开发代号Young）</b>
+<b>项目总阶段：0.8-milestone9 #Project SUsage pre-α（开发代号Young）</b>
 
 <p>TaskSYS V1.2 alpha A5</p>
 <p>UCenter V1.0 alpha A2</p>
-<p>AdminSYS V1.2-alpha2</p>
+<p>BillSYS V0.2 m2</p>
+<p>MCenter V1.3 alpha 2</p>
 <p>FileTour V0.4-milestone6 【未来project】</p>
 <p><b>Latest update：2016.8.1 17:50</b></p>
 <b>©2016 执信学生会 电脑部</b>
@@ -91,6 +92,7 @@
 <h3>开源声明及感谢</h3>
   <p>本项目目前基于以下几个开源项目开发：</p>
 * <a href="https://jquery.org/" target="_blank">John Resig</a>的`jQuery`，遵循`MIT`协议
+* <a href="http://www.bootcss.com" target="_blank">`Bootstrap 3.0`，遵循`MIT`协议</a>
 * <a href="https://github.com/nt1m/material-framework/" target="_blank">nt1m</a>的`material-framework`，遵循`Apache`协议版本`2.0`
 * <a href="http://wangeditor.github.io/">wangfupeng1988</a>的`WangEditor`，遵循`MIT`协议，新版本采用了SU精简化版本，体积更小，效率更高
 * <a href="https://github.com/fengyuanchen/cropper">fengyuanchen</a>的`cropper.js`，遵循`MIT`协议
