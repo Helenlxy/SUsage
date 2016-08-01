@@ -1,4 +1,6 @@
-﻿.ex-navbar-for-Desktop
+﻿::selection { background:#d8d8d8; }
+::-moz-selection { background:#d8d8d8; }
+.ex-navbar-for-Desktop
 {
 	height:69px;
 	width:100%;
@@ -43,7 +45,6 @@
 body{
 	background-color: #fff;
 	color: rgba(0,0,0,0.87);
-	font-family:"Microsoft Yahei"
 }
 #toast-exit{
 	background-color:#FFA000;
