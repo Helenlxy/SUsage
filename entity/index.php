@@ -7,7 +7,7 @@ include("../functions/NightShift.php");
 $UID=$_SESSION['userid'];
 $group=$_SESSION['group'];
 $pubman=$_SESSION['truename'];
-$sql=mysqli_query($conn,"SELECT * FROM task_list WHERE redep LIKE '%$group%' OR pubman='$pubman'");
+$sql=mysqli_query($conn,"SELECT * FROM task_list WHERE redep LIKE '%$group%' OR pubman='$pubman' ORDER BY Taskid DESC");
 ?>
 <html>
 	<head>
@@ -100,67 +100,67 @@ $sql=mysqli_query($conn,"SELECT * FROM task_list WHERE redep LIKE '%$group%' OR 
 				<div style="z-index:999999;margin-top: 30px">
 					<center style="line-height:10px;font-size: 13px;margin-bottom: 15px">请在下方的复选框勾选任务的接收组别。当此组别被勾选后，此组别下所有的成员将接收到该任务。</center>
 					<div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block">
-						<input type="checkbox" id="checkNWB" name="ckdep[]" value="内务部">
+						<input type="checkbox" id="checkNWB" name="ckdep[]" onclick="CheckClick()" value="内务部">
 						<label for="checkNWB" style="display:inline-block"></label>
 						<span class="lablink">内务部</span>
 					</div>
 					<div class="checkbox" style="margin:15px 5% 0 5%;display:inline-block">
-						<input type="checkbox" id="checkGGB" name="ckdep[]" value="公关部">
+						<input type="checkbox" id="checkGGB" name="ckdep[]" onclick="CheckClick()" value="公关部">
 						<label for="checkGGB" style="display:inline-block"></label>
 						<span class="lablink">公关部</span>
 					</div>
 					<div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block">
-						<input type="checkbox" id="checkGBZ" name="ckdep[]" value="广播站">
+						<input type="checkbox" id="checkGBZ" name="ckdep[]" onclick="CheckClick()" value="广播站">
 						<label for="checkGBZ" style="display:inline-block"></label>
 						<span class="lablink">广播站</span>
 					</div>
 					<div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block">
-						<input type="checkbox" id="checkAU" name="ckdep[]" value="社联">
+						<input type="checkbox" id="checkAU" name="ckdep[]" onclick="CheckClick()" value="社联">
 						<label for="checkAU" style="display:inline-block"></label>
 						<span class="lablink">社&#12288;联</span>
 					</div>
 					<div class="checkbox" style="margin:15px 5% 0 5%;display:inline-block;">
-						<input type="checkbox" id="checkWYB" name="ckdep[]" value="文娱部">
+						<input type="checkbox" id="checkWYB" name="ckdep[]" onclick="CheckClick()" value="文娱部">
 						<label for="checkWYB" style="display:inline-block"></label>
 						<span class="lablink">文娱部</span>
 					</div>
 					<div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block">
-						<input type="checkbox" id="checkXCB" name="ckdep[]" value="宣传部">
+						<input type="checkbox" id="checkXCB" name="ckdep[]" onclick="CheckClick()" value="宣传部">
 						<label for="checkXCB" style="display:inline-block"></label>
 						<span class="lablink">宣传部</span>
 					</div>
 					<div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block;">
-						<input type="checkbox" id="checkXSB" name="ckdep[]" value="学术部">
+						<input type="checkbox" id="checkXSB" name="ckdep[]" onclick="CheckClick()" value="学术部">
 						<label for="checkXSB" style="display:inline-block"></label>
 						<span class="lablink">学术部</span>
 					</div>
 					<div class="checkbox" style="margin:15px 5% 0 5%;display:inline-block">
-						<input type="checkbox" id="checkTYB" name="ckdep[]" value="体育部">
+						<input type="checkbox" id="checkTYB" name="ckdep[]" onclick="CheckClick()" value="体育部">
 						<label for="checkTYB" style="display:inline-block"></label>
 						<span class="lablink">体育部</span>
 					</div>
 					<div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block">
-						<input type="checkbox" id="checkZXT" name="ckdep[]" value="主席团">
+						<input type="checkbox" id="checkZXT" name="ckdep[]" onclick="CheckClick()" value="主席团">
 						<label for="checkZXT" style="display:inline-block"></label>
 						<span class="lablink">主席团</span>
 					</div>
 					<div>
 						<h3 class="fi-subtitle">—————— 双电大法好 ——————</h3>
 						<div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block;">
-							<input type="checkbox" id="checkDNB" name="ckdep[]" value="电脑部">
+							<input type="checkbox" id="checkDNB" name="ckdep[]" onclick="CheckClick()" value="电脑部">
 							<label for="checkDNB" style="display:inline-block"></label>
 							<span class="lablink">电脑部</span>
 						</div>
 						<div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block;">
-							<input type="checkbox" id="checkDST" name="ckdep[]" value="电视台">
+							<input type="checkbox" id="checkDST" name="ckdep[]" onclick="CheckClick()" value="电视台">
 							<label for="checkDST" style="display:inline-block"></label>
 							<span class="lablink">电视台</span>
 						</div>
 					</div>
 				</div>
 			</div>
-			<button class='btn raised green' id='nextstep' onclick='fwd(); return false'>下一步</button>
-			<button class='btn raised green' id='backwardbutton' onclick='bwd(); return false' style='display:none'>上一步</button>
+			<button class='btn raised green' id='nextstep' onclick='gotoNextStep(); return false'>下一步</button>
+			<button class='btn raised green' id='laststep' onclick='gotoLastStep(); return false' style='display:none'>上一步</button>
 			<button class='btn raised green' id='submit' style='display:none' onclick='GetTaskInfo();'>发布任务</button>
 		</div>
 		<!--任务界面-->
@@ -196,11 +196,17 @@ $sql=mysqli_query($conn,"SELECT * FROM task_list WHERE redep LIKE '%$group%' OR 
 				<div id='check<?php echo $Tid;?>' style='display:none'><a class='del btn raised redmore' onclick='DeleteTask("<?php echo $Tid; ?>");'>确认删除</a></div>
 				<a class='finishsum' href='' onclick='opencpt(); return false'><span class='sumsty'><?php echo $cpt; ?></span>人完成了你的任务</a>
 				
-				<?php }else{ ?>
+				<?php 
+				}else{
+				  $cpt_sql="SELECT * FROM task_complete WHERE Taskid='$Tid' AND Userid='$UID'";
+				  $cpt_query=mysqli_query($conn,$cpt_sql);
+				  $cpt_rs=mysqli_fetch_array($cpt_query);
+				  if($cpt_rs["isComplete"]=="0"){
+				 ?>
 				
 				<div id="cptClick<?php echo $Tid; ?>"><button class='btn raised mark green' onclick='checkcpt("<?php echo $Tid; ?>");'>完成任务</button></div>
 				<div id="cptCheck<?php echo $Tid; ?>" style="display:none;" onclick='CompleteTask("<?php echo $Tid; ?>");'><button class='btn raised mark greenmore'>确认完成</button></div>
-    <?php } ?>
+    <?php } } ?>
     </div>
   </div>
   <?php } ?>
@@ -289,7 +295,30 @@ $sql=mysqli_query($conn,"SELECT * FROM task_list WHERE redep LIKE '%$group%' OR 
 <script type="text/javascript">
 var editor = new wangEditor('textarea1');
 var submitbtn = document.getElementById('nextstep');
+var ckdep=document.getElementsByName("ckdep[]");
 
+//加载完:打开公告,启动头像动画,隐藏下一步按钮
+window.onload=function(){
+	submitbtn.style.display='none';
+	$("#hdimg").addClass('animate rubberBand');
+	setTimeout("$('#namebox').addClass('animate bounceIn');", 400);
+}
+
+function CheckClick(){
+  var NotCheck=0;
+  var l=ckdep.length;
+  for(var k=0;k<l;k++){
+    if(ckdep[k].checked){
+      pstbtn.style.display = 'block';
+    }else if(!ckdep[k].checked){
+      NotCheck++;
+    }
+  }
+  if(NotCheck==l){
+    pstbtn.style.display = 'none';
+  }
+}
+ 
 editor.onchange = function(){
 	if(this.$txt.html()=="<p><br></p>"){
 		submitbtn.style.display = 'none';
@@ -320,30 +349,15 @@ function GetTaskInfo(){
 	var html=editor.$txt.html();
 	//获取任务发布对象部门
 	var dep="";
-	ckdep=document.getElementsByName("ckdep[]");
 	for(var i=0,j=ckdep.length;i<j;i++){
-	  if(ckdep[i].checked){
+	 if(ckdep[i].checked){
 		  dep += ckdep[i].value;
 		  dep += ",";
-	  }
-  }
-  //去除末尾的逗号
-  dep = dep.substr(0,dep.length-1);
-  PublishTask(pubman,pubdep,html,dep);
-}
-
-//页面启动时隐藏下一步按钮以及动画
-window.onload=function(){
-	submitbtn.style.display='none';
-	$("#hdimg").addClass('animate rubberBand');
-	setTimeout("$('#namebox').addClass('animate bounceIn');", 400); 
-}
-
-//彩蛋--关于我们  
-function easteregg(){
-	if(event.altKey && event.shiftKey && event.keyCode == 71){
-		window.location.href="about.html";
-  }
+	 }
+ }
+ //去除末尾的逗号
+ dep = dep.substr(0,dep.length-1);
+ PublishTask(pubman,pubdep,html,dep);
 }
 
 //关闭全局通知窗口
@@ -351,6 +365,7 @@ function closenote(){
 	$("#globalnote").addClass("animate fadeOutUp");
 }
 
+//关闭已完成人物窗口
 function closecpt(){
 	$("#whofinished").removeClass("fadeInDown");
 	$("#whofinished").addClass("fadeOutUp");
@@ -358,6 +373,7 @@ function closecpt(){
 	$("#panel").removeClass("disablemod");
 }
 
+//打开已完成人物窗口
 function opencpt(){
 	$("#whofinished").removeClass("modhide");
 	$("#whofinished").addClass("moddisplay");
@@ -368,24 +384,24 @@ function opencpt(){
 //发布器的切换
 var iptbox = document.getElementById('edtcontainer');
 var treebox = document.getElementById('treecontainer');
-var fwdbtn = document.getElementById('nextstep');
-var bwdbtn = document.getElementById('backwardbutton');
+var nextbtn = document.getElementById('nextstep');
+var lastbtn = document.getElementById('laststep');
 var pstbtn = document.getElementById('submit');
 			
-function bwd(){
+function gotoLastStep(){
 	treebox.style.display = 'none';
 	iptbox.style.display = '';
-	bwdbtn.style.display = 'none';
-	fwdbtn.style.display = '';
+	lastbtn.style.display = 'none';
+	nextbtn.style.display = '';
 	pstbtn.style.display = 'none';
 }
 
-function fwd(){
+function gotoNextStep(){
 	treebox.style.display = 'block';
 	iptbox.style.display = 'none';
-	bwdbtn.style.display = 'block';
-	fwdbtn.style.display = 'none';
-	pstbtn.style.display = 'block';
+	lastbtn.style.display = '';
+	nextbtn.style.display = 'none';
+	pstbtn.style.display = 'none';
 }
 
 function PublishTask(man,pdep,ct,dep){
@@ -430,17 +446,20 @@ $.ajax({
 });  
 }
 
-/*function CompleteTask(Tid){
+function CompleteTask(Tid){
 $.ajax({
   url:"../functions/Task/toCompleteTask.php",
   type:"POST",
-  data:{Tid:Tid},
+  data:{Taskid:Tid},
   error:function(e){
     alert("任务完成失败！"+e);
   },
   success:function(got){
-    if(got=="1"){
+    if(got=="9"){
+      alert("数据传输失败！");
+    }else if(got=="1"){
       alert("恭喜你！任务完成！");
+      history.go(0);
     }else if(got=="2"){
       alert("网络连接失败！");
     }else{
@@ -448,7 +467,15 @@ $.ajax({
     }
   }
 }); 
-}*/
+}
+
+//彩蛋--关于我们  
+function easteregg(){
+	if(event.altKey && event.shiftKey && event.keyCode == 71){
+		window.location.href="about.html";
+  }
+}
+
 </script>
 
 <?php
