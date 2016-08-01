@@ -2,7 +2,7 @@
 
 <b>执信中学学生会信息化在线办公系统 开源项目 #代号"SUsage" </b>
 
-<b>目前总体开发进度：约70%，前端系统基本完成，后端系统开发约75%。当前build:2A16 (0616)</b>
+<b>目前总体开发进度：约70%，前端系统基本完成，后端系统开发约75%。当前build:2A17 (0617)</b>
 
 <b>项目总阶段：0.8-milestone9 #Project SUsage pre-α（开发代号Young）</b>
 
@@ -54,6 +54,13 @@
   <h4><p><b>点击确认后将Salt和inDB复制，粘帖进数据库中“salt”和“pw”即可。</b></p></h4>
   <p>Copy the Salt and inDB into <b>salt</b> and <b>pw</b> of database after click permit</p>
 <h3>近期的事情</h3>
+<p><b>----2016.8.1----</b></p>
+  <p>Bug修复</p>
+  <p>新增“账务系统”</p>
+  <p>SUsage管理中心（MCenter）支持移动端</p>
+  <p>新增“完成任务”功能</p>
+  <p>优化代码</p>
+  <p>CSS优化</p>
 <p><b>----2016.7.29----</b></p>
   <p>Bug修复</p>
   <p>functions路径修改</p>
@@ -83,8 +90,6 @@
   <p>UCenter功能升级</p>
   <p>数十项bug解决<s>及新bug产生</s></p>
 
-<h3>亟待修复</h3>
-  <p>前台的个人中心（重置密码之类的……）</p>
 <h3>注意事项</h3>
   <p>按照<s>基本法</s>wiki里的提示写就好啦</p>
   <a href="https://github.com/zhxsu/susage/wiki" target="_blank">修改时，欢迎参看我们的wiki</a>

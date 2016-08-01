@@ -24,7 +24,7 @@
 --
 
 CREATE TABLE IF NOT EXISTS `bill_list` (
-  `billid` int(11) NOT NULL AUTO_INCREMENT,
+  `billid` int(11) NOT NULL,
   `Name` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT '账单名称',
   `Content` varchar(300) COLLATE utf8_unicode_ci NOT NULL COMMENT '账单内容',
   `Cost` varchar(8) COLLATE utf8_unicode_ci NOT NULL COMMENT '支出',
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `bill_list` (
 --
 
 CREATE TABLE IF NOT EXISTS `bill_user` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `Truename` varchar(5) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `bill_user` (
 -- 表的结构 `sys_user`
 --
 
-CREATE TABLE `sys_user` (
+CREATE TABLE IF NOT EXISTS `sys_user` (
   `id` int(11) NOT NULL,
   `stuid` varchar(20) NOT NULL COMMENT '登录ID，昵称',
   `tname` varchar(5) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '真实名字',
@@ -78,7 +78,7 @@ INSERT INTO `sys_user` (`id`, `stuid`, `tname`, `headimg`, `pw`, `dep`, `salt`, 
 -- 表的结构 `task_complete`
 --
 
-CREATE TABLE `task_complete` (
+CREATE TABLE IF NOT EXISTS `task_complete` (
   `id` int(11) NOT NULL,
   `Taskid` varchar(4) COLLATE utf8_unicode_ci NOT NULL COMMENT '任务ID，与任务表关联',
   `Userid` varchar(4) COLLATE utf8_unicode_ci NOT NULL COMMENT '用户ID，与用户表关联',
@@ -92,7 +92,7 @@ CREATE TABLE `task_complete` (
 -- 表的结构 `task_list`
 --
 
-CREATE TABLE `task_list` (
+CREATE TABLE IF NOT EXISTS `task_list` (
   `Taskid` int(11) NOT NULL,
   `pubman` varchar(5) COLLATE utf8_unicode_ci NOT NULL COMMENT '发布人的真实姓名',
   `pubdep` varchar(4) COLLATE utf8_unicode_ci NOT NULL COMMENT '发布人的部门',
@@ -138,6 +138,18 @@ ALTER TABLE `task_complete`
 --
 ALTER TABLE `task_list`
   ADD PRIMARY KEY (`Taskid`);
+
+--
+-- 使用表AUTO_INCREMENT `bill_list`
+--
+ALTER TABLE `bill_list`
+  MODIFY `billid` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- 使用表AUTO_INCREMENT `bill_user`
+--
+ALTER TABLE `bill_user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- 使用表AUTO_INCREMENT `sys_user`
