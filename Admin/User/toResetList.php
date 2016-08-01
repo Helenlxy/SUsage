@@ -1,5 +1,10 @@
 <?php
 require_once("../Includes/CheckLog.php");
+if($_SESSION['isSuper']!="1"){
+  $url="../console.php?sutk=".$SUtoken;
+  header("Location: $url");
+}
+
 $flag=true;
 require_once("../Includes/to_pdo.php");
 $list=PDOQuery($dbcon,"SELECT * FROM sys_user",[],[]);
@@ -11,7 +16,8 @@ $total=sizeof($list[0]);
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>SUsage 管理中心 :: 用户管理</title>
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <!-- Bootstrap -->
   <link href="/SUsage/Admin/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.bootcss.com/bootstrap/3.3.6/fonts/glyphicons-halflings-regular.svg" rel="stylesheet">

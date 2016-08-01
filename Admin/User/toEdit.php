@@ -14,7 +14,11 @@ if(isset($_POST) && $_POST){
   if(!$dep){
     echo "<script>alert('请认真准确填写所需修改内容！');</script>";
   }else{//执行更改
-    $rs=PDOQuery($dbcon,"UPDATE sys_user SET stuid='{$stuid}',dep='{$dep}' WHERE id=?",[$uid],[PDO::PARAM_INT]);
+    if($stuid!=""){//修改用户名 & 部门
+      $rs=PDOQuery($dbcon,"UPDATE sys_user SET stuid='{$stuid}',dep='{$dep}' WHERE id=?",[$uid],[PDO::PARAM_INT]);
+    }else{
+      $rs=PDOQuery($dbcon,"UPDATE sys_user SET dep='{$dep}' WHERE id=?",[$uid],[PDO::PARAM_INT]);
+    }
     
     if($rs[1]==1){//Success
       echo "<script>alert('恭喜您，修改成功！');history.go(-2);</script>";
@@ -30,6 +34,7 @@ if(isset($_POST) && $_POST){
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>SUsage 管理中心 :: 用户编辑</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- Bootstrap -->
 <link href="/SUsage/Admin/css/bootstrap.css" rel="stylesheet">
@@ -56,7 +61,7 @@ if(isset($_POST) && $_POST){
   </div><br>
   
   <div class="input-group">
-    <input class="form-control" placeholder="输入新的部门（双电请直接填写组别名称）" name="dep">
+    <input class="form-control" placeholder="输入新的部门（双电请填写电视台 or 电脑部）" name="dep">
   </div><br>
     
   <input type="submit" value="修 改" class="btn btn-success" style="width:100%">

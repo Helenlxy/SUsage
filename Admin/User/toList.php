@@ -11,7 +11,8 @@ $total=sizeof($list[0]);
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>SUsage 管理中心 :: 用户管理</title>
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <!-- Bootstrap -->
   <link href="/SUsage/Admin/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.bootcss.com/bootstrap/3.3.6/fonts/glyphicons-halflings-regular.svg" rel="stylesheet">
