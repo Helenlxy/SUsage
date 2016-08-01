@@ -42,6 +42,7 @@
 .blured{
 	filter:blur(10px);
 	-webkit-filter:blur(10px);
+	pointer-events: none;
 }
 #untip{
 	z-index: 999999;

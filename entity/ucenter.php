@@ -131,7 +131,7 @@ include("../functions/NightShift.php");
 				<h3 class="fs-subtitle">遇到使用中的问题，或者寻求帮助，可以联系我们</h3>
 				<h3 class="fs-subtitle" style="color: #bdbdbd;margin-top: 40px">—————— 用户群 ——————</h3>
 				<center>
-					<span>企鹅群：<a>XXXXXXXXXXX</a></span><br>
+					<span>企鹅群：<a>324430720</a></span><br>
 					<span>微信群二维码</span><br>
 					<span>如果需要帮助和反馈，也可以在群里私聊负责人。</span>
 

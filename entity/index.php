@@ -75,7 +75,7 @@ $sql=mysqli_query($conn,"SELECT * FROM task_list WHERE redep LIKE '%$group%' OR 
 			<button id="cancelexit" class="btn" style="font-family:微软雅黑;color:#ffffff;position:absolute;right:20%;line-height:55px;font-size:16px;font-weight:bold;cursor:pointer;">不是</button>
 		</div>
 		<!--全局通知-->
-		<div id="globalnote">
+		<div id="globalnote" class="modhide">
 			<h3>最高指示</h3>
 			<p style="height:130px;width:80%;font-size:14px;position:relative;left:10%;overflow-y:auto;word-wrap: break-word;">
 			<!--内容区域开始-->
@@ -88,6 +88,7 @@ $sql=mysqli_query($conn,"SELECT * FROM task_list WHERE redep LIKE '%$group%' OR 
 		<div id="panel">
 		<!-- 放在顶上的链接-->
 		<div id="about" class="ex-about" style="position:absolute;top:90px;width:100%;text-align:center;z-index:1;">
+			<a href="" onclick="opennote() ;return false" style="background-color:#c90000;color: #fff;padding:1px 5px 1px 5px;border-radius:15px"><span>X月X日</span>最高指示</a>&#12288;
 			<a href="ucenter.php#helper" target="_blank" style="color:#00C853">帮助与反馈中心 </a>·<a href="http://zhxsu.github.io/SUsage/" target="_blank" style="color:#00C853"> 关于 | 开源许可及协议声明 </a> <span class="trick" title="用鼠标刮这里看看">试试alt+shift+g</span> <a id="ver"></a> ©2016 <a href="http://weibo.com/zxsu32nd" target="_blank" style="color:#9e9e9e">执信学生会</a> <a href="http://weibo.com/zhxsupc" target="_blank"  style="color:#9e9e9e">电脑部</a> · In tech we trust 
 		</div>
 		<!-- 发布器以及任务界面 -->
@@ -206,7 +207,9 @@ $sql=mysqli_query($conn,"SELECT * FROM task_list WHERE redep LIKE '%$group%' OR 
 				
 				<div id="cptClick<?php echo $Tid; ?>"><button class='btn raised mark green' onclick='checkcpt("<?php echo $Tid; ?>");'>完成任务</button></div>
 				<div id="cptCheck<?php echo $Tid; ?>" style="display:none;" onclick='CompleteTask("<?php echo $Tid; ?>");'><button class='btn raised mark greenmore'>确认完成</button></div>
-    <?php } } ?>
+    <?php }else{ ?>
+    			<div style="color:#4fb4f7;float:right;margin:10px"><span style="background-color:#00c857;color: #fff;padding:1px 5px 0 5px;border-radius:15px">√</span> 你已经完成任务</div>
+    <?php } }?>
     </div>
   </div>
   <?php } ?>
@@ -359,13 +362,19 @@ function GetTaskInfo(){
  dep = dep.substr(0,dep.length-1);
  PublishTask(pubman,pubdep,html,dep);
 }
-
+function opennote(){	
+	$("#globalnote").removeClass("modhide");
+	$("#globalnote").addClass("moddisplay");
+	$("#globalnote").addClass("animate fadeInDown");
+}
 //关闭全局通知窗口
 function closenote(){
+	$("#globalnote").removeClass("fadeInDown");
 	$("#globalnote").addClass("animate fadeOutUp");
+	$("#globalnote").addClass("modhide");
 }
 
-//关闭已完成人物窗口
+//关闭已完成任务窗口
 function closecpt(){
 	$("#whofinished").removeClass("fadeInDown");
 	$("#whofinished").addClass("fadeOutUp");
@@ -373,7 +382,7 @@ function closecpt(){
 	$("#panel").removeClass("disablemod");
 }
 
-//打开已完成人物窗口
+//打开已完成任务窗口
 function opencpt(){
 	$("#whofinished").removeClass("modhide");
 	$("#whofinished").addClass("moddisplay");
@@ -410,7 +419,7 @@ $.ajax({
   type:"POST",
   data:{pubman:man,pubdep:pdep,ct:ct,dep:dep},
   error:function(e){
-    alert("发布任务失败！"+e);
+    alert("电波故障……发布任务失败！"+e);
   },
   success:function(g){
     alert("发布任务成功！");
@@ -429,18 +438,18 @@ $.ajax({
   },
   success:function(got){
     if(got=="9"){
-      alert("恭喜你！任务删除成功！");
+      alert("你不想说话，并成功把一只任务扔进了垃圾桶！");
       history.go(0);
     }else if(got=="1"){
-      alert("对不起，您无权删除此任务！\n\n原因：非任务发布人");
+      alert("删除任务也要按照基本法\n\n很抱歉，非任务发布人无法删除任务");
     }else if(got=="0"){
-      alert("数据传输失败！");
+      alert("电波故障……数据传输失败！");
     }else if(got=="2"){
-      alert("任务数据删除失败！");
+      alert("电波故障……任务数据删除失败！");
     }else if(got=="3"){
-      alert("任务完成数据删除失败！");
+      alert("电波故障……任务完成数据删除失败！");
     }else{
-      alert("未知错误码："+got);
+      alert("电波故障……未知错误码："+got);
     }
   }
 });  
@@ -452,18 +461,18 @@ $.ajax({
   type:"POST",
   data:{Taskid:Tid},
   error:function(e){
-    alert("任务完成失败！"+e);
+    alert("电波故障……任务完成失败！"+e);
   },
   success:function(got){
     if(got=="9"){
-      alert("数据传输失败！");
+      alert("电波故障……数据传输失败！");
     }else if(got=="1"){
-      alert("恭喜你！任务完成！");
+      alert("任务完成了，干得漂亮！\n\n奖励你一根棒棒糖【其实并没有");
       history.go(0);
     }else if(got=="2"){
-      alert("网络连接失败！");
+      alert("电波不见了……网络连接失败！");
     }else{
-      alert("未知错误码："+got);
+      alert("电波故障……未知错误码："+got);
     }
   }
 }); 

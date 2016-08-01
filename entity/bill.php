@@ -59,13 +59,13 @@ include("../functions/NightShift.php");
 			<div class="subtitle"><h2 style="color:#4fb4f7">账务公开<span style="font-size: 14px"> / BillList</span></h2></div>
 				<center class="card" style="height: 360px;overflow: scroll;">
 					<div id="earncircle" class="circle">
-						<div id="earn" class="billtotal">总收入<p>1989.5</p></div>
+						<div id="earn" class="billtotal">总收入<p>0000.0</p></div>
 					</div>
 					<div id="costcircle" class="circle">
-						<div id="cost" class="billtotal">总支出<p>817.0</p></div>
+						<div id="cost" class="billtotal">总支出<p>0000.0</p></div>
 					</div>
 					<div id="balcircle" class="circle">
-						<div id="balance" class="billtotal">结余<p>1172.5</p></div>
+						<div id="balance" class="billtotal">结余<p>0000.0</p></div>
 					</div>
 					<div id="updatedate">最后更新：2016-08-17 3:01</div>
 				</center>
