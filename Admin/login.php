@@ -31,14 +31,9 @@ if(isset($_POST) && $_POST){
   }else{ 
     echo "<script>alert('对不起！您未被授权登录SUsage Mcenter!');history.go(-1);</script>";
   }
-  
-  
-  
 }
-
 ?>
 
-<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -62,11 +57,11 @@ if(isset($_POST) && $_POST){
   <div class="col-md-offset-2 col-md-8" style="line-height:12px;">
     <form method="post" id="login">
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="输入你的用户名" name="id" id="id" onkeyup="if(event.keyCode==13)$('#pw')[0].focus();">
+        <input type="text" class="form-control" placeholder="输入你的用户名" name="id" autocomplete="off">
       </div>
       <br>
       <div class="input-group">
-        <input type="password" class="form-control" placeholder="输入你的密码" name="pw" id="pw" onkeyup="if(event.keyCode==13)toLogin();">
+        <input type="password" class="form-control" placeholder="输入你的密码" name="pw">
       </div>
       <br>
       <button class="btn btn-success" style="width:100%" onclick="toLogin();">登录</button>
@@ -77,14 +72,9 @@ if(isset($_POST) && $_POST){
 </div>
 </div>
 </div>
+
 <script src="/SUsage/Admin/Includes/footer.js"></script>
 <script src="/SUsage/res/js/jquery-2.2.1.min.js"></script>
 <script src="/SUsage/Admin/js/bootstrap.js"></script>
-
-<script>
-function toLogin(){
-$('login').submit();}
-</script>
-
 </body>
 </html>
