@@ -37,7 +37,7 @@ if(isset($_POST) && $_POST){
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- Bootstrap -->
-<link href="/SUsage/Admin/css/bootstrap.css" rel="stylesheet">
+<link href="/SUsage/Admin/css/bootstrap.min.css" rel="stylesheet">
 
 <style>
   a{color:#4caf50;}
@@ -75,6 +75,6 @@ if(isset($_POST) && $_POST){
 
 
 <script src="/SUsage/Admin/Includes/footer.js"></script>
-<script src="/SUsage/res/js/jquery-2.2.1.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/1.11.2/jquery.js"></script>
 <script src="/SUsage/Admin/js/bootstrap.js"></script>
 </html>

@@ -46,7 +46,7 @@ if(isset($_POST) && $_POST){
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SUsage 管理中心 :: 登录</title>
 <!-- Bootstrap -->
-<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <style>
   a{color:#fff;}
   a:hover{color:#fff}
