@@ -15,7 +15,7 @@ $total=sizeof($list[0]);
 
   
   <!-- Bootstrap -->
-  <link href="/SUsage/Admin/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet">
   <link href="https://cdn.bootcss.com/bootstrap/3.3.6/fonts/glyphicons-halflings-regular.svg" rel="stylesheet">
   
   <style>
