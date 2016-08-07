@@ -4,7 +4,7 @@
 
 <b>目前总体开发进度：约70%，前端系统基本完成，后端系统开发约77%。当前build:2A56 (0656)</b>
 
-<b>项目总阶段：0.8-milestone9 #Project SUsage pre-α（开发代号Young）</b>
+<b>项目总阶段：0.8-milestone9 #Project SUsage α（开发代号Young）</b>
 
 <p>TaskSYS V1.3 alpha A6</p>
 <p>UCenter V1.0 alpha A2</p>
