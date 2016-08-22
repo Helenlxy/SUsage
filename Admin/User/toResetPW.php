@@ -2,16 +2,13 @@
 $flag=true;
 require_once("../Includes/to_pdo.php");
 require_once("../../functions/SO_API.php");
+require_once("../../functions/socgs.php");
 $uid=$_POST['uid'];
 
-if(!$uid || $uid==0) die("非法入侵！");
+$ran=(string)mt_rand(104672,961753);
+$pw=SOCGS($ran);
 
-$ran=random(6,"pw");
-$pw=substr($ran,0,6);//Get New Password
-$salt=substr($ran,5,6);//Get New Salt
-$md5=md5($pw.$salt);//MD5 PW+Salt
-
-$rs=PDOQuery($dbcon,"UPDATE sys_user SET pw='{$md5}',salt='{$salt}' WHERE id=?",[$uid],[PDO::PARAM_INT]);
+$rs=PDOQuery($dbcon,"UPDATE sys_user SET pw=? WHERE id=?",[$pw,$uid],[PDO::PARAM_STR,PDO::PARAM_INT]);
 if($rs[1]!=1){die("2");}
-die("1|".$pw);
+die("1|".$ran);
 ?>

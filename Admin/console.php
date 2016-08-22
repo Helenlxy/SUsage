@@ -51,7 +51,7 @@ for($i=0;$i<$total;$i++){
 </body>
 
 <!-- JavaScript -->
-<script src="/SUsage/Admin/Includes/footer.js"></script>
+<script src="Includes/footer.js"></script>
 <script src="https://cdn.bootcss.com/jquery/1.11.2/jquery.js"></script>
-<script src="/SUsage/Admin/js/bootstrap.js"></script>
+<script src="js/bootstrap.js"></script>
 </html>

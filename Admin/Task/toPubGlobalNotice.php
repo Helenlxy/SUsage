@@ -61,7 +61,8 @@ if(isset($_POST) && $_POST){
 </body>
 
 
-<script src="/SUsage/Admin/Includes/footer.js"></script>
-<script src="/SUsage/res/js/jquery-2.2.1.min.js"></script>
-<script src="/SUsage/Admin/js/bootstrap.js"></script>
+<script src="../Includes/footer.js"></script>
+<script src="https://cdn.bootcss.com/jquery/1.11.2/jquery.js"></script>
+<script src="../js/bootstrap.js"></script>
+
 </html>

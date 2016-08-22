@@ -1,5 +1,7 @@
 <?php
 require_once("../Includes/CheckLog.php");
+CheckPurv("B");
+
 $flag=true;
 require_once("../Includes/to_pdo.php");
 $id=$_GET['billid'];
@@ -13,18 +15,18 @@ if($BillList[1]==0){
   header("Location: toBillList.php?sutk=$SUtoken");
 }
 //Get Detail
-$Name=$BillList[0][0]["Name"];
+$Name=$BillList[0][0]["BillName"];
 $Content=$BillList[0][0]["Content"];
 $Income=$BillList[0][0]["Income"];
 $Cost=$BillList[0][0]["Cost"];
 $Registrant=$BillList[0][0]["Registrant"];
 
 if(isset($_POST) && $_POST){
-  $PostName=$_POST['Name'];
+  $PostName=$_POST['BillName'];
   $PostContent=$_POST['Content'];
   $PostCost=$_POST['Cost'];
   $PostIncome=$_POST['Income'];
-  $SQL="UPDATE bill_list SET Name=?, Content=?, Cost=?, Income=? WHERE billid=?";
+  $SQL="UPDATE bill_list SET BillName=?, Content=?, Cost=?, Income=? WHERE billid=?";
   $UpdateBill=PDOQuery($dbcon,$SQL,[$PostName,$PostContent,$PostCost,$PostIncome,$id],[PDO::PARAM_STR,PDO::PARAM_STR,PDO::PARAM_STR,PDO::PARAM_STR,PDO::PARAM_STR,PDO::PARAM_STR]);
   if($UpdateBill[1]==1){
     echo "<script>alert('恭喜您，修改成功！');history.go(-2);</script>";
@@ -32,7 +34,6 @@ if(isset($_POST) && $_POST){
     echo "<script>alert('修改失败！');history.go(-2);</script>";
   }
 }
-
 ?>
 
 <html>
@@ -43,7 +44,7 @@ if(isset($_POST) && $_POST){
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Bootstrap -->
-  <link href="/SUsage/Admin/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/Admin/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.bootcss.com/bootstrap/3.3.6/fonts/glyphicons-halflings-regular.svg" rel="stylesheet">
   
   <style>
@@ -68,7 +69,7 @@ if(isset($_POST) && $_POST){
 </body>
 
 <!-- JavaScript -->
-<script src="/SUsage/Admin/Includes/footer.js"></script>
+<script src="../Includes/footer.js"></script>
 <script src="https://cdn.bootcss.com/jquery/1.11.2/jquery.js"></script>
-<script src="/SUsage/Admin/js/bootstrap.js"></script>
+<script src="../js/bootstrap.js"></script>
 </html>

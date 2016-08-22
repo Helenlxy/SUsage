@@ -1,11 +1,11 @@
 <?php
 require_once("../Includes/CheckLog.php");
+CheckPurv("U_R");
 
 $flag=true;
 require_once("../Includes/to_pdo.php");
 $list=PDOQuery($dbcon,"SELECT * FROM sys_user",[],[]);
 $total=sizeof($list[0]);
-
 ?>
 
 <html>
@@ -28,31 +28,31 @@ $total=sizeof($list[0]);
 <?php include("../Includes/shownav.php"); ?>
 <table class="table table-hover table-striped" style="border-radius: 5px; border-collapse: separate;">
 <tr>
-  <th>用户名</th>
   <th>真实姓名</th>
+  <th>用户名</th>
   <th>部门</th>
   <th>职位</th>
   <th>将角色设置为</th>
 </tr>
 <?php
-  //In SUsage2 will use Ajax
   for($i=0;$i<$total;$i++){
     $uid=$list[0][$i]['id'];
     $name=$list[0][$i]['tname'];
     
-    if($list[0][$i]['isMaster']=="1")
+    $pur=PDOQuery($dbcon,"SELECT * FROM sys_user_purv WHERE Userid=?",[$uid],[PDO::PARAM_STR]);
+
+    if($pur[0][0]['isMaster']=="1")
     {$setM=0;$nameM=" 非组长";}
     else{$setM=1;$nameM=" 组长 ";}
     
-    if($list[0][$i]['isAdmin']=="1")
+    if($pur[0][0]['isAdmin']=="1")
     {$setA=0;$nameA=" 非管理员";}
     else{$setA=1;$nameA=" 管理员 ";}
     
-    if($list[0][$i]['isSuper']=="1")
+    if($pur[0][0]['isSuper']=="1")
     {$setS=0;$nameS=" 非超管";}
     else{$setS=1;$nameS=" 超管 ";}
     
-    //Make Table -Begin
     echo "<tr>";
     echo "<td>".$name."</td>";
     echo "<td>".$list[0][$i]['stuid']."</td>";
@@ -66,15 +66,13 @@ $total=sizeof($list[0]);
     }
     echo "</td>";
     echo "</tr>";
-    //Make Table -End
-    
   }
 ?>
 </table>
 </body>
 
 <!-- JavaScript -->
-<script src="/SUsage/Admin/Includes/footer.js"></script>
+<script src="../Includes/footer.js"></script>
 <script src="https://cdn.bootcss.com/jquery/1.11.2/jquery.js"></script>
-<script src="/SUsage/Admin/js/bootstrap.js"></script>
+<script src="../js/bootstrap.js"></script>
 </html>

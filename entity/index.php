@@ -3,94 +3,55 @@ session_start();
 require_once("../functions/to_sql.php");
 require_once("../functions/CheckLogged.php");
 include("../functions/NightShift.php");
+include("../functions/SO_API.php");
 
 $UID=$_SESSION['userid'];
-$group=$_SESSION['group'];
+$dep=array();
+$dep=$_SESSION['dep'];
 $pubman=$_SESSION['truename'];
-$sql=mysqli_query($conn,"SELECT * FROM task_list WHERE redep LIKE '%$group%' OR pubman='$pubman' ORDER BY Taskid DESC");
+$sql="SELECT * FROM task_list WHERE pubman='{$pubman}'";
+for($i=0;$i<sizeof($dep);$i++){
+ $sql.=" OR redep LIKE '%{$dep[$i]}%'";
+}
+$sql.=" ORDER BY Taskid DESC";
+$sql=mysqli_query($conn,$sql);
 
 $all=file_get_contents("../GlobalNotice.json");
 $all=json_decode($all);
 $Notice=urldecode($all->notice);
-$pubman=$all->pubman;
-$pubtime=$all->pubtime;
+$Notice_man=$all->pubman;
+$Notice_time=$all->pubtime;
 ?>
-
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<!-- 引入CSS文件 -->
-		<link rel="stylesheet" href="../res/css/themes/Sinterface.css" />
+		<link rel="stylesheet" href="../res/css/themes/Sinterface.css">
 		<?php
-			if($_SESSION['SUmaster']==1){
-				echo "<link rel='stylesheet' href='../res/css/modules/ex-index-master.css' />";
+			if($_SESSION['SU_M']==1){
+				echo "<link rel='stylesheet' href='../res/css/modules/ex-index-master.css'>";
 			}else{
-				echo "<link rel='stylesheet' href='../res/css/modules/ex-index-normal.css' />";
+				echo "<link rel='stylesheet' href='../res/css/modules/ex-index-normal.css'>";
 			}
 		?>
 		<link rel="stylesheet" href="../res/css/editor/wangEditor.css">
-		<link rel="stylesheet" href="../res/css/modules/ex-united.css" />
+		<link rel="stylesheet" href="../res/css/modules/ex-united.css">
 		<!--网站标题以及icon-->
 		<title>你的任务 / SUsage Tasklist</title>
 		<link rel="shortcut icon" href="../res/icons/title/task_128X128.ico"/>
 	</head>
+	
 	<body style="position:absolute;width:80%;">
-		<!-- [begin]导航栏 -->
-		<div class="ex-navbar-for-Desktop">
-			<!-- 用户标签 -->
-			<a href="UCenter.php" class="ex-dnavbar-userbox-descunderunfb" title="进入个人中心">
-			<div class="ex-dnavbar-userbox">
-				<div class="ex-dnavbar-userbox-avatarfixbox">
-					<img id="hdimg" src="<?php echo $_SESSION['headimg']; ?>" style="height:54px;width:54px;opacity: 0"/>
-				</div>
-				<div class="ex-dnavbar-userbox-usernamefixbox">
-					<p class="ex-dnacvar-userbox-username" id="namebox">
-						<?php 
-						echo $_SESSION['nickname']." , ";
-							if ($h<5) echo '该休息了';
-							else if ($h<11) echo '早上好呀';
-							else if ($h<13) echo '到中午了';
-							else if ($h<18) echo '下午好嘛';
-							else if ($h<23) echo '天黑了呢';
-							else echo '该休息了';
-						?>
-					</p>
-				</div>
-				<div class="ex-dnavbar-userbox-descunderunfixbox">
-					<a onclick="backtop(); return false" class="ex-dnavbar-userbox-descunderunfb" href="#">返回顶部 ▲ </a>&#12288;<a onclick="exit(); return false" class="ex-dnavbar-userbox-descunderunfb" title="戳一下就退出哦w">注销 ></a>
-				</div>
-			</div>
-			</a>
-			<div id="appfixbox">
-				<div class="ex-dnavbar-appbox appbox-selected">
-					<img src="../res/icons/bar/ic_task.png"/>
-					<div class="ex-dnavbar-appbox-text">主页</div>
-				</div>
-				<a href="bill.php">
-				<div class="ex-dnavbar-appbox" title="闷声才能发大财">
-					<img src="../res/icons/bar/ic_files.png"/>
-					<div class="ex-dnavbar-appbox-text">账务</div>
-				</div>
-				</a>
-			</div>
-		</div>
-		<!-- [end]导航栏结束 -->
-		<!-- [begin]退出提示 -->
-		<div class="toast" id="toast-exit" style="position:fixed;width:100%;height:69px;z-index:100;display:none;">
-			<label class="toast-label" style="font-family:微软雅黑;color:#ffffff;position:absolute;left:10%;line-height:45px;">你你你你你你你~真的要退出吗w</label>
-			<button class="btn" style="font-family:微软雅黑;color:#ffffff;position:absolute;right:10%;line-height:55px;font-size:16px;cursor:pointer;" onclick="window.location.href='logout.php'">是的</button>
-			<button id="cancelexit" class="btn" style="font-family:微软雅黑;color:#ffffff;position:absolute;right:20%;line-height:55px;font-size:16px;font-weight:bold;cursor:pointer;">不是</button>
-		</div>
-		<!-- [end]退出提示 -->
+	<?php ShowNavbar(); ?>
 		<!-- [begin]全局通知 -->
 		<div id="globalnote" class="modhide">
 			<h3>最高指示</h3>
 			<p style="height:130px;width:80%;font-size:14px;position:relative;left:10%;overflow-y:auto;word-wrap:break-word;">
-			发布人：<?php echo $pubman; ?><br>
-			发布时间：<?php echo $pubtime; ?><br>
+			发布人：<?php echo $Notice_man; ?>&#12288;&#12288;
+			发布时间：<?php echo $Notice_time; ?><br>
 			<span style="font-family: 'microsoft yahei'">——————————————————————</span><br>
 			<!--内容区域开始-->
-      <?php echo $Notice; ?>
+			<?php echo $Notice; ?>
 			<!--内容区域结束-->
 			<br><br>
 			<span style="font-family: 'microsoft yahei'">————————以下空————————</span>
@@ -102,8 +63,8 @@ $pubtime=$all->pubtime;
 		<div id="panel">
 		<!-- 放在顶上的版权声明-->
 		<div id="about" class="ex-about" style="position:absolute;top:90px;width:100%;text-align:center;z-index:1;">
-			<a href="" onclick="opennote() ;return false" style="background-color:#c90000;color: #fff;padding:1px 5px 1px 5px;border-radius:15px"><span><?php echo $pubtime; ?></span>最高指示</a>&#12288;
-			<a href="ucenter.php#helper" target="_blank" style="color:#00C853">帮助与反馈中心 </a>·<a href="http://zhxsu.github.io/SUsage/" target="_blank" style="color:#00C853"> 关于 | 开源许可及协议声明 </a> <span class="trick" title="用鼠标刮这里看看">试试alt+shift+g</span> <a id="ver"></a> ©2016 <a href="http://weibo.com/zxsu32nd" target="_blank" style="color:#9e9e9e">执信学生会</a> <a href="http://weibo.com/zhxsupc" target="_blank"  style="color:#9e9e9e">电脑部</a> · In tech we trust 
+			<a href="" onclick="opennote() ;return false" style="background-color:#c90000;color: #fff;padding:1px 5px 1px 5px;border-radius:15px"><span><?php echo $Notice_time; ?></span>最高指示</a>&#12288;
+			<a href="UCenter.php#helper" target="_blank" style="color:#00C853">帮助与反馈中心 </a><!--·<a href="http://zhxsu.github.io/SUsage/" target="_blank" style="color:#00C853"> 关于 | 开源许可及协议声明 </a>--> <span class="trick" title="用鼠标刮这里看看">试试alt+shift+g</span> <a id="ver"></a> ©2016 <a href="http://weibo.com/zxsu32nd" target="_blank" style="color:#9e9e9e">执信学生会</a> <a href="http://weibo.com/zhxsupc" target="_blank"  style="color:#9e9e9e">电脑部</a> · In tech we trust 
 		</div>
 		
 		<!-- 发布器以及任务界面 -->
@@ -115,6 +76,13 @@ $pubtime=$all->pubtime;
 			<div id='treecontainer' style='display:none'>
 				<div style="z-index:999999;margin-top: 30px">
 					<center style="line-height:10px;font-size: 13px;margin-bottom: 15px">请在下方的复选框勾选任务的接收组别。当此组别被勾选后，此组别下所有的成员将接收到该任务。</center>
+					<div>					
+						<div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block;">
+							<input type="checkbox" id="CheckAll" onclick="CheckAll()">
+							<label for="CheckAll" style="display:inline-block"></label>
+							<span class="lablink">全部选中</span>
+						</div>						
+					</div>
 					<div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block">
 						<input type="checkbox" id="checkNWB" name="ckdep[]" onclick="CheckClick()" value="内务部">
 						<label for="checkNWB" style="display:inline-block"></label>
@@ -194,8 +162,8 @@ $pubtime=$all->pubtime;
 		?>
 			<div class="card rich-card tasklist">
 				<img class="headimg" src="<?php echo $headimg; ?>">
-				<span class="name" ><?php echo $name; ?></span>
-				<span class="pubgroup" ><?php echo $pubdep; ?></span>
+				<span class="name"><?php echo $name; ?></span>
+				<span class="pubgroup"><?php echo $pubdep; ?></span>
 				<span class="time">发布于<span><?php echo $rs['pubtime']; ?></span></span>
 				<div class="contentarea">
 				  <?php echo $rs['ct']; ?>
@@ -209,19 +177,19 @@ $pubtime=$all->pubtime;
 				?>
 				<div id='click<?php echo $Tid;?>'><a class='del btn raised red' onclick='checkDel("<?php echo $Tid; ?>");'>删除此任务</a></div>
 				<div id='check<?php echo $Tid;?>' style='display:none'><a class='del btn raised redmore' onclick='DeleteTask("<?php echo $Tid; ?>");'>确认删除</a></div>
-				<a class='finishsum' href='' onclick='opencpt(); return false'><span class='sumsty'><?php echo $cpt; ?></span>人完成了你的任务</a>
+				<a class='finishsum' onclick='opencpt("<?php echo $Tid; ?>");'><span class='sumsty'><?php echo $cpt; ?></span>人完成了你的任务</a>
 				<?php 
 				}else{
-				  $cpt_sql="SELECT * FROM task_complete WHERE Taskid='$Tid' AND Userid='$UID'";
-				  $cpt_query=mysqli_query($conn,$cpt_sql);
-				  $cpt_rs=mysqli_fetch_array($cpt_query);
-				  if($cpt_rs["isComplete"]=="0"){
+    $cpt_sql="SELECT * FROM task_complete WHERE Taskid='$Tid' AND Userid='$UID'";
+    $cpt_query=mysqli_query($conn,$cpt_sql);
+				     $cpt_rs=mysqli_fetch_array($cpt_query);
+    if($cpt_rs["isComplete"]=="0"){
 				 ?>
 				<div id="cptClick<?php echo $Tid; ?>"><button class='btn raised mark green' onclick='checkcpt("<?php echo $Tid; ?>");'>完成任务</button></div>
 				<div id="cptCheck<?php echo $Tid; ?>" style="display:none;" onclick='CompleteTask("<?php echo $Tid; ?>");'><button class='btn raised mark greenmore'>确认完成</button></div>
         <?php }else{ ?>
     			<div style="color:#4fb4f7;float:right;margin:10px"><span style="background-color:#00c857;color: #fff;padding:1px 5px 0 5px;border-radius:15px">√</span> 你已经完成任务</div>
-        <?php } }?>
+        <?php } } ?>
         </div>
       </div>
       <?php } ?>
@@ -230,73 +198,8 @@ $pubtime=$all->pubtime;
     </div>
 		<!-- [begin]任务完成模块 -->
 		<div id="whofinished" class="modhide">
-			<h3>共<span><?php echo $cpt;?></span>人完成了此任务</h3>
-			<div style="height:230px;width:80%;position:relative;left:10%;overflow-y:auto">
-				<div class="card fnspeople">
-					<img class="fnsimg" src="../storage/avatar/avatar-5117.jpg"/>
-					<span class="fnsname" title="XXXXXXXXXXXXXXXXXX">XXXXXXXXXXXXXXXXXX</span>
-				</div>
-				<div class="card fnspeople">
-					<img class="fnsimg" src="../storage/avatar/avatar-5117.jpg"/>
-					<span class="fnsname" title="XXXXXXXXXXXXXXXXXX">XXXXXXXXXXXXXXXXXX</span>
-				</div>
-				<div class="card fnspeople">
-					<img class="fnsimg" src="../storage/avatar/avatar-5117.jpg"/>
-					<span class="fnsname" title="XXXXXXXXXXXXXXXXXX">XXXXXXXXXXXXXXXXXX</span>
-				</div>
-				<div class="card fnspeople">
-					<img class="fnsimg" src="../storage/avatar/avatar-5117.jpg"/>
-					<span class="fnsname" title="XXXXXXXXXXXXXXXXXX">XXXXXXXXXXXXXXXXXX</span>
-				</div>
-				<div class="card fnspeople">
-					<img class="fnsimg" src="../storage/avatar/avatar-5117.jpg"/>
-					<span class="fnsname" title="XXXXXXXXXXXXXXXXXX">XXXXXXXXXXXXXXXXXX</span>
-				</div>
-				<div class="card fnspeople">
-					<img class="fnsimg" src="../storage/avatar/avatar-5117.jpg"/>
-					<span class="fnsname" title="XXXXXXXXXXXXXXXXXX">XXXXXXXXXXXXXXXXXX</span>
-				</div>
-				<div class="card fnspeople">
-					<img class="fnsimg" src="../storage/avatar/avatar-5117.jpg"/>
-					<span class="fnsname" title="XXXXXXXXXXXXXXXXXX">XXXXXXXXXXXXXXXXXX</span>
-				</div>
-				<div class="card fnspeople">
-					<img class="fnsimg" src="../storage/avatar/avatar-5117.jpg"/>
-					<span class="fnsname" title="XXXXXXXXXXXXXXXXXX">XXXXXXXXXXXXXXXXXX</span>
-				</div>
-				<div class="card fnspeople">
-					<img class="fnsimg" src="../storage/avatar/avatar-5117.jpg"/>
-					<span class="fnsname" title="XXXXXXXXXXXXXXXXXX">XXXXXXXXXXXXXXXXXX</span>
-				</div>
-				<div class="card fnspeople">
-					<img class="fnsimg" src="../storage/avatar/avatar-5117.jpg"/>
-					<span class="fnsname" title="XXXXXXXXXXXXXXXXXX">XXXXXXXXXXXXXXXXXX</span>
-				</div>
-				<div class="card fnspeople">
-					<img class="fnsimg" src="../storage/avatar/avatar-5117.jpg"/>
-					<span class="fnsname" title="XXXXXXXXXXXXXXXXXX">XXXXXXXXXXXXXXXXXX</span>
-				</div>
-				<div class="card fnspeople">
-					<img class="fnsimg" src="../storage/avatar/avatar-5117.jpg"/>
-					<span class="fnsname" title="XXXXXXXXXXXXXXXXXX">XXXXXXXXXXXXXXXXXX</span>
-				</div>
-				<div class="card fnspeople">
-					<img class="fnsimg" src="../storage/avatar/avatar-5117.jpg"/>
-					<span class="fnsname" title="XXXXXXXXXXXXXXXXXX">XXXXXXXXXXXXXXXXXX</span>
-				</div>
-				<div class="card fnspeople">
-					<img class="fnsimg" src="../storage/avatar/avatar-5117.jpg"/>
-					<span class="fnsname" title="XXXXXXXXXXXXXXXXXX">XXXXXXXXXXXXXXXXXX</span>
-				</div>
-				<div class="card fnspeople">
-					<img class="fnsimg" src="../storage/avatar/avatar-5117.jpg"/>
-					<span class="fnsname" title="XXXXXXXXXXXXXXXXXX">XXXXXXXXXXXXXXXXXX</span>
-				</div>
-				<div class="card fnspeople">
-					<img class="fnsimg" src="../storage/avatar/avatar-5117.jpg"/>
-					<span class="fnsname" title="XXXXXXXXXXXXXXXXXX">XXXXXXXXXXXXXXXXXX</span>
-				</div>
-			</div>
+			<h3><div id="PeopleNum"></div></h3>
+			<div style="height:230px;width:80%;position:relative;left:10%;overflow-y:auto" id="Showing"></div>
 			<center><button class='btn fff' style="margin:10px 0 20px 0" onclick='closecpt(); return false'>好，可以，行</button></center>
 		</div>
 
@@ -305,29 +208,47 @@ $pubtime=$all->pubtime;
 <script src="../res/js/wangEditor.js"></script>
 <script src="../res/js/basic.js"></script>
 <script src="../res/js/GetCodeVer.js"></script>
+<script src="../functions/Task/TaskAjax.js"></script>
+<script src="../res/js/easteregg.js"></script>
+
 <script type="text/javascript">
 var editor = new wangEditor('textarea1');
 var submitbtn = document.getElementById('nextstep');
-var ckdep=document.getElementsByName("ckdep[]");
+var ckdep = document.getElementsByName("ckdep[]");
+var cl = ckdep.length;
 
-//加载完:打开公告,启动头像动画,隐藏下一步按钮
+//页面自启动:启动头像动画,隐藏下一步按钮
 window.onload=function(){
 	submitbtn.style.display='none';
 	$("#hdimg").addClass('animate rubberBand');
 	setTimeout("$('#namebox').addClass('animate bounceIn');", 400);
 }
 
+function CheckAll(){
+var Checking = document.getElementById("CheckAll");
+  if(Checking.checked){
+    for(i=0;i<cl;i++){
+      ckdep[i].checked = true;
+      pstbtn.style.display = 'block';
+    }
+  }else{
+    for(i=0;i<cl;i++){
+      ckdep[i].checked = false;
+      pstbtn.style.display = 'none';
+    }
+  }
+}
+
 function CheckClick(){
   var NotCheck=0;
-  var l=ckdep.length;
-  for(var k=0;k<l;k++){
+  for(var k=0;k<cl;k++){
     if(ckdep[k].checked){
       pstbtn.style.display = 'block';
     }else if(!ckdep[k].checked){
       NotCheck++;
     }
   }
-  if(NotCheck==l){
+  if(NotCheck==cl){
     pstbtn.style.display = 'none';
   }
 }
@@ -357,12 +278,12 @@ function checkcpt(tid){
 function GetTaskInfo(){
 	//获取用户信息
 	var pubman="<?php echo $pubman; ?>";
-	var pubdep="<?php echo $group; ?>";
+	var pubdep="<?php echo $dep[0]; ?>";
 	//获取任务内容
 	var html=editor.$txt.html();
 	//获取任务发布对象部门
 	var dep="";
-	for(var i=0,j=ckdep.length;i<j;i++){
+	for(i=0;i<cl;i++){
 	 if(ckdep[i].checked){
 		  dep += ckdep[i].value;
 		  dep += ",";
@@ -372,6 +293,7 @@ function GetTaskInfo(){
  dep = dep.substr(0,dep.length-1);
  PublishTask(pubman,pubdep,html,dep);
 }
+
 function opennote(){	
 	$("#globalnote").removeClass("modhide");
 	$("#globalnote").addClass("moddisplay");
@@ -384,20 +306,16 @@ function closenote(){
 	$("#globalnote").addClass("modhide");
 }
 
-//关闭已完成任务窗口
+//关闭WFD窗口
 function closecpt(){
 	$("#whofinished").removeClass("fadeInDown");
 	$("#whofinished").addClass("fadeOutUp");
 	$("#whofinished").addClass("modhide");
 	$("#panel").removeClass("disablemod");
 }
-
-//打开已完成任务窗口
-function opencpt(){
-	$("#whofinished").removeClass("modhide");
-	$("#whofinished").addClass("moddisplay");
-	$("#whofinished").addClass("animate fadeInDown");
-	$("#panel").addClass("disablemod");
+//打开WFD窗口
+function opencpt(Taskid){
+	GetWhoFinished(Taskid);
 }
 
 //发布器的切换
@@ -422,81 +340,10 @@ function gotoNextStep(){
 	nextbtn.style.display = 'none';
 	pstbtn.style.display = 'none';
 }
-
-function PublishTask(man,pdep,ct,dep){
-$.ajax({
-  url:"../functions/Task/toPublishTask.php",
-  type:"POST",
-  data:{pubman:man,pubdep:pdep,ct:ct,dep:dep},
-  error:function(e){
-    alert("电波故障……发布任务失败！"+e);
-  },
-  success:function(g){
-    alert("发布任务成功！");
-    history.go(0);
-  }
-});
-}
-
-function DeleteTask(Tid){
-$.ajax({
-  url:"../functions/Task/toDeleteTask.php",
-  type:"POST",
-  data:{Taskid:Tid},
-  error:function(e){
-    alert("任务删除失败！"+e);
-  },
-  success:function(got){
-    if(got=="9"){
-      alert("你不想说话，并成功把一只任务扔进了垃圾桶！");
-      history.go(0);
-    }else if(got=="1"){
-      alert("删除任务也要按照基本法\n\n很抱歉，非任务发布人无法删除任务");
-    }else if(got=="0"){
-      alert("电波故障……数据传输失败！");
-    }else if(got=="2"){
-      alert("电波故障……任务数据删除失败！");
-    }else if(got=="3"){
-      alert("电波故障……任务完成数据删除失败！");
-    }else{
-      alert("电波故障……未知错误码："+got);
-    }
-  }
-});  
-}
-
-function CompleteTask(Tid){
-$.ajax({
-  url:"../functions/Task/toCompleteTask.php",
-  type:"POST",
-  data:{Taskid:Tid},
-  error:function(e){
-    alert("电波故障……任务完成失败！"+e);
-  },
-  success:function(got){
-    if(got=="9"){
-      alert("电波故障……数据传输失败！");
-    }else if(got=="1"){
-      alert("任务完成了，干得漂亮！\n\n奖励你一根棒棒糖【其实并没有");
-      history.go(0);
-    }else if(got=="2"){
-      alert("电波不见了……网络连接失败！");
-    }else{
-      alert("电波故障……未知错误码："+got);
-    }
-  }
-}); 
-}
-
-function easteregg(){
-	if(event.altKey && event.shiftKey && event.keyCode == 71){
-		window.location.href="about.html";
-  }
-}
 </script>
 
 <?php
-if($_SESSION['SUmaster']==1){
+if($_SESSION['SU_M']==1){
 	echo "<script src='../res/js/lockkey.js'></script>";
 	echo '<script type="text/javascript">document.onkeydown = function(){lockf5();easteregg();};</script>';
 }else{

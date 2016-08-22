@@ -1,6 +1,4 @@
-﻿::selection { background:#b5b5b5; }
-::-moz-selection { background:#b5b5b5; }
-.ex-navbar-for-Desktop
+﻿.ex-navbar-for-Desktop
 {
 	height:69px;
 	width:100%;
@@ -82,3 +80,54 @@ body
 {
 	background-color:#616161;
 }
+
+.wangEditor-drop-list {
+  display: none;
+  position: absolute;
+  background-color: #444;
+  overflow: hidden;
+  z-index: 10;
+  transition: height .7s;
+  box-shadow: 0px 0px 3px #999;
+}
+.wangEditor-drop-list a {
+  text-decoration: none;
+  display: block;
+  color: #fff;
+  padding: 3px 5px;
+}
+.wangEditor-drop-list a:hover {
+  text-decoration: underline;
+}
+.wangEditor-drop-panel,
+.txt-toolbar {
+  display: none;
+  position: absolute;
+  padding: 10px;
+  font-size: 14px;
+  background-color: #444;
+  z-index: 10;
+  box-shadow: 0px 0px 3px #999;
+}
+
+.wangEditor-drop-panel .color-item,
+.txt-toolbar .color-item {
+  display: block;
+  float: left;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 2px;
+  margin-top:2px;
+  border-radius: 2px;
+  text-decoration:none;
+}
+.wangEditor-drop-panel .color-item:hover,
+.txt-toolbar .color-item:hover {
+  text-decoration: underline;
+}
+
+tr{background: #999;text-align:center;} 
+tr:nth-child(2n){background: #bbb;} 
+tr{background-color: expression((this.sectionRowIndex % 2 == 0)?"#f00":"#ccc");}
+table{border:1px solid #bbb;}

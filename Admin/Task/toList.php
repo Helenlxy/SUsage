@@ -2,7 +2,7 @@
 require_once("../Includes/CheckLog.php");
 $flag=true;
 require_once("../Includes/to_pdo.php");
-$Tasks=PDOQuery($dbcon,"SELECT * FROM task_list",[],[]);
+$Tasks=PDOQuery($dbcon,"SELECT * FROM task_list ORDER BY Taskid DESC",[],[]);
 $total=sizeof($Tasks[0]);
 ?>
 
@@ -54,7 +54,7 @@ for($i=0;$i<$total;$i++){
 function toDel(id){
 $.ajax({
   type:"post",
-  url:"/SUsage/Admin/Task/toDel.php",
+  url:"/Admin/Task/toDel.php",
   data:{id:id},
   success:function(got){
     if(got=="1"){
@@ -71,7 +71,7 @@ $.ajax({
 </script>
 
 <!-- JavaScript -->
-<script src="/SUsage/Admin/Includes/footer.js"></script>
+<script src="../Includes/footer.js"></script>
 <script src="https://cdn.bootcss.com/jquery/1.11.2/jquery.js"></script>
-<script src="/SUsage/Admin/js/bootstrap.js"></script>
+<script src="../js/bootstrap.js"></script>
 </html>

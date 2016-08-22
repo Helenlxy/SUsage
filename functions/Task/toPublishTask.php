@@ -1,21 +1,23 @@
 <?php
 //p:发送 r:接受 sct:搜索 cpt:完成
 require_once("../to_sql.php");
+require_once("../SO_API.php");
 $p_man=$_POST['pubman'];
 $p_dep=$_POST['pubdep'];
 $p_ct=$_POST['ct'];
 $r_dep=$_POST['dep'];
 $r_dep2=explode(",",$r_dep);
 $r_man=array();
+$ip=GetIP();
 
 //获取所有需要接收任务的用户
-$sct_sql="SELECT * FROM sys_user WHERE dep LIKE ";
+$sct_sql="SELECT * FROM sys_user WHERE";
 for($d=0;$d<sizeof($r_dep2);$d++){
-  $sct_sql.="'%$r_dep2[$d]%' OR ";
+  $sct_sql.=" dep='{$r_dep2[$d]}' OR";
 }
 
 //去掉SQL语句的最后一段“OR”
-$sct_sql=substr($sct_sql,0,strlen($sct_sql)-4);
+$sct_sql=substr($sct_sql,0,strlen($sct_sql)-3);
 
 $sct_query=mysqli_query($conn,$sct_sql);
 while($sct_rs=mysqli_fetch_array($sct_query)){
@@ -24,7 +26,7 @@ while($sct_rs=mysqli_fetch_array($sct_query)){
 }
 
 //添加任务
-$p_sql="INSERT INTO task_list(pubman,pubdep,redep,ct) VALUES ('{$p_man}','{$p_dep}','{$r_dep}','{$p_ct}')";
+$p_sql="INSERT INTO task_list(pubman,pubdep,redep,ct,ip) VALUES ('{$p_man}','{$p_dep}','{$r_dep}','{$p_ct}','{$ip}')";
 $p_rs=mysqli_query($conn,$p_sql);
 
 //获取当前任务在数据库的ID

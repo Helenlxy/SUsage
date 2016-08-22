@@ -1,6 +1,6 @@
 <?php
 require_once("../Includes/CheckLog.php");
-$uid=(int)$_GET['uid'];
+$uid=$_GET['uid'];
 $set=$_GET['set'];
 $type=$_GET['type'];
 
@@ -11,17 +11,18 @@ $flag=true;
 require_once("../Includes/to_pdo.php");
 
 if($set=="1" && $type=="Super"){
-  $rs=PDOQuery($dbcon,"UPDATE sys_user SET isSuper='1',isAdmin='1' WHERE id=?",[$uid],[PDO::PARAM_INT]);
+  $rs=PDOQuery($dbcon,"UPDATE sys_user_purv SET isSuper='1',isAdmin='1' WHERE Userid=?",[$uid],[PDO::PARAM_STR]);
 }else if($set=="0" && $type=="Admin"){
-  $rs=PDOQuery($dbcon,"UPDATE sys_user SET isAdmin='0',isSuper='0' WHERE id=?",[$uid],[PDO::PARAM_INT]);
+  $rs=PDOQuery($dbcon,"UPDATE sys_user_purv SET isAdmin='0',isSuper='0' WHERE Userid=?",[$uid],[PDO::PARAM_STR]);
 }else{
-  $rs=PDOQuery($dbcon,"UPDATE sys_user SET is$type=? WHERE id=?",[$set,$uid],[PDO::PARAM_STR,PDO::PARAM_INT]);
+  $rs=PDOQuery($dbcon,"UPDATE sys_user_purv SET is$type=? WHERE Userid=?",[$set,$uid],[PDO::PARAM_STR,PDO::PARAM_STR]);
 }
 
-$iq=PDOQuery($dbcon,"SELECT * FROM sys_user WHERE id=?",[$uid],[PDO::PARAM_INT]);
-$M=$iq[0][0]["isMaster"];
-$A=$iq[0][0]["isAdmin"];
-$S=$iq[0][0]["isSuper"];
+$newpur=PDOQuery($dbcon,"SELECT * FROM sys_user_purv WHERE Userid=?",[$uid],[PDO::PARAM_STR]);
+$M=$newpur[0][0]["isMaster"];
+$A=$newpur[0][0]["isAdmin"];
+$S=$newpur[0][0]["isSuper"];
+$iq=PDOQuery($dbcon,"SELECT * FROM sys_user WHERE id=?",[$uid],[PDO::PARAM_STR]);
 
 for($i=1;$i<=sizeof($array);$i++){
   $JM=$array[$i][0];
@@ -38,7 +39,7 @@ for($i=1;$i<=sizeof($array);$i++){
 if($job==$iq[0][0]["job"]){
   $rs2[1]=1;
 }else{
-  $rs2=PDOQuery($dbcon,"UPDATE sys_user SET job=? WHERE id=?",[$job,$uid],[PDO::PARAM_STR,PDO::PARAM_INT]);
+  $rs2=PDOQuery($dbcon,"UPDATE sys_user SET job=? WHERE id=?",[$job,$uid],[PDO::PARAM_STR,PDO::PARAM_STR]);
 }
 if($rs2[1]==1){ ?>
 <script>

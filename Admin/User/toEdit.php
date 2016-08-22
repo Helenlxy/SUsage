@@ -1,5 +1,7 @@
 <?php
 require_once("../Includes/CheckLog.php");
+CheckPurv("U_E");
+
 $flag=true;
 require_once("../Includes/to_pdo.php");
 $uid=(int)$_GET['uid'];
@@ -37,7 +39,7 @@ if(isset($_POST) && $_POST){
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- Bootstrap -->
-<link href="/SUsage/Admin/css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/bootstrap.min.css" rel="stylesheet">
 
 <style>
   a{color:#4caf50;}
@@ -52,7 +54,7 @@ if(isset($_POST) && $_POST){
 <div class="row text-center" style="padding-top:40px"> 
 <div class="well col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center col-xs-10 col-xs-offset-1">
   <h3 style="color:#4CAF50">修改 <font color="#CC6600"><?php echo $name; ?></font> 的用户资料</h3><br>
-  <a style="position:absolute;top:13px;left:5%;cursor:pointer" onclick="history.back()">返回上一页</a>
+  <a style="position:absolute;top:13px;left:5%;cursor:pointer" onclick="history.back()"><img src="../img/back.png"></a>
   <div class="col-md-offset-2 col-md-8" style="line-height:12px;">
   
 <form method="post">
@@ -74,7 +76,9 @@ if(isset($_POST) && $_POST){
 </body>
 
 
-<script src="/SUsage/Admin/Includes/footer.js"></script>
+<!-- JavaScript -->
+<script src="../Includes/footer.js"></script>
 <script src="https://cdn.bootcss.com/jquery/1.11.2/jquery.js"></script>
-<script src="/SUsage/Admin/js/bootstrap.js"></script>
+<script src="../js/bootstrap.js"></script>
+
 </html>

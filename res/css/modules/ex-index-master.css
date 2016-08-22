@@ -1,19 +1,18 @@
 .name
 {	
 	position:absolute;
-	padding-top:30px; 
-	right: 120px;
+	padding-top:28px; 
+	left: 80px;
 	font-family: "microsoft yahei";
-	text-align:right;
-	width:280px;
 	padding-right:15px;
 	color:#4fb4f7;
 }
 .time
 {	
 	position:absolute;
-	padding-top:32px; 
-	left:0px;
+	padding-top:28px; 
+	right:0px;
+	padding-right:30px;
 	font-size:10px;
 	font-family: "microsoft yahei";
 	text-align:right;
@@ -38,6 +37,8 @@
 {
 	position:relative;
 	margin-top:10px;
+	word-wrap:break-word; 
+	word-break:break-all;
 	margin-bottom:30px;
 	min-width:100%;
 	left:13%;
@@ -69,11 +70,9 @@
 }
 .pubgroup{
 	position:absolute;
-	padding-top:30px; 
-	right: 0px;
+	padding-top:28px; 
+	left: 150px;
 	font-family: "microsoft yahei";
-	text-align:right;
-	width:280px;
 	padding-right:15px;
 	color:#FF80AB;
 }
@@ -155,7 +154,7 @@
 	width:200px;
 	height:70px;
     display: inline-block;
-    margin: 0 5px 0 5px;
+    margin: 5px;
 	background-color: transparent;
 	border-color: #fff
 }

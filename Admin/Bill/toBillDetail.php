@@ -1,5 +1,7 @@
 <?php
 require_once("../Includes/CheckLog.php");
+CheckPurv("B");
+
 $flag=true;
 require_once("../Includes/to_pdo.php");
 $id=$_GET['billid'];
@@ -14,7 +16,7 @@ $BillList=PDOQuery($dbcon,"SELECT * FROM bill_list WHERE Billid=?",[$id],[PDO::P
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Bootstrap -->
-  <link href="/SUsage/Admin/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/Admin/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.bootcss.com/bootstrap/3.3.6/fonts/glyphicons-halflings-regular.svg" rel="stylesheet">
   
   <style>
@@ -31,7 +33,7 @@ $BillList=PDOQuery($dbcon,"SELECT * FROM bill_list WHERE Billid=?",[$id],[PDO::P
   <td><?php echo $BillList[0][0]['billid']; ?></td>
 </tr><tr>
   <th>账单名称</th>
-  <td><?php echo $BillList[0][0]['Name']; ?></td>
+  <td><?php echo $BillList[0][0]['BillName']; ?></td>
 </tr><tr>
   <th>账单内容</th>
   <td><?php echo $BillList[0][0]['Content']; ?></td>
@@ -52,7 +54,8 @@ $BillList=PDOQuery($dbcon,"SELECT * FROM bill_list WHERE Billid=?",[$id],[PDO::P
 </body>
 
 <!-- JavaScript -->
-<script src="/SUsage/Admin/Includes/footer.js"></script>
+<script src="../Includes/footer.js"></script>
 <script src="https://cdn.bootcss.com/jquery/1.11.2/jquery.js"></script>
-<script src="/SUsage/Admin/js/bootstrap.js"></script>
+<script src="../js/bootstrap.js"></script>
+
 </html>

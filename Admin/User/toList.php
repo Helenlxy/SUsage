@@ -1,5 +1,6 @@
 <?php
 require_once("../Includes/CheckLog.php");
+
 $flag=true;
 require_once("../Includes/to_pdo.php");
 $list=PDOQuery($dbcon,"SELECT * FROM sys_user",[],[]);
@@ -42,7 +43,7 @@ $total=sizeof($list[0]);
     echo "<td>".$name."</td>";
     echo "<td>".$list[0][$i]['dep']."</td>";
     echo "<td>".$list[0][$i]['job']."</td>";
-    echo "<td><a href='/SUsage/Admin/User/toEdit.php?uid=$uid&name=$name&sutk=$SUtoken' class='btn btn-default btn-xs'><span class='glyphicon glyphicon-edit'></span> 修改</a></td>";
+    echo "<td><a href='toEdit.php?uid=$uid&name=$name&sutk=$SUtoken' class='btn btn-default btn-xs'><span class='glyphicon glyphicon-edit'></span> 修改</a></td>";
     echo "</tr>";
   }
 ?>
@@ -50,7 +51,7 @@ $total=sizeof($list[0]);
 </body>
 
 <!-- JavaScript -->
-<script src="/SUsage/Admin/Includes/footer.js"></script>
+<script src="../Includes/footer.js"></script>
 <script src="https://cdn.bootcss.com/jquery/1.11.2/jquery.js"></script>
-<script src="/SUsage/Admin/js/bootstrap.js"></script>
+<script src="../js/bootstrap.js"></script>
 </html>

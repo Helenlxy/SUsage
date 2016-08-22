@@ -1,9 +1,6 @@
 <?php
 require_once("../Includes/CheckLog.php");
-if($_SESSION['isSuper']!="1"){
-  $url="../console.php?sutk=".$SUtoken;
-  header("Location: $url");
-}
+CheckPurv("U_P");
 
 $flag=true;
 require_once("../Includes/to_pdo.php");
@@ -61,24 +58,25 @@ $total=sizeof($list[0]);
 function toReset(uid){
 $.ajax({
   type:"post",
-  url:"/SUsage/Admin/User/toResetPW.php",
+  url:"toResetPW.php",
   data:{uid:uid},
   success:function(got){
     if(got.substr(0,1)==1){
       pw=got.substr(2);
     	 alert("重置成功！重置后的密码为："+pw);
     }else if(got.substr(0,1)==2){
-    	 alert("网络连接失败！请联系电脑部APP组！");
+    	 alert("网络连接失败！请联系电脑部APP组！\n\n"+got);
     }else{
-      alert("重置失败！请联系电脑部APP组！");
+      alert("重置失败！请联系电脑部APP组！\n\n"+got);
     }
   },
   error:function(e){alert("重置失败！请联系电脑部！");},
   });
 }
 </script>
+
 <!-- JavaScript -->
-<script src="/SUsage/Admin/Includes/footer.js"></script>
+<script src="../Includes/footer.js"></script>
 <script src="https://cdn.bootcss.com/jquery/1.11.2/jquery.js"></script>
-<script src="/SUsage/Admin/js/bootstrap.js"></script>
+<script src="../js/bootstrap.js"></script>
 </html>

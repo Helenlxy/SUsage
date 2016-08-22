@@ -1,5 +1,7 @@
 <?php
 require_once("../Includes/CheckLog.php");
+CheckPurv("B");
+
 $flag=true;
 require_once("../Includes/to_pdo.php");
 $list=PDOQuery($dbcon,"SELECT * FROM bill_list",[],[]);
@@ -43,7 +45,7 @@ $id=$list[0][$i]['billid'];
 
 <tr>
   <td><?php echo $id; ?></td>
-  <td><?php echo $list[0][$i]['Name']; ?></td>
+  <td><?php echo $list[0][$i]['BillName']; ?></td>
   <td><?php echo $list[0][$i]['Cost']; ?></td>
   <td><?php echo $list[0][$i]['Income']; ?></td>
   <td><?php echo $list[0][$i]['Registrant']; ?></td>
@@ -55,7 +57,7 @@ $id=$list[0][$i]['billid'];
 </body>
 
 <!-- JavaScript -->
-<script src="/SUsage/Admin/Includes/footer.js"></script>
+<script src="../Includes/footer.js"></script>
 <script src="https://cdn.bootcss.com/jquery/1.11.2/jquery.js"></script>
-<script src="/SUsage/Admin/js/bootstrap.js"></script>
+<script src="../js/bootstrap.js"></script>
 </html>

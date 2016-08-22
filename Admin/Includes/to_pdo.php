@@ -16,8 +16,8 @@
   $dbms="mysql";
   $host="localhost";
   $database="susage";
-  $userName="root";
-  $passWord="";
+  $userName="office";
+  $passWord="office@zhxsusql";
   $dsn="{$dbms}:host={$host};dbname=${database};charset=utf8";
   try{
     $dbcon=new PDO($dsn,$userName,$passWord);
