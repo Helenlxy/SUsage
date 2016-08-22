@@ -2,14 +2,14 @@
 
 <b>执信中学学生会信息化在线办公系统 开源项目 #代号"SUsage" </b>
 
-<b>目前总体开发进度：约70%，前端系统基本完成，后端系统开发约77%。当前build:2A56 (0656)</b>
+<b>目前总体开发进度：约85%，前端系统基本完成，后端系统开发约90%。当前build:2A56 (0656)</b>
 
-<b>项目总阶段：0.8-milestone9 #Project SUsage α（开发代号Young）</b>
+<b>项目总阶段：0.8-milestone9 #Project SUsage β（开发代号Young）</b>
 
-<p>TaskSYS V1.3 alpha A6</p>
-<p>UCenter V1.0 alpha A2</p>
-<p>BillSYS V0.2 m2</p>
-<p>MCenter V1.3 alpha 2</p>
+<p>TaskSYS V1.5 beta B2</p>
+<p>UCenter V1.5 beta B2</p>
+<p>BillSYS V0.5 beta B2</p>
+<p>MCenter V1.3 beta B2</p>
 <p>FileTour V0.4-milestone6 【未来project】</p>
 <p><b>Latest update：2016.8.3 10:37</b></p>
 <b>©2016 执信学生会 电脑部</b>
