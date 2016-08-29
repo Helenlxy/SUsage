@@ -11,6 +11,7 @@
 	position: absolute;
 
 }
+
 .ipt {
 	outline:none;
 	margin-bottom: 10px;
@@ -264,7 +265,7 @@
   #updatedate{font-size: 21px;margin:40px 0 10px 0;}
 }
 #details{
-  top:440px;
+  top:470px;
 }
 .cpstips{
   background:#f00000;
@@ -275,3 +276,13 @@
   text-align: center;
 }
 
+@media(max-width: 500px){
+  .card{  
+    width: 60%;
+    left: 2%;
+  }
+  .subtitle{
+    left:2%;
+    width:200px;
+  }
+}

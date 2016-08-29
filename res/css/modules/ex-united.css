@@ -3,7 +3,7 @@
 	left: 13%;
 	right: 13%;
 	color: #9e9e9e;
-	font-size: 13px;
+	font-size: 0.9em;
 	font-family: "Microsoft Yahei";
 	text-align: center
 }
@@ -139,11 +139,25 @@
 	-webkit-animation-fill-mode: both;
 	animation-fill-mode: both
 }
+#hdimg{
+	height:54px;width:54px;opacity: 0
+}
+.m{
+	margin-top: 10px
+}
 @media(max-width:800px ){
 	.ex-dnavbar-appbox-text{display:none;}
 	#bktp,#namebox{display: none}
 	.ex-dnavbar-appbox {width: 70px;}
-	.ex-dnavbar-userbox {width: 150px;margin-right: 0px;}
-	.ex-dnavbar-userbox-descunderunfixbox {top: 24px;left: 60px;}
+	.ex-dnavbar-userbox {height: 49px;width: 150px;margin-right: 0px;}
+	.ex-dnavbar-userbox-descunderunfixbox {height: 30px;top: 14px;left: 60px;}
 	#appfixbox {margin-left: 20px;}
+	.tohide{display: none;}
+  	#cancelexit{float:left;left:10%;}
+  	.ex-dnavbar-appbox {height: 49px;}
+  	.ex-dnavbar-appbox img {height: 38px;width: 38px;padding-top: 4px;margin: 0 15px;}
+	.ex-dnavbar-userbox-avatarfixbox {height: 28px;width: 34px;padding: 6px 8px;}
+	.ex-dnavbar-userbox-descunderunfb {height: 30px;}
+	#hdimg{width:38px;height:38px;}
+	.ex-navbar-for-Desktop{height:49px;}
 }

@@ -5,10 +5,10 @@ require_once("../functions/CheckLogged.php");
 include("../functions/NightShift.php");
 include("../functions/SO_API.php");
 
-$UID=$_SESSION['userid'];
+$UID=GetSess('userid');
+$pubman=GetSess('truename');
 $dep=array();
-$dep=$_SESSION['dep'];
-$pubman=$_SESSION['truename'];
+$dep=GetSess('dep');
 $sql="SELECT * FROM task_list WHERE pubman='{$pubman}'";
 for($i=0;$i<sizeof($dep);$i++){
  $sql.=" OR redep LIKE '%{$dep[$i]}%'";
@@ -21,24 +21,26 @@ $all=json_decode($all);
 $Notice=urldecode($all->notice);
 $Notice_man=$all->pubman;
 $Notice_time=$all->pubtime;
+
+$CSSPath=array("themes","editor","modules","modules");
+$CSSName=array("Sinterface","wangEditor","ex-united");
+
 ?>
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<!-- 引入CSS文件 -->
-		<link rel="stylesheet" href="../res/css/themes/Sinterface.css">
-		<?php
-			if($_SESSION['SU_M']==1){
-				echo "<link rel='stylesheet' href='../res/css/modules/ex-index-master.css'>";
-			}else{
-				echo "<link rel='stylesheet' href='../res/css/modules/ex-index-normal.css'>";
-			}
-		?>
-		<link rel="stylesheet" href="../res/css/editor/wangEditor.css">
-		<link rel="stylesheet" href="../res/css/modules/ex-united.css">
-		<!--网站标题以及icon-->
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 		<title>你的任务 / SUsage Tasklist</title>
 		<link rel="shortcut icon" href="../res/icons/title/task_128X128.ico"/>
+		<?php
+			if($_SESSION['SU_M']==1){
+				array_push($CSSName,"ex-index-master");
+			}else{
+				array_push($CSSName,"ex-index-normal");
+			}
+			ShowCSS($CSSPath,$CSSName);
+		?>
+		
 	</head>
 	
 	<body style="position:absolute;width:80%;">
@@ -53,7 +55,7 @@ $Notice_time=$all->pubtime;
 			<!--内容区域开始-->
 			<?php echo $Notice; ?>
 			<!--内容区域结束-->
-			<br><br>
+			<br>
 			<span style="font-family: 'microsoft yahei'">————————以下空————————</span>
 			</p>
 			<center><button class='btn fff' style="margin:10px 0 20px 0" onclick='closenote(); return false'>知道了啦</button></center>
@@ -64,82 +66,79 @@ $Notice_time=$all->pubtime;
 		<!-- 放在顶上的版权声明-->
 		<div id="about" class="ex-about" style="position:absolute;top:90px;width:100%;text-align:center;z-index:1;">
 			<a href="" onclick="opennote() ;return false" style="background-color:#c90000;color: #fff;padding:1px 5px 1px 5px;border-radius:15px"><span><?php echo $Notice_time; ?></span>最高指示</a>&#12288;
-			<a href="UCenter.php#helper" target="_blank" style="color:#00C853">帮助与反馈中心 </a><!--·<a href="http://zhxsu.github.io/SUsage/" target="_blank" style="color:#00C853"> 关于 | 开源许可及协议声明 </a>--> <span class="trick" title="用鼠标刮这里看看">试试alt+shift+g</span> <a id="ver"></a> ©2016 <a href="http://weibo.com/zxsu32nd" target="_blank" style="color:#9e9e9e">执信学生会</a> <a href="http://weibo.com/zhxsupc" target="_blank"  style="color:#9e9e9e">电脑部</a> · In tech we trust 
+			<a href="UCenter.php#helper" target="_blank" style="color:#00C853">帮助与反馈中心 </a><!--·<a href="http://zhxsu.github.io/SUsage/" target="_blank" style="color:#00C853"> 关于 | 开源许可及协议声明 </a>--> <span class="trick" title="用鼠标刮这里看看">试试alt+shift+g</span> <a id="ver"></a><span class="tohide"> ©2016 <a href="http://weibo.com/zxsu32nd" target="_blank" style="color:#9e9e9e">执信学生会</a> <a href="http://weibo.com/zhxsupc" target="_blank"  style="color:#9e9e9e">电脑部</a> · In tech we trust </span>
 		</div>
 		
 		<!-- 发布器以及任务界面 -->
 		<div id='poster' class='card rich-card'>
-			<h3 style='font-family:微软雅黑;margin-top:5px;left:0px;font-size:16px;position:relative;margin-left:15px;line-height:20px;color:#bbb'>发布任务( · ω · )<span style="position:relative;color:#FF0000;margin-top:5px;font-family:微软雅黑;font-size:12px;text-align:center">&#12288;本页面已禁用F5键以防止误触导致草稿丢失【千万别以为键盘坏了x——夏酱</span></h3>
+			<h3 style='font-family:微软雅黑;margin-top:5px;left:0px;font-size:16px;position:relative;margin-left:15px;line-height:20px;color:#bbb'>发布任务( · ω · )<span class="tohide" style="position:relative;color:#FF0000;margin-top:5px;font-family:微软雅黑;font-size:12px;text-align:center">&#12288;本页面已禁用F5键以防止误触导致草稿丢失【千万别以为键盘坏了x——夏酱</span></h3>
 			<div id='edtcontainer'>
 				<textarea id='textarea1' style='position:inherit;border-radius:5px;height:390px;width:100%;padding:0px 0px 0px 0px;display:block'></textarea>
 			</div>
 			<div id='treecontainer' style='display:none'>
-				<div style="z-index:999999;margin-top: 30px">
-					<center style="line-height:10px;font-size: 13px;margin-bottom: 15px">请在下方的复选框勾选任务的接收组别。当此组别被勾选后，此组别下所有的成员将接收到该任务。</center>
+				<div style="z-index:999999;margin-top: 5px">
+					<center style="line-height:12px;font-size: 13px;margin-bottom: 15px">当部门对应的复选框被勾选后，此部门下所有的成员将接收到该任务。</center>
 					<div>					
-						<div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block;">
+						<div class="checkbox m">
 							<input type="checkbox" id="CheckAll" onclick="CheckAll()">
 							<label for="CheckAll" style="display:inline-block"></label>
-							<span class="lablink">全部选中</span>
-						</div>						
-					</div>
-					<div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block">
-						<input type="checkbox" id="checkNWB" name="ckdep[]" onclick="CheckClick()" value="内务部">
-						<label for="checkNWB" style="display:inline-block"></label>
-						<span class="lablink">内务部</span>
-					</div>
-					<div class="checkbox" style="margin:15px 5% 0 5%;display:inline-block">
-						<input type="checkbox" id="checkGGB" name="ckdep[]" onclick="CheckClick()" value="公关部">
-						<label for="checkGGB" style="display:inline-block"></label>
-						<span class="lablink">公关部</span>
-					</div>
-					<div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block">
-						<input type="checkbox" id="checkGBZ" name="ckdep[]" onclick="CheckClick()" value="广播站">
-						<label for="checkGBZ" style="display:inline-block"></label>
-						<span class="lablink">广播站</span>
-					</div>
-					<div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block">
-						<input type="checkbox" id="checkAU" name="ckdep[]" onclick="CheckClick()" value="社联">
-						<label for="checkAU" style="display:inline-block"></label>
-						<span class="lablink">社&#12288;联</span>
-					</div>
-					<div class="checkbox" style="margin:15px 5% 0 5%;display:inline-block;">
-						<input type="checkbox" id="checkWYB" name="ckdep[]" onclick="CheckClick()" value="文娱部">
-						<label for="checkWYB" style="display:inline-block"></label>
-						<span class="lablink">文娱部</span>
-					</div>
-					<div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block">
-						<input type="checkbox" id="checkXCB" name="ckdep[]" onclick="CheckClick()" value="宣传部">
-						<label for="checkXCB" style="display:inline-block"></label>
-						<span class="lablink">宣传部</span>
-					</div>
-					<div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block;">
-						<input type="checkbox" id="checkXSB" name="ckdep[]" onclick="CheckClick()" value="学术部">
-						<label for="checkXSB" style="display:inline-block"></label>
-						<span class="lablink">学术部</span>
-					</div>
-					<div class="checkbox" style="margin:15px 5% 0 5%;display:inline-block">
-						<input type="checkbox" id="checkTYB" name="ckdep[]" onclick="CheckClick()" value="体育部">
-						<label for="checkTYB" style="display:inline-block"></label>
-						<span class="lablink">体育部</span>
-					</div>
-					<div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block">
-						<input type="checkbox" id="checkZXT" name="ckdep[]" onclick="CheckClick()" value="主席团">
-						<label for="checkZXT" style="display:inline-block"></label>
-						<span class="lablink">主席团</span>
-					</div>
-					<div>
-						<h3 class="fi-subtitle">—————— 双电大法好 ——————</h3>
-						<div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block;">
+							<span class="lablink">全&#12288;选</span>
+						</div>
+						<div class="checkbox m">
 							<input type="checkbox" id="checkDNB" name="ckdep[]" onclick="CheckClick()" value="电脑部">
 							<label for="checkDNB" style="display:inline-block"></label>
 							<span class="lablink">电脑部</span>
 						</div>
-						<div class="checkbox" style="margin:15px 15% 0 15%;display:inline-block;">
+						<div class="checkbox m">
 							<input type="checkbox" id="checkDST" name="ckdep[]" onclick="CheckClick()" value="电视台">
 							<label for="checkDST" style="display:inline-block"></label>
 							<span class="lablink">电视台</span>
-						</div>
+						</div>					
+					</div>
+					<div class="checkbox m">
+						<input type="checkbox" id="checkNWB" name="ckdep[]" onclick="CheckClick()" value="内务部">
+						<label for="checkNWB" style="display:inline-block"></label>
+						<span class="lablink">内务部</span>
+					</div>
+					<div class="checkbox m">
+						<input type="checkbox" id="checkGGB" name="ckdep[]" onclick="CheckClick()" value="公关部">
+						<label for="checkGGB" style="display:inline-block"></label>
+						<span class="lablink">公关部</span>
+					</div>
+					<div class="checkbox m">
+						<input type="checkbox" id="checkGBZ" name="ckdep[]" onclick="CheckClick()" value="广播站">
+						<label for="checkGBZ" style="display:inline-block"></label>
+						<span class="lablink">广播站</span>
+					</div>
+					<div class="checkbox m">
+						<input type="checkbox" id="checkAU" name="ckdep[]" onclick="CheckClick()" value="社联">
+						<label for="checkAU" style="display:inline-block"></label>
+						<span class="lablink">社&#12288;联</span>
+					</div>
+					<div class="checkbox m">
+						<input type="checkbox" id="checkWYB" name="ckdep[]" onclick="CheckClick()" value="文娱部">
+						<label for="checkWYB" style="display:inline-block"></label>
+						<span class="lablink">文娱部</span>
+					</div>
+					<div class="checkbox m">
+						<input type="checkbox" id="checkXCB" name="ckdep[]" onclick="CheckClick()" value="宣传部">
+						<label for="checkXCB" style="display:inline-block"></label>
+						<span class="lablink">宣传部</span>
+					</div>
+					<div class="checkbox m">
+						<input type="checkbox" id="checkXSB" name="ckdep[]" onclick="CheckClick()" value="学术部">
+						<label for="checkXSB" style="display:inline-block"></label>
+						<span class="lablink">学术部</span>
+					</div>
+					<div class="checkbox m">
+						<input type="checkbox" id="checkTYB" name="ckdep[]" onclick="CheckClick()" value="体育部">
+						<label for="checkTYB" style="display:inline-block"></label>
+						<span class="lablink">体育部</span>
+					</div>
+					<div class="checkbox m">
+						<input type="checkbox" id="checkZXT" name="ckdep[]" onclick="CheckClick()" value="主席团">
+						<label for="checkZXT" style="display:inline-block"></label>
+						<span class="lablink">主席团</span>
 					</div>
 				</div>
 			</div>
@@ -148,7 +147,7 @@ $Notice_time=$all->pubtime;
 			<button class='btn raised green' id='submit' style='display:none' onclick='GetTaskInfo();'>发布任务</button>
 		</div>
 		<!-- [begin]任务界面 -->
-		<p id="tips1">———— 你的任务 ————</p>
+		<p id="tips1" class="tohide">———— 你的任务 ————</p>
 		<div id="listarea">
 		<?php 
 		while($rs=mysqli_fetch_array($sql)){
@@ -177,7 +176,7 @@ $Notice_time=$all->pubtime;
 				?>
 				<div id='click<?php echo $Tid;?>'><a class='del btn raised red' onclick='checkDel("<?php echo $Tid; ?>");'>删除此任务</a></div>
 				<div id='check<?php echo $Tid;?>' style='display:none'><a class='del btn raised redmore' onclick='DeleteTask("<?php echo $Tid; ?>");'>确认删除</a></div>
-				<a class='finishsum' onclick='opencpt("<?php echo $Tid; ?>");'><span class='sumsty'><?php echo $cpt; ?></span>人完成了你的任务</a>
+				<a class='finishsum' onclick='opencpt("<?php echo $Tid; ?>");'>已有<span class='sumsty'><?php echo $cpt; ?></span>人完成</a>
 				<?php 
 				}else{
     $cpt_sql="SELECT * FROM task_complete WHERE Taskid='$Tid' AND Userid='$UID'";

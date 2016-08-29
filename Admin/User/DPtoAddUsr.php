@@ -2,14 +2,13 @@
 $flag=true;
 require_once("../Includes/to_pdo.php");
 require_once("../../functions/SO_API.php");
-require_once("../../functions/socgs.php");
 
 $tname=$_POST['tname'];
 $SUsageID=$_POST['usr'];
 $dep=$_POST['dep'];
 
 $pw=(string)mt_rand(104672,961753);
-$indb=SOCGS($pw);
+$indb=sha1($pw);
 
 $addrs=PDOQuery($dbcon,"INSERT INTO sys_user SET stuid=?, tname=?, dep=?, pw=?",[$SUsageID,$tname,$dep,$indb],[PDO::PARAM_STR,PDO::PARAM_STR,PDO::PARAM_STR,PDO::PARAM_STR]);
 

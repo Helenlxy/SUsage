@@ -2,37 +2,34 @@
 session_start();
 require_once("../functions/to_sql.php");
 require_once("../functions/SO_API.php");
-require_once("../functions/socgs.php");
 
 if(isset($_POST) && $_POST){
-  $StuID=$_POST['id'];
-  $query=mysqli_query($conn,"SELECT * FROM sys_user WHERE stuid='{$StuID}'");
-  $rs=mysqli_fetch_array($query);
-  $pw=$_POST['pw'];
-  $pwcheck=SOCGS_Check($pw,$rs['pw']);
-  if($pwcheck=="1"){
-    $sql2="SELECT * FROM sys_user_purv WHERE Userid='{$rs["id"]}'";
-    $query2=mysqli_query($conn,$sql2);
-    $rs2=mysqli_fetch_array($query2);
-    if($rs2['isAdmin']=="1" || $rs2['isSuper']=="1"){
-      //真实姓名
-      $_SESSION['name']=$rs['tname'];
-      //各种权限
-      $_SESSION['isAdmin']="1";
-      $_SESSION['isSuper']=$rs2['isSuper'];
-      $_SESSION['isRoot']=$rs2['isRoot'];
-      //用户角色名称
-      $_SESSION['role']=$rs['job'];
-      //获取Token
-      $token=random(10);
-      $_SESSION['SUtoken']=$token;
-      header("Location: Task/toPubGlobalNotice.php?sutk=$token");
-    }else{ 
-      echo "<script>alert('对不起！您未被授权登录SUsage Mcenter！');history.go(-1);</script>";
-    }
+ $StuID=$_POST['id'];
+ 
+ $query=mysqli_query($conn,"SELECT * FROM sys_user WHERE stuid='{$StuID}'");
+ $rs=mysqli_fetch_array($query);
+
+ $pw=sha1($_POST['pw']);
+ 
+ if($pw === $rs['pw']){
+  $sql2="SELECT * FROM sys_user_purv WHERE Userid='{$rs["id"]}'";
+  $query2=mysqli_query($conn,$sql2);
+  $rs2=mysqli_fetch_array($query2);
+
+  if($rs2['isAdmin']=="1" || $rs2['isSuper']=="1"){
+   //获取Token
+   $token=random(10);      
+   $SessName=array("name","isAdmin","isSuper","isRoot","role","SUtoken");
+   $SessValue=array($rs['tname'],"1",$rs2['isSuper'],$rs2['isRoot'],$rs['job'],$token);
+   SetSess($SessName,$SessValue);
+   
+   header("Location: Task/toPubGlobalNotice.php?sutk=$token");
+   }else{ 
+    echo "<script>alert('对不起！您未被授权登录SUsage Mcenter！');history.go(-1);</script>";
+   }
   }else{ 
-    echo "<script>alert('用户名或密码错误！');history.go(-1);</script>";
-  }
+   echo "<script>alert('用户名或密码错误！');history.go(-1);</script>";
+ }
 }
 ?>
 <html>

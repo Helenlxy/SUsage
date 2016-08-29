@@ -4,23 +4,25 @@ require_once("../functions/to_sql.php");
 require_once("../functions/CheckLogged.php");
 include("../functions/NightShift.php");
 include("../functions/SO_API.php");
+
+$CSSPath=array("editor","themes","modules","modules");
+$CSSName=array("cropper.min","Sinterface","ex-united","ex-ucenter");
+$JSName=array("jquery-2.2.1.min","lrz.all.bundle","cropper.min","ucenter","basic","easteregg");
 ?>
 
 <html lang="zh">
 	<head>
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>个人中心 / SUsage UCenter</title>
-		<link rel="stylesheet" type="text/css" href="../res/css/modules/ex-ucenter.css">
-		<link rel="stylesheet" href="../res/css/editor/cropper.min.css">
-		<link rel="shortcut icon" href="../res/icons/title/login_128X128.ico"/>
-		<link rel="stylesheet" href="../res/css/themes/Sinterface.css" />
-		<link rel="stylesheet" href="../res/css/modules/ex-united.css" />
-		<script src="../res/js/lrz.all.bundle.js"></script>
-		<script src="../res/js/jquery-2.2.1.min.js" type="text/javascript"></script>
-		<script src="../res/js/cropper.min.js"></script>
-		<script src="../res/js/ucenter.js"></script>
-		<script src="../res/js/basic.js"></script>
+		
+		<?php
+		 ShowCSS($CSSPath,$CSSName);
+		 ShowJS($JSName);
+		?>
+		
+		<link rel="shortcut icon" href="../res/icons/title/login_128X128.ico">
 	</head>
 	<body>
 	<?php ShowNavbar(); ?>
@@ -97,8 +99,6 @@ include("../functions/SO_API.php");
 			</center>
 		</article>
 
-<script src="../res/js/basic.js"></script>
-<script src="../res/js/easteregg.js"></script>
 <script>
 document.onkeydown = function(){easteregg();};
 
@@ -120,13 +120,12 @@ $.ajax({
   url:"../functions/UCenter/ChangePW.php",
   type:"POST",
   data:{PW:NewPW},
-  error:function(e){alert("OMG！未知错误！"+eval(e));},
+  error:function(e){alert("OMG！未知错误！");},
   success:function(gpw){
     if(gpw=="0"){alert("数据传输出错！");}
-    else if(gpw=="2"){alert("修改成功！请重新登录！");}
-    else if(gpw=="3"){alert("数据库处理失败！修改失败！");window.location.href="logout.php";}
-    else if(gpw=="9"){alert("密码需包含6位以上的字母、数字或符号（部分）任意三种。");}
-    else{alert("网络连接失败！"+gpw);}
+    else if(gpw=="2"){alert("修改成功！请重新登录！");window.location.href="logout.php";}
+    else if(gpw=="3"){alert("数据库处理失败！修改失败！");}
+    else{alert("Ohhhh！\n修改密码失败了！\n\n请宝宝把错误码提交给APP组："+gpw);}
   }
 });
 }
@@ -141,7 +140,7 @@ $.ajax({
   success:function(gnn){
     if(gnn=="0"){alert("未输入昵称或数据传输出错！");}
     else if(gnn=="1"){alert("此用户名已存在，请使用其他用户名！");}
-    else if(gnn=="2"){alert("修改成功！即将退出SUsage。");window.location.href="logout.php";}
+    else if(gnn=="2"){alert("修改成功！即将退出SUsage。");window.location.href="logout.php";setCookie("SUsageusr","");}
     else if(gnn=="3"){alert("数据传输失败！修改失败！");}
     else{alert("网络连接失败！"+gnn);}
   }

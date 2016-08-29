@@ -12,7 +12,7 @@ $h=date("G");
  <a href="UCenter.php" class="ex-dnavbar-userbox-descunderunfb" title="进入个人中心">
   <div class="ex-dnavbar-userbox">
    <div class="ex-dnavbar-userbox-avatarfixbox">
-    <img id="hdimg" src="<?php echo $_SESSION['headimg']; ?>" style="height:54px;width:54px;opacity: 0"/>
+    <img id="hdimg" src="<?php echo $_SESSION['headimg']; ?>"/>
    </div>
    <div class="ex-dnavbar-userbox-usernamefixbox">
     <p class="ex-dnacvar-userbox-username" id="namebox">
@@ -74,8 +74,8 @@ $h=date("G");
 <!-- [end]导航栏结束 -->
 <!-- [begin]退出提示 -->
 <div class="toast" id="toast-exit" style="position:fixed;width:100%;height:69px;z-index:100;display:none;">
- <label class="toast-label" style="font-family:微软雅黑;color:#ffffff;position:absolute;left:10%;line-height:45px;">你你你你你你你~真的要退出吗w</label>
- <button class="btn" style="font-family:微软雅黑;color:#ffffff;position:absolute;right:10%;line-height:55px;font-size:16px;cursor:pointer;" onclick="window.location.href='logout.php'">是的</button>
- <button id="cancelexit" class="btn" style="font-family:微软雅黑;color:#ffffff;position:absolute;right:20%;line-height:55px;font-size:16px;font-weight:bold;cursor:pointer;">不是</button>
+ <label class="toast-label tohide" style="font-family:微软雅黑;color:#ffffff;position:absolute;left:10%;line-height:45px;">你你你你你你你~真的要退出吗w</label>
+ <button class="btn" style="font-family:微软雅黑;color:#ffffff;position:absolute;right:10%;line-height:55px;font-size:16px;cursor:pointer;" onclick="window.location.href='logout.php'">确定注销</button>
+ <button id="cancelexit" class="btn" style="font-family:微软雅黑;color:#ffffff;position:absolute;right:20%;line-height:55px;font-size:16px;font-weight:bold;cursor:pointer;">不要</button>
 </div>
 <!-- [end]退出提示 -->

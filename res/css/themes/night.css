@@ -24,6 +24,7 @@
 	border-right:1px solid #444;
 	z-index:8;
 }
+
 #globalnote p,h3{
 	color: rgba(255,255,255,0.87);
 	text-align: center
@@ -39,6 +40,11 @@
 	border-left:1px solid #444;
 	border-right:1px solid #444;
 	z-index: 9
+}
+@media(max-width: 800px){
+	#globalnote,#whofinished{
+		top:49px;
+	}
 }
 body
 {

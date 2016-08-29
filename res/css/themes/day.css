@@ -40,6 +40,11 @@
 	border-right:1px solid #64B5F6;
 	z-index: 9
 }
+@media(max-width: 800px){
+	#globalnote,#whofinished{
+		top:49px;
+	}
+}
 body{
 	background-color: #fff;
 	color: rgba(0,0,0,0.87);

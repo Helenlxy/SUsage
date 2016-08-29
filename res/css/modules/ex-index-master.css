@@ -96,7 +96,7 @@
 	bottom:7px;
 	right:10px;
 	font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
-	width:120px;
+	width:110px;
 	display:inherit;
 }
 #laststep
@@ -105,7 +105,7 @@
 	bottom:7px;
 	left:10px;
 	font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
-	width:120px;
+	width:110px;
 	display:inherit;
 }
 #submit
@@ -114,7 +114,7 @@
 	bottom:7px;
 	right:10px;
 	font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
-	width:120px;
+	width:110px;
 	display:inherit;
 }
 #backwardbutton
@@ -123,7 +123,7 @@
 	bottom:7px;
 	right:140px;
 	font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
-	width:120px;
+	width:110px;
 	display:inherit;
 }
 
@@ -150,6 +150,7 @@
 	left:13%;
 	right:13%;
 }
+
 .fnspeople{
 	width:200px;
 	height:70px;
@@ -181,4 +182,56 @@
 .disablemod a,.disablemod input,.disablemod button{
 	cursor: not-allowed;
 	pointer-events: none
+}
+@media(max-width: 800px){
+	h1{
+		font-size:1.3em;
+	}
+	h2{
+		font-size:1.1em;
+	}
+	h3{
+		font-size:0.9em;
+	}
+	h4{
+		font-size:0.7em
+	}
+	h5{
+		font-size:0.65em
+	}
+	p{
+		font-size:0.65em;
+	}
+	body{
+		width: calc(100%-133px)
+	}
+	#poster{
+		height: 560px
+	}
+	.trick,.ver{
+		display: none;
+	}
+	.tasklist
+	{
+		width:100%;
+		left:10%;
+		padding-right: 10px
+	}
+	.contentarea
+	{	
+		position: inherit;
+		min-width: 90%;
+		width:90%;
+		word-wrap:break-word; 
+		word-break:break-all;
+	}
+	.time{
+		padding-top: 38px;
+    	padding-right: 0px;
+    	width: 180px;
+    	text-align: center;
+	}
+	.pubgroup,.name {
+    	padding-top: 8px;
+	}
 }

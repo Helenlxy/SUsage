@@ -11,6 +11,7 @@ $Bill=mysqli_fetch_row($Billq);
 	<head>
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 		<title>账务公开 / SUsage Bill</title>
 		<link rel="stylesheet" type="text/css" href="../res/css/modules/ex-ucenter.css">
 		<link rel="stylesheet" href="../res/css/editor/cropper.min.css">
@@ -24,7 +25,7 @@ $Bill=mysqli_fetch_row($Billq);
 	<?php ShowNavbar(); ?>
 	
 		<article class="htmleaf-content">
-			<div class="subtitle"><h2 style="color:#4fb4f7">账务公开<span style="font-size: 14px"> / Bill</span></h2></div>
+			<div class="subtitle"><h2 style="color:#4fb4f7">账务公开<span style="font-size: 14px"> / Bill</span></h2><span style="text-align: center;">除非注明，以下单位皆为人民币元（￥，RMB）</span></div>
 				<center class="card" style="height: 330px;overflow: scroll;">
 					<div id="earncircle" class="circle">
 						<div id="earn" class="billtotal">总收入<p><?php echo $Bill[2]; ?></p></div>

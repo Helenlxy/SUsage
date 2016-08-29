@@ -123,7 +123,6 @@ function ErrorPW(){
 
 function usrcookie(usrname){
   setCookie("SUsageusr",usrname);
-  alert(usrname);
 }
 
 function toLogin(){
@@ -151,7 +150,7 @@ function toLogin(){
       $('#pw')[0].focus();return;
     }
     var ck = document.getElementById('usrcookie');
-    if(ck.checked==true){usrcookie(stuid);alert();}
+    if(ck.checked==true){usrcookie(stuid);}
     $.ajax({
     type:"POST",
     url:"verify.php",

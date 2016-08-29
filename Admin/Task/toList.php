@@ -15,8 +15,16 @@ $total=sizeof($Tasks[0]);
   <!-- Bootstrap -->
   <link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet">
   <link href="https://cdn.bootcss.com/bootstrap/3.3.6/fonts/glyphicons-halflings-regular.svg" rel="stylesheet">
-  
+  <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
   <style>
+  @media(max-width: 500px){
+    .uid{
+      display: none;
+    }
+    .cts{
+      max-width:32%;
+    }
+  }
   a{color:#4caf50;}
   a:hover{color:#4fb4f7;transition: 0.6s;}
   </style>
@@ -26,11 +34,11 @@ $total=sizeof($Tasks[0]);
 <?php include("../Includes/shownav.php"); ?>
 <table class="table table-hover table-striped" style="border-radius:50px;">
 <tr>
-  <th>UID</th>
+  <th class="uid">UID</th>
   <th>发布者</th>
   <th>发布者组别</th>
   <th>接收者组别</th>
-  <th>内容</th>
+  <th class="cts">内容</th>
   <th>操作</th>
 </tr>
 
@@ -38,11 +46,11 @@ $total=sizeof($Tasks[0]);
 for($i=0;$i<$total;$i++){
   $id=$Tasks[0][$i]['Taskid'];
   echo "<tr>";
-  echo "<td>".$id."</td>";
+  echo "<td class='uid'>".$id."</td>";
   echo "<td>".$Tasks[0][$i]['pubman']."</td>";
   echo "<td>".$Tasks[0][$i]['pubdep']."</td>";
   echo "<td>".$Tasks[0][$i]['redep']."</td>";
-  echo "<td>".$Tasks[0][$i]['ct']."</td>";
+  echo "<td class='cts'>".$Tasks[0][$i]['ct']."</td>";
   echo "<td><button onclick='toDel($id)' class='btn btn-default btn-xs'><span class='glyphicon glyphicon-edit'></span> 删除</button></td>";
   echo "</tr>";
 }

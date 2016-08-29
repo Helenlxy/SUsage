@@ -1,7 +1,9 @@
 <?php
+session_start();
 //p:发送 r:接受 sct:搜索 cpt:完成
 require_once("../to_sql.php");
 require_once("../SO_API.php");
+if(GetSess("SU_M")!="1"){toAlertDie("#403","您暂无权限发布任务！");}
 $p_man=$_POST['pubman'];
 $p_dep=$_POST['pubdep'];
 $p_ct=$_POST['ct'];

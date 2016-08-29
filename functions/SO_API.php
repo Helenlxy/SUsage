@@ -1,20 +1,44 @@
 <?php
 
-//PHP后端公用函数库
-//共有函数：4个
-//库版本：V0.4
+/**
+* @name PHP公用函数库 -- 底层基础函数
+* @copyright 版权所有：小生蚝 <master@xshgzs.com>
+* @create 创建时间：2016-04-07
+* @modify 最后修改时间：2016-08-27
+*/
 
-//版权所有：小生蚝
-//创建时间：2016-04-03
-//最后修改时间：2016-08-19
+
+/* Require Package <Database> */
+require_once("to_sql.php");
+/* Require Package <Showing> */
+require_once("Func/Show.func.php");
+/* Require Package <Session> */
+require_once("Func/Session.func.php");
+/* Require Package <User Privacy> */
+require_once("Func/Privacy.func.php");
+
+
+/**
+* ------------------------------
+* toAlertDie 弹框并die
+* ------------------------------
+* @param String 自定义错误码
+* @param String 可选，自定义提示内容
+* ------------------------------
+**/
+function toAlertDie($ErrorNo,$Tips="")
+{
+ echo '<script>alert("Oops！系统处理出错了！\n\n错误码：'.$ErrorNo.'\n'.$Tips.'");</script>';
+ die($ErrorNo);
+}
 
 
 /**
 * ------------------------------
 * random 获取随机数
 * ------------------------------
-* @param len 随机数的长度，直接输入数字
-* @param type 类型，可选(pw)，用作特殊处理
+* @param int 随机数的长度，直接输入数字
+* @param PW  随机串类型，用作特殊处理
 * ------------------------------
 * @return STR 随机数的结果
 **/
@@ -39,9 +63,9 @@ function random($len,$type=""){
 * ------------------------------
 * checkPW 检查密码是否有效
 * ------------------------------
-* @param pw 需要检查的密码
+* @param String 需要检查的密码
 * ------------------------------
-* @return STR 无效密码的数量|密码共有类型
+* @return String 无效密码数量|密码共有类型
 **/
 function checkPW($pw){
 $allowstr="qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890^*:~?+/,.";
@@ -55,14 +79,14 @@ for($i=0;$i<$pwlen;$i++){
   $falsestr++;
  }else{
   //统计共有多少种类型
-  if(preg_match("/^[0-9]*$/",$nowstr)){
+  if(strstr("0123456789",$nowstr)){
    $pwtype[0]=1;
-  }else if(preg_match("/^[A-Za-z]+$/",$nowstr)){
+  }else if(strstr("QWERTYUIOPASDFGHJKLZXCVBNM",$nowstr)){
    $pwtype[1]=1;
-  }else{
-   if(strstr("^*:~?+/,.",$pw)){
-    $pwtype[2]=1;
-   }
+  }else if(strstr("qwertyuiopasdfghjklzxcvbnm",$nowstr)){
+   $pwtype[2]=1;
+  }else if(strstr("^*:~?+/,.",$nowstr)){
+   $pwtype[3]=1;
   }
  }
 }
@@ -71,7 +95,7 @@ foreach($pwtype as $value){
  if(strstr($value,"1")) $num++;
 }
 
-if($num>=2) $ret=1;
+if($num>=3) $ret=1;
 else $ret=0;
 return $falsestr."|".$ret;
 }
@@ -79,19 +103,9 @@ return $falsestr."|".$ret;
 
 /**
 * ------------------------------
-* ShowNavbar 显示前台导航栏
-* ------------------------------
-**/
-function ShowNavbar(){
- include("../functions/ShowNav.php");
-}
-
-
-/**
-* ------------------------------
 * GetIP 获取随机数
 * ------------------------------
-* @return STR 当前终端的IP
+* @return String 当前终端的IP
 **/
 function GetIp(){
 $ip=false;
@@ -116,6 +130,18 @@ return $ip?$ip:$_SERVER['REMOTE_ADDR'];
 }
 
 
+/**
+* ------------------------------
+* MC_auth 后台用户检测是否有访问模块权限
+* ------------------------------
+* @param String 当前模块名称
+* @param 0/1    是否管理员
+* @param 0/1    是否超级管理员
+* @param 0/1    是否根用户
+* ------------------------------
+* @return 0/1 是否有权限访问当前模块
+* ------------------------------
+**/
 function MC_auth($name,$a,$s,$r){
 if($r=="1") return "1";
 if($s=="1" && $name=="B")return "0";
@@ -124,9 +150,10 @@ $purvA=array("U_A","U_E","U_R","B");
 $purvS=array("U_A","U_E","U_R","U_P");
 $inarrS=in_array($name,$purvS);
 $inarrA=in_array($name,$purvA);
+
 if($s=="1" && $inarrS=true) return "1";
 else if($a=="1" && $inarrA=true) return "1";
 else return "0";
-
 }
+
 ?>

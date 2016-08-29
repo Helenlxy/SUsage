@@ -9,15 +9,15 @@
 * ------------------------------------
 */
   if(!isset($flag)){
-    die("访问错误 <b>403 <br> 你应该没有获得读取许可.");
+    die("访问错误 <b>403-PTD <br> 你没有获得读取数据的许可.");
   }
   
   $dbcon=null;
   $dbms="mysql";
   $host="localhost";
   $database="susage";
-  $userName="office";
-  $passWord="office@zhxsusql";
+  $userName="root";
+  $passWord="";
   $dsn="{$dbms}:host={$host};dbname=${database};charset=utf8";
   try{
     $dbcon=new PDO($dsn,$userName,$passWord);

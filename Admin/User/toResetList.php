@@ -61,11 +61,9 @@ $.ajax({
   url:"toResetPW.php",
   data:{uid:uid},
   success:function(got){
-    if(got.substr(0,1)==1){
-      pw=got.substr(2);
-    	 alert("重置成功！重置后的密码为："+pw);
-    }else if(got.substr(0,1)==2){
-    	 alert("网络连接失败！请联系电脑部APP组！\n\n"+got);
+    if(got.substr(1,1)=="1"){
+      pw = got.substr(3);
+      alert("重置成功！重置后的密码为："+pw);
     }else{
       alert("重置失败！请联系电脑部APP组！\n\n"+got);
     }

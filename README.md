@@ -2,19 +2,19 @@
 
 <b>执信中学学生会信息化在线办公系统 开源项目 #代号"SUsage" </b>
 
-<b>目前总体开发进度：约85%，前端系统基本完成，后端系统开发约90%。当前build:2B26 (0726)</b>
+<b>目前总体开发进度：约85%，前后端皆系统基本完成。当前Build:2B63 (0763)</b>
 
 <b>项目总阶段：0.8-milestone9 #Project SUsage β（开发代号Young）</b>
 
 <p>TaskSYS V1.5 beta B2</p>
 <p>UCenter V1.5 beta B2</p>
-<p>BillSYS V0.5 beta B2</p>
-<p>MCenter V1.3 beta B2</p>
+<p>BillSYS V1.0 beta B2</p>
+<p>MCenter V1.5 beta B2</p>
 <p>FileTour V0.4-milestone6 【未来project】</p>
-<p><b>Latest update：2016.8.3 10:37</b></p>
+<p><b>Latest update：2016.8.29 15:40</b></p>
 <b>©2016 执信学生会 电脑部</b>
 <br>
-<b>Created By @yyl99311 | @df7c5117 | @GhostShadowTan | @橡胶人AS | @ZhxsuWebGroup</b>
+<b>Created By @yyl99311 | @df7c5117 | @GhostShadowTan | @橡胶人AS | @SmallOyster</b>
 <br>
 <b>特别鸣谢：@SmallOyster</b>
 <br>
@@ -39,21 +39,31 @@
 <h3>配置</h3>
   <h4><p>本地可以使用<b>XAMPP1.8.2+</b>调试，服务器端建议最低配置PHP5+, Apache 2.4.17+, phpMyAdmin 4.5.1+</p></h4>
   <p>You can use <b>XAMPP1.8.2+</b> for local debugging.The recommend requirement for Server-side is PHP5+, Apache 2.4.17+, phpMyAdmin 4.5.1+</p>
-  <h4><p>请将此文件包<b>放在SUsage文件夹内</b>，然后<b>将SUsage文件夹放在网站根目录</b></p></h4>
-  <p>Please put this package into the <b>SUsage</b> directory，then put the <b>SUsage</b> into root directory of your website.</b>
+  <h4><p>请将此文件包放在网站根目录</b></p></h4>
+  <p>Please put this package into the root directory of your website.</b>
   <h4><p>环境配置完成后，请在PhpMyAdmin中新建susage数据库后导入susage.sql文件。</p></h4>
   <p>After runtime configuration completed,please set a new database which called <b>susage</b> and import <b>susage.sql</b> into this database.</p>
   <h4><p>并在<b>functions/to_sql.php、Admin/Includes/to_pdo.php</b>中按照提示填写您的数据库登录账户和密码</p></h4>
   <p>Then follow the prompts to enter your database login account and password in <b>functions/to_sql.php </b>and <b> Admin/Includes/to_pdo.php</b>
   <h4><p>测试账户1：Enatsu 密码：123456（角色：管理员+组长）</p></h4>
   <p>Test Account 1：Enatsu PW：123456（role：Admin+Group Master）</p>
-  <h4><p>测试账户2：Super 密码：supersu（角色：超级管理员）</p></h4>
-  <p>Test Account 2：Super PW：supersu（role：SuperUser）</p>
+  <h4><p>测试账户2：Super 密码：123456（角色：超级管理员+根用户）</p></h4>
+  <p>Test Account 2：Super PW：123456（role：SuperUser+RootUser）</p>
   <h4><p><b>若忘记密码可打开/SUsage/md5.php按照提示输入密码</b></p></h4>
   <p>If you forget your test password, you can open <b>/SUsage/md5.php</b> and follow the prompts to enter your password</p>
-  <h4><p><b>点击确认后将Salt和inDB复制，粘帖进数据库中“salt”和“pw”即可。</b></p></h4>
-  <p>Copy the Salt and inDB into <b>salt</b> and <b>pw</b> of database after click permit</p>
+  <h4><p><b>点击确认后将inDB复制，粘帖进数据库中“pw”即可。</b></p></h4>
+  <p>Copy the Salt and inDB into <b>pw</b> of database after click permit</p>
 <h3>近期的事情</h3>
+<p><b>----2016.8.29（Beta 2）----</b></p>
+  <p>众多重大Bug修复</p>
+  <p>修改用户密码算法（SHA1）</p>
+  <p>SUsage管理中心（MCenter）新增WFD修复模块</p>
+  <p>后端新增多个函数包</p>
+  <p>优化代码可读性，解决代码累赘问题</p>
+  <p>CSS优化</p>
+  <p>注入代码注释</p>
+  <p>数据库重构，修改用户权限储存方式</p>
+  <p>全站启用响应式，支持移动端</p>
 <p><b>----2016.8.1----</b></p>
   <p>Bug修复</p>
   <p>新增“账务系统”</p>
