@@ -4,12 +4,12 @@
 
 <b>目前总体开发进度：约85%，前后端皆系统基本完成。当前Build:2B63 (0763)</b>
 
-<b>项目总阶段：0.8-milestone9 #Project SUsage β（开发代号Young）</b>
+<b>项目总阶段：0.8-milestone9 #Project SUsage RC（开发代号Young）</b>
 
-<p>TaskSYS V1.5 beta B2</p>
+<p>TaskSYS V1.5 pre Release Candidate RC1</p>
 <p>UCenter V1.5 beta B2</p>
-<p>BillSYS V1.0 beta B2</p>
-<p>MCenter V1.5 beta B2</p>
+<p>BillSYS V1.0 RC1</p>
+<p>MCenter V1.5 RC</p>
 <p>FileTour V0.4-milestone6 【未来project】</p>
 <p><b>Latest update：2016.8.29 15:40</b></p>
 <b>©2016 执信学生会 电脑部</b>
