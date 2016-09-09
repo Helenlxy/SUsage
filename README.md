@@ -2,9 +2,9 @@
 
 <b>执信中学学生会信息化在线办公系统 开源项目 #代号"SUsage" </b>
 
-<b>目前总体开发进度：约85%，前后端皆系统基本完成。当前Build:2B63 (0763)</b>
+<b>目前总体开发进度：约100%，第二版本正在规划中。当前Build:2B63 (0763)</b>
 
-<b>项目总阶段：0.8-milestone9 #Project SUsage RC（开发代号Young）</b>
+<b>项目总阶段：1.0-Release1 #Project SUsage 1.0（开发代号Young）</b>
 
 <p>TaskSYS V1.5 pre Release Candidate RC1</p>
 <p>UCenter V1.5 beta B2</p>
