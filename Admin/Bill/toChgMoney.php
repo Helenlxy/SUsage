@@ -1,6 +1,13 @@
 <?php
 require_once("../Includes/CheckLog.php");
 CheckPurv("B");
+
+$flag=true;
+require_once("../Includes/to_pdo.php");
+$rs=PDOQuery($dbcon,"SELECT * FROM bill_money ORDER BY id DESC",[],[]);
+$pay=$rs[0][0]['pay'];
+$income=$rs[0][0]['income'];
+$surplus=$rs[0][0]['surplus'];
 ?>
 
 <html>
@@ -14,8 +21,6 @@ CheckPurv("B");
   <style>
   a{color:#4caf50;}
   a:hover{color:#4fb4f7;transition: 0.6s;}
-  .input-group {display: block}
-  .form-control {margin-top:20px}
   .btn-info{margin-top:20px}
   </style>
 </head>
@@ -28,16 +33,23 @@ CheckPurv("B");
   <h3 style="color:#4CAF50">修改账目总额</h3><br>
   <a style="position:absolute;top:13px;left:5%;cursor:pointer" onclick="history.back()"><img src="../img/back.png"></a>
   <div class="col-md-offset-2 col-md-8" style="line-height:12px;">
+  
   <div class="input-group">
-    <input class="form-control" id="pay" onkeyup="if(event.keyCode==13)$('#income')[0].focus();" placeholder="支出">
+    <span class="input-group-addon">总支出</span>
+    <input type="text" class="form-control" onkeyup="if(event.keyCode==13)$('#income')[0].focus();" id="pay" value="<?php echo $pay; ?>">
+    <span class="input-group-addon">&lt;</span>
   </div><br>
   
   <div class="input-group">
-    <input class="form-control" id="income" onkeyup="if(event.keyCode==13)$('#surplus')[0].focus();" placeholder="收入">
+    <span class="input-group-addon">总收入</span>
+    <input type="text" class="form-control" onkeyup="if(event.keyCode==13)$('#surplus')[0].focus();" id="income" value="<?php echo $income; ?>">
+    <span class="input-group-addon">&lt;</span>
   </div><br>
   
   <div class="input-group">
-    <input class="form-control" id="surplus" onkeyup="if(event.keyCode==13)ChgMoney();" placeholder="结余">
+    <span class="input-group-addon">结余额</span>
+    <input type="text" class="form-control" onkeyup="if(event.keyCode==13)ChgMoney();" id="surplus" value="<?php echo $surplus; ?>">
+    <span class="input-group-addon">&lt;</span>
   </div><br>
   
   <button class="btn btn-info" style="width:100%" onclick="ChgMoney();" id="addbtn">修改账目</button>
@@ -86,7 +98,7 @@ function ChgMoney(){
    data:{p:pay,i:income,s:surplus},
    error:function(e){alert("系统处理出错！"+e);GoBack();},
    success:function(g){
-    if(g=="1"){
+    if(g==1){
       alert("修改成功！");
       location.reload();
     }else{

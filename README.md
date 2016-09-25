@@ -2,7 +2,7 @@
 
 <b>执信中学学生会信息化在线办公系统 开源项目 #代号"SUsage" </b>
 
-<b>目前总体开发进度：约100%，第二版本正在规划中。当前Build:2B63 (0763)</b>
+<b>目前总体开发进度：100%，第二版本正在规划中。当前Build:2C03 (0803)</b>
 
 <b>项目总阶段：1.0-Release1 #Project SUsage 1.0（开发代号Young）</b>
 
@@ -11,7 +11,7 @@
 <p>BillSYS V1.0 RC1</p>
 <p>MCenter V1.5 RC</p>
 <p>FileTour V0.4-milestone6 【未来project】</p>
-<p><b>Latest update：2016.8.29 15:40</b></p>
+<p><b>Latest update：2016.9.25 12:50</b></p>
 <b>©2016 执信学生会 电脑部</b>
 <br>
 <b>Created By @yyl99311 | @df7c5117 | @GhostShadowTan | @橡胶人AS | @SmallOyster</b>
@@ -26,8 +26,6 @@
 <h3>这是个啥w</h3>
   <p>嗯，执信学生会的网上办公平台。</p>
   <p>一个神秘的系统，完全由37th SUPC自主研制开发。</p><a href="https://github.com/zhxsu/SUsage/wiki/Susage-%7C-%E6%A6%82%E8%BF%B0" target="_blank">详情请戳这里</a>
-  
-<a href="http://zhxsu.github.io/SUsage/" target="_blank">美美哒介绍页面</a>
 
 <h3>为啥叫这个名字w</h3>
   <p>StudentUnion简写“SU”和Message的组合自造词。<s>让人酥酥的公告系统</s></p>
@@ -49,8 +47,8 @@
   <p>Test Account 1：Enatsu PW：123456（role：Admin+Group Master）</p>
   <h4><p>测试账户2：Super 密码：123456（角色：超级管理员+根用户）</p></h4>
   <p>Test Account 2：Super PW：123456（role：SuperUser+RootUser）</p>
-  <h4><p><b>若忘记密码可打开/SUsage/md5.php按照提示输入密码</b></p></h4>
-  <p>If you forget your test password, you can open <b>/SUsage/md5.php</b> and follow the prompts to enter your password</p>
+  <h4><p><b>若忘记密码可打开/SUsage/sha1.php按照提示输入密码</b></p></h4>
+  <p>If you forget your test password, you can open <b>/SUsage/sha1.php</b> and follow the prompts to enter your password</p>
   <h4><p><b>点击确认后将inDB复制，粘帖进数据库中“pw”即可。</b></p></h4>
   <p>Copy the Salt and inDB into <b>pw</b> of database after click permit</p>
 <h3>近期的事情</h3>

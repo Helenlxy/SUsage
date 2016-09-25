@@ -10,7 +10,7 @@ if(isset($_POST) && $_POST){
  $v3=$_POST['3'];
  $v4=$_POST['4'];
  $v5=$_POST['5'];
- $rs=PDOQuery($dbcon,"INSERT INTO bill_list SET BillName=?, Content=?, Income=?, Cost=?, Registrant=?",[$v1,$v2,$v3,$v4,$v5],[PDO::PARAM_STR,PDO::PARAM_STR,PDO::PARAM_STR,PDO::PARAM_STR,PDO::PARAM_STR]);
+ $rs=PDOQuery($dbcon,"INSERT INTO bill_list SET BillName=?, Content=?, Income=?, Cost=?, Registrant=?",[$v1,$v2,$v4,$v3,$v5],[PDO::PARAM_STR,PDO::PARAM_STR,PDO::PARAM_STR,PDO::PARAM_STR,PDO::PARAM_STR]);
  if($rs[1]=="1"){
   echo "<script>alert('新增成功！');</script>";
  }else{
@@ -37,12 +37,12 @@ if(isset($_POST) && $_POST){
 <?php include("../Includes/shownav.php"); ?>
 <div class="container text-center">
 <div class="row text-center" style="padding-top:20px"> 
-<div class="well col-md-8 col-sm-offset-1 text-center col-xs-10 col-xs-offset-1">
-  <h3 style="color:#4CAF50">新增账单</h3><br>
+<div class="well col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center col-xs-10 col-xs-offset-1">
+<h3 style="color:#4CAF50">新增账单</h3><br>
   <a style="position:absolute;top:13px;left:5%;cursor:pointer" onclick="history.back()"><img src="../img/back.png"></a>
-  <div class="col-md-offset-2" style="line-height:12px;">
+  <div class="col-md-offset-2 col-md-8" style="line-height:12px;">
   
-  <form method="post" id="AddBillForm">
+  <form method="post">
   <input type="hidden" name="5" value="<?php echo $_SESSION['name']; ?>">
   <div class="input-group">
     <span class="input-group-addon">账单名称</span>

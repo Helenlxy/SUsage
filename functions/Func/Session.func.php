@@ -1,7 +1,7 @@
 <?php
 
 /**
-* @name PHP公用函数库 -- Session操作函数
+* @name PHP公用函数库 2 Session操作函数
 * @copyright 版权所有：小生蚝 <master@xshgzs.com>
 * @create 创建时间：2016-08-28
 * @modify 最后修改时间：2016-08-28

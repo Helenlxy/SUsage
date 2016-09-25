@@ -49,7 +49,9 @@ $BillList=PDOQuery($dbcon,"SELECT * FROM bill_list WHERE Billid=?",[$id],[PDO::P
 </tr>
 </table>
 <hr><center>
-<a href="toEditBillList.php?billid=<?php echo $id; ?>&sutk=<?php echo $SUtoken; ?>">编辑此账单</a> <a href="toDelBillList.php?billid=<?php echo $id; ?>&sutk=<?php echo $SUtoken; ?>">删除此账单</a> <a href="toBillList.php?sutk=<?php echo $SUtoken; ?>">返回主页</a>
+  <button class="btn btn-info" onclick='window.location.href="toEditBillList.php?billid=<?php echo $id; ?>&sutk=<?php echo $SUtoken; ?>"'>编辑此账单</button>&#12288;
+  <button class="btn btn-danger" onclick="toDelBill('<?php echo $id; ?>','<?php echo $SUtoken; ?>')">删除此账单</button>&#12288;
+  <button class="btn btn-default" onclick='window.location.href="toBillList.php?sutk=<?php echo $SUtoken; ?>"'>返回主页</button>
 </center><hr>
 </body>
 
@@ -57,5 +59,16 @@ $BillList=PDOQuery($dbcon,"SELECT * FROM bill_list WHERE Billid=?",[$id],[PDO::P
 <script src="../Includes/footer.js"></script>
 <script src="https://cdn.bootcss.com/jquery/1.11.2/jquery.js"></script>
 <script src="../js/bootstrap.js"></script>
+<script>
 
+function toDelBill(billid,token){
+ URL = "toDelBillList.php?billid=" + billid + "&sutk=" + token;
+ if(confirm("确定要删除吗？")){
+  window.location.href = URL;
+ }else{
+  return;
+ }
+}
+
+</script>
 </html>

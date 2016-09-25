@@ -25,6 +25,11 @@ $Notice_time=$all->pubtime;
 $CSSPath=array("themes","editor","modules","modules");
 $CSSName=array("Sinterface","wangEditor","ex-united");
 
+if($_SESSION['SU_M']==1){
+	array_push($CSSName,"ex-index-master");
+}else{
+	array_push($CSSName,"ex-index-normal");
+}
 ?>
 <html>
 	<head>
@@ -32,15 +37,7 @@ $CSSName=array("Sinterface","wangEditor","ex-united");
 		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 		<title>你的任务 / SUsage Tasklist</title>
 		<link rel="shortcut icon" href="../res/icons/title/task_128X128.ico"/>
-		<?php
-			if($_SESSION['SU_M']==1){
-				array_push($CSSName,"ex-index-master");
-			}else{
-				array_push($CSSName,"ex-index-normal");
-			}
-			ShowCSS($CSSPath,$CSSName);
-		?>
-		
+		<?php ShowCSS($CSSPath,$CSSName); ?>	
 	</head>
 	
 	<body style="position:absolute;width:80%;">
@@ -203,12 +200,11 @@ $CSSName=array("Sinterface","wangEditor","ex-united");
 		</div>
 
 <!--脚本引用-->
-<script src="../res/js/jquery-2.2.1.min.js"></script>
-<script src="../res/js/wangEditor.js"></script>
-<script src="../res/js/basic.js"></script>
-<script src="../res/js/GetCodeVer.js"></script>
+<?php 
+$JSName=array("jquery-2.2.1.min","wangEditor","basic","GetCodeVer","easteregg");
+ShowJS($JSName);
+?>
 <script src="../functions/Task/TaskAjax.js"></script>
-<script src="../res/js/easteregg.js"></script>
 
 <script type="text/javascript">
 var editor = new wangEditor('textarea1');
@@ -239,17 +235,24 @@ var Checking = document.getElementById("CheckAll");
 }
 
 function CheckClick(){
-  var NotCheck=0;
-  for(var k=0;k<cl;k++){
-    if(ckdep[k].checked){
-      pstbtn.style.display = 'block';
-    }else if(!ckdep[k].checked){
-      NotCheck++;
-    }
-  }
-  if(NotCheck==cl){
-    pstbtn.style.display = 'none';
-  }
+var Checking = document.getElementById("CheckAll");
+NotCheck=0;isCheck=0;
+
+for(var k=0;k<cl;k++){
+ if(ckdep[k].checked){
+   pstbtn.style.display = 'block';
+   isCheck++;
+ }else if(!ckdep[k].checked){
+   NotCheck++;
+   Checking.checked=false;
+ }
+}
+if(isCheck==cl){
+ Checking.checked=true;
+}
+if(NotCheck==cl){
+  pstbtn.style.display = 'none';
+}
 }
  
 editor.onchange = function(){
@@ -275,9 +278,6 @@ function checkcpt(tid){
 }
 
 function GetTaskInfo(){
-	//获取用户信息
-	var pubman="<?php echo $pubman; ?>";
-	var pubdep="<?php echo $dep[0]; ?>";
 	//获取任务内容
 	var html=editor.$txt.html();
 	//获取任务发布对象部门
@@ -290,7 +290,7 @@ function GetTaskInfo(){
  }
  //去除末尾的逗号
  dep = dep.substr(0,dep.length-1);
- PublishTask(pubman,pubdep,html,dep);
+ PublishTask(html,dep);
 }
 
 function opennote(){	

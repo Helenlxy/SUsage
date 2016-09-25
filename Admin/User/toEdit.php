@@ -7,10 +7,21 @@ require_once("../Includes/to_pdo.php");
 $uid=(int)$_GET['uid'];
 $name=$_GET['name'];
 
+function CheckInject($str){
+ $Total=strlen($str);
+ $InjectSTR="'".'"'."-?=`!$()@";
+ for($i=0;$i<$Total;$i++){
+  $nowstr=$str[$i];
+  if(strstr($InjectSTR,$nowstr)==true){
+   return;
+  }
+ }
+}
+
 //获取用户提交的数据
 if(isset($_POST) && $_POST){
   $stuid=$_POST['stuid'];
-  $dep=$_POST['dep'];
+  $dep=CheckInject($_POST['dep']);
   
   //检测提交的数据是否为空
   if(!$dep){

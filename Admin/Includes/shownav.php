@@ -17,17 +17,19 @@
    <li class="dropdown">
       <a href="" data-target="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users" aria-hidden="true"></i> 用户管理<b class="caret"></b></a>
       <ul class="dropdown-menu">
+        <li><a href="../User/toList.php?sutk=<?php echo $SUtoken; ?>"><i class="fa fa-users" aria-hidden="true"></i> 用户列表/资料编辑</a></li>
         <li><a href="../User/toAdd.php?sutk=<?php echo $SUtoken; ?>"><i class="fa fa-user-plus" aria-hidden="true"></i> 用户新增</a></li>
-        <li><a href="../User/toList.php?sutk=<?php echo $SUtoken; ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> 用户资料修改</a></li>
-        <?php if($_SESSION['isSuper']=="1"){ ?>
+        <li class="divider"></li>
+        <?php if(GetSess('isSuper')=="1"){ ?>
         <li><a href="../User/toResetList.php?sutk=<?php echo $SUtoken; ?>"><i class="fa fa-key" aria-hidden="true"></i> 用户重置密码</a></li>
         <?php } ?>
-        <li class="divider"></li>
-        <!--<li><a href="../Log/toList.php">操作记录</a></li>-->
         <li><a href="../Sys/toSetRoleList.php?sutk=<?php echo $SUtoken; ?>"><i class="fa fa-sitemap" aria-hidden="true"></i> 用户角色配置</a></li>
+        <?php if(GetSess('isRoot')=="1"){ ?>
+        <li><a href="../User/toUnlockUserList.php?sutk=<?php echo $SUtoken; ?>"><i class="fa fa-unlock" aria-hidden="true"></i> 解锁用户</a></li>
+        <?php } ?>
       </ul>
     </li>
-    <?php if($_SESSION['isSuper']!="1" || $_SESSION['isRoot']=="1"){ ?>
+    <?php if(GetSess('isSuper')!="1" || GetSess('isRoot')=="1"){ ?>
     <li class="dropdown">
       <a href="" data-target="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-line-chart" aria-hidden="true"></i> 账务管理<b class="caret"></b></a>
       <ul class="dropdown-menu">
@@ -42,19 +44,23 @@
     <?php } ?>
     <li><a href="../Task/toList.php?sutk=<?php echo $SUtoken; ?>"><i class="fa fa-tasks" aria-hidden="true"></i> 任务管理</a></li>
     <li><a href="../Task/toPubGlobalNotice.php?sutk=<?php echo $SUtoken; ?>"><i class="fa fa-newspaper-o" aria-hidden="true"></i> 公告管理</a></li>
-    <?php if($_SESSION['isSuper']=="1" || $_SESSION['isRoot']=="1"){ ?>
+    <?php if(GetSess('isSuper')=="1" || GetSess('isRoot')=="1"){ ?>
     <li class="dropdown">
       <a href="" data-target="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gears" aria-hidden="true"></i> 系统管理<b class="caret"></b></a>
       <ul class="dropdown-menu">
         <li><a href="../Sys/toResetWFD.php?sutk=<?php echo $SUtoken; ?>" target="_blank"><i class="fa fa-refresh" aria-hidden="true"></i> 重置任务完成记录</a></li>
         <li><a href="../Sys/toMaintenanceWFD.php?sutk=<?php echo $SUtoken; ?>" target="_blank"><i class="fa fa-wrench" aria-hidden="true"></i> 修复WFD数据（除害/补漏）</a></li>
+        <li class="divider"></li>
+        <li><a href="../Sys/toLoginLogList.php?sutk=<?php echo $SUtoken; ?>"><i class="fa fa-list-alt" aria-hidden="true"></i> 查看用户登录记录</a></li>
+        <li class="divider"></li>
+        <li><a href="https://www.zhxsu.com/phpsql" target="_blank"><i class="fa fa-database" aria-hidden="true"></i> 数据库管理平台</a></li>
       </ul>
     </li>
     <?php } ?>
   </ul>
   
   <ul class="nav navbar-nav navbar-right">
-    <li><center><b><font color="green"><?php echo $_SESSION["name"]; ?></font></b>，欢迎回来<p><span style="color:#4fb4f7">角色：<?php echo $_SESSION["role"]; ?> · <a href="../logout.php?sutk=<?php echo $SUtoken; ?>">退出登陆</a></center></li>
+    <li><center><b><font color="green"><?php echo $_SESSION["name"]; ?></font></b>，欢迎回来<p><span style="color:#4fb4f7;margin-right:8px">角色：<?php echo $_SESSION["role"]; ?> · <a href="../logout.php?sutk=<?php echo $SUtoken; ?>">退出登陆</a></center></li>
   </ul>
 </div>
 </div>

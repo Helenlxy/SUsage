@@ -4,36 +4,47 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>欢迎回来 / SUsage Login</title>
-		<link rel="stylesheet" type="text/css" href="../res/css/modules/ex-ucenter.css">
+		<link href="../Admin/css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="../res/css/themes/Sinterface.css" />
 		<link rel="shortcut icon" href="../res/icons/title/login_128X128.ico"/>
+    <style>input::-webkit-input-placeholder{text-align: center;};.lgi{background:none;border-radius: 5px}.lgi:focus{border:1px solid #4fb4f7}.checkbox input[type="checkbox"] + label::after {margin-left: -0.35em;margin-top: -0.3em;}</style>
 	</head>
 	<body style="padding-top:120px;background-color:#64B5F6">
 		<!--通知popup-->
-		<div class="toast" id="codetips" style="background-color:#D50000;position:fixed;top:0px;width:100%;height:30px;z-index:100;display:none;">
+		<div id="codetips" style="background-color:#D50000;position:fixed;top:0px;width:100%;height:30px;z-index:100;display:none;">
 			<p style="font-family:微软雅黑;color:#ffffff;position:absolute;width:100%;text-align:center;line-height:0px;" id="LoginTips"></p>
     </div>
-    <div class="toast" id="cpslock" style="background-color:#D50000;position:fixed;top:0px;width:100%;height:30px;z-index:100;display:none;">
+    <div id="cpslock" style="background-color:#D50000;position:fixed;top:0px;width:100%;height:30px;z-index:100;display:none;">
       <p style="font-family:微软雅黑;color:#ffffff;position:absolute;width:100%;text-align:center;line-height:0px;">大写锁定已打开</p>
 		</div>
 
-		<article style="margin-top:50px">
-			<center class="card" style="background-color: #fff;width:35%;min-height:350px">
-				<h2 class="fs-title" style="font-size: 25px">你好，SUer<br>
-					<h3 style="color:#66ccff">欢迎参与SUsage第二批公开测试</h3>
-				</h2>
-				<input class="text-input ipt" placeholder="SUsage ID" id="id" onkeyup="if(event.keyCode==13)$('#pw')[0].focus();">
-				<input class="text-input ipt" placeholder="Password" id="pw" onkeyup="if(event.keyCode==13)toLogin();" type="password">
-				<div class="checkbox" style="margin:15px 5% 0 5%;display:block">
-					<input type="checkbox" id="usrcookie">
-					<label for="usrcookie" style="display:inline-block"></label>
-					<span class="lablink">记住用户名</span>
-				</div>
-   <button onclick="toLogin();" id="btn" class="btn raised green" style="width:60%;margin-top:30px">登陆</button>
-			</center>
+<div class="container text-center">
+<div class="row text-center" style="padding-top:40px"> 
+<div class="well col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center col-xs-10 col-xs-offset-1">
+  <div class="col-md-offset-2 col-md-8" style="line-height:12px;">
+            <h2 style="color:#66ccff;font-size: 25px">你好，SUer<br>
+          <h3 style="color:#66ccff">欢迎回到SUsage</h3>
+        </h2>
+        <div class="input-group">
+          <input class="form-control lgi" placeholder="SUsage ID" id="id" onkeyup="if(event.keyCode==13)$('#pw')[0].focus();">
+        </div>
+        <br>
+        <div class="input-group">
+          <input class="form-control lgi" placeholder="Password" id="pw" onkeyup="if(event.keyCode==13)toLogin();" type="password">
+        </div>
+        <div class="checkbox" style="margin:15px 5% 0 5%;display:block;">
+          <input type="checkbox" id="usrcookie">
+          <label for="usrcookie" style="display:inline-block;width:22px;height:22px"></label>
+          <span class="lablink">记住用户名</span>
+        </div>
+        <button onclick="toLogin();" id="btn" class="btn raised green" style="width:60%;margin-top:30px">登陆</button>  
+  </div>
+</div>
+</div>
+</div>
 
 			<!-- Footer -->
-			<center style="font-size:12px;color:#ffffff;padding-top:490px"><b>SUsage</b> User Preview beta2 · <a href="http://dwz.cn/susagefb" target="_blank" style="color:#ffffff">帮助与反馈中心 <!--/a>·<a href="http://zhxsu.github.io/SUsage/" target="_blank" style="color:#ffffff"> 关于 | 开源许可及协议声明 </a-->· ©2016 <a href="http://weibo.com/zxsu32nd" target="_blank" style="color:#ffffff;text-decoration:underline">执信学生会</a> <a href="http://weibo.com/zhxsupc" target="_blank"  style="color:#ffffff;text-decoration:underline">电脑部</a> · In tech we trust</center>
+			<center style="font-size:12px;color:#ffffff"><b>SUsage</b> Release 1.0 · <a href="http://dwz.cn/susagefb" target="_blank" style="color:#ffffff">帮助与反馈中心 </a>· ©2016 <a href="http://weibo.com/zxsu32nd" target="_blank" style="color:#ffffff;text-decoration:underline">执信学生会</a> <a href="http://weibo.com/zhxsupc" target="_blank"  style="color:#ffffff;text-decoration:underline">电脑部</a> · In tech we trust</center>
 		</article>
 	</body>
 
@@ -160,7 +171,7 @@ function toLogin(){
       else if(g=="1") toIndex(id);
       else if(g=="2") ErrorPW();     
       else{
-        alert("未知错误！错误码："+g);
+        alert("未知错误！错误码："+g.toString());
         $("#id")[0].disabled=0;
         $("#pw")[0].disabled=0;
         $("#btn")[0].disabled=0;
@@ -168,7 +179,7 @@ function toLogin(){
       }
     },
     error:function(e){
-      alert("未知错误！错误码："+e);
+      alert("传输错误！错误码："+e.toString());
     }
     });
   }else{   

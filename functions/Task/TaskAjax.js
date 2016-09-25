@@ -1,8 +1,8 @@
-function PublishTask(man,pdep,ct,dep){
+function PublishTask(ct,dep){
 $.ajax({
   url:"../functions/Task/toPublishTask.php",
   type:"POST",
-  data:{pubman:man,pubdep:pdep,ct:ct,dep:dep},
+  data:{ct:ct,dep:dep},
   error:function(e){
     alert("电波故障……发布任务失败！"+eval(e));
   },

@@ -71,6 +71,7 @@ for($k=0;$k<$TaskTotal;$k++){
  }
 }
 
+//var_dump($ALLSQL);
 $ALLRS=PDOQuery($dbcon,$ALLSQL,[],[]);
 echo "<script>alert('成功维护WFD数据！');window.close();</script>";
 ?>

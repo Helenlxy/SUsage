@@ -23,6 +23,8 @@ $JSName=array("jquery-2.2.1.min","lrz.all.bundle","cropper.min","ucenter","basic
 		?>
 		
 		<link rel="shortcut icon" href="../res/icons/title/login_128X128.ico">
+		<style>#qrcode{width:373px;height:400px}@media(max-width:500px){#qrcode{display: none}}
+		#qrtips{display: none}@media(max-width:500px){#qrtips{display: inline}}</style>
 	</head>
 	<body>
 	<?php ShowNavbar(); ?>
@@ -31,39 +33,7 @@ $JSName=array("jquery-2.2.1.min","lrz.all.bundle","cropper.min","ucenter","basic
 			<!-- fieldsets -->
 			<center id="avatarset" class="card">
 				<h2 class="fs-title">露个脸呗<span style="font-size: 14px"> / Avatar</span></h2>
-				<h3 class="fs-subtitle">上传你的头像,此功能尚未开放。<!--span style="color:red">  建议使用正方形图片</span><br><span style="color:#00c853">墙裂建议在更换图像前确认你“个人信息”模块中填写的数据已提交</span--></h3>
-					<!--div id="showResult" style="display: block;">
-						<div style="width: 50%;margin: 0 auto;margin-top: 10px;">
-							<input id="image" type="file" accept="image/*" capture="camera">
-						</div>
-						<div id="changeAvatar" style="margin-top: 35px;"><img src="<?php echo $_SESSION['headimg']; ?>" class="avt">
-						</div>
-					</div>
-					<div id="showEdit" style="width: 400px; height: 400px; position: absolute; left: 15%; z-index: 9; display: none;">
-						<div style="width:100%;z-index:999999;position: absolute;top:10px;left:0px;border-radius: 4%">
-							<button class="avbtn" id="cancleBtn" style="z-index:99999;float:left;margin-left:10px;background-color: #fff;color:#000">取消</button>
-							<button class="avbtn" id="confirmBtn" style="z-index:999999;float:right;margin-right: 10px;">确定</button>
-						</div>
-						<div id="report">
-							<img src="" style="margin-left: 0px; margin-top: 0px; transform: none;">
-							<span class="cropper-dashed dashed-h cropper-hidden"></span>
-							<span class="cropper-dashed dashed-v cropper-hidden"></span>
-							<span class="cropper-center"></span>
-							<span class="cropper-face cropper-invisible cropper-move"></span>
-							<span class="cropper-line line-e cropper-hidden" data-action="e"></span>
-							<span class="cropper-line line-n cropper-hidden" data-action="n"></span>
-							<span class="cropper-line line-w cropper-hidden" data-action="w"></span>
-							<span class="cropper-line line-s cropper-hidden" data-action="s"></span>
-							<span class="cropper-point point-e cropper-hidden" data-action="e"></span>
-							<span class="cropper-point point-n cropper-hidden" data-action="n"></span>
-							<span class="cropper-point point-w cropper-hidden" data-action="w"></span>
-							<span class="cropper-point point-s cropper-hidden" data-action="s"></span>
-							<span class="cropper-point point-ne cropper-hidden" data-action="ne"></span>
-							<span class="cropper-point point-nw cropper-hidden" data-action="nw"></span>
-							<span class="cropper-point point-sw cropper-hidden" data-action="sw"></span>
-							<span class="cropper-point point-se cropper-hidden" data-action="se"></span>
-						</div>
-					</div-->		
+				<h3 class="fs-subtitle">上传你的头像,由于技术问题此功能尚未开放。<br><br>如果你需要更换头像，你可以在下方扫描二维码，<br>在群中@df7c5117或@后端开发兼运维 小生蚝，<br>也可以私聊他们并发送<br><b>自行裁剪过、分辨率不低于150*150的、尽量是正方形的</b>图片<br>来设定自己的头像
 			</center>
 			<center id="pwset" class="card">
 				<h2 class="fs-title">个人信息<span style="font-size: 14px"> / Information</span></h2>
@@ -90,7 +60,8 @@ $JSName=array("jquery-2.2.1.min","lrz.all.bundle","cropper.min","ucenter","basic
 				<h3 class="fs-subtitle" style="color: #bdbdbd;margin-top: 40px">—————— 用户群 ——————</h3>
 				<center>
 					<!--span>企鹅群：<a>324430720</a></span--><br>
-					<span>微信群您已添加。</span><br>
+					<img id="qrcode" src="../qrcode.jpg"/><br>
+					<span id="qrtips">请在电脑版网页扫描二维码加入.</span><br>
 					<span>如果需要帮助和反馈，也可以在群里私聊负责人。</span>
 
 				<h3 class="fs-subtitle" style="color: #bdbdbd;margin-top: 40px">—————— 帮助 ——————</h3>

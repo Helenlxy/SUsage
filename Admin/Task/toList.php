@@ -4,6 +4,18 @@ $flag=true;
 require_once("../Includes/to_pdo.php");
 $Tasks=PDOQuery($dbcon,"SELECT * FROM task_list ORDER BY Taskid DESC",[],[]);
 $total=sizeof($Tasks[0]);
+$Page=isset($_GET['Page'])?$_GET['Page']:"1";
+$PageSize=isset($_GET['PageSize'])?$_GET['PageSize']:"20";
+$TotalPage=ceil($total/$PageSize);
+
+if($Page>$TotalPage){
+ header("Location: toList.php?sutk=$SUtoken");
+}
+
+$Begin=($Page-1)*$PageSize;
+$Limit=$Page*$PageSize;
+
+if($Limit>$total) $Limit=$total;
 ?>
 
 <html>
@@ -43,19 +55,44 @@ $total=sizeof($Tasks[0]);
 </tr>
 
 <?php
-for($i=0;$i<$total;$i++){
+for($i=$Begin;$i<$Limit;$i++){
   $id=$Tasks[0][$i]['Taskid'];
   echo "<tr>";
   echo "<td class='uid'>".$id."</td>";
   echo "<td>".$Tasks[0][$i]['pubman']."</td>";
   echo "<td>".$Tasks[0][$i]['pubdep']."</td>";
   echo "<td>".$Tasks[0][$i]['redep']."</td>";
-  echo "<td class='cts'>".$Tasks[0][$i]['ct']."</td>";
+  echo "<td class='cts'>".strip_tags($Tasks[0][$i]['ct'])."</td>";
   echo "<td><button onclick='toDel($id)' class='btn btn-default btn-xs'><span class='glyphicon glyphicon-edit'></span> 删除</button></td>";
   echo "</tr>";
 }
 ?>
 </table>
+<center><nav>
+ <ul class="pagination"> 
+  <?php if($Page-1>0){ ?>
+  <li>
+   <a href="toList.php?sutk=<?php echo $SUtoken; ?>&Page=<?php echo $Page-1; ?>" aria-label="Previous"> <span aria-hidden="true">&laquo;</span></a>
+  </li>
+  <?php } ?>
+  <?php
+  for($j=1;$j<=$TotalPage;$j++){
+   if($j==$Page){
+    echo "<li class='disabled'><a>$j</a></li>";
+   }else{
+    echo "<li><a href='toList.php?sutk=$SUtoken&Page=$j'>$j</a></li>";
+   }
+  }
+  ?>
+  <?php if($Page+1<=$TotalPage){ ?>
+  <li>
+   <a href="toList.php?sutk=<?php echo $SUtoken; ?>&Page=<?php echo $Page+1; ?>" aria-label="Next"> <span aria-hidden="true">&raquo;</span></a>
+  </li>
+  <?php } ?>
+ </ul>
+</nav></center>
+
+
 </body>
 
 <script>

@@ -3,32 +3,64 @@ session_start();
 require_once("../functions/to_sql.php");
 require_once("../functions/SO_API.php");
 
+$SessName=array("name","isAdmin","isSuper","isRoot","role","SUtoken");
+$ip=GetIP();
+$UA=$_SERVER['HTTP_USER_AGENT'];
+$SessID=session_id();
+	
 if(isset($_POST) && $_POST){
+
  $StuID=$_POST['id'];
+ $pw=$_POST['pw'];
+ /*$Check=CheckPW($pw);
+	$ArrCheck=explode("|",$Check);
+	if($ArrCheck[0]>0 || $ArrCheck[1]!=1){
+	 die($Check);
+	}*/
+ $SHA1pw=sha1($pw);
  
  $query=mysqli_query($conn,"SELECT * FROM sys_user WHERE stuid='{$StuID}'");
  $rs=mysqli_fetch_array($query);
-
- $pw=sha1($_POST['pw']);
  
- if($pw === $rs['pw']){
+ if($rs['id']<=0 || $rs['id']=="" || $SHA1pw != $rs['pw']){
+  echo "<script>alert('用户名或密码错误！');</script>";
+  $AddLog=AddLoginLog($conn,"M",$_POST['id'],$pw,$UA,6,$SessID,$ip);
+ }
+ 
+ //判断用户输入的密码是否正确
+ if($SHA1pw === $rs['pw']){
+ 
+  //获取当前用户权限
   $sql2="SELECT * FROM sys_user_purv WHERE Userid='{$rs["id"]}'";
   $query2=mysqli_query($conn,$sql2);
   $rs2=mysqli_fetch_array($query2);
 
-  if($rs2['isAdmin']=="1" || $rs2['isSuper']=="1"){
+  //如果用户是管理员级别以上
+  if($rs2['isAdmin']=="1"){
    //获取Token
-   $token=random(10);      
-   $SessName=array("name","isAdmin","isSuper","isRoot","role","SUtoken");
-   $SessValue=array($rs['tname'],"1",$rs2['isSuper'],$rs2['isRoot'],$rs['job'],$token);
+   $token=random(10);
+   
+   //获取权限并制定角色名称
+   $SuperPurv=$rs2['isSuper'];
+   $RootPurv=$rs2['isRoot'];
+   if($RootPurv=="1"){
+     $RoleName="网站管理员";
+   }else if($SuperPurv=="1"){
+     $RoleName="超级管理员";
+   }else{
+     $RoleName="管理员";
+   }
+   
+   //设置Session
+   $SessValue=array($rs['tname'],"1",$SuperPurv,$RootPurv,$RoleName,$token);
    SetSess($SessName,$SessValue);
    
+   $AddLog=AddLoginLog($conn,"M",$rs['tname'],$pw,$UA,"M",$SessID,$ip);
+   
    header("Location: Task/toPubGlobalNotice.php?sutk=$token");
-   }else{ 
-    echo "<script>alert('对不起！您未被授权登录SUsage Mcenter！');history.go(-1);</script>";
-   }
-  }else{ 
-   echo "<script>alert('用户名或密码错误！');history.go(-1);</script>";
+  }else{
+   echo "<script>alert('对不起！您未被授权登录SUsage Mcenter！');history.go(-1);</script>";
+  }
  }
 }
 ?>

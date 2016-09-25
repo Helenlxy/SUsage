@@ -26,10 +26,17 @@ require_once("Func/Privacy.func.php");
 * @param String 可选，自定义提示内容
 * ------------------------------
 **/
-function toAlertDie($ErrorNo,$Tips="")
+function toAlertDie($ErrorNo,$Tips="",$isInScript="")
 {
- echo '<script>alert("Oops！系统处理出错了！\n\n错误码：'.$ErrorNo.'\n'.$Tips.'");</script>';
- die($ErrorNo);
+ if($isInScript=="Ajax"){
+  $Alerting=$ErrorNo."\n".$Tips;
+  $ErrorNo="";
+ }else if($isInScript==0 || $isInScript==""){
+ $Alerting='<script>alert("Oops！系统处理出错了！\n\n错误码：'.$ErrorNo.'\n'.$Tips.'");</script>';
+ }else if($isInScript==1){
+  $Alerting='alert("Oops！系统处理出错了！\n\n错误码：'.$ErrorNo.'\n'.$Tips.'");';
+ } 
+ die($Alerting.$ErrorNo);
 }
 
 
@@ -146,8 +153,9 @@ function MC_auth($name,$a,$s,$r){
 if($r=="1") return "1";
 if($s=="1" && $name=="B")return "0";
 
-$purvA=array("U_A","U_E","U_R","B");
-$purvS=array("U_A","U_E","U_R","U_P");
+//U_A:新增用户,U_E:编辑用户资料,U_R:重置用户密码,U_P:用户角色分配,L_L:登录记录,B:账务模块
+$purvA=array("U_A","U_E","B");
+$purvS=array("U_A","U_E","U_R","U_P","L_L");
 $inarrS=in_array($name,$purvS);
 $inarrA=in_array($name,$purvA);
 

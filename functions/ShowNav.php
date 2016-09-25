@@ -79,3 +79,4 @@ $h=date("G");
  <button id="cancelexit" class="btn" style="font-family:微软雅黑;color:#ffffff;position:absolute;right:20%;line-height:55px;font-size:16px;font-weight:bold;cursor:pointer;">不要</button>
 </div>
 <!-- [end]退出提示 -->
+<script>var exitnotify=document.getElementById('toast-exit');function exit(){exitnotify.style.display="block"}var exitcancel=document.getElementById('cancelexit');exitcancel.onclick=cancelexit;function cancelexit(){exitnotify.style.display="none"}</script>

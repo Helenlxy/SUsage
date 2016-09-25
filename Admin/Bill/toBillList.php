@@ -49,7 +49,7 @@ $id=$list[0][$i]['billid'];
   <td><?php echo $list[0][$i]['Cost']; ?></td>
   <td><?php echo $list[0][$i]['Income']; ?></td>
   <td><?php echo $list[0][$i]['Registrant']; ?></td>
-  <td><a href='/SUsage/Admin/Bill/toBillDetail.php?billid=<?php echo $id; ?>&sutk=<?php echo $SUtoken; ?>' class='btn btn-default btn-xs'><span class='glyphicon glyphicon-edit'></span> 详情</a> <a href='/SUsage/Admin/Bill/toEditBillList.php?billid=<?php echo $id; ?>&sutk=<?php echo $SUtoken; ?>' class='btn btn-default btn-xs'><span class='glyphicon glyphicon-edit'></span> 修改</a> <a href='/SUsage/Admin/Bill/toDelBillList.php?billid=<?php echo $id; ?>&sutk=<?php echo $SUtoken; ?>' class='btn btn-default btn-xs'><span class='glyphicon glyphicon-edit'></span> 删除</a></td>
+  <td><a href='toBillDetail.php?billid=<?php echo $id; ?>&sutk=<?php echo $SUtoken; ?>' class='btn btn-default btn-xs'><span class='glyphicon glyphicon-edit'></span> 详情</a> <a href='toEditBillList.php?billid=<?php echo $id; ?>&sutk=<?php echo $SUtoken; ?>' class='btn btn-default btn-xs'><span class='glyphicon glyphicon-edit'></span> 修改</a> <a href='toDelBillList.php?billid=<?php echo $id; ?>&sutk=<?php echo $SUtoken; ?>' class='btn btn-default btn-xs'><span class='glyphicon glyphicon-edit'></span> 删除</a></td>
 </tr>
 <?php } ?>
 

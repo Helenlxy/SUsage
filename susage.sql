@@ -24,6 +24,14 @@ CREATE TABLE IF NOT EXISTS `bill_money` (
 INSERT INTO `bill_money` (`id`, `pay`, `income`, `surplus`, `ip`, `updatetime`) VALUES
 (1, '666.00', '233.00', '0.00', '127.0.0.1', '2016-08-20 00:00:00');
 
+CREATE TABLE IF NOT EXISTS `login_token` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`SessionID` TEXT NOT NULL COLLATE 'utf8_unicode_ci',
+	`LoginTime` VARCHAR(14) NOT NULL COLLATE 'utf8_unicode_ci',
+	`ErrorCount` INT(1) NOT NULL DEFAULT '0',
+	PRIMARY KEY (`id`)
+) COLLATE='utf8_unicode_ci' ENGINE=InnoDB;
+
 CREATE TABLE IF NOT EXISTS `sys_login_log` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `UserName` varchar(5) COLLATE utf8_unicode_ci NOT NULL,

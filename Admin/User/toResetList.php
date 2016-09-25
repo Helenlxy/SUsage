@@ -6,6 +6,18 @@ $flag=true;
 require_once("../Includes/to_pdo.php");
 $list=PDOQuery($dbcon,"SELECT * FROM sys_user",[],[]);
 $total=sizeof($list[0]);
+$Page=isset($_GET['Page'])?$_GET['Page']:"1";
+$PageSize=isset($_GET['PageSize'])?$_GET['PageSize']:"20";
+$TotalPage=ceil($total/$PageSize);
+
+if($Page>$TotalPage){
+ header("Location: toResetList.php?sutk=$SUtoken");
+}
+
+$Begin=($Page-1)*$PageSize;
+$Limit=$Page*$PageSize;
+
+if($Limit>$total) $Limit=$total;
 ?>
 
 <html>
@@ -33,23 +45,47 @@ $total=sizeof($list[0]);
   <th>用户名</th>
   <th>姓名</th>
   <th>部门</th>
-  <th>职位</th>
   <th>操作</th>
 </tr>
 <?php
-  for($i=0;$i<$total;$i++){
+  for($i=$Begin;$i<$Limit;$i++){
     $uid=$list[0][$i]['id'];
     $name=$list[0][$i]['tname'];
     echo "<tr>";
     echo "<td>".$list[0][$i]['stuid']."</td>";
     echo "<td>".$name."</td>";
     echo "<td>".$list[0][$i]['dep']."</td>";
-    echo "<td>".$list[0][$i]['job']."</td>";
     echo "<td><button onclick='toReset($uid)' class='btn btn-default btn-xs'><span class='glyphicon glyphicon-edit'></span> 重置密码</a></td>";
     echo "</tr>";
   }
 ?>
 </table>
+
+<center><nav>
+ <ul class="pagination"> 
+  <?php if($Page-1>0){ ?>
+  <li>
+   <a href="toResetList.php?sutk=<?php echo $SUtoken; ?>&Page=<?php echo $Page-1; ?>" aria-label="Previous"> <span aria-hidden="true">&laquo;</span></a>
+  </li>
+  <?php } ?>
+  <?php
+  for($j=1;$j<=$TotalPage;$j++){
+   if($j==$Page){
+    echo "<li class='disabled'><a>$j</a></li>";
+   }else{
+    echo "<li><a href='toResetList.php?sutk=$SUtoken&Page=$j'>$j</a></li>";
+   }
+  }
+  ?>
+  <?php if($Page+1<=$TotalPage){ ?>
+  <li>
+   <a href="toResetList.php?sutk=<?php echo $SUtoken; ?>&Page=<?php echo $Page+1; ?>" aria-label="Next"> <span aria-hidden="true">&raquo;</span></a>
+  </li>
+  <?php } ?>
+ </ul>
+</nav></center>
+
+
 </body>
 
 <script>

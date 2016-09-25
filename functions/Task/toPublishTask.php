@@ -4,8 +4,8 @@ session_start();
 require_once("../to_sql.php");
 require_once("../SO_API.php");
 if(GetSess("SU_M")!="1"){toAlertDie("#403","您暂无权限发布任务！");}
-$p_man=$_POST['pubman'];
-$p_dep=$_POST['pubdep'];
+$p_man=GetSess("truename");
+$p_dep=$_SESSION['dep'][0];
 $p_ct=$_POST['ct'];
 $r_dep=$_POST['dep'];
 $r_dep2=explode(",",$r_dep);
@@ -15,7 +15,7 @@ $ip=GetIP();
 //获取所有需要接收任务的用户
 $sct_sql="SELECT * FROM sys_user WHERE";
 for($d=0;$d<sizeof($r_dep2);$d++){
-  $sct_sql.=" dep='{$r_dep2[$d]}' OR";
+  $sct_sql.=" dep LIKE '%{$r_dep2[$d]}%' OR";
 }
 
 //去掉SQL语句的最后一段“OR”

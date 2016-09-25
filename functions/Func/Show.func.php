@@ -1,7 +1,7 @@
 <?php
 
 /**
-* @name PHP公用函数库 -- 显示文件函数
+* @name PHP公用函数库 1 显示文件函数
 * @copyright 版权所有：小生蚝 <master@xshgzs.com>
 * @create 创建时间：2016-08-27
 * @modify 最后修改时间：2016-08-27
