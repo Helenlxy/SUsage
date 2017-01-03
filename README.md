@@ -1,3 +1,6 @@
+##由于试运行阶段没有达到KPI,同时开发团队工作紧张，该项目已停止维护。
+####离开不一定代表结束，也许会是新的开始。
+
 <b>Zhixin StudentUnion OA System #Codename"SUsage" </b>
 
 <b>执信中学学生会信息化在线办公系统 开源项目 #代号"SUsage" </b>
