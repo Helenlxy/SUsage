@@ -1,5 +1,5 @@
-##由于试运行阶段没有达到KPI,同时开发团队工作紧张，该项目已停止维护。
-####离开不一定代表结束，也许会是新的开始。
+## 由于试运行阶段没有达到KPI,同时开发团队工作紧张，该项目已暂停维护并即将重置。
+#### 离开不一定代表结束，也许会是新的开始。
 
 <b>Zhixin StudentUnion OA System #Codename"SUsage" </b>
 
@@ -41,19 +41,12 @@
   <h4><p>本地可以使用<b>XAMPP1.8.2+</b>调试，服务器端建议最低配置PHP5+, Apache 2.4.17+, phpMyAdmin 4.5.1+</p></h4>
   <p>You can use <b>XAMPP1.8.2+</b> for local debugging.The recommend requirement for Server-side is PHP5+, Apache 2.4.17+, phpMyAdmin 4.5.1+</p>
   <h4><p>请将此文件包放在网站根目录</b></p></h4>
-  <p>Please put this package into the root directory of your website.</b>
   <h4><p>环境配置完成后，请在PhpMyAdmin中新建susage数据库后导入susage.sql文件。</p></h4>
-  <p>After runtime configuration completed,please set a new database which called <b>susage</b> and import <b>susage.sql</b> into this database.</p>
   <h4><p>并在<b>functions/to_sql.php、Admin/Includes/to_pdo.php</b>中按照提示填写您的数据库登录账户和密码</p></h4>
-  <p>Then follow the prompts to enter your database login account and password in <b>functions/to_sql.php </b>and <b> Admin/Includes/to_pdo.php</b>
   <h4><p>测试账户1：Enatsu 密码：123456（角色：管理员+组长）</p></h4>
-  <p>Test Account 1：Enatsu PW：123456（role：Admin+Group Master）</p>
   <h4><p>测试账户2：Super 密码：123456（角色：超级管理员+根用户）</p></h4>
-  <p>Test Account 2：Super PW：123456（role：SuperUser+RootUser）</p>
   <h4><p><b>若忘记密码可打开/SUsage/sha1.php按照提示输入密码</b></p></h4>
-  <p>If you forget your test password, you can open <b>/SUsage/sha1.php</b> and follow the prompts to enter your password</p>
   <h4><p><b>点击确认后将inDB复制，粘帖进数据库中“pw”即可。</b></p></h4>
-  <p>Copy the Salt and inDB into <b>pw</b> of database after click permit</p>
 <h3>近期的事情</h3>
 <p><b>----2016.8.29（Beta 2）----</b></p>
   <p>众多重大Bug修复</p>
