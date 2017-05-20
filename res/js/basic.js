@@ -1,1 +1,0 @@
-function backtop(){$("body").animate({scrollTop:0})}function easteregg(){if(event.altKey&&event.shiftKey&&event.keyCode==71){window.location.href="about.html"}}
