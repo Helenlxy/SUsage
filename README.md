@@ -1,5 +1,4 @@
-### SUsage初代开发重置。
-## SUsage已从2017年5月20日起正式开源。诚邀广州市乃至全国的校园技术部门参与开发。
+### branch SUsage1.0r SUsage初代开发重置。
 #### 离开不一定代表结束，也许会是新的开始。
 
 <b>Zhixin StudentUnion OA System #Codename"SUsage" </b>
