@@ -2,21 +2,21 @@
 
 **Zhixin StudentUnion OA System #Codename"SUsage"**
 
-** 执信中学学生会信息化在线办公系统 开源项目 #代号"SUsage" **
+**执信中学学生会信息化在线办公系统 开源项目 #代号"SUsage"**
 
-** 目前总体开发进度：100%，第二版本正在规划中。当前Build:2C03 (0803) **
+**目前总体开发进度：100%，第二版本正在规划中。当前Build:2C03 (0803)**
 
-** 项目总阶段：0.21-alpha1 #Project SUsage 2.0 **
+**项目总阶段：0.21-alpha1 #Project SUsage 2.0**
 
 **Latest update：2016.9.25 12:50**
 
-** ©2017 执信学生会 电脑部 **
+**©2017 执信学生会 电脑部**
 
 
 **Created By @yyl99311 | @df7c5117 | @GhostShadowTan | @橡胶人AS | @SmallOyster**
 
 
-** 特别鸣谢：@SmallOyster **
+**特别鸣谢：@SmallOyster**
 
 
 ### 这是个啥w
