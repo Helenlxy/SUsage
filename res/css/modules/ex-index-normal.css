@@ -1,0 +1,136 @@
+.name
+{	
+	position:absolute;
+	padding-top:28px; 
+	left: 80px;
+	font-family: "microsoft yahei";
+	padding-right:15px;
+	color:#4fb4f7;
+}
+.time
+{	
+	position:absolute;
+	padding-top:28px; 
+	right:0px;
+	padding-right:30px;
+	font-size:10px;
+	font-family: "microsoft yahei";
+	text-align:right;
+	color:#9E9E9E;
+	width:280px;
+}
+
+.mark {
+	position: absolute;
+	right: 15px;
+	bottom: 15px;
+	font-family: "microsoft yahei";
+}
+
+.tasklist {
+	position: relative;
+	left: 13%;
+	word-wrap:break-word; 
+	word-break:break-all;
+	margin-top: 10px;
+	margin-bottom: 30px;
+	min-width: 100%;
+}
+
+.headimg {
+	position: relative;
+	left: 15px;
+	margin-top: 15px;
+	width: 45px;
+	height: 45px;
+	border-radius: 50%;
+}
+
+.contentarea {
+	padding: 0 15px 30px 15px;
+	width: 97%;
+	min-width: 600px;
+	min-height: 100px;
+	font-size: 18px;
+}
+
+#listarea {
+	position: absolute;
+	top: 180px;
+	left: 0;
+	padding-bottom: 100px;
+	width: 100%;
+}
+
+.pubgroup{
+	position:absolute;
+	padding-top:28px; 
+	left: 150px;
+	font-family: "microsoft yahei";
+	padding-right:15px;
+	color:#FF80AB;
+}
+
+#tips1 {
+	position: absolute;
+	top: 110px;
+	left: 53%;
+	text-align: center;
+	font-size: 18px;
+	font-family: "Microsoft Yahei";
+}
+
+#poster {
+	display: none;
+}
+
+
+@media(max-width: 800px){
+	h1{
+		font-size:1.3em;
+	}
+	h2{
+		font-size:1.1em;
+	}
+	h3{
+		font-size:0.9em;
+	}
+	h4{
+		font-size:0.7em
+	}
+	h5{
+		font-size:0.65em
+	}
+	p{
+		font-size:0.65em;
+	}
+	body{
+		width: calc(100%-133px)
+	}
+	.trick,.ver{
+		display: none;
+	}
+	.tasklist
+	{
+		width:100%;
+		left:10%;
+		padding-right: 10px
+	}
+	.contentarea
+	{	
+		position: inherit;
+		min-width: 90%;
+		width:90%;
+		word-wrap:break-word; 
+		word-break:break-all;
+	}
+	.time{
+		padding-top: 38px;
+    	padding-right: 0px;
+    	width: 180px;
+    	text-align: center;
+	}
+	.pubgroup,.name {
+    	padding-top: 8px;
+	}
+}

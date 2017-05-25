@@ -1,0 +1,131 @@
+﻿.navbar-default {
+    background-color: #424242;
+    border-color: #e7e7e7;
+}
+
+#globalnote
+{
+	height:380px;
+	width:125%;
+	margin:0 0;
+	padding:0 0;
+	position:relative;
+	top:30px;
+	background:#444;
+	border-left:1px solid #444;
+	border-right:1px solid #444;
+	z-index:8;
+}
+
+#globalnote p,h3{
+	color: rgba(255,255,255,0.87);
+	text-align: center
+}
+#whofinished{
+	height:380px;
+	width:100%;
+	margin:0 0;
+	padding:0 0;
+	position:fixed;
+	top:50px;
+	background:#444;
+	border-left:1px solid #444;
+	border-right:1px solid #444;
+	z-index: 9
+}
+@media(max-width: 800px){
+	#globalnote,#whofinished{
+		top:49px;
+	}
+}
+body
+{
+	background-color: #333!important;
+	color:rgba(255, 255, 255, 0.87)!important;
+}
+#toast-exit{
+	background-color:#BF360C;
+}
+.trick{
+	color:#333
+}
+.ex-dnavbar-appbox:hover,.ex-dnavbar-userbox:hover
+{
+	background-color:#616161;
+}
+.card{
+	background-color:#424242;
+	border: 2px solid #757575
+}
+.wangEditor-container {
+	background-color:#424242;
+	border-bottom: 1px solid #BDBDBD;
+}
+.wangEditor-menu-container {
+	border-bottom: 1px solid #757575;
+	background-color: #444
+}
+.wangEditor-menu-container .menu-item:hover {
+	background-color: #757575
+}
+.wangEditor-menu-container .menu-item a {
+	color: #BDBDBD;
+}
+.wangeditor-txt{
+	color:rgba(255, 255, 255, 0.87);
+}
+.appbox-selected
+{
+	background-color:#616161;
+}
+
+.wangEditor-drop-list {
+  display: none;
+  position: absolute;
+  background-color: #444;
+  overflow: hidden;
+  z-index: 10;
+  transition: height .7s;
+  box-shadow: 0px 0px 3px #999;
+}
+.wangEditor-drop-list a {
+  text-decoration: none;
+  display: block;
+  color: #fff;
+  padding: 3px 5px;
+}
+.wangEditor-drop-list a:hover {
+  text-decoration: underline;
+}
+.wangEditor-drop-panel,
+.txt-toolbar {
+  display: none;
+  position: absolute;
+  padding: 10px;
+  font-size: 14px;
+  background-color: #444;
+  z-index: 10;
+  box-shadow: 0px 0px 3px #999;
+}
+
+.wangEditor-drop-panel .color-item,
+.txt-toolbar .color-item {
+  display: block;
+  float: left;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 2px;
+  margin-top:2px;
+  border-radius: 2px;
+  text-decoration:none;
+}
+.wangEditor-drop-panel .color-item:hover,
+.txt-toolbar .color-item:hover {
+  text-decoration: underline;
+}
+
+tr{background: #999;text-align:center;} 
+tr:nth-child(2n){background: #bbb;} 
+tr{background-color: expression((this.sectionRowIndex % 2 == 0)?"#f00":"#ccc");}
+table{border:1px solid #bbb;}

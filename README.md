@@ -8,7 +8,7 @@
 
 **项目总阶段：0.21-alpha1 #Project SUsage 2.0**
 
-**Latest update：2016.9.25 12:50**
+**Latest update：2017.5.25 12:50**r
 
 **©2017 执信学生会 电脑部**
 
