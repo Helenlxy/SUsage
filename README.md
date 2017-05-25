@@ -5,7 +5,7 @@
 
 <b>执信中学学生会信息化在线办公系统 开源项目 #代号"SUsage" </b>
 
-<b>目前总体开发进度：100%，第二版本正在规划中。当前Build:2C03 (0803)</b>
+<b>目前总体开发进度：[===============100%===============]，第二版本正在规划中。当前Build:2C03 (0803)</b>
 
 <b>项目总阶段：1.0-Release1 #Project SUsage 1.0（开发代号Young）</b>
 
@@ -39,8 +39,7 @@
   <p>界面美观又漂亮,【咦有语病</p>
 <h3>配置</h3>
   <h4><p>本地可以使用<b>XAMPP1.8.2+</b>调试，服务器端建议最低配置PHP5+, Apache 2.4.17+, phpMyAdmin 4.5.1+</p></h4>
-  <p>You can use <b>XAMPP1.8.2+</b> for local debugging.The recommend requirement for Server-side is PHP5+, Apache 2.4.17+, phpMyAdmin 4.5.1+</p>
-  <h4><p>请将此文件包放在网站根目录</b></p></h4>
+  <h4><p>请将此文件包放在<b>网站根目录</b></p></h4>
   <h4><p>环境配置完成后，请在PhpMyAdmin中新建susage数据库后导入susage.sql文件。</p></h4>
   <h4><p>并在<b>functions/to_sql.php、Admin/Includes/to_pdo.php</b>中按照提示填写您的数据库登录账户和密码</p></h4>
   <h4><p>测试账户1：Enatsu 密码：123456（角色：管理员+组长）</p></h4>
