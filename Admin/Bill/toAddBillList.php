@@ -25,8 +25,7 @@ if(isset($_POST) && $_POST){
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>SUsage 管理中心 :: 账务系统</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet">
-  <link href="https://cdn.bootcss.com/font-awesome/4.6.3/fonts/fontawesome-webfont.svg" rel="stylesheet">
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
   <style>
   a{color:#4caf50;}
   a:hover{color:#4fb4f7;transition: 0.6s;}
@@ -39,35 +38,27 @@ if(isset($_POST) && $_POST){
 <div class="row text-center" style="padding-top:20px"> 
 <div class="well col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center col-xs-10 col-xs-offset-1">
 <h3 style="color:#4CAF50">新增账单</h3><br>
-  <a style="position:absolute;top:13px;left:5%;cursor:pointer" onclick="history.back()"><img src="../img/back.png"></a>
+  <a style="position:absolute;top:13px;left:5%;cursor:pointer" onclick="history.back()"> <返回</a>
   <div class="col-md-offset-2 col-md-8" style="line-height:12px;">
   
   <form method="post">
   <input type="hidden" name="5" value="<?php echo $_SESSION['name']; ?>">
   <div class="input-group">
-    <span class="input-group-addon">账单名称</span>
-    <input class="form-control" name="1" autocomplete="off">
-    <span class="input-group-addon">&lt;</span>
+    <input class="form-control" name="1" autocomplete="off" placeholder="账单名称">
   </div><br>
   
   <div class="input-group">
-    <span class="input-group-addon">账单内容</span>
-    <input class="form-control" name="2" autocomplete="off">
-    <span class="input-group-addon">&lt;</span>
+    <input class="form-control" name="2" autocomplete="off" placeholder="账单内容">
   </div><br>
   
   <div class="input-group">
-    <span class="input-group-addon">此单支出</span>
-    <input class="form-control" name="3" autocomplete="off">
-    <span class="input-group-addon">&lt;</span>
+    <input class="form-control" name="3" autocomplete="off" placeholder="此单支出">
   </div><br>
   
   <div class="input-group">
-    <span class="input-group-addon">此单收入</span>
-    <input class="form-control" name="4" autocomplete="off">
-    <span class="input-group-addon">&lt;</span>
+    <input class="form-control" name="4" autocomplete="off" placeholder="此单收入">
   </div><br>
-  
+
   <input type="submit" class="btn btn-info" style="width:100%" name="addbtn" value="添加账单">
   </form>
   <br>

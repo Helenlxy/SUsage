@@ -1,24 +1,16 @@
-﻿.ex-navbar-for-Desktop
-{
-	height:69px;
-	width:100%;
-	margin:0 0;
-	padding:0 0;
-	position:fixed;
-	top:0;
-	background:#64B5F6;
-	border-left:1px solid #64B5F6;
-	border-right:1px solid #64B5F6;
-	z-index:10;
+﻿.navbar-default {
+    background-color: #f8f8f8;
+    border-color: #e7e7e7;
 }
+
 #globalnote
 {
-	height:280px;
+	height:380px;
 	width:125%;
 	margin:0 0;
 	padding:0 0;
 	position:relative;
-	top:69px;
+	top:30px;
 	background:#64B5F6;
 	border-left:1px solid #64B5F6;
 	border-right:1px solid #64B5F6;
@@ -34,7 +26,7 @@
 	margin:0 0;
 	padding:0 0;
 	position:fixed;
-	top:69px;
+	top:50px;
 	background:#64B5F6;
 	border-left:1px solid #64B5F6;
 	border-right:1px solid #64B5F6;

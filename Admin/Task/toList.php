@@ -25,8 +25,7 @@ if($Limit>$total) $Limit=$total;
   <title>SUsage 管理中心 :: 任务管理</title>
   
   <!-- Bootstrap -->
-  <link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet">
-  <link href="https://cdn.bootcss.com/bootstrap/3.3.6/fonts/glyphicons-halflings-regular.svg" rel="stylesheet">
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
   <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
   <style>
   @media(max-width: 500px){
@@ -63,7 +62,7 @@ for($i=$Begin;$i<$Limit;$i++){
   echo "<td>".$Tasks[0][$i]['pubdep']."</td>";
   echo "<td>".$Tasks[0][$i]['redep']."</td>";
   echo "<td class='cts'>".strip_tags($Tasks[0][$i]['ct'])."</td>";
-  echo "<td><button onclick='toDel($id)' class='btn btn-default btn-xs'><span class='glyphicon glyphicon-edit'></span> 删除</button></td>";
+  echo "<td><button onclick='toDel($id)' class='btn-link'>删除</button></td>";
   echo "</tr>";
 }
 ?>

@@ -1,3 +1,17 @@
+html::-webkit-scrollbar,div::-webkit-scrollbar{
+	width:10px;
+	background:none;
+}
+html::-webkit-scrollbar-button,div::-webkit-scrollbar-button{
+	display: none
+}
+html::-webkit-scrollbar-thumb,div::-webkit-scrollbar-thumb{
+	background-color: rgba(0,0,0,.6);
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
 html {
 	font-family: sans-serif;
 	-ms-text-size-adjust: 100%;
@@ -275,11 +289,9 @@ html {
 }
 
 body {
-	font-family: "Microsoft Yahei","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-family: "Pingfang SC Regular","Microsoft Yahei","Helvetica Neue",Helvetica,Arial,sans-serif;
 	font-size: 14px;
 	line-height: 1.42857143;
-	color: #333;
-	background-color: #fff
 }
 
 button,input,select,textarea {
@@ -979,8 +991,7 @@ address {
 	}
 
 	.col-sm-3 {
-		width: 25%;
-		margin-top: 10px
+		width: 25%
 	}
 
 	.col-sm-2 {
@@ -1579,10 +1590,6 @@ caption {
 	text-align: left
 }
 
-th {
-	text-align: left
-}
-
 .table {
 	width: 100%;
 	max-width: 100%;
@@ -1869,7 +1876,7 @@ input[type=search] {
 }
 
 .form-group {
-	margin-bottom: 15px;
+	margin-bottom: 15px
 }
 
 .checkbox,.radio {
@@ -3198,13 +3205,8 @@ tbody.collapse.in {
 	}
 }
 
-.navbar-default {
-	background-color: #f8f8f8;
-	border-color: #e7e7e7
-}
-
 .navbar-default .navbar-brand {
-	color: #777;
+	color: #999;
 	transition: .4s ease-out
 }
 
@@ -3214,11 +3216,11 @@ tbody.collapse.in {
 }
 
 .navbar-default .navbar-text {
-	color: #777
+	color: #999
 }
 
 .navbar-default .navbar-nav>li>a {
-	color: #777;
+	color: #999;
 	transition: .25s ease-out
 }
 

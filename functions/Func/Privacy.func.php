@@ -24,7 +24,7 @@
 function AddLoginLog($conn,$Where,$User,$Password,$UserAgent,$Status,$SessID,$IP)
 {
  $pw=base64_encode($Password);
- $rs=mysqli_query($conn,"INSERT INTO sys_login_log SET UserName='{$User}', Password='{$pw}', isSuccess='{$Status}', UserAgent='{$UserAgent}', IPAddress='{$IP}', SessionID='{$SessID}'");
+ $rs=mysqli_query($conn,"INSERT INTO sys_login_log SET UserName='{$User}', Password='{$pw}', UserAgent='{$UserAgent}', IPAddress='{$IP}', SessionID='{$SessID}'");
  if($rs==true){return;}
  else if($rs==false){
   if($Where=="Q"){

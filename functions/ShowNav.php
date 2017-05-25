@@ -5,78 +5,41 @@ $nowpg=$nowpg[count($nowpg)-1];
 $nowpg=substr($nowpg,0,strlen($nowpg)-4);
 $h=date("G");
 ?>
-		
-<!-- [begin]导航栏 -->
-<div class="ex-navbar-for-Desktop">
- <!-- 用户标签 -->
- <a href="UCenter.php" class="ex-dnavbar-userbox-descunderunfb" title="进入个人中心">
-  <div class="ex-dnavbar-userbox">
-   <div class="ex-dnavbar-userbox-avatarfixbox">
-    <img id="hdimg" src="<?php echo $_SESSION['headimg']; ?>"/>
-   </div>
-   <div class="ex-dnavbar-userbox-usernamefixbox">
-    <p class="ex-dnacvar-userbox-username" id="namebox">
-    <?php 
-    echo $_SESSION['nickname']." , ";
-    if($h<5) echo '该休息了';
-    else if($h<11) echo '早上好呀';
-    else if($h<13) echo '到中午了';
-    else if($h<18) echo '下午好嘛';
-    else if($h<22) echo '天黑了呢';
-    else echo '该休息了';
-    ?>
-    </p>
-   </div>
-   <div class="ex-dnavbar-userbox-descunderunfixbox">
-    <a onclick="backtop(); return false" class="ex-dnavbar-userbox-descunderunfb" id="bktp" href="#">返回顶部 ▲ </a>&#12288;<a onclick="exit(); return false" class="ex-dnavbar-userbox-descunderunfb" title="戳一下就退出哦w">注销 ></a>
-   </div>
-  </div>
- </a>
- <div id="appfixbox">
-  <?php if($nowpg=="index"){ ?>
-  <div class="ex-dnavbar-appbox appbox-selected">
-  <img src="../res/icons/bar/ic_task.png"/>
-  <div class="ex-dnavbar-appbox-text">主页</div>
-  </div>
-  <a href="bill.php">
-   <div class="ex-dnavbar-appbox" title="闷声才能发大财">
-    <img src="../res/icons/bar/ic_files.png"/>
-    <div class="ex-dnavbar-appbox-text">账务</div>
-   </div>
-  </a>
-  <?php }else if($nowpg=="bill"){ ?>
-  <a href="index.php">
-   <div class="ex-dnavbar-appbox" title="接好任务啊~">
-    <img src="../res/icons/bar/ic_task.png"/>
-    <div class="ex-dnavbar-appbox-text">主页</div>
-   </div>
-  </a>
-  <div class="ex-dnavbar-appbox appbox-selected">
-					<img src="../res/icons/bar/ic_files.png"/>
-						<div class="ex-dnavbar-appbox-text">账务</div>
-  </div>
-  <?php }else{ ?>
-  <a href="index.php">
-   <div class="ex-dnavbar-appbox" title="接好任务啊~">
-    <img src="../res/icons/bar/ic_task.png"/>
-    <div class="ex-dnavbar-appbox-text">主页</div>
-   </div>
-  </a>
-  <a href="bill.php">
-   <div class="ex-dnavbar-appbox" title="闷声才能发大财">
-    <img src="../res/icons/bar/ic_files.png"/>
-    <div class="ex-dnavbar-appbox-text">账务</div>
-   </div>
-  </a>
-  <?php } ?>
-  </div>
- </div>
-<!-- [end]导航栏结束 -->
-<!-- [begin]退出提示 -->
-<div class="toast" id="toast-exit" style="position:fixed;width:100%;height:69px;z-index:100;display:none;">
- <label class="toast-label tohide" style="font-family:微软雅黑;color:#ffffff;position:absolute;left:10%;line-height:45px;">你你你你你你你~真的要退出吗w</label>
- <button class="btn" style="font-family:微软雅黑;color:#ffffff;position:absolute;right:10%;line-height:55px;font-size:16px;cursor:pointer;" onclick="window.location.href='logout.php'">确定注销</button>
- <button id="cancelexit" class="btn" style="font-family:微软雅黑;color:#ffffff;position:absolute;right:20%;line-height:55px;font-size:16px;font-weight:bold;cursor:pointer;">不要</button>
-</div>
-<!-- [end]退出提示 -->
-<script>var exitnotify=document.getElementById('toast-exit');function exit(){exitnotify.style.display="block"}var exitcancel=document.getElementById('cancelexit');exitcancel.onclick=cancelexit;function cancelexit(){exitnotify.style.display="none"}</script>
+
+<link rel="stylesheet" href="../res/css/themes/bootstrap.css">
+<script src="../res/js/jquery-2.2.1.min.js"></script>
+<script src="../res/js/index.js"></script>
+<script src="../res/js/bootstrap.js"></script>
+<nav id="nav" class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="menubtn"> 菜单 </span>
+			</button>
+			<?php if($nowpg=="index"){ ?>
+				<a class="navbar-brand" style="color:#319e29">任务</a>
+				<a class="navbar-brand" href="bill.php">账务</a>
+			<?php }else if($nowpg=="bill"){ ?>
+				<a class="navbar-brand" href="index.php">任务</a>
+				<a class="navbar-brand" style="color:#319e29">账务</a>
+			<?php }else{ ?>
+				<a class="navbar-brand" href="index.php">任务</a>
+				<a class="navbar-brand" href="bill.php">账务</a>
+			<?php } ?>
+		</div>
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right">
+				<li><a id="backtotop" class="hide" onclick="backtop(); return false" style="cursor:pointer;">返回顶部</a></li>
+			<li><a href="UCenter.php" title="点击进入个人中心">欢迎回来，
+					<?php 
+					echo $_SESSION['nickname'];
+					?></a>
+				</li>
+				<li><a href="logout.php">注销</a></li>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>

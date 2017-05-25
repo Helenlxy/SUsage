@@ -49,8 +49,7 @@ if(isset($_POST) && $_POST){
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Bootstrap -->
-  <link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet">
-  <link href="https://cdn.bootcss.com/bootstrap/3.3.6/fonts/glyphicons-halflings-regular.svg" rel="stylesheet">
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
   
   <style>
   a{color:#4caf50;}
@@ -63,41 +62,35 @@ if(isset($_POST) && $_POST){
 <div class="container text-center">
 <div class="row text-center" style="padding-top:20px"> 
 <div class="well col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center col-xs-10 col-xs-offset-1">
-  <h3 style="color:#4CAF50">编 辑 账 单</h3><br>
-  <a style="position:absolute;top:13px;left:5%;cursor:pointer" onclick="history.back()"><img src="../img/back.png"></a>
+  <h3 style="color:#4CAF50">编辑账单</h3><br>
+  <a style="position:absolute;top:13px;left:5%;cursor:pointer" onclick="history.back()"> <返回</a>
   <div class="col-md-offset-2 col-md-8" style="line-height:12px;">
 
-<form method="post">
-  <div class="input-group">
-    <span class="input-group-addon">账单登记人</span>
-    <input type="text" class="form-control" value="<?php echo $Registrant; ?>" disabled>
-    <span class="input-group-addon">&lt;</span>
+<form class="form-horizontal" method="post">
+  <div class="form-group">
+    <p class="col-sm-3 control-p">登记人</p>
+    <div class="col-sm-8"><input type="text" class="form-control" value="<?php echo $Registrant; ?>" disabled></div>
   </div><br>
 
-  <div class="input-group">
-    <span class="input-group-addon">账单名称</span>
-    <input type="text" class="form-control" name="Name" value="<?php echo $Name; ?>" autocomplete="off">
-    <span class="input-group-addon">&lt;</span>
+  <div class="form-group">
+    <p class="col-sm-3 control-p">账单名称</p>
+    <div class="col-sm-8"><input type="text" class="form-control" name="Name" value="<?php echo $Name; ?>" autocomplete="off"></div>
   </div>
-  <div class="input-group">
-    <span class="input-group-addon">账单内容</span>
-    <input type="text" class="form-control" name="Content" value="<?php echo $Content; ?>" autocomplete="off">
-    <span class="input-group-addon">&lt;</span>
+  <div class="form-group">
+    <p class="col-sm-3 control-p">账单内容</p>
+    <div class="col-sm-8"><input type="text" class="form-control" name="Content" value="<?php echo $Content; ?>" autocomplete="off"></div>
   </div>
-  <div class="input-group">
-    <span class="input-group-addon">此单支出</span>
-    <input type="text" class="form-control" name="Cost" value="<?php echo $Cost; ?>" autocomplete="off">
-    <span class="input-group-addon">&lt;</span>
+  <div class="form-group">
+    <p class="col-sm-3 control-p">此单支出</p>
+    <div class="col-sm-8"><input type="text" class="form-control" name="Cost" value="<?php echo $Cost; ?>" autocomplete="off"></div>
   </div>
-  <div class="input-group">
-    <span class="input-group-addon">此单收入</span>
-    <input type="text" class="form-control" name="Income" value="<?php echo $Income; ?>" autocomplete="off">
-    <span class="input-group-addon">&lt;</span>
+  <div class="form-group">
+    <p class="col-sm-3 control-p">此单收入</p>
+    <div class="col-sm-8"><input type="text" class="form-control" name="Income" value="<?php echo $Income; ?>" autocomplete="off"></div>
   </div>
 
   <br><br>
-  <input type="submit" class="btn btn-primary" value="确 认 修 改" style="width:100%">
-</form>
+  <input type="submit" class="btn btn-primary" value="确认修改" style="width:100%">
 </div>
 </div>
 </div>

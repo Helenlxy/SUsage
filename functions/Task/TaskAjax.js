@@ -23,7 +23,7 @@ $.ajax({
   },
   success:function(got){
     if(got=="9"){
-      alert("你不想说话，并成功把一只任务扔进了垃圾桶！");
+      alert("你成功把一只任务扔进了垃圾桶！");
       history.go(0);
     }else if(got=="1"){
       alert("删除任务也要按照基本法\n\n很抱歉，非任务发布人无法删除任务");
@@ -52,7 +52,7 @@ $.ajax({
     if(got=="9"){
       alert("电波故障……数据传输失败！");
     }else if(got=="1"){
-      alert("任务完成了，干得漂亮！\n\n奖励你一根棒棒糖【其实并没有");
+      alert("任务完成了，干得漂亮！");
       history.go(0);
     }else if(got=="2"){
       alert("电波不见了……网络连接失败！");

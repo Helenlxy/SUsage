@@ -16,8 +16,7 @@ $surplus=$rs[0][0]['surplus'];
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>SUsage 管理中心 :: 账务系统</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet">
-  <link href="https://cdn.bootcss.com/bootstrap/3.3.6/fonts/glyphicons-halflings-regular.svg" rel="stylesheet"> 
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
   <style>
   a{color:#4caf50;}
   a:hover{color:#4fb4f7;transition: 0.6s;}
@@ -31,26 +30,22 @@ $surplus=$rs[0][0]['surplus'];
 <div class="row text-center" style="padding-top:20px"> 
 <div class="well col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center col-xs-10 col-xs-offset-1">
   <h3 style="color:#4CAF50">修改账目总额</h3><br>
-  <a style="position:absolute;top:13px;left:5%;cursor:pointer" onclick="history.back()"><img src="../img/back.png"></a>
-  <div class="col-md-offset-2 col-md-8" style="line-height:12px;">
+  <a style="position:absolute;top:13px;left:5%;cursor:pointer" onclick="history.back()"><返回</a>
+  <div class="form-horizontal">  
+  <div class="form-group">
+    <p class="col-sm-3 control-p">总支出</p>
+    <div class="col-sm-8"><input type="text" class="form-control" onkeyup="if(event.keyCode==13)$('#income')[0].focus();" id="pay" value="<?php echo $pay; ?>"></div>
+  </div>
   
-  <div class="input-group">
-    <span class="input-group-addon">总支出</span>
-    <input type="text" class="form-control" onkeyup="if(event.keyCode==13)$('#income')[0].focus();" id="pay" value="<?php echo $pay; ?>">
-    <span class="input-group-addon">&lt;</span>
-  </div><br>
+  <div class="form-group">
+    <p class="col-sm-3 control-p">总收入</p>
+    <div class="col-sm-8"><input type="text" class="form-control" onkeyup="if(event.keyCode==13)$('#surplus')[0].focus();" id="income" value="<?php echo $income; ?>"></div>
+  </div>
   
-  <div class="input-group">
-    <span class="input-group-addon">总收入</span>
-    <input type="text" class="form-control" onkeyup="if(event.keyCode==13)$('#surplus')[0].focus();" id="income" value="<?php echo $income; ?>">
-    <span class="input-group-addon">&lt;</span>
-  </div><br>
-  
-  <div class="input-group">
-    <span class="input-group-addon">结余额</span>
-    <input type="text" class="form-control" onkeyup="if(event.keyCode==13)ChgMoney();" id="surplus" value="<?php echo $surplus; ?>">
-    <span class="input-group-addon">&lt;</span>
-  </div><br>
+  <div class="form-group">
+    <p class="col-sm-3 control-p">结余额</p>
+    <div class="col-sm-8"><input type="text" class="form-control" onkeyup="if(event.keyCode==13)ChgMoney();" id="surplus" value="<?php echo $surplus; ?>"></div>
+  </div>
   
   <button class="btn btn-info" style="width:100%" onclick="ChgMoney();" id="addbtn">修改账目</button>
   <br>

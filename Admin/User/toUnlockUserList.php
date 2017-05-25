@@ -17,8 +17,7 @@ $total=sizeof($list[0]);
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>SUsage 管理中心 :: 用户解锁</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet">
-  <link href="https://cdn.bootcss.com/bootstrap/3.3.6/fonts/glyphicons-halflings-regular.svg" rel="stylesheet"> 
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
   <style>
   a{color:#4caf50;}
   a:hover{color:#4fb4f7;transition: 0.6s;}

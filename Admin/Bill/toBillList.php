@@ -17,8 +17,7 @@ $total=sizeof($list[0]);
 
   
   <!-- Bootstrap -->
-  <link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet">
-  <link href="https://cdn.bootcss.com/bootstrap/3.3.6/fonts/glyphicons-halflings-regular.svg" rel="stylesheet">
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
   
   <style>
   a{color:#4caf50;}
@@ -49,7 +48,7 @@ $id=$list[0][$i]['billid'];
   <td><?php echo $list[0][$i]['Cost']; ?></td>
   <td><?php echo $list[0][$i]['Income']; ?></td>
   <td><?php echo $list[0][$i]['Registrant']; ?></td>
-  <td><a href='toBillDetail.php?billid=<?php echo $id; ?>&sutk=<?php echo $SUtoken; ?>' class='btn btn-default btn-xs'><span class='glyphicon glyphicon-edit'></span> 详情</a> <a href='toEditBillList.php?billid=<?php echo $id; ?>&sutk=<?php echo $SUtoken; ?>' class='btn btn-default btn-xs'><span class='glyphicon glyphicon-edit'></span> 修改</a> <a href='toDelBillList.php?billid=<?php echo $id; ?>&sutk=<?php echo $SUtoken; ?>' class='btn btn-default btn-xs'><span class='glyphicon glyphicon-edit'></span> 删除</a></td>
+  <td><a href='toBillDetail.php?billid=<?php echo $id; ?>&sutk=<?php echo $SUtoken; ?>' class='btn-link'> 详情</a> <a href='toEditBillList.php?billid=<?php echo $id; ?>&sutk=<?php echo $SUtoken; ?>' class='btn-link'> 修改</a> <a href='toDelBillList.php?billid=<?php echo $id; ?>&sutk=<?php echo $SUtoken; ?>' class='btn-link'> 删除</a></td>
 </tr>
 <?php } ?>
 

@@ -64,8 +64,8 @@ if(isset($_POST) && $_POST){
 <div class="container text-center">
 <div class="row text-center" style="padding-top:40px"> 
 <div class="well col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center col-xs-10 col-xs-offset-1">
-  <h3 style="color:#4CAF50">修改 <font color="#CC6600"><?php echo $name; ?></font> 的用户资料</h3><br>
-  <a style="position:absolute;top:13px;left:5%;cursor:pointer" onclick="history.back()"><img src="../img/back.png"></a>
+  <h3 style="color:#4CAF50">修改 <font color="#66ccff"><?php echo $name; ?></font> 的用户资料</h3><br>
+  <a style="position:absolute;top:13px;left:5%;cursor:pointer" onclick="history.back()"> <返回</a>
   <div class="col-md-offset-2 col-md-8" style="line-height:12px;">
   
 <form method="post">

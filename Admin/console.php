@@ -16,7 +16,6 @@ $total=sizeof($Tasks[0]);
 
   <!-- Bootstrap -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.bootcss.com/bootstrap/3.3.6/fonts/glyphicons-halflings-regular.svg" rel="stylesheet">
   
   <style>
   a{color:#4caf50;}

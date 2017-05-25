@@ -16,8 +16,7 @@ $total=sizeof($list[0]);
 
   
   <!-- Bootstrap -->
-  <link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet">
-  <link href="https://cdn.bootcss.com/bootstrap/3.3.6/fonts/glyphicons-halflings-regular.svg" rel="stylesheet">
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
   
   <style>
   a{color:#4caf50;}

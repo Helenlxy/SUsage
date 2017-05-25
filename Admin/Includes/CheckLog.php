@@ -4,7 +4,7 @@ include("../../functions/SO_API.php");
 
 $SUtoken=$_GET['sutk'];
 if($SUtoken != $_SESSION['SUtoken'] || !$SUtoken || !$_SESSION['SUtoken']){
-  header("Location: /Admin/login.php");
+  header("Location: ../Admin/login.php");
 }
 
 function CheckPurv($name){

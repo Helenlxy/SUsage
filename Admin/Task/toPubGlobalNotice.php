@@ -9,7 +9,7 @@ $pubtime=$all->pubtime;
 if(isset($_POST) && $_POST){
   $content=$_POST['content'];
   $urlcode=urlencode($content);
-  $time=date("n月j日");
+  $time=date("Y年n月j日");
   $man=$_SESSION['name'];
   $input='{"pubman":"'.$man.'","pubtime":"'.$time.'","notice":"'.$urlcode.'"}';
   
@@ -29,8 +29,7 @@ if(isset($_POST) && $_POST){
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Bootstrap -->
-  <link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet">
-  <link href="https://cdn.bootcss.com/bootstrap/3.3.6/fonts/glyphicons-halflings-regular.svg" rel="stylesheet">
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
   
   <style>
   a{color:#4caf50;}
@@ -45,12 +44,11 @@ if(isset($_POST) && $_POST){
 <div class="well col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center col-xs-10 col-xs-offset-1">
   <h3 style="color:#4CAF50">发布全局公告</h3><hr>
   <h4><font color="#FFA000"><b>当前公告</b></font></h4>发布人：<?php echo $pubman; ?><br>发布时间：<?php echo $pubtime; ?><br>公告内容：<?php echo $Notice; ?><br><hr>
-  <a style="position:absolute;top:20px;left:5%;cursor:pointer" onclick="history.back()"><img src="../img/back.png"></a>
   <div class="col-md-offset-2 col-md-8" style="line-height:12px;">
   
 <form method="post">
   <div class="input-group">
-    <textarea class="form-control" style="resize:none;" name="content" cols="65" rows="10" placeholder="输入全局通知的内容"></textarea>
+    <textarea class="form-control" style="resize:none;border-radius:15px" name="content" cols="65" rows="10" placeholder="输入全局通知的内容"></textarea>
   </div><br>
   <input type="submit" value="发 布" class="btn btn-success" style="width:100%">
 </form>

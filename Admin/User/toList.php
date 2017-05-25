@@ -47,8 +47,7 @@ if($Limit>$total) $Limit=$total;
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Bootstrap -->
-  <link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet">
-  <link href="https://cdn.bootcss.com/bootstrap/3.3.6/fonts/glyphicons-halflings-regular.svg" rel="stylesheet">
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
   
   <style>
   a{color:#4caf50;}
@@ -80,8 +79,7 @@ if($Limit>$total) $Limit=$total;
   ?>
 
   </select>
-<br><br>
-  用户名筛选（输入完点击空白地方自动筛选）：<input onchange="toUserNameFilter(this.value)">
+  <input onchange="toUserNameFilter(this.value)" placeholder="输入用户名，回车走起">
 </center>
 
 <hr>
@@ -103,7 +101,7 @@ if($Limit>$total) $Limit=$total;
     echo "<td>".$name."</td>";
     echo "<td>".$list[0][$i]['Phone']."</td>";
     echo "<td>".$list[0][$i]['dep']."</td>";
-    echo "<td><a href='toEdit.php?uid=$uid&name=$name&sutk=$SUtoken' class='btn btn-default btn-xs'><span class='glyphicon glyphicon-edit'></span> 修改</a></td>";
+    echo "<td><a href='toEdit.php?uid=$uid&name=$name&sutk=$SUtoken' class='btn-link'><span class='glyphicon glyphicon-edit'></span> 修改</a></td>";
     echo "</tr>";
   }
 ?>

@@ -14,7 +14,6 @@ $Bill=mysqli_fetch_row($Billq);
 		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 		<title>账务公开 / SUsage Bill</title>
 		<link rel="stylesheet" type="text/css" href="../res/css/modules/ex-ucenter.css">
-		<link rel="stylesheet" href="../res/css/editor/cropper.min.css">
 		<link rel="shortcut icon" href="../res/icons/title/files_128X128.ico"/>
 		<link rel="stylesheet" href="../res/css/themes/Sinterface.css" />
 		<link rel="stylesheet" href="../res/css/modules/ex-united.css" />
@@ -26,7 +25,7 @@ $Bill=mysqli_fetch_row($Billq);
 	
 		<article class="htmleaf-content">
 			<div class="subtitle"><h2 style="color:#4fb4f7">账务公开<span style="font-size: 14px"> / Bill</span></h2><span style="text-align: center;">除非注明，以下单位皆为人民币元（￥，RMB）</span></div>
-				<center class="card" style="height: 330px;overflow: scroll;">
+				<center class="card" style="height: 330px;overflow-y:auto;">
 					<div id="earncircle" class="circle">
 						<div id="earn" class="billtotal">总收入<p><?php echo $Bill[2]; ?></p></div>
 					</div>
@@ -51,21 +50,7 @@ $Bill=mysqli_fetch_row($Billq);
 		</article>	
 		
 <script src="../res/js/basic.js"></script>
-<script src="../res/js/lrz.all.bundle.js"></script>
 <script src="../res/js/jquery-2.2.1.min.js"></script>
-<script src="../res/js/cropper.min.js"></script>
 <script src="../res/js/ucenter.js"></script>
-<script src="../res/js/easteregg.js"></script>
-<script>
-document.onkeydown = function(){easteregg();};
-window.onload=function(){
- $("#earncircle").addClass('animate rubberBand');
- $("#hdimg").addClass('animate rubberBand');
- setTimeout("$('#costcircle').addClass('animate rubberBand');",400); 
- setTimeout("$('#namebox').addClass('animate bounceIn');",400); 
- setTimeout("$('#balcircle').addClass('animate rubberBand');",800); 
- setTimeout("$('#updatedate').addClass('animate bounceIn');",1200); 
-}
-</script>	
 </body>
 </html>
