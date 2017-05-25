@@ -18,6 +18,7 @@
 
 **特别鸣谢：@SmallOyster**
 
+[帮助文档](https://github.com/zhxsu/SUsage/wiki/%E5%B8%AE%E5%8A%A9%E4%B8%8E%E5%8F%8D%E9%A6%88%E4%B8%AD%E5%BF%83-%7C-Hints-&-Feedbacks)
 
 ### 这是个啥w
 
