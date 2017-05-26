@@ -4,7 +4,7 @@
 * @name PHP公用函数库 1 显示文件函数
 * @copyright 版权所有：小生蚝 <master@xshgzs.com>
 * @create 创建时间：2016-08-27
-* @modify 最后修改时间：2016-08-27
+* @modify 最后修改时间：2017-05-26
 */
 
 
@@ -40,7 +40,7 @@ function ShowCSS($Path,$FileName)
   }
   
   for($i=0;$i<$TotalPath;$i++){
-   echo "<link rel='stylesheet' href='../res/css/$Path[$i]/$FileName[$i].css'>";
+   echo "<link rel='stylesheet' href='../res/css/{$Path[$i]}/{$FileName[$i]}.css'>";
   }
  }
 }
@@ -57,7 +57,7 @@ function ShowJS($FileName)
   $TotalName=sizeof($FileName);
   
   for($i=0;$i<$TotalName;$i++){
-   echo "<script src='../res/js/$FileName[$i].js'></script>";
+   echo "<script src='../res/js/{$FileName[$i]}.js'></script>";
   }
  }
 }
