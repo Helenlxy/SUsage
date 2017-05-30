@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2017-05-25 06:23:11
+-- Generation Time: 2017-05-30 12:59:02
 -- 服务器版本： 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -82,7 +82,8 @@ CREATE TABLE `login_token` (
 --
 
 INSERT INTO `login_token` (`id`, `SessionID`, `LoginTime`, `ErrorCount`) VALUES
-(2, 'pfdsikro5cvcf6kraqip3i7th0', '20170524 17:48', 1);
+(2, 'pfdsikro5cvcf6kraqip3i7th0', '20170524 17:48', 1),
+(3, '8aqf6prrkgo1o5fm9b8e5nlok5', '20170526 17:50', 2);
 
 -- --------------------------------------------------------
 
@@ -98,7 +99,7 @@ CREATE TABLE `sys_login_log` (
   `SessionID` text COLLATE utf8_unicode_ci NOT NULL,
   `IPAddress` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
   `LoginTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `isSuccess` int(11) NOT NULL
+  `isSuccess` text COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -259,12 +260,12 @@ ALTER TABLE `bill_money`
 -- 使用表AUTO_INCREMENT `login_token`
 --
 ALTER TABLE `login_token`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- 使用表AUTO_INCREMENT `sys_login_log`
 --
 ALTER TABLE `sys_login_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- 使用表AUTO_INCREMENT `sys_user`
 --
@@ -279,12 +280,12 @@ ALTER TABLE `sys_user_purv`
 -- 使用表AUTO_INCREMENT `task_complete`
 --
 ALTER TABLE `task_complete`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- 使用表AUTO_INCREMENT `task_list`
 --
 ALTER TABLE `task_list`
-  MODIFY `Taskid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `Taskid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
