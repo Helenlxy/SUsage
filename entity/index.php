@@ -22,7 +22,7 @@ $Notice=urldecode($all->notice);
 $Notice_man=$all->pubman;
 $Notice_time=$all->pubtime;
 
-$CSSPath=array("themes","editor","modules","modules");
+$CSSPath=array("themes","editor","modules");
 $CSSName=array("Sinterface","wangEditor","ex-united");
 
 if($_SESSION['SU_M']==1){

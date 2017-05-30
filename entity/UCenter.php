@@ -5,9 +5,9 @@ require_once("../functions/CheckLogged.php");
 include("../functions/NightShift.php");
 include("../functions/SO_API.php");
 
-$CSSPath=array("editor","themes","modules","modules");
-$CSSName=array("cropper.min","Sinterface","ex-united","ex-ucenter");
-$JSName=array("jquery-2.2.1.min","lrz.all.bundle","cropper.min","ucenter","basic","easteregg");
+$CSSPath=array("themes","modules","modules");
+$CSSName=array("Sinterface","ex-united","ex-ucenter");
+$JSName=array("jquery-2.2.1.min","ucenter");
 ?>
 
 <html lang="zh">
