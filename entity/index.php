@@ -2,7 +2,6 @@
 session_start();
 require_once("../functions/to_sql.php");
 require_once("../functions/CheckLogged.php");
-include("../functions/NightShift.php");
 include("../functions/SO_API.php");
 
 $UID=GetSess('userid');
@@ -22,14 +21,16 @@ $Notice=urldecode($all->notice);
 $Notice_man=$all->pubman;
 $Notice_time=$all->pubtime;
 
-$CSSPath=array("themes","editor","modules");
-$CSSName=array("Sinterface","wangEditor","ex-united");
+$CSSPath=array("themes","themes","editor","modules","modules");
+$CSSName=array("bootstrap","Sinterface","wangEditor","united");
 
 if($_SESSION['SU_M']==1){
-	array_push($CSSName,"ex-index-master");
+	array_push($CSSName,"index-master");
 }else{
-	array_push($CSSName,"ex-index-normal");
+	array_push($CSSName,"index-normal");
 }
+
+include("../functions/NightShift.php");
 ?>
 <html>
 	<head>
@@ -53,7 +54,7 @@ if($_SESSION['SU_M']==1){
 			<?php echo $Notice; ?>
 			<!--内容区域结束-->
 			<br>
-			<span style="font-family: 'microsoft yahei'">————————我是有底线的————————</span>
+			<span style="font-family: 'microsoft yahei'">————————我可是有底线的————————</span>
 			</p>
 			<center><button class='btn-fff' style="margin:10px 0 20px 0" onclick='closenote(); return false'>知道了</button></center>
 		</div>
@@ -63,85 +64,91 @@ if($_SESSION['SU_M']==1){
 		<!-- 放在顶上的版权声明-->
 		<div id="about" class="ex-about" style="position:absolute;top:90px;width:100%;text-align:center;z-index:1;">
 			<a href="" onclick="opennote() ;return false" style="background-color:#c90000;color: #fff;padding:1px 5px 1px 5px;border-radius:15px"><span><?php echo $Notice_time; ?></span>最高指示</a>&#12288;
-			<a href="https://github.com/zhxsu/SUsage/wiki/%E5%B8%AE%E5%8A%A9%E4%B8%8E%E5%8F%8D%E9%A6%88%E4%B8%AD%E5%BF%83-%7C-Hints-&-Feedbacks" target="_blank" style="color:#00C853">帮助与反馈中心 </a> <a id="ver"></a><span class="tohide"> ©2017 <a href="http://weibo.com/zxsu32nd" target="_blank" style="color:#9e9e9e">执信学生会</a> <a href="http://weibo.com/zhxsupc" target="_blank"  style="color:#9e9e9e">电脑部</a> · In tech we trust </span>
+			<a href="https://github.com/zhxsu/SUsage/wiki/%E5%B8%AE%E5%8A%A9%E4%B8%8E%E5%8F%8D%E9%A6%88%E4%B8%AD%E5%BF%83-%7C-Hints-&-Feedbacks" target="_blank" style="color:#00C853">帮助与反馈中心 </a> <a id="ver"></a><span class="tohide"> ©2017 <a href="https://zhxsu.com" target="_blank" style="color:#9e9e9e">执信学生会</a> <a href="https://github.com/zhxsu" target="_blank"  style="color:#9e9e9e">电脑部</a> · In tech we trust </span>
 		</div>
 		
 		<!-- 发布器以及任务界面 -->
-		<div id='poster' class='card rich-card'>
-			<h3 style='font-family:微软雅黑;margin-top:5px;left:0px;font-size:16px;position:relative;margin-left:15px;line-height:20px;color:#bbb'>发布任务( · ω · )<span class="tohide" style="position:relative;color:#FF0000;margin-top:5px;font-family:微软雅黑;font-size:12px;text-align:center">&#12288;本页面已禁用F5键以防止误触导致草稿丢失【千万别以为键盘坏了x</span></h3>
-			<div id='edtcontainer'>
-				<textarea id='textarea1' style='position:inherit;border-radius:5px;height:390px;width:100%;padding:0px 0px 0px 0px;display:block'></textarea>
-			</div>
-			<div id='treecontainer' style='display:none'>
-				<div style="z-index:999999;margin-top: 5px">
-					<center style="font-size: 13px;margin-bottom: 15px">当部门对应的复选框被勾选后，此部门下所有的成员将接收到该任务。</center>
-					<div>					
-						<div class="checkbox m">
-							<input type="checkbox" id="CheckAll" onclick="CheckAll()">
-							<label for="CheckAll" style="display:none"></label>
-							<span class="lablink">全&#12288;选</span>
+		<div id="poster" class="container text-center">
+			<div class="row text-center" style="padding: 0px"> 
+				<div class="well col-lg-12" style="padding:0;height:465px">
+					<div class="col-md-12" style="padding:0">
+						<h3 style='font-family:微软雅黑;margin-top:5px;left:0px;font-size:16px;position:relative;margin-left:15px;line-height:20px;color:#bbb'>发布任务( · ω · )<span class="tohide" style="position:relative;color:#FF0000;margin-top:5px;font-family:微软雅黑;font-size:12px;text-align:center">&#12288;我们屏蔽了F5以防止你误刷新页面。</span></h3>
+						<div id='edtcontainer'>
+							<textarea id='textarea1' style='position:inherit;border-radius:5px;height:350px;width:100%;padding:0px 0px 0px 0px;display:block'></textarea>
 						</div>
-						<div class="checkbox m">
-							<input type="checkbox" id="checkDNB" name="ckdep[]" onclick="CheckClick()" value="电脑部">
-							<label for="checkDNB" style="display:none"></label>
-							<span class="lablink">电脑部</span>
+						<div id='treecontainer' style='display:none'>
+							<div style="z-index:999999;margin-top: 5px">
+								<center style="font-size: 13px;margin-bottom: 15px">当部门对应的复选框被勾选后，此部门下所有的成员将接收到该任务。</center>
+								<div>					
+									<div class="checkbox m">
+										<input type="checkbox" id="CheckAll" onclick="CheckAll()">
+										<label for="CheckAll" style="display:none"></label>
+										<span class="lablink">全&#12288;选</span>
+									</div>
+									<div class="checkbox m">
+										<input type="checkbox" id="checkDNB" name="ckdep[]" onclick="CheckClick()" value="电脑部">
+										<label for="checkDNB" style="display:none"></label>
+										<span class="lablink">电脑部</span>
+									</div>
+									<div class="checkbox m">
+										<input type="checkbox" id="checkDST" name="ckdep[]" onclick="CheckClick()" value="电视台">
+										<label for="checkDST" style="display:none"></label>
+										<span class="lablink">电视台</span>
+									</div>					
+								</div>
+								<div class="checkbox m">
+									<input type="checkbox" id="checkNWB" name="ckdep[]" onclick="CheckClick()" value="内务部">
+									<label for="checkNWB" style="display:none"></label>
+									<span class="lablink">内务部</span>
+								</div>
+								<div class="checkbox m">
+									<input type="checkbox" id="checkGGB" name="ckdep[]" onclick="CheckClick()" value="公关部">
+									<label for="checkGGB" style="display:none"></label>
+									<span class="lablink">公关部</span>
+								</div>
+								<div class="checkbox m">
+									<input type="checkbox" id="checkGBZ" name="ckdep[]" onclick="CheckClick()" value="广播站">
+									<label for="checkGBZ" style="display:none"></label>
+									<span class="lablink">广播站</span>
+								</div>
+								<div class="checkbox m">
+									<input type="checkbox" id="checkAU" name="ckdep[]" onclick="CheckClick()" value="社联">
+									<label for="checkAU" style="display:none"></label>
+									<span class="lablink">社&#12288;联</span>
+								</div>
+								<div class="checkbox m">
+									<input type="checkbox" id="checkWYB" name="ckdep[]" onclick="CheckClick()" value="文娱部">
+									<label for="checkWYB" style="display:none"></label>
+									<span class="lablink">文娱部</span>
+								</div>
+								<div class="checkbox m">
+									<input type="checkbox" id="checkXCB" name="ckdep[]" onclick="CheckClick()" value="宣传部">
+									<label for="checkXCB" style="display:none"></label>
+									<span class="lablink">宣传部</span>
+								</div>
+								<div class="checkbox m">
+									<input type="checkbox" id="checkXSB" name="ckdep[]" onclick="CheckClick()" value="学术部">
+									<label for="checkXSB" style="display:none"></label>
+									<span class="lablink">学术部</span>
+								</div>
+								<div class="checkbox m">
+									<input type="checkbox" id="checkTYB" name="ckdep[]" onclick="CheckClick()" value="体育部">
+									<label for="checkTYB" style="display:none"></label>
+									<span class="lablink">体育部</span>
+								</div>
+								<div class="checkbox m">
+									<input type="checkbox" id="checkZXT" name="ckdep[]" onclick="CheckClick()" value="主席团">
+									<label for="checkZXT" style="display:none"></label>
+									<span class="lablink">主席团</span>
+								</div>
+							</div>
 						</div>
-						<div class="checkbox m">
-							<input type="checkbox" id="checkDST" name="ckdep[]" onclick="CheckClick()" value="电视台">
-							<label for="checkDST" style="display:none"></label>
-							<span class="lablink">电视台</span>
-						</div>					
 					</div>
-					<div class="checkbox m">
-						<input type="checkbox" id="checkNWB" name="ckdep[]" onclick="CheckClick()" value="内务部">
-						<label for="checkNWB" style="display:none"></label>
-						<span class="lablink">内务部</span>
-					</div>
-					<div class="checkbox m">
-						<input type="checkbox" id="checkGGB" name="ckdep[]" onclick="CheckClick()" value="公关部">
-						<label for="checkGGB" style="display:none"></label>
-						<span class="lablink">公关部</span>
-					</div>
-					<div class="checkbox m">
-						<input type="checkbox" id="checkGBZ" name="ckdep[]" onclick="CheckClick()" value="广播站">
-						<label for="checkGBZ" style="display:none"></label>
-						<span class="lablink">广播站</span>
-					</div>
-					<div class="checkbox m">
-						<input type="checkbox" id="checkAU" name="ckdep[]" onclick="CheckClick()" value="社联">
-						<label for="checkAU" style="display:none"></label>
-						<span class="lablink">社&#12288;联</span>
-					</div>
-					<div class="checkbox m">
-						<input type="checkbox" id="checkWYB" name="ckdep[]" onclick="CheckClick()" value="文娱部">
-						<label for="checkWYB" style="display:none"></label>
-						<span class="lablink">文娱部</span>
-					</div>
-					<div class="checkbox m">
-						<input type="checkbox" id="checkXCB" name="ckdep[]" onclick="CheckClick()" value="宣传部">
-						<label for="checkXCB" style="display:none"></label>
-						<span class="lablink">宣传部</span>
-					</div>
-					<div class="checkbox m">
-						<input type="checkbox" id="checkXSB" name="ckdep[]" onclick="CheckClick()" value="学术部">
-						<label for="checkXSB" style="display:none"></label>
-						<span class="lablink">学术部</span>
-					</div>
-					<div class="checkbox m">
-						<input type="checkbox" id="checkTYB" name="ckdep[]" onclick="CheckClick()" value="体育部">
-						<label for="checkTYB" style="display:none"></label>
-						<span class="lablink">体育部</span>
-					</div>
-					<div class="checkbox m">
-						<input type="checkbox" id="checkZXT" name="ckdep[]" onclick="CheckClick()" value="主席团">
-						<label for="checkZXT" style="display:none"></label>
-						<span class="lablink">主席团</span>
-					</div>
+					<button class='btn raised green' id='nextstep' onclick='gotoNextStep(); return false'>下一步</button>
+					<button class='btn raised green' id='laststep' onclick='gotoLastStep(); return false' style='display:none'>上一步</button>
+					<button class='btn raised green' id='submit' style='display:none' onclick='GetTaskInfo();'>发布任务</button>
 				</div>
 			</div>
-			<button class='btn raised green' id='nextstep' onclick='gotoNextStep(); return false'>下一步</button>
-			<button class='btn raised green' id='laststep' onclick='gotoLastStep(); return false' style='display:none'>上一步</button>
-			<button class='btn raised green' id='submit' style='display:none' onclick='GetTaskInfo();'>发布任务</button>
 		</div>
 		<!-- [begin]任务界面 -->
 		<div id="listarea">
@@ -150,27 +157,43 @@ if($_SESSION['SU_M']==1){
 			$name=$rs['pubman'];//发布人
 			$pubdep=$rs['pubdep'];//发布部门
 			$Tid=$rs['Taskid'];
-			$info_sql="SELECT headimg FROM sys_user WHERE tname='$name'";
-			$query=mysqli_query($conn,$info_sql);
-			$info=mysqli_fetch_array($query);
-			$headimg=$info['headimg'];//发布人头像
+			$head_sql="SELECT headimg FROM sys_user WHERE tname='$name'";
+			$veri_sql="SELECT isVerified FROM sys_user WHERE tname='$name'";
+			$headquery=mysqli_query($conn,$head_sql);
+			$head=mysqli_fetch_array($headquery);
+			$veriquery=mysqli_query($conn,$veri_sql);
+			$veri=mysqli_fetch_array($veriquery);
+			$headimg=$head['headimg'];//发布人头像
+			$verified=$veri['isVerified'];//认证标志
 		?>
-			<div class="card rich-card tasklist">
+			<div class="container">
+			<div class="row" style="padding:0"> 
+			<div class="well col-lg-12" style="padding:0">
+			<div class="col-md-12" style="padding:0">
 				<img class="headimg" src="<?php echo $headimg; ?>">
+				<div class="userinfo">
 				<span class="name"><?php echo $name; ?></span>
+				<?php 
+				if($verified=="1"){
+				?>
+				<span class="verify" title="认证用户">⚡</span>
+				<?php 
+				}
+				?>
 				<span class="pubgroup"><?php echo $pubdep; ?></span>
+				</div>
 				<span class="time">发布于<span><?php echo $rs['pubtime']; ?></span></span>
 				<div class="contentarea">
 				  <?php echo $rs['ct']; ?>
 				</div>
-				<div class="card-footer">
+				<div>
 				<?php
 				if($name==$pubman){//自己发布的任务
 					$cpt_sql="SELECT * FROM task_complete WHERE Taskid='$Tid' AND isComplete='1'";
 					$cpt_rs=mysqli_query($conn,$cpt_sql);
 					$cpt=mysqli_num_rows($cpt_rs);
 				?>
-				<div style="float:left;margin:15px 10px">
+				<div style="margin:8px 15px;">
 					<div id='click<?php echo $Tid;?>'><a class='btn-danger' onclick='checkDel("<?php echo $Tid; ?>");'>删除任务</a></div>
 					<div id='check<?php echo $Tid;?>' style='display:none'><a class='btn-danger' onclick='DeleteTask("<?php echo $Tid; ?>");' title="再点一下">点击确认</a></div>
 				</div>
@@ -191,8 +214,11 @@ if($_SESSION['SU_M']==1){
         <?php } } ?>
         </div>
       </div>
+      </div>
+      </div>
+      </div>
       <?php } ?>
-      <center class="ex-end" style="left:12.8%">—————— 我是有底线的 ——————</center>
+      <center class="ex-end" >—————— 我可是有底线的 ——————</center>
       </div>
     </div>
 		<!-- [begin]任务完成模块 -->
@@ -225,7 +251,7 @@ var Checking = document.getElementById("CheckAll");
   if(Checking.checked){
     for(i=0;i<cl;i++){
       ckdep[i].checked = true;
-      pstbtn.style.display = 'block';
+      pstbtn.style.display = 'inline-block';
     }
   }else{
     for(i=0;i<cl;i++){
@@ -241,7 +267,7 @@ NotCheck=0;isCheck=0;
 
 for(var k=0;k<cl;k++){
  if(ckdep[k].checked){
-   pstbtn.style.display = 'block';
+   pstbtn.style.display = 'inline-block';
    isCheck++;
  }else if(!ckdep[k].checked){
    NotCheck++;
@@ -260,7 +286,7 @@ editor.onchange = function(){
 	if(this.$txt.html()=="<p><br></p>"){
 		submitbtn.style.display = 'none';
 	}else{
-		submitbtn.style.display = 'block';
+		submitbtn.style.display = 'inline-block';
 	}
 };
 
@@ -334,7 +360,7 @@ function gotoLastStep(){
 }
 
 function gotoNextStep(){
-	treebox.style.display = 'block';
+	treebox.style.display = 'inline-block';
 	iptbox.style.display = 'none';
 	lastbtn.style.display = '';
 	nextbtn.style.display = 'none';
@@ -345,9 +371,7 @@ function gotoNextStep(){
 <?php
 if($_SESSION['SU_M']==1){
 	echo "<script src='../res/js/lockkey.js'></script>";
-	echo '<script type="text/javascript">document.onkeydown = function(){lockf5();easteregg();};</script>';
-}else{
-	echo '<script type="text/javascript">document.onkeydown = function(){easteregg();};</script>';
+	echo '<script type="text/javascript">document.onkeydown = function(){lockf5();};</script>';
 }
 ?>
 </body>

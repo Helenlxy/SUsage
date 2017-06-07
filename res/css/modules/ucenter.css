@@ -21,7 +21,6 @@
 #pwset
 {
 	margin-top:180px;
-	margin-bottom: 50px
 }
 .targetitem{
 	color:#00c853;
@@ -84,9 +83,6 @@
 @media(max-width: 800px){
   .circle{margin:20px;width:100px;height:100px}
   .billtotal{margin-top: 10px;width:75px;}
-  #earncircle{border:2px solid #00c857;}
-  #costcircle{border:2px solid #FF808B;}
-  #balcircle{border:2px solid #4fb4f7;}
   #earn p{font-size: 25px;}
   #cost p{font-size: 25px;}
   #balance p{font-size: 25px;}
@@ -96,19 +92,15 @@
   top:470px;
 }
 .cpstips{
-  background:#f00000;
-  padding:2px;
+  display: inline-block;
+  margin:10px auto;
   border-radius: 3px;
-  color:#fff;
+  color:#f00000;
   width:auto;
   text-align: center;
 }
 
 @media(max-width: 500px){
-  .card{  
-    width: 60%;
-    left: 2%;
-  }
   .subtitle{
     left:2%;
     width:200px;

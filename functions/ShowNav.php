@@ -6,7 +6,6 @@ $nowpg=substr($nowpg,0,strlen($nowpg)-4);
 $h=date("G");
 ?>
 
-<link rel="stylesheet" href="../res/css/themes/bootstrap.css">
 <script src="../res/js/jquery-2.2.1.min.js"></script>
 <script src="../res/js/index.js"></script>
 <script src="../res/js/bootstrap.js"></script>

@@ -43,17 +43,7 @@ body
 	background-color: #333!important;
 	color:rgba(255, 255, 255, 0.87)!important;
 }
-#toast-exit{
-	background-color:#BF360C;
-}
-.trick{
-	color:#333
-}
-.ex-dnavbar-appbox:hover,.ex-dnavbar-userbox:hover
-{
-	background-color:#616161;
-}
-.card{
+.well,.card{
 	background-color:#424242;
 	border: 2px solid #757575
 }

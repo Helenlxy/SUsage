@@ -704,7 +704,7 @@ address {
 	padding-right: 15px
 }
 
-@media (min-width:768px) {
+/*@media (min-width:768px) {
 	.container {
 		width: 750px
 	}
@@ -720,7 +720,7 @@ address {
 	.container {
 		width: 1170px
 	}
-}
+}*/
 
 .container-fluid {
 	margin-right: auto;
@@ -1807,7 +1807,7 @@ output {
 	font-size: 14px;
 	line-height: 1.42857143;
 	color: #555;
-	background-color: #fff;
+	background-color: transparent;
 	background-image: none;
 	border: 1px solid #aaa;
 	border-radius: 30px;
@@ -3250,10 +3250,6 @@ tbody.collapse.in {
 	background-color: #888
 }
 
-.navbar-default .navbar-collapse,.navbar-default .navbar-form {
-	border-color: #e7e7e7
-}
-
 .navbar-default .navbar-nav>.open>a,.navbar-default .navbar-nav>.open>a:focus,.navbar-default .navbar-nav>.open>a:hover {
 	background-color: #e7e7e7;
 	color: #555
@@ -4253,14 +4249,10 @@ a.list-group-item-danger.active,a.list-group-item-danger.active:focus,a.list-gro
 }
 
 .well {
-	min-height: 20px;
+	min-height: 220px;
 	padding: 19px;
 	margin-bottom: 20px;
-	background-color: #f5f5f5;
-	border: 1px solid #e3e3e3;
 	border-radius: 4px;
-	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
-	box-shadow: inset 0 1px 1px rgba(0,0,0,.05)
 }
 
 .well blockquote {

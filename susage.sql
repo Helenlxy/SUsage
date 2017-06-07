@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.6.5.2
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 2017-05-30 12:59:02
--- 服务器版本： 10.1.19-MariaDB
--- PHP Version: 5.6.28
+-- Generation Time: 2017-06-07 14:20:42
+-- 服务器版本： 10.1.21-MariaDB
+-- PHP Version: 7.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -77,14 +77,6 @@ CREATE TABLE `login_token` (
   `ErrorCount` int(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- 转存表中的数据 `login_token`
---
-
-INSERT INTO `login_token` (`id`, `SessionID`, `LoginTime`, `ErrorCount`) VALUES
-(2, 'pfdsikro5cvcf6kraqip3i7th0', '20170524 17:48', 1),
-(3, '8aqf6prrkgo1o5fm9b8e5nlok5', '20170526 17:50', 2);
-
 -- --------------------------------------------------------
 
 --
@@ -111,25 +103,26 @@ CREATE TABLE `sys_login_log` (
 CREATE TABLE `sys_user` (
   `id` int(11) NOT NULL,
   `stuid` varchar(20) NOT NULL COMMENT '登录ID，昵称',
-  `tname` varchar(5) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '真实名字',
+  `tname` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '真实名字',
   `headimg` varchar(300) DEFAULT '../avatar/avatar.jpg' COMMENT '头像路径',
   `pw` text NOT NULL COMMENT '密码',
   `dep` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '所在部门',
   `job` varchar(5) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '普通用户' COMMENT '职称',
   `isLock` varchar(1) NOT NULL DEFAULT '0',
-  `Phone` int(11) NOT NULL
+  `Phone` int(11) NOT NULL,
+  `isVerified` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户 - 数据表';
 
 --
 -- 转存表中的数据 `sys_user`
 --
 
-INSERT INTO `sys_user` (`id`, `stuid`, `tname`, `headimg`, `pw`, `dep`, `job`, `isLock`, `Phone`) VALUES
-(1, 'root', '根管理员', '/SUsage/avatar/avatar.jpg', '7c4a8d09ca3762af61e59520943dc26494f8941b', '主席团,电脑部', '根管理员', '0', 0),
-(2, 'super', '超级管理员', '/SUsage/avatar/avatar.jpg', '7c4a8d09ca3762af61e59520943dc26494f8941b', '电脑部', '超级管理员', '0', 0),
-(3, 'admin', '管理员', '/SUsage/avatar/avatar.jpg', '7c4a8d09ca3762af61e59520943dc26494f8941b', '电脑部', '管理员', '0', 0),
-(4, 'master', '组长', '/SUsage/avatar/avatar.jpg', '7c4a8d09ca3762af61e59520943dc26494f8941b', '电脑部', '组长', '0', 0),
-(5, 'user', '用户', '/SUsage/avatar/avatar.jpg', '7c4a8d09ca3762af61e59520943dc26494f8941b', '电脑部', '普通用户', '0', 0);
+INSERT INTO `sys_user` (`id`, `stuid`, `tname`, `headimg`, `pw`, `dep`, `job`, `isLock`, `Phone`, `isVerified`) VALUES
+(1, 'root', '根管理员', '/SUsage/avatar/avatar.jpg', '7c4a8d09ca3762af61e59520943dc26494f8941b', '主席团,电脑部', '根管理员', '0', 0, 1),
+(2, 'super', '超级管理员', '/SUsage/avatar/avatar.jpg', '7c4a8d09ca3762af61e59520943dc26494f8941b', '电脑部', '超级管理员', '0', 0, 0),
+(3, 'admin', '管理员', '/SUsage/avatar/avatar.jpg', '7c4a8d09ca3762af61e59520943dc26494f8941b', '电脑部', '管理员', '0', 0, 0),
+(4, 'master', '组长', '/SUsage/avatar/avatar.jpg', '7c4a8d09ca3762af61e59520943dc26494f8941b', '电脑部', '组长', '0', 0, 0),
+(5, 'user', '用户', '/SUsage/avatar/avatar.jpg', '7c4a8d09ca3762af61e59520943dc26494f8941b', '电脑部', '普通用户', '0', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -260,12 +253,12 @@ ALTER TABLE `bill_money`
 -- 使用表AUTO_INCREMENT `login_token`
 --
 ALTER TABLE `login_token`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- 使用表AUTO_INCREMENT `sys_login_log`
 --
 ALTER TABLE `sys_login_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- 使用表AUTO_INCREMENT `sys_user`
 --
@@ -280,12 +273,12 @@ ALTER TABLE `sys_user_purv`
 -- 使用表AUTO_INCREMENT `task_complete`
 --
 ALTER TABLE `task_complete`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- 使用表AUTO_INCREMENT `task_list`
 --
 ALTER TABLE `task_list`
-  MODIFY `Taskid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Taskid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

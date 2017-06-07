@@ -5,8 +5,8 @@ require_once("../functions/CheckLogged.php");
 include("../functions/NightShift.php");
 include("../functions/SO_API.php");
 
-$CSSPath=array("themes","modules","modules");
-$CSSName=array("Sinterface","ex-united","ex-ucenter");
+$CSSPath=array("themes","themes","modules","modules");
+$CSSName=array("bootstrap","Sinterface","united","ucenter");
 $JSName=array("jquery-2.2.1.min","ucenter");
 ?>
 
@@ -26,35 +26,58 @@ $JSName=array("jquery-2.2.1.min","ucenter");
 	</head>
 	<body>
 	<?php ShowNavbar(); ?>
-			<div class="subtitle"><h2 style="color:#4fb4f7">个人中心<span style="font-size: 14px"> / UCenter</span></h2></div>
-			<!-- fieldsets -->
-			<center id="pwset" class="card">
-				<h2 class="fs-title">个人信息<span style="font-size: 14px"> / Information</span></h2>
-				<br>
-				<h4 class="fs-subtitle">修改密码</h4>
-				<br>
-				<p style="font-size:13px;color:red">只能使用数字、字母和符号,<span style="color:#909090">支持 <font style="color:#4fb4f7">^*:~?+/,.</font> 共11种符号</span><br>
-					<span id="cpslock" class="cpstips" style="display: none">大写锁定已打开</span></p>
-						<input class="form-control" type="password" id="NewPW" onfocus="CapsLock();return false" placeholder="不要告诉别人你的密码">
-					<br>
-						<input class="form-control" type="password" id="CheckNewPW"  onfocus="CapsLock();return false" placeholder="请再输一遍密码">
-					<br>
-					<button id="ChangePW" class="btn" onclick="ChangePW();" style="width:50%">修改密码</button>
-				<br>
-				<br>
-				<h4 class="fs-subtitle" style="color: #bdbdbd">—————— or ——————</h4>
-				<br>
-				<br>
-				<h4 class="fs-subtitle">修改SUsage ID和昵称</h3>
-				<br>
-					<input class="form-control" type="text" id="NewNickname" placeholder="新的昵称，只能使用字母和数字" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9]/g,'')" onpaste="value=value.replace(/[^\a-\z\A-\Z0-9]/g,'')" oncontextmenu = "value=value.replace(/[^\a-\z\A-\Z0-9]/g,'')">
-				<br>
-				<p style="font-size:12px;color:red">请牢记，这也是你的SUsage ID。</p>
-				<p style="color:#909090;font-size:12px">如果你改了大名，或者是部门调动，请联系管理员<span style="color:#4fb4f7">(主席团、电脑部APP组成员)</span>修改。</p>
-				<button id="ChangeNickname" class="btn" onclick="ChangeNickname();" style="width:50%">确认昵称</button>
-				<br>
-				<br>
-			</center>
+		<div class="subtitle"><h2 style="color:#4fb4f7">个人中心<span style="font-size: 14px"> / UCenter</span></h2></div>
+		<!-- fieldsets -->
+		<div id="pwset" class="container text-center">
+			<div class="row text-center" style="padding-top:40px"> 
+				<div class="well col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center col-xs-10 col-xs-offset-1">
+					<div class="col-md-offset-2 col-md-8">	
+						<h2 class="fs-title">个人信息<span style="font-size: 14px"> / Information</span></h2>
+						<br>
+						<h4 class="fs-subtitle">修改密码</h4>
+						<br>
+						<p style="font-size:13px;color:red">只能使用数字、字母和符号,<span style="color:#909090">支持 <font style="color:#4fb4f7">^*:~?+/,.</font> 共11种符号</span><br>						
+						<br>
+							<input class="form-control" type="password" id="NewPW" onfocus="CapsLock();return false" placeholder="不要告诉别人你的密码">
+						<br>
+							<input class="form-control" type="password" id="CheckNewPW"  onfocus="CapsLock();return false" placeholder="请再输一遍密码">
+							<br>
+						<button id="ChangePW" class="btn" onclick="ChangePW();" style="width:100%">修改密码</button>
+
+							<span id="cpslock" class="cpstips" style="display: none">大写锁定已打开</span>
+						<br>
+						<br>
+						<h4 class="fs-subtitle" style="color: #bdbdbd">—————— or ——————</h4>
+						<br>
+						<br>
+						<h4 class="fs-subtitle">修改SUsage ID和昵称</h3>
+						<br>
+							<input class="form-control" type="text" id="NewNickname" placeholder="新的昵称，只能使用字母和数字" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9]/g,'')" onpaste="value=value.replace(/[^\a-\z\A-\Z0-9]/g,'')" oncontextmenu = "value=value.replace(/[^\a-\z\A-\Z0-9]/g,'')">
+						<br>
+						<p style="font-size:12px;color:red">请牢记，这也是你的SUsage ID。</p>
+						<p style="color:#909090;font-size:12px">如果你改了大名，或者是部门调动，请联系管理员<span style="color:#4fb4f7">(主席团、电脑部APP组成员)</span>修改。</p>
+						<button id="ChangeNickname" class="btn" onclick="ChangeNickname();" style="width:100%">确认昵称</button>
+						<br>
+						<br>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container text-center" style="margin-bottom: 50px">
+			<div class="row text-center"> 
+				<div class="well col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 text-center col-xs-10 col-xs-offset-1">
+					<div class="col-md-offset-2 col-md-8">	
+						<h2 class="fs-title">帮助中心<span style="font-size: 14px"> / Hints & Feedbacks</span></h2>
+						<br>
+						<br>
+						<a href="https://github.com/zhxsu/SUsage/wiki/%E5%B8%AE%E5%8A%A9%E4%B8%8E%E5%8F%8D%E9%A6%88%E4%B8%AD%E5%BF%83-%7C-Hints-&-Feedbacks" class="btn" style="width:100%">查看帮助</a>
+						<br>
+						<br>
+					</div>
+				</div>
+			</div>
+		</div>
 			
 
 <script>
@@ -76,12 +99,12 @@ $.ajax({
 	url:"../functions/UCenter/ChangePW.php",
 	type:"POST",
 	data:{PW:NewPW},
-	error:function(e){alert("OMG！未知错误！");},
+	error:function(e){alert("未知错误");},
 	success:function(gpw){
 		if(gpw=="0"){alert("数据传输出错！");}
 		else if(gpw=="2"){alert("修改成功！请重新登录！");window.location.href="logout.php";}
 		else if(gpw=="3"){alert("数据库处理失败！修改失败！");}
-		else{alert("Ohhhh！\n修改密码失败了！\n\n请宝宝把错误码提交给APP组："+gpw);}
+		else{alert("Ohhhh！\n修改密码失败了！\n\n请把错误码提交给开发组："+gpw);}
 	}
 });
 }
@@ -159,7 +182,6 @@ if(!isIE()){
 	} 
 }
 })()
-}
 </script>
 </body>
 </html>

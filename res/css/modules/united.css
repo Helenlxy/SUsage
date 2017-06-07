@@ -10,7 +10,6 @@
 
 .ex-end {
 	width: 100%;
-	position: absolute;
 	bottom: 30px;
 	padding: 20px 0 5px 0;
 	font-family: "Microsoft Yahei";
@@ -31,4 +30,14 @@
 }
 .m{
 	margin-top: 10px
+}
+.userinfo{
+	display: inline-block;
+    vertical-align: middle;
+    height: 45px;
+    margin-top: 15px; 
+}
+.verify{
+	color: #319E29;
+	font-weight: bolder;
 }

@@ -13,10 +13,11 @@ $Bill=mysqli_fetch_row($Billq);
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 		<title>账务公开 / SUsage Bill</title>
-		<link rel="stylesheet" type="text/css" href="../res/css/modules/ex-ucenter.css">
+		<link rel="stylesheet" type="text/css" href="../res/css/themes/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="../res/css/modules/ucenter.css">
 		<link rel="shortcut icon" href="../res/icons/title/files_128X128.ico"/>
 		<link rel="stylesheet" href="../res/css/themes/Sinterface.css" />
-		<link rel="stylesheet" href="../res/css/modules/ex-united.css" />
+		<link rel="stylesheet" href="../res/css/modules/united.css" />
 		<style>.card{left:0;margin-bottom: 30px;margin-top:120px;width:75%}</style>
 	</head>
 	
@@ -49,8 +50,6 @@ $Bill=mysqli_fetch_row($Billq);
 				</center>
 		</article>	
 		
-<script src="../res/js/basic.js"></script>
 <script src="../res/js/jquery-2.2.1.min.js"></script>
-<script src="../res/js/ucenter.js"></script>
 </body>
 </html>

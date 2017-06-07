@@ -11,6 +11,7 @@
 			input::-webkit-input-placeholder{text-align: center;};
 			.lgi{background:none;border-radius: 5px}
 			.lgi:focus{border:1px solid #4fb4f7}
+			.well{background:#fff;}
 		</style>
 	</head>
 	<body style="padding-top:120px;background-color:#64B5F6">

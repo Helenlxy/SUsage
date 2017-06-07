@@ -1,10 +1,8 @@
 .name
 {	
-	position:absolute;
-	padding-top:28px; 
-	left: 80px;
-	font-family: "microsoft yahei";
-	padding-right:15px;
+	position:relative;
+	margin: 20px;
+	line-height: 45px;
 	color:#4fb4f7;
 }
 .time
@@ -19,7 +17,6 @@
 	color:#9E9E9E;
 	width:280px;
 }
-
 .mark {
 	position: absolute;
 	right: 15px;
@@ -47,7 +44,7 @@
 }
 
 .contentarea {
-	padding: 0 15px 30px 15px;
+	padding: 0 20px 30px 20px;
 	width: 97%;
 	min-width: 600px;
 	min-height: 100px;
@@ -63,11 +60,9 @@
 }
 
 .pubgroup{
-	position:absolute;
-	padding-top:28px; 
-	left: 150px;
-	font-family: "microsoft yahei";
-	padding-right:15px;
+	position:relative;
+	margin: 20px;
+	line-height: 45px;
 	color:#FF80AB;
 }
 
@@ -86,28 +81,7 @@
 
 
 @media(max-width: 800px){
-	h1{
-		font-size:1.3em;
-	}
-	h2{
-		font-size:1.1em;
-	}
-	h3{
-		font-size:0.9em;
-	}
-	h4{
-		font-size:0.7em
-	}
-	h5{
-		font-size:0.65em
-	}
-	p{
-		font-size:0.65em;
-	}
-	body{
-		width: calc(100%-133px)
-	}
-	.trick,.ver{
+	.ver{
 		display: none;
 	}
 	.tasklist

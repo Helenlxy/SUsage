@@ -41,17 +41,7 @@ body{
 	background-color: #fff;
 	color: rgba(0,0,0,0.87);
 }
-#toast-exit{
-	background-color:#FFA000;
-}
-.ex-dnavbar-appbox:hover,.ex-dnavbar-userbox:hover
-{
-	background-color:#90CAF9;
-}
-.trick{
-	color:#fff
-}
-.card{
+.well,.card{
 	background-color: #fff;
 	border: 2px solid #E0E0E0
 }

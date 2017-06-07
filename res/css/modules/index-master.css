@@ -1,10 +1,8 @@
 .name
 {	
-	position:absolute;
-	padding-top:28px; 
-	left: 80px;
-	font-family: "microsoft yahei";
-	padding-right:15px;
+	position:relative;
+	margin: 20px;
+	line-height: 45px;
 	color:#4fb4f7;
 }
 .time
@@ -14,7 +12,6 @@
 	right:0px;
 	padding-right:30px;
 	font-size:10px;
-	font-family: "microsoft yahei";
 	text-align:right;
 	color:#9E9E9E;
 	width:280px;
@@ -22,14 +19,12 @@
 .mark
 {
 	position:absolute;
-	font-family: "microsoft yahei";
 	right:15px;
 	bottom:15px
 }
 .del
 {
 	position:absolute;
-	font-family: "microsoft yahei";
 	left:15px;
 	bottom:15px
 }
@@ -57,23 +52,33 @@
 	min-width:600px;
 	width:97%;
 	font-size:18px;
-	padding:0 15px 30px 15px;
+	padding:0 20px 30px 20px;
 	min-height:100px;
+}
+#poster{
+	display:block;
+	position:absolute;
+	top:130px;
+	width:100%;
+	height:500px;
+	z-index:1;
+	left:13%;
+	right:13%;
 }
 #listarea
 {
+	display:block;
 	position:absolute;
-	top:700px;
-	padding-bottom:100px;
-	left: 0%;
+	top:650px;
     width: 100%;
+	margin-bottom:100px;
+	left:13%;
+	right:13%;
 }
 .pubgroup{
-	position:absolute;
-	padding-top:28px; 
-	left: 150px;
-	font-family: "microsoft yahei";
-	padding-right:15px;
+	position:relative;
+	margin: 20px;
+	line-height: 45px;
 	color:#FF80AB;
 }
 .finishsum{
@@ -81,7 +86,8 @@
 	color:#2196F3;
 	font-family: "microsoft yahei";
 	right:15px;
-	bottom:15px
+	bottom:15px;	
+    line-height: 5px;
 }
 .sumsty{
 	 font-size:10px;
@@ -92,41 +98,28 @@
 }
 #nextstep
 {
-	position:absolute;
-	bottom:7px;
-	right:10px;
-	font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+	position:relative;
+	margin:8px 15px;
+	float:right;
 	width:110px;
-	display:inherit;
+	display:inline-block;
 }
 #laststep
 {
-	position:absolute;
-	bottom:7px;
-	left:10px;
-	font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+	position:relative;
+	margin:8px 15px;
+	float:left;
 	width:110px;
-	display:inherit;
+	display:inline-block;
 }
 #submit
 {
-	position:absolute;
-	bottom:7px;
-	right:10px;
-	font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+	position:relative;
+	margin:8px 15px;
+	float:right;
 	width:110px;
-	display:inherit;
+	display:inline-block;
 }
-#backwardbutton
-{
-	position:absolute;
-	bottom:7px;
-	right:140px;
-	font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
-	width:110px;
-	display:inherit;
-}
-
 #treecontainer
 {
 	padding:10px 15px 10px 15px;
@@ -139,18 +132,6 @@
 	font-size:18px;
 	font-family:"Microsoft Yahei"
 }
-#poster{
-	display:block;
-	position:absolute;
-	top:130px;
-	width:100%;
-	height:500px;
-	text-align:center;
-	z-index:1;
-	left:13%;
-	right:13%;
-}
-
 .fnspeople{
 	width:200px;
 	height:70px;
@@ -184,31 +165,7 @@
 	pointer-events: none
 }
 @media(max-width: 800px){
-	h1{
-		font-size:1.3em;
-	}
-	h2{
-		font-size:1.1em;
-	}
-	h3{
-		font-size:0.9em;
-	}
-	h4{
-		font-size:0.7em
-	}
-	h5{
-		font-size:0.65em
-	}
-	p{
-		font-size:0.65em;
-	}
-	body{
-		width: calc(100%-133px)
-	}
-	#poster{
-		height: 560px
-	}
-	.trick,.ver{
+	.ver{
 		display: none;
 	}
 	.tasklist
