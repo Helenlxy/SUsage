@@ -59,10 +59,17 @@
  
 ### 近期重大事情
 
-  **----2017.5.25----**
+  **----2017.6.8----**
 
-  dev0.21
-
+* 解决了几个UI的遗留问题
+  
+* 添加了认证用户功能
+  
+* 修复部分代码bug，精简代码。
+  
+* 推出了SUsage的VI设计参考。[请参考设计规范](https://github.com/zhxsu/SUsage/wiki/%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83-%7C-VI-&-UI-&-UX-Guides)
+  
+  
   **----2017.5.20----**
 
   重启开发。
@@ -72,9 +79,9 @@
 
   本项目目前基于以下几个开源项目开发：
 
-* <a href="https://jquery.org/" target="_blank">John Resig</a>的`jQuery`，遵循`MIT`协议
+* [`jQuery`](https://jquery.org/)，遵循`MIT`协议
 
-* <a href="http://www.bootcss.com" target="_blank">`Bootstrap 3.0`</a>，遵循`MIT`协议
+* [`Bootstrap 3.3`](https://getbootstrap.com/)，遵循`MIT`协议
 
 * Github提供的免费代码仓库
 
